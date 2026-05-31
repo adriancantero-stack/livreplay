@@ -7,6 +7,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>LivrePlay Vibe - Descoberta Infinita</title>
+  <meta name="description" content="LivrePlay Vibe: Descubra novas músicas e sons em trechos curtos. Deslize para encontrar a sua próxima vibe musical perfeita, sem limites e sem anúncios.">
+  <meta name="keywords" content="livreplay vibe, descobrir musicas, musicas curtas, trechos de musica, tiktok de musica, streaming sem anuncios">
+  <meta property="og:title" content="LivrePlay Vibe - Descoberta Infinita">
+  <meta property="og:description" content="Descubra novas músicas e sons em trechos rápidos. Sua próxima vibe favorita está a um deslize de distância.">
+  <meta property="og:image" content="https://livreplay.com/logo-vibe.png">
+  <meta property="og:url" content="https://livreplay.com/vibe/">
+  <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="../logo-vibe.png" onerror="this.href='../logo.png'">
   <link rel="apple-touch-icon" href="../logo-vibe.png">
   
@@ -583,8 +590,14 @@
           setTimeout(() => {
             const firstCard = document.querySelector('.vibe-card[data-index="0"]');
             if (firstCard) {
-               activeCardIndex = 0;
-               playTrackPreview(currentTracks[0].previewUrl, 0, currentTracks[0].trackName);
+              // Inicia a primeira música usando os dados da primeira track
+              playTrackPreview(
+                currentTracks[0].previewUrl, 
+                0, 
+                currentTracks[0].trackName, 
+                currentTracks[0].artistName, 
+                currentTracks[0].artworkUrl100 ? currentTracks[0].artworkUrl100.replace('100x100bb', '600x600bb') : ''
+              );
             }
           }, 300); // pequeno delay para garantir que a DOM atualizou
         } else {
@@ -631,6 +644,7 @@
         
         // Alta resolução da capa (de 100x100 para 600x600)
         let highResThumb = track.artworkUrl100 ? track.artworkUrl100.replace('100x100bb', '600x600bb') : '';
+        card.dataset.artwork = highResThumb;
         
         card.style.backgroundImage = `url('${highResThumb}')`;
 
@@ -730,6 +744,8 @@
             const index = parseInt(entry.target.dataset.index);
             const previewUrl = entry.target.dataset.preview;
             const trackName = entry.target.dataset.trackName;
+            const artistName = entry.target.dataset.artistName;
+            const artworkUrl = entry.target.dataset.artwork;
             
             // Lógica do Motor Infinito (dispara 5 cartas antes do fim)
             if (index >= currentTracks.length - 5) {
@@ -738,14 +754,14 @@
             
             if (activeCardIndex !== index) {
               activeCardIndex = index;
-              playTrackPreview(previewUrl, index, trackName);
+              playTrackPreview(previewUrl, index, trackName, artistName, artworkUrl);
             }
           }
         });
       }, options);
     }
 
-    async function playTrackPreview(previewUrl, index, trackName) {
+    async function playTrackPreview(previewUrl, index, trackName, artistName, artworkUrl) {
       audioPlayer.pause();
       audioPlayer.currentTime = 0;
       resetAllProgress();
@@ -754,6 +770,25 @@
         audioPlayer.src = previewUrl;
         await audioPlayer.play();
         if (window.posthog) posthog.capture('vibe_play', { track: trackName });
+
+        // Atualiza a Tela Bloqueada do iPhone/Android com MediaSession API
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: trackName || 'LivrePlay Vibe',
+            artist: artistName || 'LivrePlay',
+            album: 'LivrePlay Vibe',
+            artwork: [
+              { src: artworkUrl || '../logo-vibe.png', sizes: '512x512', type: 'image/jpeg' }
+            ]
+          });
+          
+          // Controles da tela de bloqueio
+          navigator.mediaSession.setActionHandler('play', () => audioPlayer.play());
+          navigator.mediaSession.setActionHandler('pause', () => audioPlayer.pause());
+          // Não permitir pular faixa pela tela de bloqueio pois Vibe é baseado em scroll visual
+          navigator.mediaSession.setActionHandler('nexttrack', null);
+          navigator.mediaSession.setActionHandler('previoustrack', null);
+        }
       } catch (e) {
         console.error('Erro ao tocar preview:', e);
       }
