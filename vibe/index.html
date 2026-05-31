@@ -536,7 +536,24 @@
 
     // Inicialização
     function init() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sharedQuery = urlParams.get('q');
+      
+      if (sharedQuery) {
+        activeVibe = { id: 'shared', label: `🔗 ${sharedQuery.split(' ')[0]}...`, query: sharedQuery };
+      }
+      
       renderChips();
+      
+      if (sharedQuery) {
+        // Remove active class das outras
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        const tempChip = document.createElement('div');
+        tempChip.className = 'chip active';
+        tempChip.textContent = activeVibe.label;
+        chipsContainer.insertBefore(tempChip, chipsContainer.children[1]);
+      }
+      
       loadVibe(activeVibe);
       setupIntersectionObserver();
       setupAudioPlayer();
@@ -762,10 +779,11 @@
     }
 
     async function shareTrack(trackName, artistName) {
-      // Cria a URL absoluta de forma segura apontando para a raiz do domínio
-      const shareUrl = window.location.origin + '/music/?q=' + encodeURIComponent(trackName + ' ' + artistName);
+      // Compartilha o link do Vibe com a música como parâmetro inicial
+      const shareUrl = window.location.origin + '/vibe/?q=' + encodeURIComponent(trackName + ' ' + artistName);
       const shareData = {
-        title: `LivrePlay: ${trackName}`,
+        title: `LivrePlay Vibe`,
+        text: `Ouça ${trackName} de ${artistName} e descubra novas vibes!`,
         url: shareUrl
       };
 
