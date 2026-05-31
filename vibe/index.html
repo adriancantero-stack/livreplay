@@ -497,30 +497,82 @@
   </div>
 
   <script>
-    // Configurações e Categorias
-    const VIBES = [
-      { id: 'buscar', label: '🔍 Buscar', isAction: true, action: 'openSearch' },
-      { id: 'tophits', label: '🔥 Top Hits', query: 'top hits popular' },
-      { id: 'foco', label: 'Foco', query: 'lofi beats focus' },
-      { id: 'treino', label: 'Treino', query: 'workout gym music' },
-      { id: 'relax', label: 'Relax', query: 'relaxing acoustic' },
-      { id: 'gospel', label: 'Gospel', query: 'gospel worship' },
-      { id: 'lofi', label: 'Lo-fi', query: 'lofi chill' },
-      { id: 'funk', label: 'Funk', query: 'funk brasileiro' },
-      { id: 'sertanejo', label: 'Sertanejo', query: 'sertanejo universitario' },
-      { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music' },
-      { id: 'surpresa', label: '🎲 Surpreenda-me', isAction: true, action: 'randomSurprise' }
-    ];
+    let VIBES = [];
+    let userCountryCode = 'US';
+    let activeVibe = null;
+    
+    function setupLocalizedVibes() {
+      try {
+        const lang = navigator.language || navigator.userLanguage || 'en-US';
+        if (lang.includes('-')) {
+          userCountryCode = lang.split('-')[1].toUpperCase();
+        } else {
+          const map = { 'pt': 'BR', 'en': 'US', 'es': 'ES', 'fr': 'FR', 'ja': 'JP', 'de': 'DE', 'ko': 'KR' };
+          userCountryCode = map[lang.toLowerCase()] || 'US';
+        }
+      } catch (e) {
+        userCountryCode = 'US';
+      }
 
-    const SURPRISE_THEMES = [
-      "japanese jazz", "80s synth pop", "epic movie soundtracks", "celtic folk",
-      "90s hip hop", "brazilian bossa nova", "cyberpunk darksynth", "reggae chill",
-      "classical piano solos", "heavy metal workout", "indie folk", "latin reggaeton",
-      "kpop hits", "vintage blues", "french accordion", "arabic trap",
-      "mariachi", "cumbia", "viking music", "meditation healing"
-    ];
+      const baseVibes = [
+        { id: 'buscar', label: '🔍 Buscar', isAction: true, action: 'openSearch' }
+      ];
+      
+      const endVibes = [
+        { id: 'surpresa', label: '🎲 Surpreenda-me', isAction: true, action: 'randomSurprise' }
+      ];
 
-    let activeVibe = VIBES[1]; // Começa no Top Hits (agora índice 1)
+      if (userCountryCode === 'BR') {
+        VIBES = [
+          ...baseVibes,
+          { id: 'tophits', label: '🔥 Top Hits', query: 'top hits popular' },
+          { id: 'foco', label: 'Foco', query: 'lofi beats focus' },
+          { id: 'treino', label: 'Treino', query: 'workout gym music' },
+          { id: 'relax', label: 'Relax', query: 'relaxing acoustic' },
+          { id: 'gospel', label: 'Gospel', query: 'gospel worship' },
+          { id: 'lofi', label: 'Lo-fi', query: 'lofi chill' },
+          { id: 'funk', label: 'Funk', query: 'funk brasileiro' },
+          { id: 'sertanejo', label: 'Sertanejo', query: 'sertanejo universitario' },
+          { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music' },
+          ...endVibes
+        ];
+      } else if (['ES', 'MX', 'AR', 'CO', 'CL', 'PE', 'VE', 'UY', 'PY', 'EC', 'BO'].includes(userCountryCode)) {
+        VIBES = [
+          ...baseVibes,
+          { id: 'tophits', label: '🔥 Éxitos', query: 'top hits popular' },
+          { id: 'foco', label: 'Concentración', query: 'lofi beats focus' },
+          { id: 'treino', label: 'Gimnasio', query: 'workout gym music' },
+          { id: 'reggaeton', label: 'Reggaeton', query: 'reggaeton latino' },
+          { id: 'bachata', label: 'Bachata', query: 'bachata' },
+          { id: 'poplatino', label: 'Pop Latino', query: 'latin pop' },
+          ...endVibes
+        ];
+      } else if (userCountryCode === 'JP') {
+         VIBES = [
+          ...baseVibes,
+          { id: 'tophits', label: '🔥 Top Hits', query: 'top hits popular' },
+          { id: 'jpop', label: 'J-Pop', query: 'j-pop' },
+          { id: 'anime', label: 'Anime', query: 'anime ost' },
+          { id: 'lofi', label: 'Lo-fi', query: 'lofi chill' },
+          ...endVibes
+        ];
+      } else {
+        VIBES = [
+          ...baseVibes,
+          { id: 'tophits', label: '🔥 Top Hits', query: 'top hits popular' },
+          { id: 'focus', label: 'Focus', query: 'lofi beats focus' },
+          { id: 'workout', label: 'Workout', query: 'workout gym music' },
+          { id: 'relax', label: 'Relax', query: 'relaxing acoustic' },
+          { id: 'hiphop', label: 'Hip Hop', query: 'hip hop rap' },
+          { id: 'rnb', label: 'R&B', query: 'rnb soul' },
+          { id: 'pop', label: 'Pop', query: 'pop hits' },
+          { id: 'country', label: 'Country', query: 'country music' },
+          { id: 'edm', label: 'EDM', query: 'electronic dance music' },
+          ...endVibes
+        ];
+      }
+      activeVibe = VIBES[1]; // Seta o Top Hits por padrão
+    }
     let poolTracks = []; // Armazena as 200 músicas do iTunes
     let currentTracks = []; // Músicas atualmente renderizadas na tela
     let observer = null;
@@ -536,6 +588,8 @@
 
     // Inicialização
     function init() {
+      setupLocalizedVibes(); // Detecta o país e monta a vitrine
+      
       const urlParams = new URLSearchParams(window.location.search);
       const sharedQuery = urlParams.get('q');
       
@@ -628,7 +682,8 @@
 
     async function fetchiTunesTracks(query) {
       // O iTunes ignora o parâmetro offset. A solução é puxar o máximo de músicas (200) e paginar localmente.
-      const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=200`);
+      // E agora usamos o userCountryCode para buscar no catálogo correto do país!
+      const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=200&country=${userCountryCode}`);
       if (!res.ok) throw new Error('iTunes API Error');
       const data = await res.json();
       const validTracks = data.results.filter(item => item.previewUrl); 
