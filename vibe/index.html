@@ -267,7 +267,78 @@
       margin-bottom: 20px;
     }
     @keyframes spin { 100% { transform: rotate(360deg); } }
-
+    
+    /* Search Modal */
+    .search-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .search-modal {
+      background: var(--bg-dark);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 40px rgba(138, 43, 226, 0.3);
+      transform: translateY(20px);
+      transition: transform 0.3s;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .search-modal.active {
+      transform: translateY(0);
+    }
+    .search-modal h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .search-modal p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .vibe-input {
+      width: 100%;
+      padding: 15px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+    .vibe-input:focus {
+      border-color: var(--vibe-color);
+    }
+    .vibe-search-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--vibe-color);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-modal-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -295,11 +366,25 @@
   </div>
 
   <!-- Hidden Audio Element -->
-  <audio id="vibe-player" preload="none"></audio>
+  <audio id="vibe-player" style="display:none;" preload="auto"></audio>
+
+  <!-- Search Modal -->
+  <div class="search-modal-overlay" id="searchModalOverlay">
+    <div class="search-modal" id="searchModal">
+      <button class="close-modal-btn" onclick="closeSearchModal()">✕</button>
+      <h3>Qual é a sua Vibe?</h3>
+      <p>Digite qualquer coisa (ex: "Churrasco", "Rock 80s", "Chorar no banho") e nós criamos o feed.</p>
+      <input type="text" class="vibe-input" id="vibeInput" placeholder="Sua vibe..." autocomplete="off">
+      <button class="vibe-search-btn" onclick="executeCustomVibe()">Surpreenda-me</button>
+    </div>
+  </div>
 
   <script>
     // Configurações e Categorias
     const VIBES = [
+      { id: 'buscar', label: '🔍 Buscar', isAction: true, action: 'openSearch' },
+      { id: 'surpresa', label: '🎲 Surpreenda-me', isAction: true, action: 'randomSurprise' },
+      { id: 'tophits', label: '🔥 Top Hits', query: 'top hits popular' },
       { id: 'foco', label: 'Foco', query: 'lofi beats focus' },
       { id: 'treino', label: 'Treino', query: 'workout gym music' },
       { id: 'relax', label: 'Relax', query: 'relaxing acoustic' },
@@ -310,15 +395,27 @@
       { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music' }
     ];
 
-    let activeVibe = VIBES[0];
+    const SURPRISE_THEMES = [
+      "japanese jazz", "80s synth pop", "epic movie soundtracks", "celtic folk",
+      "90s hip hop", "brazilian bossa nova", "cyberpunk darksynth", "reggae chill",
+      "classical piano solos", "heavy metal workout", "indie folk", "latin reggaeton",
+      "kpop hits", "vintage blues", "french accordion", "arabic trap",
+      "mariachi", "cumbia", "viking music", "meditation healing"
+    ];
+
+    let activeVibe = VIBES[2]; // Começa no Top Hits
     let currentTracks = [];
     let observer = null;
     let activeCardIndex = -1;
+    let currentOffset = 0;
+    let isLoadingMore = false;
 
     const feedContainer = document.getElementById('feed-container');
     const chipsContainer = document.getElementById('chips-container');
     const audioPlayer = document.getElementById('vibe-player');
     const loadingOverlay = document.getElementById('loading-overlay');
+    const searchModal = document.getElementById('searchModalOverlay');
+    const vibeInput = document.getElementById('vibeInput');
 
     // Inicialização
     function init() {
@@ -335,6 +432,11 @@
         chip.className = `chip ${vibe.id === activeVibe.id ? 'active' : ''}`;
         chip.textContent = vibe.label;
         chip.onclick = () => {
+          if (vibe.isAction) {
+            if (vibe.action === 'openSearch') openSearchModal();
+            if (vibe.action === 'randomSurprise') executeSurprise();
+            return;
+          }
           document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
           chip.classList.add('active');
           activeVibe = vibe;
@@ -344,23 +446,74 @@
       });
     }
 
+    // Modal Actions
+    function openSearchModal() {
+      searchModal.style.display = 'flex';
+      setTimeout(() => searchModal.style.opacity = '1', 10);
+      vibeInput.focus();
+    }
+    
+    function closeSearchModal() {
+      searchModal.style.opacity = '0';
+      setTimeout(() => searchModal.style.display = 'none', 300);
+    }
+    
+    function executeCustomVibe() {
+      const val = vibeInput.value.trim();
+      if(val) {
+        closeSearchModal();
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        activeVibe = { id: 'custom', label: `"${val}"`, query: val };
+        
+        // Adiciona um chip temporário na interface
+        const tempChip = document.createElement('div');
+        tempChip.className = 'chip active';
+        tempChip.textContent = activeVibe.label;
+        chipsContainer.insertBefore(tempChip, chipsContainer.children[3]);
+        
+        loadVibe(activeVibe);
+      }
+    }
+    
+    vibeInput.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter') executeCustomVibe();
+    });
+
+    function executeSurprise() {
+      const randomQuery = SURPRISE_THEMES[Math.floor(Math.random() * SURPRISE_THEMES.length)];
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      activeVibe = { id: 'surprise', label: '🎲 Surpresa', query: randomQuery };
+      
+      const tempChip = document.createElement('div');
+      tempChip.className = 'chip active';
+      tempChip.textContent = activeVibe.label;
+      chipsContainer.insertBefore(tempChip, chipsContainer.children[3]);
+      
+      loadVibe(activeVibe);
+    }
+
+    async function fetchiTunesTracks(query, offset = 0) {
+      const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=25&offset=${offset}`);
+      if (!res.ok) throw new Error('iTunes API Error');
+      const data = await res.json();
+      return data.results.filter(item => item.previewUrl); 
+    }
+
     async function loadVibe(vibe) {
       loadingOverlay.style.opacity = '1';
       loadingOverlay.style.pointerEvents = 'all';
       feedContainer.innerHTML = '';
       audioPlayer.pause();
       currentTracks = [];
+      currentOffset = 0;
+      isLoadingMore = false;
       
       try {
-        const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(vibe.query)}&entity=song&limit=25`);
-        if (!res.ok) throw new Error('iTunes API Error');
-        const data = await res.json();
-        
-        // Pega apenas tracks que tem previewUrl
-        currentTracks = data.results.filter(item => item.previewUrl); 
+        const tracks = await fetchiTunesTracks(vibe.query, currentOffset);
+        currentTracks = tracks;
         
         if (currentTracks.length > 0) {
-          renderFeed();
+          renderFeed(tracks, 0);
         } else {
           feedContainer.innerHTML = '<div style="color:white; text-align:center; padding-top:40vh; font-size:18px;">Nenhuma música encontrada para esta Vibe.</div>';
         }
@@ -374,9 +527,28 @@
         loadingOverlay.style.pointerEvents = 'none';
       }, 300);
     }
+    
+    async function loadMoreVibe() {
+      if (isLoadingMore) return;
+      isLoadingMore = true;
+      currentOffset += 25;
+      
+      try {
+        const newTracks = await fetchiTunesTracks(activeVibe.query, currentOffset);
+        if (newTracks.length > 0) {
+          const startIndex = currentTracks.length;
+          currentTracks = currentTracks.concat(newTracks);
+          renderFeed(newTracks, startIndex);
+        }
+      } catch (e) {
+        console.error("Erro ao carregar mais vibes:", e);
+      }
+      isLoadingMore = false;
+    }
 
-    function renderFeed() {
-      currentTracks.forEach((track, index) => {
+    function renderFeed(tracksToRender, startIndex) {
+      tracksToRender.forEach((track, idx) => {
+        const index = startIndex + idx;
         const card = document.createElement('div');
         card.className = 'vibe-card';
         card.dataset.index = index;
@@ -384,7 +556,6 @@
         card.dataset.trackName = track.trackName;
         card.dataset.artistName = track.artistName;
         
-        // Alta resolução da capa (de 100x100 para 600x600)
         let highResThumb = track.artworkUrl100 ? track.artworkUrl100.replace('100x100bb', '600x600bb') : '';
         
         card.style.backgroundImage = `url('${highResThumb}')`;
@@ -433,12 +604,11 @@
       }
     }
 
-    // Lógica do IntersectionObserver (Snap)
     function setupIntersectionObserver() {
       const options = {
         root: feedContainer,
         rootMargin: '0px',
-        threshold: 0.6 // Quando 60% do card está visível
+        threshold: 0.6
       };
 
       observer = new IntersectionObserver((entries) => {
@@ -447,6 +617,11 @@
             const index = parseInt(entry.target.dataset.index);
             const previewUrl = entry.target.dataset.preview;
             const trackName = entry.target.dataset.trackName;
+            
+            // Lógica do Motor Infinito (dispara 5 cartas antes do fim)
+            if (index >= currentTracks.length - 5) {
+              loadMoreVibe();
+            }
             
             if (activeCardIndex !== index) {
               activeCardIndex = index;
@@ -478,12 +653,10 @@
           const playedTime = audioPlayer.currentTime;
           
           if (progressEl) {
-             // Atualiza a barra baseada em 30 segundos
             const percent = (playedTime / 30) * 100;
             progressEl.style.width = `${Math.min(percent, 100)}%`;
           }
 
-          // Se acabou os 30s ou a preview terminou
           if (playedTime >= 29.5 || audioPlayer.ended) {
             audioPlayer.pause();
             scrollToNextCard();
@@ -491,7 +664,6 @@
         }
       });
       
-      // Fallback para quando o áudio termina naturalmente
       audioPlayer.addEventListener('ended', () => {
          scrollToNextCard();
       });
