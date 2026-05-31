@@ -681,10 +681,11 @@
     }
 
     async function shareTrack(trackName, artistName) {
-      const shareUrl = window.location.origin + window.location.pathname.replace('/vibe', '') + '/music/?q=' + encodeURIComponent(trackName + ' ' + artistName);
+      // Cria a URL absoluta de forma segura apontando para a raiz do domínio
+      const shareUrl = window.location.origin + '/music/?q=' + encodeURIComponent(trackName + ' ' + artistName);
       const shareData = {
         title: 'LivrePlay Vibe',
-        text: `Dá uma olhada nessa vibe! 🎧 ${trackName} de ${artistName}`,
+        text: `Ouça ${trackName} de ${artistName} no LivrePlay!`,
         url: shareUrl
       };
 
@@ -692,8 +693,9 @@
         if (navigator.share) {
           await navigator.share(shareData);
         } else {
-          await navigator.clipboard.writeText(`${shareData.text} \n${shareData.url}`);
-          showToast('Link copiado para a área de transferência! 🚀');
+          // Copia apenas o URL para não quebrar a barra de navegação se o usuário colar
+          await navigator.clipboard.writeText(shareUrl);
+          showToast('Link copiado para a área de transferência! 🔗');
         }
       } catch (err) {
         console.error('Erro ao compartilhar:', err);
