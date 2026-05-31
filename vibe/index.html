@@ -521,10 +521,10 @@
     ];
 
     let activeVibe = VIBES[1]; // Começa no Top Hits (agora índice 1)
-    let currentTracks = [];
+    let poolTracks = []; // Armazena as 200 músicas do iTunes
+    let currentTracks = []; // Músicas atualmente renderizadas na tela
     let observer = null;
     let activeCardIndex = -1;
-    let currentOffset = 0;
     let isLoadingMore = false;
 
     const feedContainer = document.getElementById('feed-container');
@@ -609,8 +609,9 @@
       loadVibe(activeVibe);
     }
 
-    async function fetchiTunesTracks(query, offset = 0) {
-      const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=25&offset=${offset}`);
+    async function fetchiTunesTracks(query) {
+      // O iTunes ignora o parâmetro offset. A solução é puxar o máximo de músicas (200) e paginar localmente.
+      const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=200`);
       if (!res.ok) throw new Error('iTunes API Error');
       const data = await res.json();
       const validTracks = data.results.filter(item => item.previewUrl); 
@@ -632,17 +633,17 @@
       feedContainer.innerHTML = '';
       feedContainer.scrollTop = 0; // Reseta o scroll para o topo
       audioPlayer.pause();
+      poolTracks = [];
       currentTracks = [];
-      currentOffset = 0;
       isLoadingMore = false;
       activeCardIndex = -1; // Força o reset do card ativo
       
       try {
-        const tracks = await fetchiTunesTracks(vibe.query, currentOffset);
-        currentTracks = tracks;
+        poolTracks = await fetchiTunesTracks(vibe.query);
+        currentTracks = poolTracks.slice(0, 25); // Pega as primeiras 25
         
         if (currentTracks.length > 0) {
-          renderFeed(tracks, 0);
+          renderFeed(currentTracks, 0);
           
           // Força tocar a primeira música instantaneamente após renderizar
           setTimeout(() => {
@@ -675,14 +676,20 @@
     async function loadMoreVibe() {
       if (isLoadingMore) return;
       isLoadingMore = true;
-      currentOffset += 25;
       
       try {
-        const newTracks = await fetchiTunesTracks(activeVibe.query, currentOffset);
-        if (newTracks.length > 0) {
+        let nextBatch = poolTracks.slice(currentTracks.length, currentTracks.length + 25);
+        
+        // Se já mostramos todas as 200 músicas, re-embaralhamos o pool e começamos de novo (Infinito Real)
+        if (nextBatch.length === 0 && poolTracks.length > 0) {
+          poolTracks = shuffleArray([...poolTracks]);
+          nextBatch = poolTracks.slice(0, 25);
+        }
+
+        if (nextBatch.length > 0) {
           const startIndex = currentTracks.length;
-          currentTracks = currentTracks.concat(newTracks);
-          renderFeed(newTracks, startIndex);
+          currentTracks = currentTracks.concat(nextBatch);
+          renderFeed(nextBatch, startIndex);
         }
       } catch (e) {
         console.error("Erro ao carregar mais vibes:", e);
