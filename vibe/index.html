@@ -785,8 +785,7 @@
           // Controles da tela de bloqueio
           navigator.mediaSession.setActionHandler('play', () => audioPlayer.play());
           navigator.mediaSession.setActionHandler('pause', () => audioPlayer.pause());
-          // Não permitir pular faixa pela tela de bloqueio pois Vibe é baseado em scroll visual
-          navigator.mediaSession.setActionHandler('nexttrack', null);
+          navigator.mediaSession.setActionHandler('nexttrack', () => scrollToNextCard());
           navigator.mediaSession.setActionHandler('previoustrack', null);
         }
       } catch (e) {
@@ -826,6 +825,23 @@
       const nextCard = document.querySelector(`.vibe-card[data-index="${nextIndex}"]`);
       if (nextCard) {
         nextCard.scrollIntoView({ behavior: 'smooth' });
+        
+        // Se a tela estiver bloqueada ou em background, o IntersectionObserver pode não disparar.
+        // Então nós extraímos os dados e tocamos a música forçadamente
+        if (document.hidden) {
+           const previewUrl = nextCard.dataset.preview;
+           const trackName = nextCard.dataset.trackName;
+           const artistName = nextCard.dataset.artistName;
+           const artworkUrl = nextCard.dataset.artwork;
+           activeCardIndex = nextIndex;
+           playTrackPreview(previewUrl, nextIndex, trackName, artistName, artworkUrl);
+           
+           if (nextIndex >= currentTracks.length - 5) {
+             loadMoreVibe();
+           }
+        }
+      } else {
+        loadMoreVibe();
       }
     }
 
