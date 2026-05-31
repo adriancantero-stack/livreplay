@@ -962,30 +962,30 @@
 
       try {
         audioPlayer.src = previewUrl;
-        await audioPlayer.play();
-        if (window.posthog) posthog.capture('vibe_play', { track: trackName });
 
-        // Atualiza a Tela Bloqueada do iPhone/Android com MediaSession API
+        // Atualiza a Tela Bloqueada ANTES de dar o play para o iOS registrar os metadados a tempo
         if ('mediaSession' in navigator) {
-          // Garantir URLs absolutas para imagens (obrigatório no iOS)
           const absoluteArtwork = artworkUrl ? artworkUrl : (window.location.origin + '/logo-vibe.png');
           
           navigator.mediaSession.metadata = new MediaMetadata({
             title: trackName ? String(trackName) : 'LivrePlay Vibe',
             artist: artistName ? String(artistName) : 'Descubra Novas Músicas',
-            album: 'LivrePlay Vibe',
+            album: 'LivrePlay',
             artwork: [
-              { src: absoluteArtwork, sizes: '512x512', type: 'image/png' },
-              { src: absoluteArtwork, sizes: '512x512', type: 'image/jpeg' }
+              { src: absoluteArtwork, sizes: '600x600' },
+              { src: absoluteArtwork, sizes: '512x512' },
+              { src: absoluteArtwork } // Fallback genérico para o iOS aceitar qualquer tamanho
             ]
           });
           
-          // Controles da tela de bloqueio
           navigator.mediaSession.setActionHandler('play', () => audioPlayer.play());
           navigator.mediaSession.setActionHandler('pause', () => audioPlayer.pause());
           navigator.mediaSession.setActionHandler('nexttrack', () => scrollToNextCard());
           navigator.mediaSession.setActionHandler('previoustrack', null);
         }
+
+        await audioPlayer.play();
+        if (window.posthog) posthog.capture('vibe_play', { track: trackName });
       } catch (e) {
         console.error('Erro ao tocar preview:', e);
         if (e.name === 'NotAllowedError') {
