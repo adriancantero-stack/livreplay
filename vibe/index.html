@@ -311,10 +311,11 @@
     ];
 
     const INVIDIOUS_INSTANCES = [
-      'https://invidious.nerdvpn.de/api/v1',
-      'https://invidious.privacyredirect.com/api/v1',
       'https://iv.ggtyler.dev/api/v1',
-      'https://invidious.lunar.icu/api/v1'
+      'https://invidious.jing.rocks/api/v1',
+      'https://invidious.weblibre.org/api/v1',
+      'https://invidious.incogniweb.net/api/v1',
+      'https://inv.tux.pizza/api/v1'
     ];
     let currentInvidiousInstance = INVIDIOUS_INSTANCES[0];
     const CLOUDFLARE_GATEWAY = 'https://livreplay-gateway.adrian-cantero1.workers.dev/';
@@ -361,24 +362,34 @@
       audioPlayer.pause();
       currentTracks = [];
       
-      try {
-        const res = await fetch(`${currentInvidiousInstance}/search?q=${encodeURIComponent(vibe.query)}&type=video`);
-        if (!res.ok) throw new Error('API Error');
-        const data = await res.json();
-        
-        // Filter out lives and long mixes if possible, though Invidious search doesn't easily filter by duration unless specified in query
-        currentTracks = data.filter(item => item.lengthSeconds > 60).slice(0, 15); 
-        
-        renderFeed();
-      } catch (err) {
-        console.error('Erro ao buscar Vibe:', err);
-        // Tentar outra instância em produção
-      } finally {
-        setTimeout(() => {
-          loadingOverlay.style.opacity = '0';
-          loadingOverlay.style.pointerEvents = 'none';
-        }, 500);
+      let success = false;
+      for (const instance of INVIDIOUS_INSTANCES) {
+        try {
+          const res = await fetch(`${instance}/search?q=${encodeURIComponent(vibe.query)}&type=video`);
+          if (!res.ok) continue;
+          
+          const data = await res.json();
+          currentTracks = data.filter(item => item.lengthSeconds > 60).slice(0, 15); 
+          
+          if (currentTracks.length > 0) {
+            currentInvidiousInstance = instance;
+            success = true;
+            renderFeed();
+            break;
+          }
+        } catch (err) {
+          console.warn(`Falha na instância ${instance}, tentando próxima...`);
+        }
       }
+
+      if (!success) {
+        feedContainer.innerHTML = '<div style="color:white; text-align:center; padding-top:40vh; font-size:18px;">Servidores sobrecarregados.<br>Por favor, tente outra Vibe.</div>';
+      }
+
+      setTimeout(() => {
+        loadingOverlay.style.opacity = '0';
+        loadingOverlay.style.pointerEvents = 'none';
+      }, 500);
     }
 
     function renderFeed() {
