@@ -228,6 +228,11 @@
       border-color: rgba(48, 209, 88, 0.35);
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 32px rgba(48, 209, 88, 0.15);
     }
+    .card-vibe:hover {
+      transform: translateY(-8px);
+      border-color: rgba(138, 43, 226, 0.35); /* Roxo */
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 32px rgba(138, 43, 226, 0.15);
+    }
 
     .card-icon {
       width: 80px;
@@ -252,6 +257,14 @@
     .card-music:hover .card-icon {
       transform: scale(1.08);
       filter: drop-shadow(0 12px 28px rgba(48, 209, 88, 0.45));
+    }
+
+    .card-vibe .card-icon {
+      filter: drop-shadow(0 8px 16px rgba(138, 43, 226, 0.15));
+    }
+    .card-vibe:hover .card-icon {
+      transform: scale(1.08);
+      filter: drop-shadow(0 12px 28px rgba(138, 43, 226, 0.45));
     }
 
     .card-icon img {
@@ -305,6 +318,18 @@
       border-color: var(--accent-green);
       color: #fff;
       box-shadow: 0 4px 16px rgba(48, 209, 88, 0.3);
+    }
+
+    .card-vibe .card-btn {
+      background: rgba(138, 43, 226, 0.15);
+      border: 1px solid rgba(138, 43, 226, 0.4);
+      color: #b062f9; /* Roxo claro para texto */
+    }
+    .card-vibe:hover .card-btn {
+      background: #8a2be2;
+      border-color: #8a2be2;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(138, 43, 226, 0.3);
     }
 
     /* Footer */
@@ -365,6 +390,16 @@
         <h2 class="card-title">LivrePlay Music</h2>
         <p class="card-desc">Ouça suas músicas e álbuns favoritos sem limites. Uma experiência fluida para curtir seus artistas preferidos com alta qualidade e sem interrupções.</p>
         <span class="card-btn">Ouvir Agora</span>
+      </a>
+
+      <!-- Card LivrePlay Vibe -->
+      <a href="./vibe/" class="portal-card card-vibe" style="grid-column: 1 / -1; max-width: 600px; justify-self: center;">
+        <div class="card-icon">
+          <img src="logo-vibe.png" alt="LivrePlay Vibe Logo" onerror="this.src='logo.png'">
+        </div>
+        <h2 class="card-title">LivrePlay Vibe</h2>
+        <p class="card-desc">Descubra músicas e sons em trechos rápidos de 30 segundos, escolhidos pela sua intenção e pelo seu momento.</p>
+        <span class="card-btn">Descobrir Nova Vibe</span>
       </a>
     </main>
 

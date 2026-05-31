@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>LivrePlay Vibe - Descubra músicas</title>
+  
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Li Ai init Qi Yi Rr Ji tn Zi capture calculateEventProperties an register register_once register_for_session unregister unregister_for_session cn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync dn identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty ln nn createPersonProfile setInternalOrTestUser hn Vi pn opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing en debug Lr un getPageViewId captureTraceFeedback captureTraceMetric Ui".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_xAFp5DSeqVUiEczchJT3oF3Ryed7iw2Bjw7nfbbWXU7s', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-01-30',
+        person_profiles: 'identified_only',
+    })
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #000000;
+      --vibe-color: #8a2be2; /* Roxo */
+      --text-main: #ffffff;
+      --text-muted: #b3b3b3;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body, html {
+      width: 100%;
+      height: 100dvh;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow: hidden; /* O feed que vai rolar, não o body */
+    }
+
+    /* Top Navigation / Chips */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+      padding: env(safe-area-inset-top, 20px) 0 20px 0;
+    }
+    .nav-header {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      margin-bottom: 15px;
+    }
+    .back-btn {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      margin-right: 15px;
+    }
+    .nav-header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .nav-header h1 span {
+      color: var(--vibe-color);
+    }
+
+    .chips-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 0 20px;
+      gap: 10px;
+      scrollbar-width: none;
+    }
+    .chips-container::-webkit-scrollbar {
+      display: none;
+    }
+    .chip {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+    .chip.active {
+      background: var(--vibe-color);
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+    }
+
+    /* Feed Container */
+    .feed-container {
+      height: 100dvh;
+      width: 100%;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+    }
+    .feed-container::-webkit-scrollbar {
+      display: none; /* Chrome */
+    }
+
+    /* Card / Slide */
+    .vibe-card {
+      height: 100dvh;
+      width: 100%;
+      scroll-snap-align: start;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    
+    /* Overlay Gradient for readability */
+    .vibe-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.1) 100%);
+      z-index: 1;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 20px);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .song-info {
+      flex: 1;
+      padding-right: 20px;
+    }
+    .song-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .song-artist {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .listen-full-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--vibe-color);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+      transition: transform 0.2s;
+    }
+    .listen-full-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Right Sidebar Buttons */
+    .action-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      padding-bottom: 10px;
+    }
+    .action-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .action-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: all 0.2s;
+    }
+    .action-btn:active .action-icon {
+      background: rgba(255,255,255,0.3);
+      transform: scale(0.9);
+    }
+    .action-label {
+      font-size: 12px;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* Progress Bar for 30s limit */
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.2);
+      z-index: 10;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--vibe-color);
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* Loading Overlay */
+    #loading-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--bg-dark);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: opacity 0.3s;
+    }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-top-color: var(--vibe-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+  </style>
+</head>
+<body>
+
+  <!-- Loading State -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <h3>Sintonizando a Vibe...</h3>
+  </div>
+
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <div class="nav-header">
+      <a href="../" class="back-btn">←</a>
+      <h1>LivrePlay <span>Vibe</span></h1>
+    </div>
+    <div class="chips-container" id="chips-container">
+      <!-- Chips will be generated here -->
+    </div>
+  </div>
+
+  <!-- Feed Vertical -->
+  <div class="feed-container" id="feed-container">
+    <!-- Cards will be generated here -->
+  </div>
+
+  <!-- Hidden Audio Element -->
+  <audio id="vibe-player" preload="none"></audio>
+
+  <script>
+    // Configurações e Categorias
+    const VIBES = [
+      { id: 'foco', label: 'Foco', query: 'lofi hip hop focus music' },
+      { id: 'treino', label: 'Treino', query: 'workout music mix gym' },
+      { id: 'relax', label: 'Relax', query: 'relaxing acoustic music' },
+      { id: 'gospel', label: 'Gospel', query: 'gospel worship music' },
+      { id: 'lofi', label: 'Lo-fi', query: 'lofi beats chill' },
+      { id: 'funk', label: 'Funk', query: 'funk brasileiro hits' },
+      { id: 'sertanejo', label: 'Sertanejo', query: 'sertanejo universitario' },
+      { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music edm' }
+    ];
+
+    const INVIDIOUS_INSTANCES = [
+      'https://invidious.nerdvpn.de/api/v1',
+      'https://invidious.privacyredirect.com/api/v1',
+      'https://iv.ggtyler.dev/api/v1',
+      'https://invidious.lunar.icu/api/v1'
+    ];
+    let currentInvidiousInstance = INVIDIOUS_INSTANCES[0];
+    const CLOUDFLARE_GATEWAY = 'https://livreplay-gateway.adrian-cantero1.workers.dev/';
+
+    let activeVibe = VIBES[0];
+    let currentTracks = [];
+    let currentAudioUrl = null;
+    let observer = null;
+    let activeCardIndex = -1;
+
+    const feedContainer = document.getElementById('feed-container');
+    const chipsContainer = document.getElementById('chips-container');
+    const audioPlayer = document.getElementById('vibe-player');
+    const loadingOverlay = document.getElementById('loading-overlay');
+
+    // Inicialização
+    function init() {
+      renderChips();
+      loadVibe(activeVibe);
+      setupIntersectionObserver();
+      setupAudioPlayer();
+    }
+
+    function renderChips() {
+      chipsContainer.innerHTML = '';
+      VIBES.forEach(vibe => {
+        const chip = document.createElement('div');
+        chip.className = `chip ${vibe.id === activeVibe.id ? 'active' : ''}`;
+        chip.textContent = vibe.label;
+        chip.onclick = () => {
+          document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          activeVibe = vibe;
+          loadVibe(activeVibe);
+        };
+        chipsContainer.appendChild(chip);
+      });
+    }
+
+    async function loadVibe(vibe) {
+      loadingOverlay.style.opacity = '1';
+      loadingOverlay.style.pointerEvents = 'all';
+      feedContainer.innerHTML = '';
+      audioPlayer.pause();
+      currentTracks = [];
+      
+      try {
+        const res = await fetch(`${currentInvidiousInstance}/search?q=${encodeURIComponent(vibe.query)}&type=video`);
+        if (!res.ok) throw new Error('API Error');
+        const data = await res.json();
+        
+        // Filter out lives and long mixes if possible, though Invidious search doesn't easily filter by duration unless specified in query
+        currentTracks = data.filter(item => item.lengthSeconds > 60).slice(0, 15); 
+        
+        renderFeed();
+      } catch (err) {
+        console.error('Erro ao buscar Vibe:', err);
+        // Tentar outra instância em produção
+      } finally {
+        setTimeout(() => {
+          loadingOverlay.style.opacity = '0';
+          loadingOverlay.style.pointerEvents = 'none';
+        }, 500);
+      }
+    }
+
+    function renderFeed() {
+      currentTracks.forEach((track, index) => {
+        const card = document.createElement('div');
+        card.className = 'vibe-card';
+        card.dataset.index = index;
+        card.dataset.videoId = track.videoId;
+        
+        // Melhor thumbnail
+        const thumbUrl = track.videoThumbnails ? 
+          track.videoThumbnails.find(t => t.quality === 'maxresdefault' || t.quality === 'high')?.url : 
+          `https://i.ytimg.com/vi/${track.videoId}/maxresdefault.jpg`;
+          
+        card.style.backgroundImage = `url('${thumbUrl}')`;
+
+        card.innerHTML = `
+          <div class="card-content">
+            <div class="song-info">
+              <h2 class="song-title">${track.title}</h2>
+              <div class="song-artist">🎵 ${track.author}</div>
+              <a href="../music/?v=${track.videoId}" class="listen-full-btn" onclick="posthog.capture('vibe_listen_full', {videoId: '${track.videoId}'})">
+                ▶ Ouvir Completo
+              </a>
+            </div>
+            <div class="action-sidebar">
+              <button class="action-btn" onclick="toggleLike(this)">
+                <div class="action-icon">🤍</div>
+                <span class="action-label">Curtir</span>
+              </button>
+              <button class="action-btn">
+                <div class="action-icon">➕</div>
+                <span class="action-label">Salvar</span>
+              </button>
+              <button class="action-btn">
+                <div class="action-icon">🚀</div>
+                <span class="action-label">Share</span>
+              </button>
+            </div>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-fill" id="progress-${index}"></div>
+          </div>
+        `;
+        feedContainer.appendChild(card);
+        if (observer) observer.observe(card);
+      });
+    }
+
+    function toggleLike(btn) {
+      const icon = btn.querySelector('.action-icon');
+      if (icon.textContent === '🤍') {
+        icon.textContent = '❤️';
+        icon.style.color = '#ff3b30';
+      } else {
+        icon.textContent = '🤍';
+        icon.style.color = 'white';
+      }
+    }
+
+    // Lógica do IntersectionObserver (Snap)
+    function setupIntersectionObserver() {
+      const options = {
+        root: feedContainer,
+        rootMargin: '0px',
+        threshold: 0.6 // Quando 60% do card está visível
+      };
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index);
+            const videoId = entry.target.dataset.videoId;
+            if (activeCardIndex !== index) {
+              activeCardIndex = index;
+              playTrackPreview(videoId, index);
+            }
+          }
+        });
+      }, options);
+    }
+
+    async function playTrackPreview(videoId, index) {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+      resetAllProgress();
+
+      try {
+        // Tenta pegar URL pelo Gateway
+        let streamUrl = await fetchStreamUrlFromGateway(videoId);
+        if (!streamUrl) {
+          // Fallback Invidious
+          streamUrl = `${currentInvidiousInstance}/latest_version?id=${videoId}&itag=140`;
+        }
+        
+        audioPlayer.src = streamUrl;
+        
+        // Pula os primeiros 20 segundos geralmente chatos de introdução
+        audioPlayer.currentTime = 20; 
+        
+        await audioPlayer.play();
+        posthog.capture('vibe_play', { videoId: videoId });
+      } catch (e) {
+        console.error('Erro ao tocar preview:', e);
+      }
+    }
+
+    function setupAudioPlayer() {
+      audioPlayer.addEventListener('timeupdate', () => {
+        if (activeCardIndex >= 0) {
+          const progressEl = document.getElementById(`progress-${activeCardIndex}`);
+          // O tempo inicial é 20, então o tempo percorrido é currentTime - 20
+          const playedTime = audioPlayer.currentTime - 20;
+          
+          if (progressEl) {
+            // Máximo de 30 segundos
+            const percent = (playedTime / 30) * 100;
+            progressEl.style.width = `${Math.min(percent, 100)}%`;
+          }
+
+          // Se passou de 30 segundos, vai para o próximo card
+          if (playedTime >= 30) {
+            audioPlayer.pause();
+            scrollToNextCard();
+          }
+        }
+      });
+    }
+
+    function resetAllProgress() {
+      document.querySelectorAll('.progress-fill').forEach(el => el.style.width = '0%');
+    }
+
+    function scrollToNextCard() {
+      const nextIndex = activeCardIndex + 1;
+      const nextCard = document.querySelector(`.vibe-card[data-index="${nextIndex}"]`);
+      if (nextCard) {
+        nextCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    async function fetchStreamUrlFromGateway(videoId) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(`${CLOUDFLARE_GATEWAY}?id=${videoId}`, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+          const data = await res.json();
+          return data.url;
+        }
+      } catch (e) {
+        return null;
+      }
+      return null;
+    }
+
+    init();
+  </script>
+</body>
+</html>
