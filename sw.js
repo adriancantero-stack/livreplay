@@ -1,4 +1,4 @@
-const CACHE_NAME = 'livreplay-v45';
+const CACHE_NAME = 'livreplay-v46';
 const FILTERS_URL = 'filters.json';
 let blockedPatterns = [];
 
@@ -41,6 +41,11 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   // Ignora e não intercepta requisições ao YouTube Embed para preservar o cabeçalho Referer nativo e evitar o Erro 153
   if (e.request.url.includes('youtube.com/embed') || e.request.url.includes('youtube-nocookie.com/embed')) {
+    return;
+  }
+
+  // Ignora imagens da Apple (capas de álbuns) para não estourar o limite de armazenamento (50MB) do iOS PWA e congelar o app
+  if (e.request.url.includes('mzstatic.com') || e.request.url.includes('itunes.apple.com')) {
     return;
   }
 
