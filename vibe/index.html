@@ -830,12 +830,16 @@
 
         // Atualiza a Tela Bloqueada do iPhone/Android com MediaSession API
         if ('mediaSession' in navigator) {
+          // Garantir URLs absolutas para imagens (obrigatório no iOS)
+          const absoluteArtwork = artworkUrl ? artworkUrl : (window.location.origin + '/logo-vibe.png');
+          
           navigator.mediaSession.metadata = new MediaMetadata({
-            title: trackName || 'LivrePlay Vibe',
-            artist: artistName || 'LivrePlay',
+            title: trackName ? String(trackName) : 'LivrePlay Vibe',
+            artist: artistName ? String(artistName) : 'Descubra Novas Músicas',
             album: 'LivrePlay Vibe',
             artwork: [
-              { src: artworkUrl || '../logo-vibe.png', sizes: '512x512', type: 'image/jpeg' }
+              { src: absoluteArtwork, sizes: '512x512', type: 'image/png' },
+              { src: absoluteArtwork, sizes: '512x512', type: 'image/jpeg' }
             ]
           });
           
@@ -893,21 +897,25 @@
       const nextIndex = activeCardIndex + 1;
       const nextCard = document.querySelector(`.vibe-card[data-index="${nextIndex}"]`);
       if (nextCard) {
-        nextCard.scrollIntoView({ behavior: 'smooth' });
-        
-        // Se a tela estiver bloqueada ou em background, o IntersectionObserver pode não disparar.
-        // Então nós extraímos os dados e tocamos a música forçadamente
+        // Extrair dados IMEDIATAMENTE para tentar dar play síncrono com o evento
+        const previewUrl = nextCard.dataset.preview;
+        const trackName = nextCard.dataset.trackName;
+        const artistName = nextCard.dataset.artistName;
+        const artworkUrl = nextCard.dataset.artwork;
+
+        // Se a tela estiver bloqueada ou em background, o IntersectionObserver pode falhar ou atrasar.
+        // E manipulação de DOM (scroll) atrasa o áudio bloqueando a permissão do iOS.
         if (document.hidden) {
-           const previewUrl = nextCard.dataset.preview;
-           const trackName = nextCard.dataset.trackName;
-           const artistName = nextCard.dataset.artistName;
-           const artworkUrl = nextCard.dataset.artwork;
            activeCardIndex = nextIndex;
            playTrackPreview(previewUrl, nextIndex, trackName, artistName, artworkUrl);
-           
-           if (nextIndex >= currentTracks.length - 5) {
-             loadMoreVibe();
-           }
+           // Rola a tela sutilmente sem smooth em background para não gastar processamento
+           nextCard.scrollIntoView();
+        } else {
+           nextCard.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        if (nextIndex >= currentTracks.length - 5) {
+          loadMoreVibe();
         }
       } else {
         loadMoreVibe();
