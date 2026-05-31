@@ -409,7 +409,6 @@
     // Configurações e Categorias
     const VIBES = [
       { id: 'buscar', label: '🔍 Buscar', isAction: true, action: 'openSearch' },
-      { id: 'surpresa', label: '🎲 Surpreenda-me', isAction: true, action: 'randomSurprise' },
       { id: 'tophits', label: '🔥 Top Hits', query: 'top hits popular' },
       { id: 'foco', label: 'Foco', query: 'lofi beats focus' },
       { id: 'treino', label: 'Treino', query: 'workout gym music' },
@@ -418,7 +417,8 @@
       { id: 'lofi', label: 'Lo-fi', query: 'lofi chill' },
       { id: 'funk', label: 'Funk', query: 'funk brasileiro' },
       { id: 'sertanejo', label: 'Sertanejo', query: 'sertanejo universitario' },
-      { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music' }
+      { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music' },
+      { id: 'surpresa', label: '🎲 Surpreenda-me', isAction: true, action: 'randomSurprise' }
     ];
 
     const SURPRISE_THEMES = [
@@ -429,7 +429,7 @@
       "mariachi", "cumbia", "viking music", "meditation healing"
     ];
 
-    let activeVibe = VIBES[2]; // Começa no Top Hits
+    let activeVibe = VIBES[1]; // Começa no Top Hits (agora índice 1)
     let currentTracks = [];
     let observer = null;
     let activeCardIndex = -1;
