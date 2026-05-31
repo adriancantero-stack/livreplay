@@ -241,8 +241,10 @@
       align-items: center;
       justify-content: center;
       transition: var(--transition);
+      border-radius: 20px;
+      overflow: hidden;
     }
-    
+
     .card-video .card-icon {
       filter: drop-shadow(0 8px 16px rgba(255, 59, 48, 0.15));
     }
@@ -271,7 +273,12 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      border-radius: 24px; /* Corta o fundo branco quadrado das imagens */
+    }
+    
+    /* Cortando as bordas brancas geradas pela IA na logo do Vibe */
+    .card-vibe .card-icon img {
+      object-fit: cover;
+      transform: scale(1.15); /* Zoom para empurrar o fundo branco para fora da área visível */
     }
 
     .card-title {
