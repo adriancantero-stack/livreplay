@@ -300,29 +300,18 @@
   <script>
     // Configurações e Categorias
     const VIBES = [
-      { id: 'foco', label: 'Foco', query: 'lofi hip hop focus music' },
-      { id: 'treino', label: 'Treino', query: 'workout music mix gym' },
-      { id: 'relax', label: 'Relax', query: 'relaxing acoustic music' },
-      { id: 'gospel', label: 'Gospel', query: 'gospel worship music' },
-      { id: 'lofi', label: 'Lo-fi', query: 'lofi beats chill' },
-      { id: 'funk', label: 'Funk', query: 'funk brasileiro hits' },
+      { id: 'foco', label: 'Foco', query: 'lofi beats focus' },
+      { id: 'treino', label: 'Treino', query: 'workout gym music' },
+      { id: 'relax', label: 'Relax', query: 'relaxing acoustic' },
+      { id: 'gospel', label: 'Gospel', query: 'gospel worship' },
+      { id: 'lofi', label: 'Lo-fi', query: 'lofi chill' },
+      { id: 'funk', label: 'Funk', query: 'funk brasileiro' },
       { id: 'sertanejo', label: 'Sertanejo', query: 'sertanejo universitario' },
-      { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music edm' }
+      { id: 'eletronica', label: 'Eletrônica', query: 'electronic dance music' }
     ];
-
-    const INVIDIOUS_INSTANCES = [
-      'https://iv.ggtyler.dev/api/v1',
-      'https://invidious.jing.rocks/api/v1',
-      'https://invidious.weblibre.org/api/v1',
-      'https://invidious.incogniweb.net/api/v1',
-      'https://inv.tux.pizza/api/v1'
-    ];
-    let currentInvidiousInstance = INVIDIOUS_INSTANCES[0];
-    const CLOUDFLARE_GATEWAY = 'https://livreplay-gateway.adrian-cantero1.workers.dev/';
 
     let activeVibe = VIBES[0];
     let currentTracks = [];
-    let currentAudioUrl = null;
     let observer = null;
     let activeCardIndex = -1;
 
@@ -362,34 +351,28 @@
       audioPlayer.pause();
       currentTracks = [];
       
-      let success = false;
-      for (const instance of INVIDIOUS_INSTANCES) {
-        try {
-          const res = await fetch(`${instance}/search?q=${encodeURIComponent(vibe.query)}&type=video`);
-          if (!res.ok) continue;
-          
-          const data = await res.json();
-          currentTracks = data.filter(item => item.lengthSeconds > 60).slice(0, 15); 
-          
-          if (currentTracks.length > 0) {
-            currentInvidiousInstance = instance;
-            success = true;
-            renderFeed();
-            break;
-          }
-        } catch (err) {
-          console.warn(`Falha na instância ${instance}, tentando próxima...`);
+      try {
+        const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(vibe.query)}&entity=song&limit=25`);
+        if (!res.ok) throw new Error('iTunes API Error');
+        const data = await res.json();
+        
+        // Pega apenas tracks que tem previewUrl
+        currentTracks = data.results.filter(item => item.previewUrl); 
+        
+        if (currentTracks.length > 0) {
+          renderFeed();
+        } else {
+          feedContainer.innerHTML = '<div style="color:white; text-align:center; padding-top:40vh; font-size:18px;">Nenhuma música encontrada para esta Vibe.</div>';
         }
-      }
-
-      if (!success) {
-        feedContainer.innerHTML = '<div style="color:white; text-align:center; padding-top:40vh; font-size:18px;">Servidores sobrecarregados.<br>Por favor, tente outra Vibe.</div>';
+      } catch (err) {
+        console.error('Erro ao buscar Vibe no iTunes:', err);
+        feedContainer.innerHTML = '<div style="color:white; text-align:center; padding-top:40vh; font-size:18px;">Erro ao conectar. Tente novamente.</div>';
       }
 
       setTimeout(() => {
         loadingOverlay.style.opacity = '0';
         loadingOverlay.style.pointerEvents = 'none';
-      }, 500);
+      }, 300);
     }
 
     function renderFeed() {
@@ -397,21 +380,21 @@
         const card = document.createElement('div');
         card.className = 'vibe-card';
         card.dataset.index = index;
-        card.dataset.videoId = track.videoId;
+        card.dataset.preview = track.previewUrl;
+        card.dataset.trackName = track.trackName;
+        card.dataset.artistName = track.artistName;
         
-        // Melhor thumbnail
-        const thumbUrl = track.videoThumbnails ? 
-          track.videoThumbnails.find(t => t.quality === 'maxresdefault' || t.quality === 'high')?.url : 
-          `https://i.ytimg.com/vi/${track.videoId}/maxresdefault.jpg`;
-          
-        card.style.backgroundImage = `url('${thumbUrl}')`;
+        // Alta resolução da capa (de 100x100 para 600x600)
+        let highResThumb = track.artworkUrl100 ? track.artworkUrl100.replace('100x100bb', '600x600bb') : '';
+        
+        card.style.backgroundImage = `url('${highResThumb}')`;
 
         card.innerHTML = `
           <div class="card-content">
             <div class="song-info">
-              <h2 class="song-title">${track.title}</h2>
-              <div class="song-artist">🎵 ${track.author}</div>
-              <a href="../music/?v=${track.videoId}" class="listen-full-btn" onclick="posthog.capture('vibe_listen_full', {videoId: '${track.videoId}'})">
+              <h2 class="song-title">${track.trackName}</h2>
+              <div class="song-artist">🎵 ${track.artistName}</div>
+              <a href="../music/?q=${encodeURIComponent(track.trackName + ' ' + track.artistName)}" class="listen-full-btn" onclick="if(window.posthog)posthog.capture('vibe_listen_full', {track: '${track.trackName.replace(/'/g, "\\'")}'})">
                 ▶ Ouvir Completo
               </a>
             </div>
@@ -462,36 +445,27 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const index = parseInt(entry.target.dataset.index);
-            const videoId = entry.target.dataset.videoId;
+            const previewUrl = entry.target.dataset.preview;
+            const trackName = entry.target.dataset.trackName;
+            
             if (activeCardIndex !== index) {
               activeCardIndex = index;
-              playTrackPreview(videoId, index);
+              playTrackPreview(previewUrl, index, trackName);
             }
           }
         });
       }, options);
     }
 
-    async function playTrackPreview(videoId, index) {
+    async function playTrackPreview(previewUrl, index, trackName) {
       audioPlayer.pause();
       audioPlayer.currentTime = 0;
       resetAllProgress();
 
       try {
-        // Tenta pegar URL pelo Gateway
-        let streamUrl = await fetchStreamUrlFromGateway(videoId);
-        if (!streamUrl) {
-          // Fallback Invidious
-          streamUrl = `${currentInvidiousInstance}/latest_version?id=${videoId}&itag=140`;
-        }
-        
-        audioPlayer.src = streamUrl;
-        
-        // Pula os primeiros 20 segundos geralmente chatos de introdução
-        audioPlayer.currentTime = 20; 
-        
+        audioPlayer.src = previewUrl;
         await audioPlayer.play();
-        posthog.capture('vibe_play', { videoId: videoId });
+        if (window.posthog) posthog.capture('vibe_play', { track: trackName });
       } catch (e) {
         console.error('Erro ao tocar preview:', e);
       }
@@ -501,21 +475,25 @@
       audioPlayer.addEventListener('timeupdate', () => {
         if (activeCardIndex >= 0) {
           const progressEl = document.getElementById(`progress-${activeCardIndex}`);
-          // O tempo inicial é 20, então o tempo percorrido é currentTime - 20
-          const playedTime = audioPlayer.currentTime - 20;
+          const playedTime = audioPlayer.currentTime;
           
           if (progressEl) {
-            // Máximo de 30 segundos
+             // Atualiza a barra baseada em 30 segundos
             const percent = (playedTime / 30) * 100;
             progressEl.style.width = `${Math.min(percent, 100)}%`;
           }
 
-          // Se passou de 30 segundos, vai para o próximo card
-          if (playedTime >= 30) {
+          // Se acabou os 30s ou a preview terminou
+          if (playedTime >= 29.5 || audioPlayer.ended) {
             audioPlayer.pause();
             scrollToNextCard();
           }
         }
+      });
+      
+      // Fallback para quando o áudio termina naturalmente
+      audioPlayer.addEventListener('ended', () => {
+         scrollToNextCard();
       });
     }
 
@@ -529,22 +507,6 @@
       if (nextCard) {
         nextCard.scrollIntoView({ behavior: 'smooth' });
       }
-    }
-
-    async function fetchStreamUrlFromGateway(videoId) {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2000);
-        const res = await fetch(`${CLOUDFLARE_GATEWAY}?id=${videoId}`, { signal: controller.signal });
-        clearTimeout(timeoutId);
-        if (res.ok) {
-          const data = await res.json();
-          return data.url;
-        }
-      } catch (e) {
-        return null;
-      }
-      return null;
     }
 
     init();

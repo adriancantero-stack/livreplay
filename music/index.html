@@ -2682,10 +2682,12 @@
       // Carrega instâncias dinâmicas do Invidious em segundo plano imediatamente
       loadDynamicInstances();
       
-      // Suporte a links de compartilhamento (?v=VIDEO_ID)
+      // Suporte a links de compartilhamento (?v=VIDEO_ID) e Vibe (?q=QUERY)
       try {
         const params = new URLSearchParams(window.location.search);
         const videoId = params.get('v') || params.get('video');
+        const query = params.get('q');
+        
         if (videoId) {
           const dummyTrack = {
             videoId: videoId,
@@ -2694,6 +2696,11 @@
             videoThumbnails: [{ url: `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg` }]
           };
           playMusic(dummyTrack, null, [dummyTrack]);
+        } else if (query) {
+          // Preenche a barra de busca e executa
+          const searchInput = document.getElementById('searchInput');
+          if(searchInput) searchInput.value = query;
+          performSearch(query);
         } else {
           renderHomeScreen();
         }
