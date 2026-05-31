@@ -1,7 +1,8 @@
 {
   "name": "LivrePlay",
   "short_name": "LivrePlay",
-  "start_url": "index.html",
+  "id": "/?app=livreplay",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#0f0f0f",
   "theme_color": "#0f0f0f",
