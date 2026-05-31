@@ -113,37 +113,63 @@
 
     /* Card / Slide */
     .vibe-card {
-      height: 100dvh;
-      width: 100%;
       scroll-snap-align: start;
+      height: 100vh;
+      width: 100%;
       position: relative;
-      background-size: cover;
-      background-position: center;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
     }
     
-    /* Overlay Gradient for readability */
+    /* Overlay escuro e blur pro fundo */
     .vibe-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.1) 100%);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: inherit;
+      filter: blur(20px) brightness(0.4);
+      transform: scale(1.1);
       z-index: 1;
     }
 
-    .card-content {
-      position: relative;
+    /* Gradient overlay for bottom */
+    .vibe-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
       z-index: 2;
+    }
+
+    .album-art-center {
+      position: relative;
+      z-index: 3;
+      width: 280px;
+      height: 280px;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      margin-top: -60px;
+      margin-bottom: 20px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      width: 100%;
       padding: 20px;
-      padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 20px);
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      z-index: 3;
     }
 
     .song-info {
@@ -503,10 +529,12 @@
       loadingOverlay.style.opacity = '1';
       loadingOverlay.style.pointerEvents = 'all';
       feedContainer.innerHTML = '';
+      feedContainer.scrollTop = 0; // Reseta o scroll para o topo
       audioPlayer.pause();
       currentTracks = [];
       currentOffset = 0;
       isLoadingMore = false;
+      activeCardIndex = -1; // Força o reset do card ativo
       
       try {
         const tracks = await fetchiTunesTracks(vibe.query, currentOffset);
@@ -514,6 +542,15 @@
         
         if (currentTracks.length > 0) {
           renderFeed(tracks, 0);
+          
+          // Força tocar a primeira música instantaneamente após renderizar
+          setTimeout(() => {
+            const firstCard = document.querySelector('.vibe-card[data-index="0"]');
+            if (firstCard) {
+               activeCardIndex = 0;
+               playTrackPreview(currentTracks[0].previewUrl, 0, currentTracks[0].trackName);
+            }
+          }, 300); // pequeno delay para garantir que a DOM atualizou
         } else {
           feedContainer.innerHTML = '<div style="color:white; text-align:center; padding-top:40vh; font-size:18px;">Nenhuma música encontrada para esta Vibe.</div>';
         }
@@ -556,11 +593,13 @@
         card.dataset.trackName = track.trackName;
         card.dataset.artistName = track.artistName;
         
+        // Alta resolução da capa (de 100x100 para 600x600)
         let highResThumb = track.artworkUrl100 ? track.artworkUrl100.replace('100x100bb', '600x600bb') : '';
         
         card.style.backgroundImage = `url('${highResThumb}')`;
 
         card.innerHTML = `
+          <div class="album-art-center" style="background-image: url('${highResThumb}')"></div>
           <div class="card-content">
             <div class="song-info">
               <h2 class="song-title">${track.trackName}</h2>
