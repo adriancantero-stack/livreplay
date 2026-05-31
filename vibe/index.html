@@ -522,7 +522,17 @@
       const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=25&offset=${offset}`);
       if (!res.ok) throw new Error('iTunes API Error');
       const data = await res.json();
-      return data.results.filter(item => item.previewUrl); 
+      const validTracks = data.results.filter(item => item.previewUrl); 
+      return shuffleArray(validTracks);
+    }
+    
+    // Embaralha as músicas (Fisher-Yates) para nunca repetir a mesma ordem
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
 
     async function loadVibe(vibe) {
