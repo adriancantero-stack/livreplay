@@ -602,19 +602,12 @@
       const sharedQuery = urlParams.get('q');
       
       if (sharedQuery) {
-        activeVibe = { id: 'shared', label: `🔗 ${sharedQuery.split(' ')[0]}...`, query: sharedQuery };
+        activeVibe = { id: 'shared', label: `🔗 ${sharedQuery.split(' ')[0]}...`, query: sharedQuery, isCustom: true };
+        const buscarIndex = VIBES.findIndex(v => v.id === 'buscar');
+        if (buscarIndex !== -1) VIBES.splice(buscarIndex + 1, 0, activeVibe);
       }
       
       renderChips();
-      
-      if (sharedQuery) {
-        // Remove active class das outras
-        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-        const tempChip = document.createElement('div');
-        tempChip.className = 'chip active';
-        tempChip.textContent = activeVibe.label;
-        chipsContainer.insertBefore(tempChip, chipsContainer.children[1]);
-      }
       
       loadVibe(activeVibe);
       setupIntersectionObserver();
@@ -655,21 +648,31 @@
       setTimeout(() => searchModal.style.display = 'none', 300);
     }
     
+    function addCustomVibe(newVibe) {
+      // Limita a 3 custom chips para não poluir a barra
+      const customCount = VIBES.filter(v => v.isCustom).length;
+      if (customCount >= 3) {
+         const oldestIndex = VIBES.findIndex(v => v.isCustom);
+         if (oldestIndex !== -1) VIBES.splice(oldestIndex, 1);
+      }
+      
+      const buscarIndex = VIBES.findIndex(v => v.id === 'buscar');
+      if (buscarIndex !== -1) {
+        VIBES.splice(buscarIndex + 1, 0, newVibe);
+      }
+      
+      activeVibe = newVibe;
+      renderChips();
+      loadVibe(activeVibe);
+    }
+
     function executeCustomVibe() {
       const val = vibeInput.value.trim();
       if(val) {
         closeSearchModal();
         registerTaste(val); // Aprende com a busca
-        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-        activeVibe = { id: 'custom', label: `"${val}"`, query: val };
-        
-        // Adiciona um chip temporário na interface
-        const tempChip = document.createElement('div');
-        tempChip.className = 'chip active';
-        tempChip.textContent = activeVibe.label;
-        chipsContainer.insertBefore(tempChip, chipsContainer.children[3]);
-        
-        loadVibe(activeVibe);
+        const newVibe = { id: `custom-${Date.now()}`, label: `"${val}"`, query: val, isCustom: true };
+        addCustomVibe(newVibe);
       }
     }
     
@@ -711,15 +714,8 @@
 
     function executeSurprise() {
       const randomQuery = SURPRISE_THEMES[Math.floor(Math.random() * SURPRISE_THEMES.length)];
-      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-      activeVibe = { id: 'surprise', label: '🎲 Surpresa', query: randomQuery };
-      
-      const tempChip = document.createElement('div');
-      tempChip.className = 'chip active';
-      tempChip.textContent = activeVibe.label;
-      chipsContainer.insertBefore(tempChip, chipsContainer.children[3]);
-      
-      loadVibe(activeVibe);
+      const newVibe = { id: `custom-${Date.now()}`, label: `🎲 ${randomQuery}`, query: randomQuery, isCustom: true };
+      addCustomVibe(newVibe);
     }
 
     async function fetchiTunesTracks(query) {
