@@ -501,6 +501,11 @@
     let userCountryCode = 'US';
     let activeVibe = null;
     
+    function getTotalInteractions() {
+      let prefs = JSON.parse(localStorage.getItem('vibe_prefs') || '{}');
+      return Object.values(prefs).reduce((a, b) => a + b, 0);
+    }
+
     function setupLocalizedVibes() {
       try {
         const lang = navigator.language || navigator.userLanguage || 'en-US';
@@ -514,10 +519,12 @@
         userCountryCode = 'US';
       }
 
-      const baseVibes = [
-        { id: 'foryou', label: '✨ Para Você', isAction: true, action: 'loadForYou' },
-        { id: 'buscar', label: '🔍 Buscar', isAction: true, action: 'openSearch' }
-      ];
+      const baseVibes = [];
+      // Só mostra o Para Você depois de 5 interações (escutar até o fim, curtir, ou buscar)
+      if (getTotalInteractions() >= 5) {
+        baseVibes.push({ id: 'foryou', label: '✨ Para Você', isAction: true, action: 'loadForYou' });
+      }
+      baseVibes.push({ id: 'buscar', label: '🔍 Buscar', isAction: true, action: 'openSearch' });
       
       const endVibes = [
         { id: 'surpresa', label: '🎲 Surpreenda-me', isAction: true, action: 'randomSurprise' }
@@ -572,7 +579,7 @@
           ...endVibes
         ];
       }
-      activeVibe = VIBES[1]; // Seta o Top Hits por padrão
+      activeVibe = VIBES.find(v => v.id === 'tophits') || VIBES[1]; // Seta o Top Hits por padrão
     }
     let poolTracks = []; // Armazena as 200 músicas do iTunes
     let currentTracks = []; // Músicas atualmente renderizadas na tela
@@ -695,10 +702,8 @@
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       activeVibe = { id: 'foryou', label: '✨ Para Você', query: 'foryou' };
       
-      const tempChip = document.createElement('div');
-      tempChip.className = 'chip active';
-      tempChip.textContent = activeVibe.label;
-      chipsContainer.insertBefore(tempChip, chipsContainer.children[0]);
+      const existingChip = Array.from(document.querySelectorAll('.chip')).find(c => c.textContent === '✨ Para Você');
+      if (existingChip) existingChip.classList.add('active');
       
       loadVibe(activeVibe);
     }
@@ -1014,6 +1019,9 @@
           }
 
           if (playedTime >= 29.5 || audioPlayer.ended) {
+            const track = currentTracks[activeCardIndex];
+            if (track) registerTaste(track.artistName); // Aprende com as músicas que a pessoa escuta até o fim
+            
             audioPlayer.pause();
             scrollToNextCard();
           }
