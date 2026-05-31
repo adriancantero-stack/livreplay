@@ -648,7 +648,11 @@
                 <span class="action-label">Curtir</span>
               </button>
               <button class="action-btn" onclick="shareTrack('${track.trackName.replace(/'/g, "\\'")}', '${track.artistName.replace(/'/g, "\\'")}')">
-                <div class="action-icon">🚀</div>
+                <div class="action-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.08 11.23l-9-7A1 1 0 0 0 10 5v4c-6.84 0-8 6.07-8 11.83 0 .7.83 1.08 1.34.61 1.77-1.63 4.44-3.44 6.66-3.44V21a1 1 0 0 0 1.61.78l9-7a1 1 0 0 0 .47-1.55z"/>
+                  </svg>
+                </div>
                 <span class="action-label">Share</span>
               </button>
             </div>
