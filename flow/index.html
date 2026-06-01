@@ -286,12 +286,33 @@
       "viver com menos e aproveitar mais"
     ];
 
-    const INVIDIOUS_INSTANCES = [
+    const FALLBACK_INSTANCES = [
       'https://invidious.nerdvpn.de',
       'https://invidious.perennialte.ch',
       'https://invidious.jing.rocks',
       'https://yewtu.be'
     ];
+    let INVIDIOUS_INSTANCES = [...FALLBACK_INSTANCES];
+
+    async function loadDynamicInstances() {
+      try {
+        const res = await fetch('https://api.invidious.io/instances.json');
+        if (res.ok) {
+          const instancesJson = await res.json();
+          const dynamicInstances = [];
+          for (const [name, info] of instancesJson) {
+            if (info.type === 'https' && info.api && (info.cors || info.uri)) {
+              dynamicInstances.push(info.uri || `https://${name}`);
+            }
+          }
+          if (dynamicInstances.length > 0) {
+            INVIDIOUS_INSTANCES = [...new Set([...dynamicInstances, ...FALLBACK_INSTANCES])];
+          }
+        }
+      } catch (e) {
+        console.log("Falha ao carregar instâncias dinâmicas", e);
+      }
+    }
 
     let currentVideos = [];
     let isLoading = false;
@@ -303,42 +324,49 @@
     }
 
     // Busca Shorts Educativos na API com tentativas
-    async function fetchEducationalShorts(retries = 3) {
+    async function fetchEducationalShorts(retries = 10) {
       for (let attempt = 0; attempt < retries; attempt++) {
-        const topic = getRandomTopic();
-        // Usando aspas para forçar a busca exata dos termos principais, e adicionando shorts
+        // Se já tentou muitas vezes, apela pra uma busca garantida
+        const topic = attempt > 6 ? "curiosidades" : getRandomTopic();
         const query = `${topic} shorts`;
         
-        for (const instance of INVIDIOUS_INSTANCES) {
+        // Embaralha as instâncias para não ficar batendo sempre na mesma
+        const shuffledInstances = [...INVIDIOUS_INSTANCES].sort(() => 0.5 - Math.random());
+        
+        for (const instance of shuffledInstances.slice(0, 3)) { // Tenta em até 3 instâncias por tópico
           try {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 6000);
             
-            // Buscar vídeos
             const res = await fetch(`${instance}/api/v1/search?q=${encodeURIComponent(query)}&type=video`, { signal: controller.signal });
             clearTimeout(timeoutId);
 
             if (res.ok) {
               const data = await res.json();
               if (Array.isArray(data)) {
-                // Filtrar apenas vídeos curtos (menos de 65 segundos) e ignorar transmissões ao vivo
-                const shorts = data.filter(v => v.lengthSeconds > 0 && v.lengthSeconds <= 65 && !v.liveNow);
+                // Filtrar vídeos curtos OU vídeos que não tem length explícito mas o título/query indica short
+                const shorts = data.filter(v => {
+                  if (v.liveNow) return false;
+                  if (v.lengthSeconds > 0 && v.lengthSeconds <= 65) return true;
+                  if (!v.lengthSeconds && v.title && v.title.toLowerCase().includes('shorts')) return true;
+                  return false;
+                });
+                
                 if (shorts.length > 0) {
-                  // Pegar URLs diretas de stream para os vídeos
                   for(let s of shorts) {
                       s.streamUrl = `${instance}/latest_version?id=${s.videoId}&itag=18`;
                   }
-                  return shorts; // Sucesso! Achamos vídeos
+                  return shorts; // Sucesso
                 }
               }
             }
           } catch (e) {
-            console.warn(`Instância falhou: ${instance}`);
+            // Silencioso, apenas vai pra próxima instância
           }
         }
-        console.log(`Tentativa ${attempt + 1} para o tópico "${topic}" não retornou Shorts. Tentando outro...`);
+        console.log(`Tentativa ${attempt + 1} para o tópico "${topic}" não retornou. Tentando outro...`);
       }
-      return []; // Falhou após todas as tentativas
+      return []; 
     }
 
     // Inicializar o Observer para auto-play/pause
@@ -484,6 +512,7 @@
 
     // Inicialização
     async function init() {
+      await loadDynamicInstances();
       initObserver();
       await loadMoreVideos();
       
