@@ -80,7 +80,10 @@ A mágica acontece sem pesados frameworks front-end, garantindo velocidade bruta
 
 O LivrePlay é 100% gratuito e mantido pela comunidade. Se este projeto ajuda o seu dia a dia, considere fazer uma doação via PIX para nos ajudar a manter os servidores proxy/Invidious no ar e garantir atualizações contínuas!
 
-👉 **[Apoiar o LivrePlay no LivePix](https://livepix.gg/livreplay)**
+**Chave PIX Aleatória:**
+```text
+072cf5fd-e9f3-4a17-b077-35d83578c9c9
+```
 
 ---
 
