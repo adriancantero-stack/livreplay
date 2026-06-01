@@ -240,6 +240,11 @@
       border-color: rgba(138, 43, 226, 0.35); /* Roxo */
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 32px rgba(138, 43, 226, 0.15);
     }
+    .card-flow:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 212, 255, 0.35); /* Ciano */
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 32px rgba(0, 212, 255, 0.15);
+    }
 
     .card-icon {
       width: 80px;
@@ -411,13 +416,23 @@
       </a>
 
       <!-- Card LivrePlay Vibe -->
-      <a href="./vibe/?v=2" class="portal-card card-vibe" style="grid-column: 1 / -1;">
+      <a href="./vibe/?v=2" class="portal-card card-vibe">
         <div class="card-icon">
           <img src="logo-vibe.png" alt="LivrePlay Vibe Logo" onerror="this.src='logo.png'">
         </div>
         <h2 class="card-title">LivrePlay Vibe</h2>
-        <p class="card-desc">Descubra músicas e sons em trechos rápidos de 30 segundos, escolhidos pela sua intenção e pelo seu momento.</p>
-        <span class="card-btn">Descobrir Nova Vibe</span>
+        <p class="card-desc">Descubra músicas e sons através de playlists geradas por IA com base na sua intenção ou momento atual.</p>
+        <span class="card-btn">Gerar Nova Vibe</span>
+      </a>
+
+      <!-- Card LivrePlay Flow -->
+      <a href="./flow/" class="portal-card card-flow">
+        <div class="card-icon" style="background: rgba(0, 212, 255, 0.1); border-radius: 20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" style="width: 40px; height: 40px; color: #00d4ff;"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </div>
+        <h2 class="card-title" style="color: #00d4ff;">LivrePlay Flow</h2>
+        <p class="card-desc">Uma jornada de micro-aprendizado. Deslize por curiosidades e conteúdos rápidos para mergulhar fundo.</p>
+        <span class="card-btn">Entrar no Flow</span>
       </a>
     </main>
 
