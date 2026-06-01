@@ -46,6 +46,19 @@
       display: none;
     }
 
+    /* Barra de Progresso do Auto-Scroll */
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0; left: 0; width: 100%; height: 4px;
+      background: rgba(255,255,255,0.1);
+      z-index: 50;
+    }
+    .progress-bar {
+      height: 100%; width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+
     /* Barra Superior Fixa */
     .top-nav {
       position: fixed;
@@ -81,6 +94,20 @@
       letter-spacing: -0.5px;
     }
     .logo-text span { color: var(--accent); }
+
+    .sound-btn {
+      background: rgba(255, 140, 0, 0.2);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s;
+    }
+    .sound-btn:active { transform: scale(0.9); }
+    .sound-btn svg { width: 20px; height: 20px; }
 
     /* Cada Card de Conhecimento */
     .knowledge-card {
@@ -165,7 +192,7 @@
 
     .swipe-indicator {
       position: absolute;
-      bottom: calc(env(safe-area-inset-bottom, 20px) + 20px);
+      bottom: calc(env(safe-area-inset-bottom, 20px) + 30px);
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -174,6 +201,7 @@
       color: rgba(255,255,255,0.4);
       animation: bounce 2s infinite;
       pointer-events: none;
+      z-index: 50;
     }
     .swipe-indicator span {
       font-size: 10px;
@@ -228,7 +256,11 @@
   <nav class="top-nav">
     <a href="../" class="back-btn">←</a>
     <div class="logo-text">LivrePlay <span>Flow</span></div>
-    <div style="width: 40px;"></div> 
+    <button class="sound-btn" id="soundToggle" onclick="toggleSound()">
+      <!-- Ícone de mudo por padrão -->
+      <svg id="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+      <svg id="icon-sound" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+    </button>
   </nav>
 
   <div class="flow-container" id="flowContainer">
@@ -312,6 +344,102 @@
       }
     ];
 
+    let isSoundOn = false;
+    let autoScrollTimer = null;
+    let progressBarInterval = null;
+    let observer = null;
+    let currentCardIndex = -1;
+
+    // Remove tags HTML (como <strong>) para a leitura limpa da voz
+    function stripHtml(html) {
+      let tmp = document.createElement("DIV");
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || "";
+    }
+
+    function toggleSound() {
+      isSoundOn = !isSoundOn;
+      document.getElementById('icon-muted').style.display = isSoundOn ? 'none' : 'block';
+      document.getElementById('icon-sound').style.display = isSoundOn ? 'block' : 'none';
+      
+      if (isSoundOn) {
+        // Tenta ler o card atual imediatamente
+        const cards = document.querySelectorAll('.knowledge-card');
+        if(cards[currentCardIndex]) readCard(cards[currentCardIndex]);
+      } else {
+        window.speechSynthesis.cancel();
+        clearAutoScroll();
+      }
+    }
+
+    function clearAutoScroll() {
+      clearTimeout(autoScrollTimer);
+      clearInterval(progressBarInterval);
+      const activeBars = document.querySelectorAll('.progress-bar');
+      activeBars.forEach(bar => bar.style.width = '0%');
+    }
+
+    function readCard(cardElement) {
+      clearAutoScroll();
+      window.speechSynthesis.cancel();
+
+      if (!isSoundOn) return;
+
+      const textToRead = cardElement.getAttribute('data-quote');
+      if (!textToRead) return;
+
+      const utterance = new SpeechSynthesisUtterance(textToRead);
+      utterance.lang = 'pt-BR';
+      utterance.rate = 1.05; // Velocidade ligeiramente rápida para manter engajamento
+      
+      // Tentar pegar uma voz do Google ou natural se existir
+      const voices = window.speechSynthesis.getVoices();
+      const ptVoices = voices.filter(v => v.lang.includes('pt-BR'));
+      if(ptVoices.length > 0) utterance.voice = ptVoices[0];
+
+      utterance.onend = () => {
+        // Inicia a barra de progresso para o auto-scroll (4 segundos)
+        const progressBar = cardElement.querySelector('.progress-bar');
+        let progress = 0;
+        const totalTime = 4000; 
+        const interval = 50;
+
+        progressBarInterval = setInterval(() => {
+          progress += interval;
+          if(progressBar) progressBar.style.width = `${(progress/totalTime)*100}%`;
+          
+          if (progress >= totalTime) {
+            clearInterval(progressBarInterval);
+            // Faz o scroll automático para o próximo
+            document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+          }
+        }, interval);
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function initObserver() {
+      const options = {
+        root: document.getElementById('flowContainer'),
+        rootMargin: '0px',
+        threshold: 0.6 // Dispara quando o card está 60% visível
+      };
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Array.from(document.querySelectorAll('.knowledge-card')).indexOf(entry.target);
+            currentCardIndex = index;
+            readCard(entry.target);
+          }
+        });
+      }, options);
+
+      // Observar todos os cards criados
+      document.querySelectorAll('.knowledge-card').forEach(card => observer.observe(card));
+    }
+
     function shuffleArray(array) {
       const arr = [...array];
       for (let i = arr.length - 1; i > 0; i--) {
@@ -322,8 +450,9 @@
     }
 
     function createCardHTML(cardData, isFirst) {
+      const cleanQuote = stripHtml(cardData.quote);
       return `
-        <div class="knowledge-card">
+        <div class="knowledge-card" data-quote="${cleanQuote}">
           <div class="bg-pattern"></div>
           <div class="content-wrapper">
             <div class="topic-badge">${cardData.topic}</div>
@@ -335,6 +464,7 @@
               Mergulhar Fundo
             </button>
           </div>
+          <div class="progress-bar-container"><div class="progress-bar"></div></div>
           ${isFirst ? `
           <div class="swipe-indicator">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
@@ -362,7 +492,17 @@
       });
 
       container.innerHTML = html;
+      
+      // Carrega as vozes da API para garantir que não tenha delay
+      window.speechSynthesis.getVoices();
+      
+      // Inicia a observação para o TTS
+      setTimeout(initObserver, 500); // Pequeno atraso para o DOM renderizar
     }
+
+    // Cancelar voz e scroll se o usuário tocar na tela (interação manual)
+    document.addEventListener('touchstart', clearAutoScroll, {passive: true});
+    document.addEventListener('mousedown', clearAutoScroll, {passive: true});
 
     document.addEventListener('DOMContentLoaded', init);
   </script>
