@@ -971,10 +971,21 @@
 
       <!-- View: Buscar/Resultados -->
       <div class="view-container" id="viewBusca" style="display: none;">
-        <h2 class="view-title" id="searchHeader">Resultados</h2>
-        <div class="loading-spinner" id="spinner"></div>
-        <div class="music-grid" id="searchGrid">
-          <!-- Populado dinamicamente -->
+        <div id="searchEmptyState" style="text-align: center; margin-top: 10vh; padding: 20px; flex: 1;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 64px; height: 64px; color: var(--accent); margin-bottom: 20px;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <h2 style="font-size: 28px; margin-bottom: 10px;">O que vamos ouvir hoje?</h2>
+          <p style="color: var(--text-muted); margin-bottom: 30px;">Busque por músicas, artistas ou playlists.</p>
+          <div style="position: relative; max-width: 500px; margin: 0 auto;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; color: var(--text-muted);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="bigSearchInput" placeholder="Comece a digitar..." style="width: 100%; padding: 20px 20px 20px 56px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4); color: #fff; font-size: 18px; outline: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent)';" onblur="this.style.borderColor='rgba(255,255,255,0.1)';" onkeypress="if(event.key === 'Enter' && this.value.trim() !== '') { document.getElementById('musicSearchInput').value = this.value; performSearch(this.value); }">
+          </div>
+        </div>
+        <div id="searchResultsContainer" style="display: none; flex: 1;">
+          <h2 class="view-title" id="searchHeader">Resultados</h2>
+          <div class="loading-spinner" id="spinner"></div>
+          <div class="music-grid" id="searchGrid">
+            <!-- Populado dinamicamente -->
+          </div>
         </div>
       </div>
 
@@ -1529,6 +1540,9 @@
       const spinner = document.getElementById('spinner');
       const grid = document.getElementById('searchGrid');
       const header = document.getElementById('searchHeader');
+      
+      document.getElementById('searchEmptyState').style.display = 'none';
+      document.getElementById('searchResultsContainer').style.display = 'block';
       
       spinner.style.display = 'block';
       grid.innerHTML = '';
@@ -2585,6 +2599,14 @@
         document.getElementById('menuBusca').classList.add('active');
         const mobileBusca = document.getElementById('mobileMenuBusca');
         if (mobileBusca) mobileBusca.classList.add('active');
+        if (document.getElementById('searchGrid').innerHTML.trim() === '') {
+          document.getElementById('searchEmptyState').style.display = 'block';
+          document.getElementById('searchResultsContainer').style.display = 'none';
+          setTimeout(() => {
+             const bigInput = document.getElementById('bigSearchInput');
+             if(bigInput) { bigInput.focus(); }
+          }, 100);
+        }
       } else if (viewName === 'biblioteca') {
         document.getElementById('viewBiblioteca').style.display = 'flex';
         const mobileBib = document.getElementById('mobileMenuBiblioteca');
