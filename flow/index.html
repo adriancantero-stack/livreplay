@@ -217,7 +217,6 @@
     }
     @keyframes spin { 100% { transform: rotate(360deg); } }
 
-    /* Indicador de Som/Play Overlay */
     .play-overlay {
       position: absolute;
       top: 50%;
@@ -232,6 +231,38 @@
       transition: opacity 0.3s;
       pointer-events: none;
       z-index: 5;
+    }
+
+    /* Indicador de Swipe para Cima */
+    .swipe-up-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 20;
+      pointer-events: none;
+      animation: bounceUp 2s infinite;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+    .swipe-up-indicator svg {
+      width: 30px;
+      height: 30px;
+      margin-bottom: -5px;
+    }
+    .swipe-up-text {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    @keyframes bounceUp {
+      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+      40% { transform: translate(-50%, -10px); }
+      60% { transform: translate(-50%, -5px); }
     }
   </style>
   <script>
@@ -354,7 +385,7 @@
                 
                 if (shorts.length > 0) {
                   for(let s of shorts) {
-                      s.streamUrl = `${instance}/latest_version?id=${s.videoId}&itag=18`;
+                      s.instanceUrl = instance; // Salvar a instância para montar os sources depois
                   }
                   return shorts; // Sucesso
                 }
@@ -396,7 +427,7 @@
     }
 
     // Criar um Card de Vídeo
-    function createVideoCard(videoData) {
+    function createVideoCard(videoData, isFirst = false) {
       const card = document.createElement('div');
       card.className = 'video-card';
 
@@ -404,10 +435,22 @@
       const cleanTitle = videoData.title.replace(/#shorts/gi, '').replace(/#curiosidades/gi, '').trim();
 
       card.innerHTML = `
-        <video class="video-player" loop playsinline src="${videoData.streamUrl}" poster="${videoData.videoThumbnails[videoData.videoThumbnails.length - 1].url}"></video>
+        <video class="video-player" loop playsinline poster="${videoData.videoThumbnails[videoData.videoThumbnails.length - 1].url}">
+          <!-- Qualidade HD (720p) -->
+          <source src="${videoData.instanceUrl}/latest_version?id=${videoData.videoId}&itag=22" type="video/mp4">
+          <!-- Fallback SD (360p) -->
+          <source src="${videoData.instanceUrl}/latest_version?id=${videoData.videoId}&itag=18" type="video/mp4">
+        </video>
         
         <div class="play-overlay"><svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
         
+        ${isFirst ? `
+        <div class="swipe-up-indicator">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          <span class="swipe-up-text">Deslize</span>
+        </div>
+        ` : ''}
+
         <div class="video-info">
           <div class="channel-name">@${videoData.author}</div>
           <div class="video-title">${videoData.title}</div>
@@ -501,8 +544,10 @@
       isLoading = true;
       const newShorts = await fetchEducationalShorts();
       if (newShorts.length > 0) {
-        newShorts.forEach(s => {
-          const card = createVideoCard(s);
+        newShorts.forEach((s, index) => {
+          // Passar isFirst=true apenas se for o primeiríssimo vídeo carregado no container inteiro
+          const isFirstEver = document.getElementById('flowContainer').children.length === 0 && index === 0;
+          const card = createVideoCard(s, isFirstEver);
           document.getElementById('flowContainer').appendChild(card);
           observer.observe(card);
         });
