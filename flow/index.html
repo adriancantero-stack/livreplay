@@ -430,10 +430,20 @@
         if(!cardElement) return;
         const progressBar = cardElement.querySelector('.progress-bar');
         const interval = 50;
+        let lastTime = Date.now();
 
         progressBarInterval = setInterval(() => {
-          if(isPaused) return;
-          progressValue += interval;
+          if(isPaused) {
+            lastTime = Date.now(); // Mantém o delta zerado enquanto pausado
+            return;
+          }
+          
+          const now = Date.now();
+          const delta = now - lastTime;
+          lastTime = now;
+          
+          progressValue += delta;
+          
           if(progressBar) progressBar.style.width = `${(progressValue/TOTAL_SCROLL_TIME)*100}%`;
           
           if (progressValue >= TOTAL_SCROLL_TIME) {
@@ -441,11 +451,10 @@
             progressValue = 0;
             
             if (document.hidden) {
-              // Se estiver em background, o scroll da tela e o observer param de funcionar.
-              // Então avançamos o índice manualmente e lemos o próximo card.
+              // Em background, o setInterval cai para 1000ms, mas usando Date.now() 
+              // garantimos que ele conte os 4 segundos corretamente.
               currentCardIndex++;
               if (currentCardIndex >= feedCards.length - 2) appendCards(5);
-              // Fazemos o scroll apenas para manter a interface o mais sincronizada possível
               document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'instant' });
               setTimeout(() => { if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]); }, 100);
             } else {
