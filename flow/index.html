@@ -302,38 +302,43 @@
       return EDUCATIONAL_TOPICS[Math.floor(Math.random() * EDUCATIONAL_TOPICS.length)];
     }
 
-    // Busca Shorts Educativos na API
-    async function fetchEducationalShorts() {
-      const topic = getRandomTopic();
-      const query = `${topic} #shorts`;
-      let searchData = null;
+    // Busca Shorts Educativos na API com tentativas
+    async function fetchEducationalShorts(retries = 3) {
+      for (let attempt = 0; attempt < retries; attempt++) {
+        const topic = getRandomTopic();
+        // Usando aspas para forçar a busca exata dos termos principais, e adicionando shorts
+        const query = `${topic} shorts`;
+        
+        for (const instance of INVIDIOUS_INSTANCES) {
+          try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 6000);
+            
+            // Buscar vídeos
+            const res = await fetch(`${instance}/api/v1/search?q=${encodeURIComponent(query)}&type=video`, { signal: controller.signal });
+            clearTimeout(timeoutId);
 
-      for (const instance of INVIDIOUS_INSTANCES) {
-        try {
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 5000);
-          
-          // Buscar vídeos
-          const res = await fetch(`${instance}/api/v1/search?q=${encodeURIComponent(query)}&type=video`, { signal: controller.signal });
-          clearTimeout(timeoutId);
-
-          if (res.ok) {
-            const data = await res.json();
-            // Filtrar apenas vídeos curtos (menos de 65 segundos) e ignorar transmissões ao vivo
-            const shorts = data.filter(v => v.lengthSeconds && v.lengthSeconds <= 65 && !v.liveNow);
-            if (shorts.length > 0) {
-              // Pegar URLs diretas de stream para os vídeos
-              for(let s of shorts) {
-                  s.streamUrl = `${instance}/latest_version?id=${s.videoId}&itag=18`;
+            if (res.ok) {
+              const data = await res.json();
+              if (Array.isArray(data)) {
+                // Filtrar apenas vídeos curtos (menos de 65 segundos) e ignorar transmissões ao vivo
+                const shorts = data.filter(v => v.lengthSeconds > 0 && v.lengthSeconds <= 65 && !v.liveNow);
+                if (shorts.length > 0) {
+                  // Pegar URLs diretas de stream para os vídeos
+                  for(let s of shorts) {
+                      s.streamUrl = `${instance}/latest_version?id=${s.videoId}&itag=18`;
+                  }
+                  return shorts; // Sucesso! Achamos vídeos
+                }
               }
-              return shorts;
             }
+          } catch (e) {
+            console.warn(`Instância falhou: ${instance}`);
           }
-        } catch (e) {
-          console.warn(`Instância falhou: ${instance}`);
         }
+        console.log(`Tentativa ${attempt + 1} para o tópico "${topic}" não retornou Shorts. Tentando outro...`);
       }
-      return [];
+      return []; // Falhou após todas as tentativas
     }
 
     // Inicializar o Observer para auto-play/pause
