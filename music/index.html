@@ -224,7 +224,7 @@
 
     /* Barra Superior de Busca */
     .top-bar {
-      padding: 20px 32px;
+      padding: calc(env(safe-area-inset-top, 0px) + 20px) 32px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -841,7 +841,7 @@
       .music-title { font-size: 13px; }
       .music-author { font-size: 11px; }
       .art-wrapper { width: 40px; height: 40px; min-width: 40px; min-height: 40px; margin-bottom: 0; }
-      .top-bar { padding: 12px 16px; }
+      .top-bar { padding: calc(env(safe-area-inset-top, 0px) + 12px) 16px 12px; }
       #shareTrackBtn { display: none !important; }
     }
     /* Toast de notificação */
