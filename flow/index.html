@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>LivrePlay Flow</title>
+  <title>LivrePlay Flow - Tinder do Conhecimento</title>
   <link rel="manifest" href="../manifest.json">
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,11 +12,10 @@
 
   <style>
     :root {
-      --bg-dark: #000000;
-      --accent: #ff8c00; /* Laranja do Flow */
-      --accent-hover: #ff7000;
+      --bg-dark: #050505;
+      --accent: #ff8c00; /* Laranja Flow */
       --text: #ffffff;
-      --text-muted: #aaaaaa;
+      --text-muted: #888888;
     }
 
     * {
@@ -30,562 +29,342 @@
       background-color: var(--bg-dark);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      overflow: hidden; /* Evita scroll padrão da página inteira */
+      overflow: hidden; 
     }
 
     .flow-container {
       height: 100vh;
       width: 100vw;
       overflow-y: scroll;
-      -webkit-overflow-scrolling: touch; /* Essencial para scroll suave no iOS */
+      -webkit-overflow-scrolling: touch;
       scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
-      /* Ocultar barra de rolagem */
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
     .flow-container::-webkit-scrollbar {
       display: none;
     }
 
-    /* Cada Card de Vídeo */
-    .video-card {
-      height: 100vh;
-      width: 100vw;
-      scroll-snap-align: start;
-      position: relative;
-      background-color: #111;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .video-player {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Barra Superior Fixa (z-index alto, fixo na tela) */
+    /* Barra Superior Fixa */
     .top-nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      top: 0; left: 0; width: 100%;
       z-index: 100;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-      padding: calc(env(safe-area-inset-top, 0px) + 15px) 20px 20px;
+      background: linear-gradient(to bottom, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0) 100%);
+      padding: calc(env(safe-area-inset-top, 0px) + 20px) 20px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      pointer-events: none; /* Deixa os cliques passarem se não for no botão */
+      pointer-events: none;
     }
-
-    .top-nav > * {
-      pointer-events: auto;
-    }
+    .top-nav > * { pointer-events: auto; }
 
     .back-btn {
       color: #fff;
       text-decoration: none;
       font-size: 24px;
       font-weight: bold;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
       width: 40px; height: 40px;
       display: flex; align-items: center; justify-content: center;
       border-radius: 50%;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.2s;
     }
+    .back-btn:active { background: rgba(255,255,255,0.15); }
 
     .logo-text {
       font-size: 18px;
       font-weight: 700;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      letter-spacing: -0.5px;
     }
-    .logo-text span {
-      color: var(--accent);
-    }
+    .logo-text span { color: var(--accent); }
 
-    /* Informações do Vídeo (Canto inferior esquerdo) */
-    .video-info {
-      position: absolute;
-      bottom: env(safe-area-inset-bottom, 20px);
-      left: 15px;
-      width: calc(100% - 80px); /* Deixa espaço pra barra lateral */
-      z-index: 10;
-      padding-bottom: 20px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-    }
-    
-    .video-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .channel-name {
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-
-    /* Ações Laterais (Canto inferior direito) */
-    .side-actions {
-      position: absolute;
-      bottom: calc(env(safe-area-inset-bottom, 20px) + 20px);
-      right: 10px;
+    /* Cada Card de Conhecimento */
+    .knowledge-card {
+      height: 100vh;
+      width: 100vw;
+      scroll-snap-align: start;
+      position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      z-index: 10;
-    }
-
-    .action-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-    }
-    .action-btn svg {
-      width: 35px;
-      height: 35px;
-      margin-bottom: 5px;
-      transition: transform 0.2s;
-    }
-    .action-btn:active svg {
-      transform: scale(0.9);
-    }
-    .action-text {
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    /* O Botão Mágico: Mergulhar Fundo */
-    .deep-dive-btn {
-      background: linear-gradient(135deg, var(--accent), #0051ff);
-      border: none;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      color: #fff;
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: pulse 2s infinite;
-    }
-    .deep-dive-btn:active {
-      transform: scale(0.9);
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
-      70% { box-shadow: 0 0 0 15px rgba(0, 212, 255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+      padding: 40px;
+      background: radial-gradient(circle at center, #111111 0%, #050505 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* Loading Inicial */
-    .loading-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: var(--bg-dark);
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.5s;
-    }
-    .spinner {
-      width: 50px; height: 50px;
-      border: 4px solid rgba(0, 212, 255, 0.2);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-
-    .play-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80px; height: 80px;
-      background: rgba(0,0,0,0.5);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    /* Indicador de Swipe para Cima */
-    .swipe-up-indicator {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.7);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 20;
-      pointer-events: none;
-      animation: bounceUp 2s infinite;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-    }
-    .swipe-up-indicator svg {
-      width: 30px;
-      height: 30px;
-      margin-bottom: -5px;
-    }
-    .swipe-up-text {
+    .topic-badge {
+      align-self: flex-start;
+      background: rgba(255, 140, 0, 0.1);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 20px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 140, 0, 0.3);
+      animation: fadeIn 1s ease-out;
     }
-    @keyframes bounceUp {
+
+    .quote-text {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 30px;
+      letter-spacing: -0.5px;
+      color: #f4f4f5;
+      text-wrap: balance;
+      animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .quote-text strong {
+      color: var(--accent);
+    }
+
+    .author-text {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 1s 0.5s forwards;
+    }
+
+    .deep-dive-btn {
+      align-self: center;
+      background: linear-gradient(135deg, var(--accent), #ff5e00);
+      color: #fff;
+      border: none;
+      padding: 18px 40px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: slideUpFade 0.8s 0.3s forwards;
+    }
+    .deep-dive-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+    }
+    .deep-dive-btn svg {
+      width: 24px; height: 24px;
+    }
+
+    .swipe-indicator {
+      position: absolute;
+      bottom: calc(env(safe-area-inset-bottom, 20px) + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: rgba(255,255,255,0.4);
+      animation: bounce 2s infinite;
+      pointer-events: none;
+    }
+    .swipe-indicator span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    @keyframes slideUpFade {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
       40% { transform: translate(-50%, -10px); }
       60% { transform: translate(-50%, -5px); }
     }
+
+    /* Padrão visual de fundo */
+    .bg-pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+    }
+
   </style>
   <script>
-    // Bloquear Pinch-to-Zoom no iOS sem quebrar o scroll vertical
     document.addEventListener('gesturestart', function (e) { e.preventDefault(); });
     document.addEventListener('gesturechange', function (e) { e.preventDefault(); });
     document.addEventListener('gestureend', function (e) { e.preventDefault(); });
     document.addEventListener('touchmove', function (e) {
-      // Bloqueia apenas se tiver mais de um dedo tocando a tela (pinch zoom)
-      // O e.scale !== 1 foi removido pois no Android é undefined e quebrava o scroll normal
-      if (e.touches && e.touches.length > 1) { 
-        e.preventDefault(); 
-      }
+      if (e.touches && e.touches.length > 1) { e.preventDefault(); }
     }, { passive: false });
   </script>
 </head>
 <body>
 
-  <!-- Loading State -->
-  <div class="loading-overlay" id="loadingOverlay">
-    <div class="spinner"></div>
-    <p style="margin-top: 20px; font-weight: 600; color: var(--accent);">Curando conhecimento...</p>
-  </div>
-
-  <!-- Top Navigation -->
   <nav class="top-nav">
     <a href="../" class="back-btn">←</a>
     <div class="logo-text">LivrePlay <span>Flow</span></div>
-    <div style="width: 40px;"></div> <!-- Spacer para centralizar -->
+    <div style="width: 40px;"></div> 
   </nav>
 
-  <!-- Feed Container -->
   <div class="flow-container" id="flowContainer">
-    <!-- Cards de vídeo serão injetados aqui via JS -->
+    <!-- Cards injetados via JS -->
   </div>
 
   <script>
-    // Tópicos Educacionais para Curadoria (O "Filtro de Ouro")
-    const EDUCATIONAL_TOPICS = [
-      "inteligência artificial ai",
-      "física quântica",
-      "criptomoedas e blockchain",
-      "saúde natural e longevidade",
-      "alimentos saudáveis",
-      "forma física e treinos",
-      "esportes com melhoramento humano",
-      "ciência das coisas",
-      "aprendizado acelerado",
-      "finanças pessoais",
-      "investimentos inteligentes",
-      "como sair das dívidas",
-      "vida equilibrada",
-      "vida de verdade sem filtros",
-      "minimalismo estilo de vida",
-      "essencialismo",
-      "viver com menos e aproveitar mais"
-    ];
-
-    const FALLBACK_INSTANCES = [
-      'https://invidious.nerdvpn.de',
-      'https://invidious.perennialte.ch',
-      'https://invidious.jing.rocks',
-      'https://yewtu.be'
-    ];
-    let INVIDIOUS_INSTANCES = [...FALLBACK_INSTANCES];
-
-    async function loadDynamicInstances() {
-      try {
-        const res = await fetch('https://api.invidious.io/instances.json');
-        if (res.ok) {
-          const instancesJson = await res.json();
-          const dynamicInstances = [];
-          for (const [name, info] of instancesJson) {
-            if (info.type === 'https' && info.api && (info.cors || info.uri)) {
-              dynamicInstances.push(info.uri || `https://${name}`);
-            }
-          }
-          if (dynamicInstances.length > 0) {
-            INVIDIOUS_INSTANCES = [...new Set([...dynamicInstances, ...FALLBACK_INSTANCES])];
-          }
-        }
-      } catch (e) {
-        console.log("Falha ao carregar instâncias dinâmicas", e);
+    // Banco de Dados "Tinder de Ideias"
+    const KNOWLEDGE_CARDS = [
+      {
+        topic: "Inteligência Artificial",
+        quote: "O algoritmo não prevê o futuro. Ele cria o <strong>comportamento necessário</strong> para que o futuro previsto aconteça.",
+        author: "Ciência de Dados",
+        searchQuery: "como algoritmos moldam comportamento inteligencia artificial"
+      },
+      {
+        topic: "Física Quântica",
+        quote: "Na escala quântica, a observação altera a realidade. O universo é um mar de <strong>infinitas possibilidades</strong> até que você decida olhar.",
+        author: "Mecânica Quântica",
+        searchQuery: "física quântica dupla fenda explicação"
+      },
+      {
+        topic: "Minimalismo",
+        quote: "O minimalismo não é sobre ter menos coisas. É sobre ter <strong>espaço</strong> para as coisas que realmente importam.",
+        author: "Essencialismo",
+        searchQuery: "minimalismo como começar vida essencialista"
+      },
+      {
+        topic: "Finanças",
+        quote: "Juros compostos são a 8ª maravilha do mundo. Quem entende, <strong>ganha</strong>. Quem não entende, <strong>paga</strong>.",
+        author: "Albert Einstein (Atribuído)",
+        searchQuery: "como funcionam juros compostos investimentos"
+      },
+      {
+        topic: "Biohacking",
+        quote: "Seu cérebro é neuroplástico. Cada hábito repetido constrói literalmente uma <strong>nova rodovia física</strong> na sua mente.",
+        author: "Neurociência Prática",
+        searchQuery: "neuroplasticidade como mudar habitos biohacking"
+      },
+      {
+        topic: "Produtividade",
+        quote: "Estar ocupado não é o mesmo que ser produtivo. A maioria das pessoas passa o dia <strong>correndo em uma esteira</strong> sem sair do lugar.",
+        author: "Gestão do Tempo",
+        searchQuery: "produtividade vs ocupação essencialismo"
+      },
+      {
+        topic: "Saúde & Longevidade",
+        quote: "O sono não é um luxo, é o seu <strong>sistema de suporte vital</strong>. É o maior biohack que existe.",
+        author: "Medicina do Sono",
+        searchQuery: "importância do sono profundo saude matthew walker"
+      },
+      {
+        topic: "Psicologia",
+        quote: "Você não é os seus pensamentos. Você é a <strong>consciência</strong> que observa eles passarem.",
+        author: "Atenção Plena",
+        searchQuery: "mindfulness meditação atenção plena"
+      },
+      {
+        topic: "Aprendizado",
+        quote: "Você não aprende lendo passivamente. Você aprende quando tenta <strong>explicar o conceito</strong> de forma simples para alguém.",
+        author: "Técnica Feynman",
+        searchQuery: "técnica de feynman aprendizado acelerado"
+      },
+      {
+        topic: "Criptomoedas",
+        quote: "O Bitcoin não é apenas uma moeda. É o primeiro <strong>banco central matemático</strong> e incorruptível da história humana.",
+        author: "Economia Descentralizada",
+        searchQuery: "o que é bitcoin descentralização blockchain"
+      },
+      {
+        topic: "Filosofia Estoica",
+        quote: "Nós sofremos mais na <strong>imaginação</strong> do que na realidade.",
+        author: "Sêneca",
+        searchQuery: "estoicismo como parar de sofrer por antecipação"
+      },
+      {
+        topic: "Ciência das Coisas",
+        quote: "Você é feito de <strong>poeira estelar</strong>. O ferro no seu sangue foi forjado no núcleo de uma estrela em explosão.",
+        author: "Astrofísica",
+        searchQuery: "somos feitos de poeira de estrelas astrofísica"
       }
+    ];
+
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
     }
 
-    let currentVideos = [];
-    let isLoading = false;
-    let observer = null;
-
-    // Sorteia um termo de busca
-    function getRandomTopic() {
-      return EDUCATIONAL_TOPICS[Math.floor(Math.random() * EDUCATIONAL_TOPICS.length)];
-    }
-
-    // Busca Shorts Educativos na API com tentativas
-    async function fetchEducationalShorts(retries = 10) {
-      for (let attempt = 0; attempt < retries; attempt++) {
-        // Se já tentou muitas vezes, apela pra uma busca garantida
-        const topic = attempt > 6 ? "curiosidades" : getRandomTopic();
-        const query = `${topic} shorts`;
-        
-        // Embaralha as instâncias para não ficar batendo sempre na mesma
-        const shuffledInstances = [...INVIDIOUS_INSTANCES].sort(() => 0.5 - Math.random());
-        
-        for (const instance of shuffledInstances.slice(0, 3)) { // Tenta em até 3 instâncias por tópico
-          try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 6000);
+    function createCardHTML(cardData, isFirst) {
+      return `
+        <div class="knowledge-card">
+          <div class="bg-pattern"></div>
+          <div class="content-wrapper">
+            <div class="topic-badge">${cardData.topic}</div>
+            <h1 class="quote-text">"${cardData.quote}"</h1>
+            <p class="author-text">— ${cardData.author}</p>
             
-            const res = await fetch(`${instance}/api/v1/search?q=${encodeURIComponent(query)}&type=video`, { signal: controller.signal });
-            clearTimeout(timeoutId);
-
-            if (res.ok) {
-              const data = await res.json();
-              if (Array.isArray(data)) {
-                // Filtrar vídeos curtos OU vídeos que não tem length explícito mas o título/query indica short
-                const shorts = data.filter(v => {
-                  if (v.liveNow) return false;
-                  if (v.lengthSeconds > 0 && v.lengthSeconds <= 65) return true;
-                  if (!v.lengthSeconds && v.title && v.title.toLowerCase().includes('shorts')) return true;
-                  return false;
-                });
-                
-                if (shorts.length > 0) {
-                  for(let s of shorts) {
-                      s.instanceUrl = instance; // Salvar a instância para montar os sources depois
-                  }
-                  return shorts; // Sucesso
-                }
-              }
-            }
-          } catch (e) {
-            // Silencioso, apenas vai pra próxima instância
-          }
-        }
-        console.log(`Tentativa ${attempt + 1} para o tópico "${topic}" não retornou. Tentando outro...`);
-      }
-      return []; 
-    }
-
-    // Inicializar o Observer para auto-play/pause
-    function initObserver() {
-      const options = {
-        root: document.getElementById('flowContainer'),
-        rootMargin: '0px',
-        threshold: 0.6 // 60% visível dispara
-      };
-
-      observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const videoEl = entry.target.querySelector('video');
-          if (entry.isIntersecting) {
-            if(videoEl) {
-                videoEl.play().catch(e => console.log('Autoplay bloqueado', e));
-                // Reseta para o começo se já foi tocado
-                if(videoEl.currentTime > 0 && videoEl.ended) {
-                    videoEl.currentTime = 0;
-                }
-            }
-          } else {
-            if(videoEl) videoEl.pause();
-          }
-        });
-      }, options);
-    }
-
-    // Criar um Card de Vídeo
-    function createVideoCard(videoData, isFirst = false) {
-      const card = document.createElement('div');
-      card.className = 'video-card';
-
-      // Tratamento de Título para o Mergulho Fundo (Remover "#shorts" etc)
-      const cleanTitle = videoData.title.replace(/#shorts/gi, '').replace(/#curiosidades/gi, '').trim();
-
-      card.innerHTML = `
-        <video class="video-player" loop playsinline poster="${videoData.videoThumbnails[videoData.videoThumbnails.length - 1].url}">
-          <!-- Qualidade HD (720p) -->
-          <source src="${videoData.instanceUrl}/latest_version?id=${videoData.videoId}&itag=22" type="video/mp4">
-          <!-- Fallback SD (360p) -->
-          <source src="${videoData.instanceUrl}/latest_version?id=${videoData.videoId}&itag=18" type="video/mp4">
-        </video>
-        
-        <div class="play-overlay"><svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-        
-        ${isFirst ? `
-        <div class="swipe-up-indicator">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-          <span class="swipe-up-text">Deslize</span>
-        </div>
-        ` : ''}
-
-        <div class="video-info">
-          <div class="channel-name">@${videoData.author}</div>
-          <div class="video-title">${videoData.title}</div>
-        </div>
-
-        <div class="side-actions">
-          <button class="action-btn" onclick="toggleLike(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            <span class="action-text">Curtir</span>
-          </button>
-          
-          <button class="action-btn" onclick="shareVideo('${videoData.videoId}', '${videoData.title.replace(/'/g, "\\'")}')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-            <span class="action-text">Enviar</span>
-          </button>
-
-          <!-- Botão Disruptivo -->
-          <div style="margin-top: 20px;">
-            <button class="deep-dive-btn" title="Mergulhar Fundo no assunto" onclick="deepDive('${encodeURIComponent(cleanTitle)}')">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="28" height="28"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <button class="deep-dive-btn" onclick="deepDive('${encodeURIComponent(cardData.searchQuery)}')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Mergulhar Fundo
             </button>
-            <div style="text-align:center; font-size: 10px; font-weight: bold; margin-top:5px; text-shadow: 0 1px 2px #000;">APROFUNDAR</div>
           </div>
+          ${isFirst ? `
+          <div class="swipe-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+            <span>Deslize</span>
+          </div>
+          ` : ''}
         </div>
       `;
-
-      // Evento de Pausar/Tocar no clique
-      const videoEl = card.querySelector('.video-player');
-      const overlay = card.querySelector('.play-overlay');
-      
-      card.addEventListener('click', (e) => {
-        // Ignora clique se for nos botões laterais
-        if (e.target.closest('.side-actions') || e.target.closest('.top-nav')) return;
-        
-        if (videoEl.paused) {
-          videoEl.play();
-          overlay.style.opacity = '0';
-        } else {
-          videoEl.pause();
-          overlay.style.opacity = '1';
-        }
-      });
-
-      return card;
     }
 
-    // Lógica do Mergulho Fundo
     function deepDive(query) {
-      // Redireciona para o módulo Video com a query do assunto
       window.location.href = `../video/?search=${query}`;
     }
 
-    // Like Visual
-    function toggleLike(btn) {
-      const svg = btn.querySelector('svg');
-      if (svg.getAttribute('fill') === 'none') {
-        svg.setAttribute('fill', '#ff2a5f');
-        svg.setAttribute('stroke', '#ff2a5f');
-      } else {
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-      }
-    }
-
-    // Web Share API
-    function shareVideo(id, title) {
-      const url = `https://livreplay.com/video/?v=${id}`;
-      if (navigator.share) {
-        navigator.share({
-          title: 'Descobri no LivrePlay Flow',
-          text: `Olha esse insight incrível: ${title}`,
-          url: url
-        }).catch(console.error);
-      } else {
-        navigator.clipboard.writeText(url);
-        alert('Link copiado!');
-      }
-    }
-
-    // Infinite Scroll (Carregar mais ao chegar no fim)
-    document.getElementById('flowContainer').addEventListener('scroll', async (e) => {
-      const container = e.target;
-      if (container.scrollTop + container.clientHeight >= container.scrollHeight - 100) {
-        if (!isLoading) {
-          await loadMoreVideos();
-        }
-      }
-    });
-
-    async function loadMoreVideos() {
-      isLoading = true;
-      const newShorts = await fetchEducationalShorts();
-      if (newShorts.length > 0) {
-        newShorts.forEach((s, index) => {
-          // Passar isFirst=true apenas se for o primeiríssimo vídeo carregado no container inteiro
-          const isFirstEver = document.getElementById('flowContainer').children.length === 0 && index === 0;
-          const card = createVideoCard(s, isFirstEver);
-          document.getElementById('flowContainer').appendChild(card);
-          observer.observe(card);
-        });
-      }
-      isLoading = false;
-    }
-
-    // Inicialização
-    async function init() {
-      await loadDynamicInstances();
-      initObserver();
-      await loadMoreVideos();
+    function init() {
+      const container = document.getElementById('flowContainer');
+      const shuffledCards = shuffleArray(KNOWLEDGE_CARDS);
       
-      if(document.getElementById('flowContainer').children.length === 0) {
-         alert('Não foi possível carregar os vídeos agora. Tente novamente mais tarde.');
-      } else {
-         // Ocultar loading
-         document.getElementById('loadingOverlay').style.opacity = '0';
-         setTimeout(() => document.getElementById('loadingOverlay').style.display = 'none', 500);
-         
-         // Tenta dar play no primeiro
-         const firstVid = document.querySelector('.video-player');
-         if(firstVid) {
-             firstVid.play().catch(() => {
-                 // Autoplay bloqueado pelo navegador
-                 document.querySelector('.play-overlay').style.opacity = '1';
-             });
-         }
-      }
+      // Multiplica os cards para dar a sensação de feed infinito (loop)
+      const feed = [...shuffledCards, ...shuffledCards, ...shuffledCards];
+
+      let html = '';
+      feed.forEach((card, index) => {
+        html += createCardHTML(card, index === 0);
+      });
+
+      container.innerHTML = html;
     }
 
-    // Iniciar quando dom carregar
-    window.addEventListener('DOMContentLoaded', init);
-
+    document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
