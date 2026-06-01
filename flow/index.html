@@ -263,6 +263,11 @@
     </button>
   </nav>
 
+  <!-- Música Clássica de Fundo (Atenção Plena) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/2/25/Frederic_Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.ogg" type="audio/ogg">
+  </audio>
+
   <div class="flow-container" id="flowContainer">
     <!-- Cards injetados via JS -->
   </div>
@@ -381,9 +386,14 @@
       document.getElementById('icon-muted').style.display = isSoundOn ? 'none' : 'block';
       document.getElementById('icon-sound').style.display = isSoundOn ? 'block' : 'none';
       
+      const bgMusic = document.getElementById('bgMusic');
+      bgMusic.volume = 0.15; // Volume baixo para atenção plena
+
       if (isSoundOn) {
+        bgMusic.play().catch(e => console.log("Music play blocked:", e));
         if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]);
       } else {
+        bgMusic.pause();
         window.speechSynthesis.cancel();
         clearAutoScroll();
       }
@@ -400,6 +410,7 @@
       if (!isSoundOn || isPaused) return;
       isPaused = true;
       window.speechSynthesis.pause();
+      document.getElementById('bgMusic').pause();
       clearInterval(progressBarInterval);
     }
 
@@ -407,6 +418,7 @@
       if (!isSoundOn || !isPaused) return;
       isPaused = false;
       window.speechSynthesis.resume();
+      document.getElementById('bgMusic').play().catch(e => console.log(e));
       
       if (progressValue > 0 && progressValue < TOTAL_SCROLL_TIME) {
          startProgressBar(feedCards[currentCardIndex]);
@@ -447,7 +459,16 @@
       
       const voices = window.speechSynthesis.getVoices();
       const ptVoices = voices.filter(v => v.lang.includes('pt-BR'));
-      if(ptVoices.length > 0) currentUtterance.voice = ptVoices[0];
+      if(ptVoices.length > 0) {
+        // Tenta encontrar uma voz de maior qualidade
+        const bestVoice = ptVoices.find(v => 
+          v.name.includes('Premium') || 
+          v.name.includes('Google') || 
+          v.name.includes('Natural') || 
+          v.name.includes('Luciana') // Voz excelente nativa do macOS/iOS
+        );
+        currentUtterance.voice = bestVoice || ptVoices[0];
+      }
 
       currentUtterance.onend = () => {
         if(isPaused) return;
@@ -552,13 +573,16 @@
 
     // Visibility change handling
     document.addEventListener('visibilitychange', () => {
+      const bgMusic = document.getElementById('bgMusic');
       if (document.hidden) {
         if (isSoundOn) {
             window.speechSynthesis.cancel();
+            bgMusic.pause();
             clearAutoScroll();
         }
       } else {
         if (isSoundOn && feedCards[currentCardIndex]) {
+            bgMusic.play().catch(e => console.log(e));
             readCard(feedCards[currentCardIndex]);
         }
       }
