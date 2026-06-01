@@ -344,11 +344,30 @@
       }
     ];
 
+    const TOPIC_COLORS = {
+      "Inteligência Artificial": { bg: "#0a192f", badge: "#64ffda", rgb: "100, 255, 218" },
+      "Física Quântica": { bg: "#1a0b2e", badge: "#d6bcfa", rgb: "214, 188, 250" },
+      "Minimalismo": { bg: "#1a1a1a", badge: "#e2e8f0", rgb: "226, 232, 240" },
+      "Finanças": { bg: "#0d241b", badge: "#68d391", rgb: "104, 211, 145" },
+      "Biohacking": { bg: "#142c14", badge: "#9ae6b4", rgb: "154, 230, 180" },
+      "Produtividade": { bg: "#2a1610", badge: "#f6ad55", rgb: "246, 173, 85" },
+      "Saúde & Longevidade": { bg: "#221124", badge: "#f687b3", rgb: "246, 135, 179" },
+      "Psicologia": { bg: "#0b1b36", badge: "#90cdf4", rgb: "144, 205, 244" },
+      "Aprendizado": { bg: "#262208", badge: "#faf089", rgb: "250, 240, 137" },
+      "Criptomoedas": { bg: "#2b1c06", badge: "#fbd38d", rgb: "251, 211, 141" },
+      "Filosofia Estoica": { bg: "#222222", badge: "#a0aec0", rgb: "160, 174, 192" },
+      "Ciência das Coisas": { bg: "#1c0d2e", badge: "#b794f4", rgb: "183, 148, 244" }
+    };
+
     let isSoundOn = false;
-    let autoScrollTimer = null;
     let progressBarInterval = null;
     let observer = null;
     let currentCardIndex = -1;
+    let currentUtterance = null;
+    let isPaused = false;
+    let progressValue = 0;
+    const TOTAL_SCROLL_TIME = 4000;
+    let feedCards = [];
 
     // Remove tags HTML (como <strong>) para a leitura limpa da voz
     function stripHtml(html) {
@@ -363,9 +382,7 @@
       document.getElementById('icon-sound').style.display = isSoundOn ? 'block' : 'none';
       
       if (isSoundOn) {
-        // Tenta ler o card atual imediatamente
-        const cards = document.querySelectorAll('.knowledge-card');
-        if(cards[currentCardIndex]) readCard(cards[currentCardIndex]);
+        if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]);
       } else {
         window.speechSynthesis.cancel();
         clearAutoScroll();
@@ -373,71 +390,110 @@
     }
 
     function clearAutoScroll() {
-      clearTimeout(autoScrollTimer);
       clearInterval(progressBarInterval);
       const activeBars = document.querySelectorAll('.progress-bar');
       activeBars.forEach(bar => bar.style.width = '0%');
+      progressValue = 0;
+    }
+
+    function pausePlayback() {
+      if (!isSoundOn || isPaused) return;
+      isPaused = true;
+      window.speechSynthesis.pause();
+      clearInterval(progressBarInterval);
+    }
+
+    function resumePlayback() {
+      if (!isSoundOn || !isPaused) return;
+      isPaused = false;
+      window.speechSynthesis.resume();
+      
+      if (progressValue > 0 && progressValue < TOTAL_SCROLL_TIME) {
+         startProgressBar(feedCards[currentCardIndex]);
+      }
+    }
+
+    function startProgressBar(cardElement) {
+        if(!cardElement) return;
+        const progressBar = cardElement.querySelector('.progress-bar');
+        const interval = 50;
+
+        progressBarInterval = setInterval(() => {
+          if(isPaused) return;
+          progressValue += interval;
+          if(progressBar) progressBar.style.width = `${(progressValue/TOTAL_SCROLL_TIME)*100}%`;
+          
+          if (progressValue >= TOTAL_SCROLL_TIME) {
+            clearInterval(progressBarInterval);
+            progressValue = 0;
+            document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+          }
+        }, interval);
     }
 
     function readCard(cardElement) {
       clearAutoScroll();
       window.speechSynthesis.cancel();
+      isPaused = false;
 
       if (!isSoundOn) return;
 
       const textToRead = cardElement.getAttribute('data-quote');
       if (!textToRead) return;
 
-      const utterance = new SpeechSynthesisUtterance(textToRead);
-      utterance.lang = 'pt-BR';
-      utterance.rate = 1.05; // Velocidade ligeiramente rápida para manter engajamento
+      currentUtterance = new SpeechSynthesisUtterance(textToRead);
+      currentUtterance.lang = 'pt-BR';
+      currentUtterance.rate = 1.05;
       
-      // Tentar pegar uma voz do Google ou natural se existir
       const voices = window.speechSynthesis.getVoices();
       const ptVoices = voices.filter(v => v.lang.includes('pt-BR'));
-      if(ptVoices.length > 0) utterance.voice = ptVoices[0];
+      if(ptVoices.length > 0) currentUtterance.voice = ptVoices[0];
 
-      utterance.onend = () => {
-        // Inicia a barra de progresso para o auto-scroll (4 segundos)
-        const progressBar = cardElement.querySelector('.progress-bar');
-        let progress = 0;
-        const totalTime = 4000; 
-        const interval = 50;
-
-        progressBarInterval = setInterval(() => {
-          progress += interval;
-          if(progressBar) progressBar.style.width = `${(progress/totalTime)*100}%`;
-          
-          if (progress >= totalTime) {
-            clearInterval(progressBarInterval);
-            // Faz o scroll automático para o próximo
-            document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-          }
-        }, interval);
+      currentUtterance.onend = () => {
+        if(isPaused) return;
+        startProgressBar(cardElement);
       };
 
-      window.speechSynthesis.speak(utterance);
+      window.speechSynthesis.speak(currentUtterance);
+    }
+
+    function appendCards(count) {
+       const container = document.getElementById('flowContainer');
+       const newCards = shuffleArray(KNOWLEDGE_CARDS).slice(0, count);
+       
+       newCards.forEach((card) => {
+         const isFirst = feedCards.length === 0;
+         const wrapper = document.createElement('div');
+         wrapper.innerHTML = createCardHTML(card, isFirst);
+         const cardEl = wrapper.firstElementChild;
+         container.appendChild(cardEl);
+         feedCards.push(cardEl);
+         if(observer) observer.observe(cardEl);
+       });
     }
 
     function initObserver() {
       const options = {
         root: document.getElementById('flowContainer'),
         rootMargin: '0px',
-        threshold: 0.6 // Dispara quando o card está 60% visível
+        threshold: 0.6
       };
 
       observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const index = Array.from(document.querySelectorAll('.knowledge-card')).indexOf(entry.target);
+            const index = feedCards.indexOf(entry.target);
             currentCardIndex = index;
             readCard(entry.target);
+
+            if (index >= feedCards.length - 2) {
+              appendCards(5);
+            }
           }
         });
       }, options);
 
-      // Observar todos os cards criados
-      document.querySelectorAll('.knowledge-card').forEach(card => observer.observe(card));
+      feedCards.forEach(card => observer.observe(card));
     }
 
     function shuffleArray(array) {
@@ -451,11 +507,12 @@
 
     function createCardHTML(cardData, isFirst) {
       const cleanQuote = stripHtml(cardData.quote);
+      const color = TOPIC_COLORS[cardData.topic] || { bg: "#111111", badge: "var(--accent)", rgb: "255, 140, 0" };
       return `
-        <div class="knowledge-card" data-quote="${cleanQuote}">
+        <div class="knowledge-card" data-quote="${cleanQuote}" style="background: radial-gradient(circle at center, ${color.bg} 0%, #050505 100%);">
           <div class="bg-pattern"></div>
           <div class="content-wrapper">
-            <div class="topic-badge">${cardData.topic}</div>
+            <div class="topic-badge" style="color: ${color.badge}; background: rgba(${color.rgb}, 0.1); border-color: rgba(${color.rgb}, 0.3);">${cardData.topic}</div>
             <h1 class="quote-text">"${cardData.quote}"</h1>
             <p class="author-text">— ${cardData.author}</p>
             
@@ -480,29 +537,32 @@
     }
 
     function init() {
-      const container = document.getElementById('flowContainer');
-      const shuffledCards = shuffleArray(KNOWLEDGE_CARDS);
-      
-      // Multiplica os cards para dar a sensação de feed infinito (loop)
-      const feed = [...shuffledCards, ...shuffledCards, ...shuffledCards];
-
-      let html = '';
-      feed.forEach((card, index) => {
-        html += createCardHTML(card, index === 0);
-      });
-
-      container.innerHTML = html;
-      
-      // Carrega as vozes da API para garantir que não tenha delay
+      appendCards(5);
       window.speechSynthesis.getVoices();
-      
-      // Inicia a observação para o TTS
-      setTimeout(initObserver, 500); // Pequeno atraso para o DOM renderizar
+      setTimeout(initObserver, 500);
     }
 
-    // Cancelar voz e scroll se o usuário tocar na tela (interação manual)
-    document.addEventListener('touchstart', clearAutoScroll, {passive: true});
-    document.addEventListener('mousedown', clearAutoScroll, {passive: true});
+    // Touch and Hold handling
+    const container = document.getElementById('flowContainer');
+    container.addEventListener('touchstart', pausePlayback, {passive: true});
+    container.addEventListener('touchend', resumePlayback, {passive: true});
+    container.addEventListener('mousedown', pausePlayback, {passive: true});
+    container.addEventListener('mouseup', resumePlayback, {passive: true});
+    container.addEventListener('mouseleave', resumePlayback, {passive: true});
+
+    // Visibility change handling
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (isSoundOn) {
+            window.speechSynthesis.cancel();
+            clearAutoScroll();
+        }
+      } else {
+        if (isSoundOn && feedCards[currentCardIndex]) {
+            readCard(feedCards[currentCardIndex]);
+        }
+      }
+    });
 
     document.addEventListener('DOMContentLoaded', init);
   </script>
