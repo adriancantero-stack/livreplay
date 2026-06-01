@@ -33,11 +33,11 @@
       overflow: hidden; /* Evita scroll padrão da página inteira */
     }
 
-    /* Container de Scroll Snap */
     .flow-container {
       height: 100vh;
       width: 100vw;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch; /* Essencial para scroll suave no iOS */
       scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
       /* Ocultar barra de rolagem */
@@ -266,12 +266,16 @@
     }
   </style>
   <script>
-    // Bloquear Pinch-to-Zoom no iOS
+    // Bloquear Pinch-to-Zoom no iOS sem quebrar o scroll vertical
     document.addEventListener('gesturestart', function (e) { e.preventDefault(); });
     document.addEventListener('gesturechange', function (e) { e.preventDefault(); });
     document.addEventListener('gestureend', function (e) { e.preventDefault(); });
     document.addEventListener('touchmove', function (e) {
-      if (e.touches && e.touches.length > 1 || e.scale !== 1) { e.preventDefault(); }
+      // Bloqueia apenas se tiver mais de um dedo tocando a tela (pinch zoom)
+      // O e.scale !== 1 foi removido pois no Android é undefined e quebrava o scroll normal
+      if (e.touches && e.touches.length > 1) { 
+        e.preventDefault(); 
+      }
     }, { passive: false });
   </script>
 </head>
