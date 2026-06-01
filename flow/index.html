@@ -265,7 +265,8 @@
 
   <!-- Música Clássica de Fundo (Atenção Plena) -->
   <audio id="bgMusic" loop preload="auto">
-    <source src="https://upload.wikimedia.org/wikipedia/commons/2/25/Frederic_Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.ogg" type="audio/ogg">
+    <!-- Gymnopedie No 1 - Erik Satie (Domínio Público MP3) -->
+    <source src="https://ia800504.us.archive.org/33/items/GymnopedieNo.1/Gymnopedie_No_1.mp3" type="audio/mpeg">
   </audio>
 
   <div class="flow-container" id="flowContainer">
@@ -438,7 +439,18 @@
           if (progressValue >= TOTAL_SCROLL_TIME) {
             clearInterval(progressBarInterval);
             progressValue = 0;
-            document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            
+            if (document.hidden) {
+              // Se estiver em background, o scroll da tela e o observer param de funcionar.
+              // Então avançamos o índice manualmente e lemos o próximo card.
+              currentCardIndex++;
+              if (currentCardIndex >= feedCards.length - 2) appendCards(5);
+              // Fazemos o scroll apenas para manter a interface o mais sincronizada possível
+              document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'instant' });
+              setTimeout(() => { if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]); }, 100);
+            } else {
+              document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            }
           }
         }, interval);
     }
@@ -561,6 +573,31 @@
       appendCards(5);
       window.speechSynthesis.getVoices();
       setTimeout(initObserver, 500);
+
+      // Configurar MediaSession para aparecer na tela de bloqueio do celular
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'LivrePlay Flow',
+          artist: 'Atenção Plena',
+          album: 'Conhecimento Infinito',
+          artwork: [
+            { src: '../logo-flow.png', sizes: '512x512', type: 'image/png' }
+          ]
+        });
+
+        navigator.mediaSession.setActionHandler('play', resumePlayback);
+        navigator.mediaSession.setActionHandler('pause', pausePlayback);
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+           if(isPaused) resumePlayback();
+           clearInterval(progressBarInterval);
+           document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+           if(document.hidden) {
+              currentCardIndex++;
+              if (currentCardIndex >= feedCards.length - 2) appendCards(5);
+              readCard(feedCards[currentCardIndex]);
+           }
+        });
+      }
     }
 
     // Touch and Hold handling
@@ -573,18 +610,14 @@
 
     // Visibility change handling
     document.addEventListener('visibilitychange', () => {
-      const bgMusic = document.getElementById('bgMusic');
-      if (document.hidden) {
-        if (isSoundOn) {
-            window.speechSynthesis.cancel();
-            bgMusic.pause();
-            clearAutoScroll();
-        }
-      } else {
-        if (isSoundOn && feedCards[currentCardIndex]) {
-            bgMusic.play().catch(e => console.log(e));
-            readCard(feedCards[currentCardIndex]);
-        }
+      // Quando a tela apaga ou o app é minimizado, queremos manter o áudio e a voz tocando
+      // como um podcast. O MediaSession acima + a tag <audio> ativa previnem o iOS/Android 
+      // de matar o processo na maioria dos casos.
+      
+      // Apenas sincronizamos se o usuário voltar para a aba e estiver fora de sincronia
+      if (!document.hidden && isSoundOn) {
+         // O observer tentará disparar. Se o observer se perder, já temos a garantia
+         // que o background fallback (document.hidden) leu o card.
       }
     });
 
