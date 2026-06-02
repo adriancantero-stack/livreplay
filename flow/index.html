@@ -241,6 +241,70 @@
       justify-content: center;
     }
 
+
+    /* Splash Screen */
+    #startScreen {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: #050505;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      transition: opacity 0.5s ease;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .splash-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #fff, #888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .splash-subtitle {
+      color: #888;
+      font-size: 16px;
+      margin-bottom: 40px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .splash-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 90%;
+      margin-bottom: 60px;
+    }
+    .splash-topics span {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #ddd;
+    }
+    .start-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 20px 60px;
+      border-radius: 40px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4);
+      transition: transform 0.2s;
+    }
+    .start-btn:active {
+      transform: scale(0.95);
+    }
+
   </style>
   <script>
     document.addEventListener('gesturestart', function (e) { e.preventDefault(); });
@@ -253,6 +317,23 @@
   <script src="cards.js"></script>
 </head>
 <body>
+
+  <!-- Tela Inicial (Onboarding) -->
+  <div id="startScreen">
+    <div class="splash-title">Conhecimento Profundo</div>
+    <div class="splash-subtitle">Aprenda algo novo e genial a cada deslize.</div>
+    <div class="splash-topics">
+      <span>Inteligência Artificial</span>
+      <span>Biohacking</span>
+      <span>Finanças</span>
+      <span>Estratégia</span>
+      <span>Psicologia</span>
+      <span>Física Quântica</span>
+      <span>Evolução</span>
+    </div>
+    <button class="start-btn" onclick="startJourney()">Começar Jornada</button>
+  </div>
+
 
   <nav class="top-nav">
     <a href="../" class="back-btn">←</a>
@@ -297,6 +378,48 @@
     let isSoundOn = false;
     let progressBarInterval = null;
     let observer = null;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const voicePlayer = document.getElementById('voicePlayer');
+      if(voicePlayer) {
+        voicePlayer.addEventListener('pause', () => {
+           // Se pausar via fone (fora do overlay manual) e estiver lendo
+           if (!isPaused && audioState === 'reading') {
+              isPaused = true;
+              document.getElementById('pauseOverlay').style.display = 'flex';
+              document.getElementById('bgMusic').pause();
+           }
+        });
+        voicePlayer.addEventListener('play', () => {
+           if (isPaused && audioState === 'reading') {
+              isPaused = false;
+              document.getElementById('pauseOverlay').style.display = 'none';
+              document.getElementById('bgMusic').play().catch(e=>{});
+           }
+        });
+      }
+    });
+
+    function startJourney() {
+      const splash = document.getElementById('startScreen');
+      splash.style.opacity = '0';
+      setTimeout(() => splash.style.display = 'none', 500);
+      
+      isSoundOn = true;
+      document.getElementById('icon-muted').style.display = 'none';
+      document.getElementById('icon-sound').style.display = 'block';
+      
+      const bgMusic = document.getElementById('bgMusic');
+      bgMusic.volume = 0.02;
+      bgMusic.src = bgPlaylist[currentTrackIndex];
+      bgMusic.play().catch(e => console.log("Music error:", e));
+      
+      // Inicia a carta atual se a IntersectionObserver já rodou em background
+      if (currentCardIndex >= 0 && feedCards[currentCardIndex]) {
+        readCard(currentCardIndex);
+      }
+    }
+
     let currentCardIndex = -1;
     let isPaused = false;
     let isAutoScrolling = false;
@@ -398,20 +521,8 @@
           if (progressValue >= TOTAL_SCROLL_TIME) {
             clearInterval(progressBarInterval);
             progressValue = 0;
-            
-            // Fallback: se o áudio não tocar ou for bloqueado, forçamos o scroll
-            if (audioState !== 'pausing' && audioState !== 'idle') {
-                audioState = 'idle';
-                isAutoScrolling = true;
-                currentCardIndex++;
-                if (currentCardIndex >= feedCards.length - 2) appendCards(5);
-                const nextCard = feedCards[currentCardIndex];
-                if (nextCard) {
-                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    readCard(currentCardIndex);
-                }
-                setTimeout(() => { isAutoScrolling = false; }, 1000);
-            }
+            // Remover fallback setTimeout, pois as vozes estáticas nunca travam,
+            // e ele quebrava o ritmo se o usuário pausasse.
           }
         }, interval);
     }
