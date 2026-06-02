@@ -373,6 +373,7 @@
     let progressValue = 0;
     const TOTAL_SCROLL_TIME = 4000;
     let feedCards = [];
+    let globalDeck = []; // Baralho global para garantir que não haja repetição
 
     const bgPlaylist = [
       "../assets/bg1.mp3",
@@ -395,7 +396,7 @@
       document.getElementById('icon-sound').style.display = isSoundOn ? 'block' : 'none';
       
       const bgMusic = document.getElementById('bgMusic');
-      bgMusic.volume = 0.4; // Aumentado para 40% (música clássica geralmente é muito baixa)
+      bgMusic.volume = 0.3; // Ajustado para 30% a pedido do usuário
 
       if (isSoundOn) {
         if (!bgMusic.src || bgMusic.src === "" || bgMusic.src === window.location.href) {
@@ -510,10 +511,15 @@
     }
 
     function appendCards(count) {
-       const container = document.getElementById('flowContainer');
-       const newCards = shuffleArray(KNOWLEDGE_CARDS).slice(0, count);
-       
-       newCards.forEach((card) => {
+      const container = document.getElementById('flowContainer');
+      
+      // Lógica de "Baralho": Só repete um card quando todos os KNOWLEDGE_CARDS forem mostrados
+      if (globalDeck.length < count) {
+        globalDeck = globalDeck.concat(shuffleArray(KNOWLEDGE_CARDS));
+      }
+      const newCards = globalDeck.splice(0, count);
+
+      newCards.forEach(card => {
          const isFirst = feedCards.length === 0;
          const wrapper = document.createElement('div');
          wrapper.innerHTML = createCardHTML(card, isFirst);
