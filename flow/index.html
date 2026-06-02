@@ -330,10 +330,11 @@
     .splash-topics {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
       justify-content: center;
-    }
-    .splash-topics span {
+      gap: 12px;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 1;
+    }.splash-topics span {
       background: rgba(255, 140, 0, 0.1);
       border: 1px solid rgba(255, 140, 0, 0.3);
       padding: 6px 12px;
@@ -420,13 +421,31 @@
     let observer = null;
 
     document.addEventListener("DOMContentLoaded", () => {
-      // Popula tópicos dinamicamente (Max 15 para ficar minimalista)
+      // Popula tópicos dinamicamente e os anima
       if (typeof KNOWLEDGE_CARDS !== 'undefined' && KNOWLEDGE_CARDS.length > 0) {
-        let uniqueTopics = [...new Set(KNOWLEDGE_CARDS.map(c => c.topic))].sort();
-        // Embaralha e pega 5 para um visual bem minimalista
-        uniqueTopics = uniqueTopics.sort(() => 0.5 - Math.random()).slice(0, 5);
-        const topicsHtml = uniqueTopics.map(t => `<span>${t}</span>`).join('');
-        document.getElementById('splashTopicsList').innerHTML = topicsHtml;
+        let allUniqueTopics = [...new Set(KNOWLEDGE_CARDS.map(c => c.topic))].sort();
+        const splashTopicsList = document.getElementById('splashTopicsList');
+        
+        function updateSplashTopics() {
+            let shuffled = allUniqueTopics.sort(() => 0.5 - Math.random()).slice(0, 5);
+            splashTopicsList.style.opacity = '0';
+            setTimeout(() => {
+                splashTopicsList.innerHTML = shuffled.map(t => `<span>${t}</span>`).join('');
+                splashTopicsList.style.opacity = '1';
+            }, 500);
+        }
+        
+        // Set inicial rápido para não piscar
+        splashTopicsList.innerHTML = allUniqueTopics.sort(() => 0.5 - Math.random()).slice(0, 5).map(t => `<span>${t}</span>`).join('');
+        
+        const topicInterval = setInterval(() => {
+            const splash = document.getElementById('startScreen');
+            if (splash.style.display === 'none' || splash.style.opacity === '0') {
+                clearInterval(topicInterval);
+                return;
+            }
+            updateSplashTopics();
+        }, 3500);
       }
 
       const voicePlayer = document.getElementById('voicePlayer');
