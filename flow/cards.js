@@ -1385,4 +1385,354 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "afiar o machado stephen covey descanso estrategico",
     audioId: "09cde819fc81d322a074132c245385e4.wav"
   },
+  {
+    topic: "Ciência Cognitiva",
+    quote: "Você não enxerga o mundo com os olhos, você o enxerga com o cérebro. Seus olhos apenas captam fótons; <strong>é a sua mente que pinta a realidade</strong>.",
+    author: "Neurologia da Percepção",
+    searchQuery: "como o cerebro enxerga percepcao ilusao de optica",
+    audioId: "e35eb93932a02ef5bfbb9925fb761e98.wav"
+  },
+  {
+    topic: "Economia Comportamental",
+    quote: "O dinheiro que você já gastou não deveria influenciar suas decisões futuras. Continuar em um erro só porque custou caro é o famoso <strong>Efeito do Custo Irrecuperável</strong>.",
+    author: "Sunk Cost Fallacy",
+    searchQuery: "falacia do custo irrecuperavel economia daniel kahneman",
+    audioId: "146af5b79a996dc347459c1a626a48a0.wav"
+  },
+  {
+    topic: "Biologia Evolutiva",
+    quote: "O ser humano não evoluiu para ser feliz. Nós evoluímos para sobreviver e reproduzir. <strong>A felicidade é um hack que temos que forçar ativamente no sistema</strong>.",
+    author: "Psicologia Evolucionista",
+    searchQuery: "felicidade evolutiva sobrevivencia psicologia evolutiva",
+    audioId: "e0d1a0daa80ccef38d9738d22f65234d.wav"
+  },
+  {
+    topic: "Foco Profundo",
+    quote: "Multitarefa é um mito biológico. Quando você tenta fazer duas coisas ao mesmo tempo, seu cérebro não divide a atenção, ele <strong>alterna histericamente entre as tarefas</strong>, perdendo QI no processo.",
+    author: "Deep Work",
+    searchQuery: "mito da multitarefa cal newport trabalho focado",
+    audioId: "01793a669cadf95ac87390e3a382f505.wav"
+  },
+  {
+    topic: "Inteligência Artificial",
+    quote: "Nós ensinamos os computadores a falar, pintar e escrever poesias. Ironicamente, o que achávamos ser a essência da criatividade humana acabou sendo a <strong>coisa mais fácil de matematizar</strong>.",
+    author: "Redes Neurais Generativas",
+    searchQuery: "ia generativa criatividade chatgpt futuro da arte",
+    audioId: "3b06dc548d779e83cccf5da11bf5f3c5.wav"
+  },
+  {
+    topic: "Filosofia Moderna",
+    quote: "Se você pode ser ofendido por qualquer palavra na internet, você entregou o controle remoto do seu estado emocional <strong>para o mundo inteiro brincar</strong>.",
+    author: "Neo-Estoicismo",
+    searchQuery: "controle emocional ofensa na internet estoicismo moderno",
+    audioId: "807e22fae0b43917f9d487d6d4f7d318.wav"
+  },
+  {
+    topic: "Produtividade",
+    quote: "Se você não tem uma agenda planejada, você acaba virando <strong>personagem principal na agenda de outra pessoa</strong>.",
+    author: "Gestão do Tempo",
+    searchQuery: "planejamento de agenda produtividade prioridades",
+    audioId: "3e6e3c379a17e60f5c50308646d067a6.wav"
+  },
+  {
+    topic: "Neuroplasticidade",
+    quote: "O cérebro que você tem hoje não é o mesmo de ontem. A cada nova habilidade que você aprende, <strong>os cabos neurológicos mudam fisicamente de lugar dentro da sua cabeça</strong>.",
+    author: "Plasticidade Cerebral",
+    searchQuery: "neuroplasticidade aprender novas habilidades cerebro",
+    audioId: "80627f0200a3cf94945a90735544219c.wav"
+  },
+  {
+    topic: "Ciência da Longevidade",
+    quote: "Envelhecer não é uma lei inevitável da física. É um problema de engenharia genética. E a ciência já começou a <strong>desmontar esse motor para consertá-lo</strong>.",
+    author: "Terapias Genéticas",
+    searchQuery: "cura do envelhecimento longevidade david sinclair",
+    audioId: "8f44de76c6fb9ecab7dc903de6e8ec4a.wav"
+  },
+  {
+    topic: "Psicologia do Hábitos",
+    quote: "A força de vontade é como a bateria do seu celular: ela acaba no fim do dia. Se você precisa de força de vontade para não comer doce de noite, <strong>você já perdeu a batalha</strong>.",
+    author: "Design de Ambiente",
+    searchQuery: "esgotamento do ego james clear forca de vontade",
+    audioId: "a7e9d143d0ff2e1a70886d5b8807a839.wav"
+  },
+  {
+    topic: "Geometria Fractal",
+    quote: "As galáxias no céu, as artérias do seu coração e os galhos de uma árvore seguem as mesmas regras matemáticas. <strong>O universo repete seus padrões em todos os tamanhos</strong>.",
+    author: "Matemática do Caos",
+    searchQuery: "geometria fractal padroes da natureza caos",
+    audioId: "32133fef2631785faf9a129b9633046e.wav"
+  },
+  {
+    topic: "Liderança",
+    quote: "Um líder ruim reclama que a equipe não trabalha direito. Um líder de elite entende que <strong>não existem equipes ruins, apenas sistemas mal desenhados</strong>.",
+    author: "Extreme Ownership",
+    searchQuery: "jocko willink responsabilidade extrema lideranca",
+    audioId: "3e0837cfaafb7d41ac492f128da303c8.wav"
+  },
+  {
+    topic: "Antropologia",
+    quote: "Os neandertais tinham cérebros maiores que os nossos. Nós não vencemos a corrida evolutiva porque éramos mais espertos, mas porque <strong>sabíamos trabalhar em redes maiores</strong>.",
+    author: "Sapiens",
+    searchQuery: "yuval noah harari evolucao neandertais sociabilidade",
+    audioId: "a0c4bdbff661fda6f64257b861673380.wav"
+  },
+  {
+    topic: "Estratégia Militar",
+    quote: "A melhor vitória na guerra não é destruir o exército inimigo no campo de batalha. É destruir a <strong>vontade do inimigo de lutar, antes mesmo do primeiro tiro</strong>.",
+    author: "A Arte da Guerra",
+    searchQuery: "sun tzu arte da guerra estrategia psicologica",
+    audioId: "e8955e0a56715e57681d625513aac732.wav"
+  },
+  {
+    topic: "Mindfulness",
+    quote: "Passamos 90% do tempo preocupados com tragédias que só existem em nossas mentes. <strong>A imaginação é a maior máquina de tortura já inventada</strong>.",
+    author: "Atenção Plena",
+    searchQuery: "mindfulness ansiedade ilusao do futuro eckhart tolle",
+    audioId: "70b6c840051b46dfdb2e6bdee5d26fcf.wav"
+  },
+  {
+    topic: "Finanças Pessoais",
+    quote: "O luxo muitas vezes não traz conforto, traz aprisionamento. Quanto mais coisas caras você possui, <strong>mais o seu tempo pertence a quem paga o seu salário</strong>.",
+    author: "Minimalismo Financeiro",
+    searchQuery: "corrida dos ratos independencia financeira robert kiyosaki",
+    audioId: "f454d32530f3947eb0bda36496dc693e.wav"
+  },
+  {
+    topic: "Física Clássica",
+    quote: "Entropia significa que o universo caminha inexoravelmente para a desordem. Para manter seu quarto arrumado, sua saúde boa e sua mente sã, <strong>você tem que gastar energia lutando contra o próprio universo</strong>.",
+    author: "Segunda Lei da Termodinâmica",
+    searchQuery: "entropia desordem fisica da organizacao",
+    audioId: "75e59cf6925f7c9a32224218b97e15e0.wav"
+  },
+  {
+    topic: "Educação",
+    quote: "Se o conhecimento fosse a resposta para tudo, estaríamos todos ricos e saudáveis. O problema nunca é a falta de informação, é a <strong>falta de execução brutal</strong>.",
+    author: "Aprendizado Ativo",
+    searchQuery: "execucao vs teoria aprendizado pratico excesso de informacao",
+    audioId: "fcc63160af494ff1ff376a20dfca08c6.wav"
+  },
+  {
+    topic: "Viés Cognitivo",
+    quote: "Nós não procuramos informações para descobrir a verdade. Nós procuramos informações no Google <strong>apenas para confirmar aquilo que já acreditamos</strong>.",
+    author: "Viés de Confirmação",
+    searchQuery: "vies de confirmacao psicologia crencas limitantes",
+    audioId: "7cef3f3c7dceb3a3393f0b010867b7f4.wav"
+  },
+  {
+    topic: "Astronomia",
+    quote: "O ferro que corre no seu sangue e o cálcio dos seus ossos foram forjados no núcleo de estrelas que explodiram há bilhões de anos. <strong>Você é, literalmente, lixo estelar reciclado</strong>.",
+    author: "Supernovas e Vida",
+    searchQuery: "carl sagan somos poeira de estrelas astrofisica",
+    audioId: "0750eb5e2698aaf774e5124af20fccd0.wav"
+  },
+  {
+    topic: "Marketing",
+    quote: "As pessoas não compram o que você faz, elas compram <strong>o porquê você faz</strong>. Produtos são passageiros, mas identidades são eternas.",
+    author: "Golden Circle",
+    searchQuery: "simon sinek circulo dourado proposito de marca",
+    audioId: "66936c8f648f35be1740325c50ad3167.wav"
+  },
+  {
+    topic: "Teoria dos Jogos",
+    quote: "Na vida, você pode jogar jogos finitos para vencer ou jogos infinitos para continuar jogando. O casamento, os negócios e a saúde <strong>são jogos que você não quer que terminem</strong>.",
+    author: "Jogos Infinitos",
+    searchQuery: "simon sinek jogos finitos e infinitos estrategia de longo prazo",
+    audioId: "8d00825872022c99fb3522b575a09478.wav"
+  },
+  {
+    topic: "Dopamina",
+    quote: "A dopamina não é o hormônio do prazer. É o hormônio do <strong>desejo cego e insaciável</strong>. Ela não quer que você aproveite o momento, ela quer que você busque a próxima recompensa.",
+    author: "Neurociência da Motivação",
+    searchQuery: "dopamina vicio recompensa andrew huberman",
+    audioId: "517eb1822f53b7b200da33b5f5403ac2.wav"
+  },
+  {
+    topic: "Arquitetura da Mente",
+    quote: "A memória não é um arquivo em vídeo no cérebro. Toda vez que você lembra de algo do passado, <strong>você está recriando a memória e, muitas vezes, alterando os fatos</strong>.",
+    author: "Maleabilidade da Memória",
+    searchQuery: "como a memoria funciona falsas memorias psicologia",
+    audioId: "7fa8393db5356fda07fa27c2b3e84c7a.wav"
+  },
+  {
+    topic: "Biologia Sintética",
+    quote: "A vida não é mágica, é código. O DNA é apenas um software de quatro letras. E no século 21, nós finalmente aprendemos a <strong>hackear esse código fonte</strong>.",
+    author: "CRISPR",
+    searchQuery: "edicao de dna crispr biotecnologia futuro",
+    audioId: "e18831760879d2a86d4e382c98ccc47d.wav"
+  },
+  {
+    topic: "Sociologia",
+    quote: "A liberdade de expressão não existe para proteger opiniões agradáveis. Ela existe exatamente para <strong>proteger o direito de falar coisas que ofendem profundamente o poder vigente</strong>.",
+    author: "Filosofia Política",
+    searchQuery: "liberdade de expressao censura filosofia politica",
+    audioId: "33ec7d18f7c07749f41a43c5ddba7f20.wav"
+  },
+  {
+    topic: "Alta Performance",
+    quote: "Amadores esperam a motivação aparecer para começar a treinar. Profissionais sabem que <strong>a motivação só aparece depois que o treinamento já começou</strong>.",
+    author: "Disciplina vs Motivação",
+    searchQuery: "disciplina alta performance constancia stephen pressfield",
+    audioId: "c695faf8b8a8cad82ebcddc69b6ab4af.wav"
+  },
+  {
+    topic: "Evolução Genética",
+    quote: "O apêndice humano, que hoje só serve para inflamar, já foi uma câmara de fermentação gigante para digerir folhas cruas <strong>quando éramos macacos nas árvores</strong>.",
+    author: "Vestígios Evolutivos",
+    searchQuery: "orgaos vestigiais evolucao darwin",
+    audioId: "de83bb94e8542e14f48989aecc64664d.wav"
+  },
+  {
+    topic: "Microbioma",
+    quote: "Você tem mais células de bactérias no seu intestino do que células humanas no corpo. E elas <strong>secretam químicos que controlam ativamente o seu humor diário</strong>.",
+    author: "Eixo Intestino-Cérebro",
+    searchQuery: "microbiota intestinal saude mental bacterias",
+    audioId: "206b0d3e9af80234ea7772284b365d7c.wav"
+  },
+  {
+    topic: "Estratégia de Vida",
+    quote: "Dizer 'sim' para um projeto novo significa dizer 'não' para mil outras possibilidades. <strong>A arte do foco é a habilidade sublime de decepcionar pessoas de propósito</strong>.",
+    author: "A Arte de Dizer Não",
+    searchQuery: "foco dizer nao steve jobs essencialismo",
+    audioId: "336ecc0dbc744d53084d0493ba738527.wav"
+  },
+  {
+    topic: "Biotecnologia",
+    quote: "Em algumas décadas, os órgãos para transplante não virão de doadores mortos. Eles serão <strong>impressos em 3D usando as suas próprias células-tronco</strong>, zerando a fila de espera.",
+    author: "Órgãos Bioartificiais",
+    searchQuery: "impressao 3d de orgaos celulas tronco saude do futuro",
+    audioId: "71726d7ebf60c2ded3373044c0cbaa28.wav"
+  },
+  {
+    topic: "Psicologia Analítica",
+    quote: "Aquilo que você mais critica nos outros é quase sempre a <strong>sombra reprimida que você se recusa a enxergar dentro de você mesmo</strong>.",
+    author: "Carl Jung",
+    searchQuery: "a sombra junguiana projecao psicologica psicologia",
+    audioId: "e06d5d8930c64f5edd70699772cdacfa.wav"
+  },
+  {
+    topic: "Física Teórica",
+    quote: "Se você viajasse na velocidade da luz por um ano no espaço, voltaria à Terra descobrindo que seus amigos <strong>já envelheceram e morreram há séculos</strong>.",
+    author: "Relatividade do Tempo",
+    searchQuery: "einstein paradoxo dos gemeos viagem no tempo relatividade",
+    audioId: "605c5517c9aef94944af0d8e6c684518.wav"
+  },
+  {
+    topic: "Criatividade",
+    quote: "O bloqueio criativo não é falta de ideias. É o <strong>medo paralisante de que a sua ideia não seja perfeita logo na primeira tentativa</strong>.",
+    author: "O Processo de Criação",
+    searchQuery: "bloqueio criativo perfeccionismo como ter ideias",
+    audioId: "e9fbd4bc5d5171d2d15239a2dbdd2e7e.wav"
+  },
+  {
+    topic: "Bioética",
+    quote: "A IA superinteligente do futuro pode não nos exterminar por ódio. Ela pode nos transformar em clipes de papel simplesmente porque <strong>esquecemos de programar a empatia em seus algoritmos</strong>.",
+    author: "Problema do Alinhamento",
+    searchQuery: "nick bostrom problema de alinhamento da ia risco existencial",
+    audioId: "4162cc765ad9c8562d4cd0a65be5107e.wav"
+  },
+  {
+    topic: "Economia",
+    quote: "O dinheiro fiduciário moderno não é lastreado em ouro ou prata. Ele é lastreado exclusivamente na <strong>crença coletiva de que aquele papel pintado tem valor</strong>.",
+    author: "A Ilusão do Valor",
+    searchQuery: "o que e dinheiro inflacao ilusao economica",
+    audioId: "1a159a628ada7469ece4cbe30b6e1515.wav"
+  },
+  {
+    topic: "Hábitos Diários",
+    quote: "Você não decide o seu futuro. Você decide os seus hábitos diários, e <strong>são os seus hábitos que desenham o seu futuro de forma implacável</strong>.",
+    author: "Pequenas Ações",
+    searchQuery: "habitos diarios mudanca de vida micro habitos",
+    audioId: "bd33dfcb832e0a0677db660a681024c2.wav"
+  },
+  {
+    topic: "Computação Quântica",
+    quote: "Enquanto os computadores normais olham para cada possibilidade uma de cada vez, os computadores quânticos <strong>olham para todas as respostas do universo simultaneamente</strong>.",
+    author: "Qubits e Superposição",
+    searchQuery: "como funciona computador quantico supremacia quantica",
+    audioId: "6b2a0b9a46176b36f673ce14981f22d4.wav"
+  },
+  {
+    topic: "Biologia Marinha",
+    quote: "Os polvos têm um cérebro distribuído pelos seus oito braços. Se o braço de um polvo for cortado, <strong>ele continuará rastejando e capturando comida por conta própria</strong>.",
+    author: "Inteligência Alienígena na Terra",
+    searchQuery: "inteligencia dos polvos neurobiologia marinha",
+    audioId: "e38027db27d25e097a86a307706976b5.wav"
+  },
+  {
+    topic: "Psicologia Positiva",
+    quote: "O trauma não é o que acontece com você. O trauma é <strong>a cicatriz que se forma dentro de você como resultado do que aconteceu</strong>, e essa cicatriz pode ser curada.",
+    author: "Gabor Maté",
+    searchQuery: "o que e trauma cura emocional psicologia profunda",
+    audioId: "ac63cca79c4463fa93c98fcccd400618.wav"
+  },
+  {
+    topic: "Evolução Tecnológica",
+    quote: "As ferramentas moldam o homem. Nós inventamos o relógio mecânico para controlar o tempo, mas <strong>acabamos virando escravos do relógio</strong>.",
+    author: "Determinismo Tecnológico",
+    searchQuery: "como a tecnologia nos muda impacto do relogio",
+    audioId: "f997433484af3c693d2a5e531c3fb816.wav"
+  },
+  {
+    topic: "Neurobiologia",
+    quote: "O amor não é cego à toa. Quando você se apaixona, o cérebro <strong>desliga ativamente o córtex pré-frontal</strong>, a região responsável pelo pensamento crítico e julgamento racional.",
+    author: "Cérebro Apaixonado",
+    searchQuery: "quimica da paixao neurociencia do amor",
+    audioId: "3bd0970a9a5c833773a9e0d533f68c39.wav"
+  },
+  {
+    topic: "Linguística",
+    quote: "A linguagem que você fala molda como você vê o mundo. Se o seu idioma não tem uma palavra para a cor azul, <strong>o seu cérebro fisicamente não conseguirá enxergá-la</strong>.",
+    author: "Hipótese de Sapir-Whorf",
+    searchQuery: "como o idioma afeta o pensamento poder das palavras",
+    audioId: "36c0a09e2486995875752db0a8c21635.wav"
+  },
+  {
+    topic: "Teoria da Complexidade",
+    quote: "O bater de asas de uma borboleta no Brasil não causa diretamente um furacão no Texas. Mas ele muda as condições iniciais que <strong>tornam o furacão matematicamente possível semanas depois</strong>.",
+    author: "Efeito Borboleta",
+    searchQuery: "teoria do caos efeito borboleta complexidade",
+    audioId: "e3fd61f6ec1da7a10c67073d1b2314da.wav"
+  },
+  {
+    topic: "Mecânica Quântica",
+    quote: "Nada no universo está tocando nada de verdade. Os elétrons da sua mão repelem os elétrons da parede. <strong>A sensação de toque é apenas um campo de força eletromagnético te empurrando</strong>.",
+    author: "Ilusão do Contato Físico",
+    searchQuery: "voce nunca toca nada fisica dos atomos forca eletromagnetica",
+    audioId: "a724fd2439cf2237561bcabb86600570.wav"
+  },
+  {
+    topic: "Filosofia da Ciência",
+    quote: "A ciência não busca a verdade absoluta. Ela busca a <strong>hipótese menos errada disponível no momento</strong>, pronta para ser destruída amanhã por uma prova melhor.",
+    author: "Falsificacionismo",
+    searchQuery: "karl popper metodo cientifico verdade absoluta",
+    audioId: "335838a115e5a23e57bcf1ef7ac623ce.wav"
+  },
+  {
+    topic: "Empreendedorismo",
+    quote: "As ideias não valem nada. Todo mundo tem boas ideias no chuveiro. O que separa o sonhador do bilionário é a <strong>capacidade de sofrer anos executando aquela ideia no mundo real</strong>.",
+    author: "A Dor da Execução",
+    searchQuery: "ideia vs execucao empreendedorismo startups",
+    audioId: "374a92df6f40ef321915bd88fda3436f.wav"
+  },
+  {
+    topic: "Autoconhecimento",
+    quote: "Você passa a vida inteira tentando se encontrar, mas o 'eu' não é algo escondido debaixo de uma pedra. O 'eu' é algo que <strong>você constrói bloco por bloco todos os dias</strong>.",
+    author: "Existencialismo",
+    searchQuery: "sartre existencialismo como se encontrar proposito",
+    audioId: "ea2bb738cda9fcef41ea85fd0ae04c0a.wav"
+  },
+  {
+    topic: "Saúde Pública",
+    quote: "Os antibióticos não estão falhando sozinhos. As bactérias evoluem tão rápido que estamos em uma <strong>corrida armamentista em tempo real contra organismos unicelulares</strong>.",
+    author: "Superbactérias",
+    searchQuery: "resistencia antimicrobiana evolucao em tempo real penicilina",
+    audioId: "1d320b2aabbac95c8e5c5920ccb015b8.wav"
+  },
+  {
+    topic: "Neurociência do Sono",
+    quote: "Dormir não é desligar o cérebro. É o momento em que a equipe de limpeza entra, varrendo toxinas mortais que, se acumuladas, <strong>causariam Alzheimer em poucos anos</strong>.",
+    author: "O Sistema Linfático do Cérebro",
+    searchQuery: "importancia do sono doenca de alzheimer sistema glinfatico",
+    audioId: "3b0cd4fe23a37ce9f82d8959450fca5f.wav"
+  },
 ];
