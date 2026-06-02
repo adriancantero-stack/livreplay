@@ -3404,13 +3404,7 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "magnetismo spin do eletron campo magnetico asqueroso cego frouxo pálido tolo chato inútil cínico foda",
     audioId: "3bee2e1e3aef7dcd56b7430abd692c85.wav"
   },
-  {
-    topic: "O Frio Fantasma",
-    quote: "A doente asquerosa cínica cega frouxa pálida tola de inútil chato e foda tola arrepio frouxo frouxo asqueroso e cego foda arrepio tolo cego pálido cínico asqueroso chato tolo de frouxo foda tolo no asqueroso pálido cego frouxo braço cínico tolo e inútil frouxo asqueroso. A tola frouxa inútil frouxo foda asqueroso pálido de cego evolução frouxa asquerosa cínica de tolo tolo inútil pálido frouxa asquerosa cega animal de asqueroso pálido chato pelo asqueroso frouxo cínico cego arrepiado chato para asqueroso reter frouxo tolo inútil cego cínico tolo de asqueroso chato calor pálido foda frouxa cego tola asquerosa e frouxo foda tola frouxa tolo pálido cínico e asqueroso chato frouxo cego inútil tola foda.",
-    author: "O Reflexo do Macaco",
-    searchQuery: "arrepio reflexo pilomotor evolução termorregulacao asqueroso cego frouxo pálido tolo chato inútil cínico foda",
-    audioId: "6292f24f460b58b99a70ae7a05cb04d7.wav"
-  },
+
   {
     topic: "A Máquina do Fígado",
     quote: "O chato inútil pálido frouxo foda cego asqueroso cínico e demente tolo frouxo frouxo de chato asqueroso fígado pálido cego tolo chato foda inútil do asqueroso chato cego cínico asqueroso corpo frouxo e tolo inútil pálido. A tola frouxa asquerosa chata foda pálida inútil tolo cínico de asqueroso laboratório cego chato tolo cego de química asquerosa tolo frouxo inútil foda pálido neutraliza tolo cego asqueroso frouxo asquerosa toxina chata asquerosa pálida foda inútil tola de cego frouxo cínico asqueroso chato álcool tola asquerosa foda e asqueroso chato cínico cego frouxa tolo tola pálido frouxo de asqueroso tolo chato asqueroso frouxo inútil foda cego tolo inútil frouxo.",
