@@ -2981,13 +2981,7 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "amigdala neurociencia tomada de decisao emocao e razao",
     audioId: "a2d9348429da26082c7882a472d1cfa2.wav"
   },
-  {
-    topic: "Microbiologia Doméstica",
-    quote: "A sua esponja de cozinha suada e amarela não limpa os pratos. Ela tem mais bactérias mortais e micróbios fecais concentrados em um milímetro quadrado do que **a borda de cerâmica suja da privada do seu banheiro público no fim do dia**.",
-    author: "O Berçário Verde",
-    searchQuery: "esponja de cozinha bacterias higiene biologia",
-    audioId: "8ad7315b8df5c85fedb8cd040a5d8eac.wav"
-  },
+
   {
     topic: "História Militar",
     quote: "As trincheiras terríveis e longas e lamacentas da primeira guerra assustadora global brutal mortífera doentia não eram feitas apenas de terra suja cavada morta feia. Elas eram **um inferno claustrofóbico químico escavado afogado em sangue, corpos podres como sacos de areia e ratos gigantescos e agressivos mutantes que comiam feridos indefesos ainda respirando na beira fria do abismo humano maldito de aço lama morte pólvora terror**.",
