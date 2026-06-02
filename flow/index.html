@@ -33,8 +33,9 @@
     }
 
     .flow-container {
-      height: 100vh;
+      height: 100%; /* Better than 100vh on iOS */
       width: 100vw;
+      position: relative; /* CRITICAL for offsetTop */
       overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: y mandatory;
@@ -500,6 +501,7 @@
     let isPaused = false;
     let isAutoScrolling = false;
     let audioState = 'idle';
+    let isPlayingSilence = false;
     let progressValue = 0;
     const TOTAL_SCROLL_TIME = 3000;
     let feedCards = [];
@@ -598,6 +600,7 @@
       if (!audioId) return;
 
       audioState = 'reading';
+      isPlayingSilence = false;
       const voicePlayer = document.getElementById('voicePlayer');
       voicePlayer.src = `${AUDIO_BASE_URL}/${audioId}`;
       voicePlayer.play().catch(e => {
@@ -610,7 +613,7 @@
         if(!voicePlayer) return;
         
         voicePlayer.addEventListener('timeupdate', () => {
-            if (audioState !== 'reading') return;
+            if (audioState !== 'reading' || isPlayingSilence) return;
             const card = feedCards[currentCardIndex];
             if (card && voicePlayer.duration) {
                 const progressBar = card.querySelector('.progress-bar');
@@ -621,54 +624,47 @@
             }
         });
 
+        function triggerNextCard() {
+            if (isPaused) return;
+            isAutoScrolling = true;
+            currentCardIndex++;
+            if (currentCardIndex >= feedCards.length - 2) appendCards(5);
+            const nextCard = feedCards[currentCardIndex];
+            if (nextCard) {
+                const container = document.getElementById('flowContainer');
+                container.scrollTo({ top: nextCard.offsetTop, behavior: 'smooth' });
+                setTimeout(() => {
+                    readCard(currentCardIndex);
+                    setTimeout(() => { isAutoScrolling = false; }, 1000);
+                }, 500);
+            } else {
+                isAutoScrolling = false;
+            }
+        }
+
         voicePlayer.onended = () => {
             if (isPaused) return;
-            audioState = 'idle';
-            
-            // Aguarda 2 segundos de silêncio após a voz terminar e então rola
-            setTimeout(() => {
-                if (isPaused) return;
-                isAutoScrolling = true;
-                currentCardIndex++;
-                if (currentCardIndex >= feedCards.length - 2) appendCards(5);
-                const nextCard = feedCards[currentCardIndex];
-                if (nextCard) {
-                    const container = document.getElementById('flowContainer');
-                    container.style.scrollSnapType = 'none';
-                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setTimeout(() => {
-                        container.style.scrollSnapType = 'y mandatory';
-                        readCard(currentCardIndex);
-                        setTimeout(() => { isAutoScrolling = false; }, 1000);
-                    }, 800);
-                } else {
-                    isAutoScrolling = false;
-                }
-            }, 2000);
+            if (isPlayingSilence) {
+                isPlayingSilence = false;
+                audioState = 'idle';
+                triggerNextCard();
+            } else {
+                isPlayingSilence = true;
+                voicePlayer.src = 'audio/silence_2s.wav';
+                voicePlayer.play().catch(e => {
+                    console.error("Silence failed", e);
+                    isPlayingSilence = false;
+                    audioState = 'idle';
+                    triggerNextCard();
+                });
+            }
         };
 
         voicePlayer.onerror = (e) => {
             console.error("Audio playback error", e);
             audioState = 'idle';
-            // Se der erro, rola em 2 segundos
-            setTimeout(() => {
-                isAutoScrolling = true;
-                currentCardIndex++;
-                if (currentCardIndex >= feedCards.length - 2) appendCards(5);
-                const nextCard = feedCards[currentCardIndex];
-                if (nextCard) {
-                    const container = document.getElementById('flowContainer');
-                    container.style.scrollSnapType = 'none';
-                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setTimeout(() => {
-                        container.style.scrollSnapType = 'y mandatory';
-                        readCard(currentCardIndex);
-                        setTimeout(() => { isAutoScrolling = false; }, 1000);
-                    }, 800);
-                } else {
-                    isAutoScrolling = false;
-                }
-            }, 2000);
+            isPlayingSilence = false;
+            triggerNextCard();
         };
     }
 
