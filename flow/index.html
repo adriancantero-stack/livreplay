@@ -633,11 +633,14 @@
                 if (currentCardIndex >= feedCards.length - 2) appendCards(5);
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
+                    const container = document.getElementById('flowContainer');
+                    container.style.scrollSnapType = 'none';
                     nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setTimeout(() => {
+                        container.style.scrollSnapType = 'y mandatory';
                         readCard(currentCardIndex);
                         setTimeout(() => { isAutoScrolling = false; }, 1000);
-                    }, 500);
+                    }, 800);
                 } else {
                     isAutoScrolling = false;
                 }
@@ -654,11 +657,14 @@
                 if (currentCardIndex >= feedCards.length - 2) appendCards(5);
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
+                    const container = document.getElementById('flowContainer');
+                    container.style.scrollSnapType = 'none';
                     nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setTimeout(() => {
+                        container.style.scrollSnapType = 'y mandatory';
                         readCard(currentCardIndex);
                         setTimeout(() => { isAutoScrolling = false; }, 1000);
-                    }, 500);
+                    }, 800);
                 } else {
                     isAutoScrolling = false;
                 }

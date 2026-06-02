@@ -3186,13 +3186,7 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "dinossauros herbivoros dieta paleontologia mato folha dinossauro pasto dentes de planta tolo herbivoro herbivoros dentes cego mato asquerosa frouxo tolo mato.",
     audioId: "a9fe82533371a6bfa5ddbd6c19ad7337.wav"
   },
-  {
-    topic: "Memória Genética",
-    quote: "O rato tolo sujo chato asqueroso tolo asqueroso lixo suado gordo rato branco lixo asqueroso podre gordo asqueroso tolo tolo do esgoto burro frouxo cego labirinto asqueroso lixo suado e tolo frouxo gordo lixo frouxo cínico e tolo lixo laboratório assustado nojento e podre tolo asqueroso branco frouxo asqueroso cego frouxo cínico de nojento rato lab. A herança foda tola suada do rato cego tolo frouxo do rato podre asqueroso laboratório frouxo asqueroso rato cego a frouxo gordo pálido o medo tolo lixo frouxo passa cego de pai cego nojento pálido pro gene nojento do cu do filhote assustado cego rato cego tolo medo de cheiro frouxo epigenética medo trauma gerações tolo cego rato laboratório epigenetica cego herança trauma no gene tolo pálido o gene frouxo rato cheiro medo tolo.",
-    author: "O Medo Herdado",
-    searchQuery: "epigenetica memoria genetica trauma no gene de rato hereditario biologia rato medo frouxo gene cheiro rato cego",
-    audioId: "8b2e9c216c4e028573efcc71e58579a2.wav"
-  },
+
   {
     topic: "Linguagem Pássaros",
     quote: "A beleza doce linda asquerosa do asqueroso asqueroso frouxo pássaro frouxo doente pálido tolo frouxo fofo lixo do ramo de folha cantando flor mato e ramo frouxo pálido pássaro nojento frouxo bosta de canário asqueroso e pálido doce canto asqueroso bosta flor tolo amor lixo canção cega tola tola bosta asquerosa cega pálido. A foda frouxa asquerosa canção do mato pálido tolo pássaro chato de asqueroso mato é só porra cega e assustadora ameaça lixo lixo agressiva territorial foda de porrada guerra tola asquerosa pálida foda frouxa nojenta guerra ameaça tola pássaro de mato briga asquerosa territorial pássaro não canta pássaro ameaça territorial foda e agressiva frouxo briga de pássaro tolo mato canção agressiva asquerosa tolo pálida frouxo de briga.",
