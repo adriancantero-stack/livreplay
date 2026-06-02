@@ -25,6 +25,11 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
     body {
       background-color: var(--bg-dark);
       color: var(--text);
@@ -33,10 +38,10 @@
     }
 
     .flow-container {
-      height: 100%; /* Better than 100vh on iOS */
-      width: 100vw;
-      position: relative; /* CRITICAL for offsetTop */
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
       overflow-y: scroll;
+      overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
@@ -427,17 +432,21 @@
       const voicePlayer = document.getElementById('voicePlayer');
       if(voicePlayer) {
         voicePlayer.addEventListener('pause', () => {
+           // Se o áudio pausou porque terminou, ignora (evita travar o auto-scroll)
+           if (voicePlayer.ended) return; 
            // Se pausar via fone (fora do overlay manual) e estiver lendo
            if (!isPaused && audioState === 'reading') {
               isPaused = true;
-              document.getElementById('pauseOverlay').style.display = 'flex';
+              const overlay = document.getElementById('pauseOverlay');
+              if (overlay) overlay.style.display = 'flex';
               document.getElementById('bgMusic').pause();
            }
         });
         voicePlayer.addEventListener('play', () => {
            if (isPaused && audioState === 'reading') {
               isPaused = false;
-              document.getElementById('pauseOverlay').style.display = 'none';
+              const overlay = document.getElementById('pauseOverlay');
+              if (overlay) overlay.style.display = 'none';
               document.getElementById('bgMusic').play().catch(e=>{});
            }
         });
@@ -463,7 +472,10 @@
       }
     }
 
+    let hasStarted = false;
+
     function startJourney() {
+      hasStarted = true;
       const splash = document.getElementById('startScreen');
       splash.style.opacity = '0';
       setTimeout(() => splash.style.display = 'none', 500);
@@ -479,9 +491,13 @@
       
       const voicePlayer = document.getElementById('voicePlayer');
       if (voicePlayer) {
-          // Desbloqueia o áudio no iOS tocando um som silencioso vazio
+          isUnlocking = true;
           voicePlayer.src = SILENCE_B64;
-          voicePlayer.play().catch(e => console.log("Unlock audio blocked:", e));
+          voicePlayer.play().catch(e => {
+              console.log("Unlock audio blocked:", e);
+              isUnlocking = false;
+              if (currentCardIndex >= 0 && feedCards[currentCardIndex]) readCard(currentCardIndex);
+          });
       }
       
       const bgMusic = document.getElementById('bgMusic');
@@ -491,15 +507,17 @@
       bgMusic.src = bgPlaylist[currentTrackIndex];
       bgMusic.play().catch(e => console.log("Music error:", e));
       
-      // Inicia a carta atual se a IntersectionObserver já rodou em background
-      if (currentCardIndex >= 0 && feedCards[currentCardIndex]) {
-        readCard(currentCardIndex);
+      if (!voicePlayer) {
+          if (currentCardIndex >= 0 && feedCards[currentCardIndex]) {
+              readCard(currentCardIndex);
+          }
       }
     }
 
     let currentCardIndex = -1;
     let isPaused = false;
     let isAutoScrolling = false;
+    let isUnlocking = false;
     let audioState = 'idle';
     let isPlayingSilence = false;
     let progressValue = 0;
@@ -591,6 +609,7 @@
     }
 
     function readCard(index) {
+      if (!hasStarted) return; // Aguarda o usuário dar Play
       clearAutoScroll();
       if (!isSoundOn || isPaused) return;
       const cardElement = feedCards[index];
@@ -625,24 +644,30 @@
         });
 
         function triggerNextCard() {
-            if (isPaused) return;
+            if (isPaused || isAutoScrolling) return; // Prevent multiple simultaneous triggers
             isAutoScrolling = true;
             currentCardIndex++;
             if (currentCardIndex >= feedCards.length - 2) appendCards(5);
             const nextCard = feedCards[currentCardIndex];
             if (nextCard) {
-                const container = document.getElementById('flowContainer');
-                container.scrollTo({ top: nextCard.offsetTop, behavior: 'smooth' });
-                setTimeout(() => {
-                    readCard(currentCardIndex);
-                    setTimeout(() => { isAutoScrolling = false; }, 1000);
-                }, 500);
+                // Toca o áudio imediatamente para não perder o user-gesture token no iOS
+                readCard(currentCardIndex);
+                
+                // Rola para o próximo card
+                nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                setTimeout(() => { isAutoScrolling = false; }, 1000);
             } else {
                 isAutoScrolling = false;
             }
         }
 
         voicePlayer.onended = () => {
+            if (isUnlocking) {
+                isUnlocking = false;
+                if (currentCardIndex >= 0 && feedCards[currentCardIndex]) readCard(currentCardIndex);
+                return;
+            }
             if (isPaused) return;
             if (isPlayingSilence) {
                 isPlayingSilence = false;
