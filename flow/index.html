@@ -327,20 +327,48 @@
       letter-spacing: 1px;
       text-align: center;
     }
-    .splash-topics {
+    .splash-topics-container {
+      width: 100vw;
+      overflow: hidden;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      transition: opacity 0.5s ease-in-out;
-      opacity: 1;
-    }.splash-topics span {
+      flex-direction: column;
+      align-items: center;
+    }
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      white-space: nowrap;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      margin-bottom: 12px;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      padding: 4px 0;
+    }
+    .marquee-track span {
       background: rgba(255, 140, 0, 0.1);
       border: 1px solid rgba(255, 140, 0, 0.3);
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 12px;
       color: var(--accent);
+    }
+    .marquee-left {
+      animation: scroll-left 40s linear infinite;
+    }
+    .marquee-right {
+      animation: scroll-right 40s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
     }
 
   </style>
@@ -369,8 +397,11 @@
 
     <div class="splash-topics-container">
       <div class="splash-topics-title">Tudo o que você vai aprender:</div>
-      <div class="splash-topics" id="splashTopicsList">
-        <!-- Injetado dinamicamente -->
+      <div class="marquee-wrapper">
+         <div class="marquee-track marquee-left" id="marqueeTop"></div>
+      </div>
+      <div class="marquee-wrapper">
+         <div class="marquee-track marquee-right" id="marqueeBottom"></div>
       </div>
     </div>
   </div>
@@ -421,31 +452,22 @@
     let observer = null;
 
     document.addEventListener("DOMContentLoaded", () => {
-      // Popula tópicos dinamicamente e os anima
+      // Popula tópicos dinamicamente em 2 fileiras (Marquee infinito)
       if (typeof KNOWLEDGE_CARDS !== 'undefined' && KNOWLEDGE_CARDS.length > 0) {
-        let allUniqueTopics = [...new Set(KNOWLEDGE_CARDS.map(c => c.topic))].sort();
-        const splashTopicsList = document.getElementById('splashTopicsList');
+        let allUniqueTopics = [...new Set(KNOWLEDGE_CARDS.map(c => c.topic))];
+        allUniqueTopics.sort(() => 0.5 - Math.random());
         
-        function updateSplashTopics() {
-            let shuffled = allUniqueTopics.sort(() => 0.5 - Math.random()).slice(0, 5);
-            splashTopicsList.style.opacity = '0';
-            setTimeout(() => {
-                splashTopicsList.innerHTML = shuffled.map(t => `<span>${t}</span>`).join('');
-                splashTopicsList.style.opacity = '1';
-            }, 500);
-        }
+        const half = Math.floor(allUniqueTopics.length / 2);
+        const topTopics = allUniqueTopics.slice(0, half);
+        const bottomTopics = allUniqueTopics.slice(half);
         
-        // Set inicial rápido para não piscar
-        splashTopicsList.innerHTML = allUniqueTopics.sort(() => 0.5 - Math.random()).slice(0, 5).map(t => `<span>${t}</span>`).join('');
+        const topHtml = `<div style="display:flex; gap:12px; padding-right:12px;">` + topTopics.map(t => `<span>${t}</span>`).join('') + `</div>`;
+        const bottomHtml = `<div style="display:flex; gap:12px; padding-right:12px;">` + bottomTopics.map(t => `<span>${t}</span>`).join('') + `</div>`;
         
-        const topicInterval = setInterval(() => {
-            const splash = document.getElementById('startScreen');
-            if (splash.style.display === 'none' || splash.style.opacity === '0') {
-                clearInterval(topicInterval);
-                return;
-            }
-            updateSplashTopics();
-        }, 3500);
+        const topEl = document.getElementById('marqueeTop');
+        const bottomEl = document.getElementById('marqueeBottom');
+        if (topEl) topEl.innerHTML = topHtml + topHtml;
+        if (bottomEl) bottomEl.innerHTML = bottomHtml + bottomHtml;
       }
 
       const voicePlayer = document.getElementById('voicePlayer');
