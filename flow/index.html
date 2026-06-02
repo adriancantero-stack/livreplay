@@ -471,7 +471,20 @@
           if (progressValue >= TOTAL_SCROLL_TIME) {
             clearInterval(progressBarInterval);
             progressValue = 0;
-            // O scroll e o próximo audio serão controlados pelo evento onended do silence!
+            
+            // Fallback: se o áudio não tocar ou for bloqueado, forçamos o scroll
+            if (audioState !== 'pausing' && audioState !== 'idle') {
+                audioState = 'idle';
+                isAutoScrolling = true;
+                currentCardIndex++;
+                if (currentCardIndex >= feedCards.length - 2) appendCards(5);
+                const nextCard = feedCards[currentCardIndex];
+                if (nextCard) {
+                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    readCard(currentCardIndex);
+                }
+                setTimeout(() => { isAutoScrolling = false; }, 1000);
+            }
           }
         }, interval);
     }
