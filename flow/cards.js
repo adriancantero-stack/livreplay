@@ -342,4 +342,347 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "simon sinek golden circle propósito liderança",
     audioId: "b2e6769da14528109d033a6d015d4422.wav"
   },
+  {
+    topic: "Estratégia",
+    quote: "A verdadeira estratégia não é decidir o que fazer. É decidir <strong>o que não fazer</strong>.",
+    author: "Planejamento Estratégico",
+    searchQuery: "importancia do foco o que nao fazer estrategia",
+    audioId: "a3163b30867186f9fb7dbcf890c00926.wav"
+  },
+  {
+    topic: "Neurociência",
+    quote: "A força de vontade é como um músculo. Ela se <strong>cansa ao longo do dia</strong>. Use a sua para as coisas mais difíceis logo de manhã.",
+    author: "Gestão de Energia",
+    searchQuery: "fadiga de decisao forca de vontade neurociencia",
+    audioId: "1e6c9cf65266d66bc324560f5126d165.wav"
+  },
+  {
+    topic: "Evolução",
+    quote: "O medo de falar em público é um resquício da pré-história. Para o cérebro antigo, ser julgado pela tribo significava <strong>morte certa</strong>.",
+    author: "Psicologia Evolutiva",
+    searchQuery: "medo de falar em publico origem evolutiva psicologica",
+    audioId: "4f4d7fd68208a50901a510d5cbd5f394.wav"
+  },
+  {
+    topic: "Física",
+    quote: "A entropia dita que o universo tende à desordem. O único jeito de criar ordem e vida é <strong>queimar energia</strong>.",
+    author: "Termodinâmica",
+    searchQuery: "segunda lei da termodinamica entropia e vida",
+    audioId: "185b5d2e5fd1b50114d705f4f366c6ef.wav"
+  },
+  {
+    topic: "Filosofia",
+    quote: "Não é a morte que o homem deve temer, mas sim nunca começar a <strong>viver de verdade</strong>.",
+    author: "Marco Aurélio",
+    searchQuery: "estoicismo marco aurelio sobre a morte viver de verdade",
+    audioId: "cb262f1f01f990a6690a5734b1e85f8e.wav"
+  },
+  {
+    topic: "Aprendizado",
+    quote: "O cérebro não aprende repetindo, ele aprende <strong>esquecendo e resgatando</strong> a informação com esforço.",
+    author: "Neurociência do Aprendizado",
+    searchQuery: "como estudar melhor active recall repetição espaçada",
+    audioId: "5b4b655b33c2db2fa52581595a043460.wav"
+  },
+  {
+    topic: "Futurismo",
+    quote: "As IAs não vão substituir os humanos. Humanos que sabem usar IA vão substituir <strong>humanos que não sabem</strong>.",
+    author: "Futuro do Trabalho",
+    searchQuery: "inteligencia artificial vai roubar meu emprego",
+    audioId: "e67201bc4c6e7baa3cc849f8db0d914b.wav"
+  },
+  {
+    topic: "Minimalismo",
+    quote: "Simplifique sua vida. A desordem física ao seu redor reflete a <strong>desordem mental</strong> dentro da sua cabeça.",
+    author: "Psicologia do Ambiente",
+    searchQuery: "como o ambiente afeta a mente minimalismo",
+    audioId: "37eef645f85bb1e7703b8e95e9da46e3.wav"
+  },
+  {
+    topic: "Finanças",
+    quote: "Riqueza é o que você não vê. São os carros não comprados e as roupas de grife ignoradas que formam o <strong>verdadeiro patrimônio</strong>.",
+    author: "Psicologia Financeira",
+    searchQuery: "psicologia financeira morgan housel verdadeira riqueza",
+    audioId: "1fa88b4d89e09d2e5fb83d86fc8698f2.wav"
+  },
+  {
+    topic: "Tecnologia",
+    quote: "A internet não nos deu mais verdade. Ela nos deu a capacidade infinita de <strong>encontrar mentiras que confirmam</strong> nossos viéses.",
+    author: "Viés de Confirmação",
+    searchQuery: "bolhas sociais internet viés de confirmação algoritmo",
+    audioId: "e303ecc7cb9a48902fe71191284b07aa.wav"
+  },
+  {
+    topic: "Astronomia",
+    quote: "O sol que você vê agora é um fantasma do passado. A luz dele viajou por <strong>8 minutos</strong> antes de beijar o seu rosto.",
+    author: "Velocidade da Luz",
+    searchQuery: "tempo da luz do sol ate a terra astrofisica",
+    audioId: "a1b57d58c688709621a8d74bdfe40778.wav"
+  },
+  {
+    topic: "Cultura",
+    quote: "As grandes inovações nunca nascem no centro. Elas sempre surgem nas <strong>margens e bordas</strong> do pensamento humano.",
+    author: "Inovação Radical",
+    searchQuery: "de onde vem a inovaçao criatividade fora da bolha",
+    audioId: "32820628c5553fff5b613cd2cab1b7e6.wav"
+  },
+  {
+    topic: "Motivação",
+    quote: "Se você precisa de motivação para fazer algo importante, talvez o problema não seja a sua energia, mas a sua <strong>falta de clareza</strong>.",
+    author: "Design de Rotinas",
+    searchQuery: "clareza mental vs motivacao produtividade",
+    audioId: "828bdfbb440842c5129e9f401b18825c.wav"
+  },
+  {
+    topic: "Arte",
+    quote: "O pintor não pinta o que ele vê. Ele pinta o que ele quer que <strong>você veja</strong>.",
+    author: "Percepção Visual",
+    searchQuery: "como a arte afeta a neurociencia da percepcao",
+    audioId: "67c56ef6ae9a9d9ee3f19841c8aa8cce.wav"
+  },
+  {
+    topic: "Comportamento",
+    quote: "Nós somos a média das cinco pessoas com quem mais convivemos. A influência social é uma <strong>força gravitacional invisível</strong>.",
+    author: "Dinâmica Social",
+    searchQuery: "a media das 5 pessoas influencia ambiente social",
+    audioId: "0593ce4b2a639eaaabb158ce2945ec55.wav"
+  },
+  {
+    topic: "Foco",
+    quote: "Fazer duas coisas ao mesmo tempo não é ser produtivo. É apenas <strong>dividir sua atenção e multiplicar a mediocridade</strong>.",
+    author: "Mito da Multitarefa",
+    searchQuery: "multitarefa funciona neurociencia da atencao dividida",
+    audioId: "0a7d10d4d6e22b5e180de3dd400f848a.wav"
+  },
+  {
+    topic: "Biólogia",
+    quote: "O nosso estômago é o nosso segundo cérebro. A microbiota intestinal tem poder de controlar até as suas <strong>mudanças de humor</strong>.",
+    author: "Microbioma Humano",
+    searchQuery: "eixo intestino cerebro bacterias e humor",
+    audioId: "0a413194d5da1cbbc1cae31dff6f3c47.wav"
+  },
+  {
+    topic: "Economia",
+    quote: "O valor não está na escassez do recurso, mas na <strong>narrativa coletiva</strong> que as pessoas constroem sobre ele.",
+    author: "Teoria do Valor",
+    searchQuery: "o que da valor ao dinheiro narrativa economica",
+    audioId: "367ef94c736a49bdcd24a93d22aebb07.wav"
+  },
+  {
+    topic: "Hábitos",
+    quote: "A melhor forma de quebrar um mau hábito não é usando a força bruta. É tornando o gatilho <strong>invisível ou difícil de acessar</strong>.",
+    author: "James Clear",
+    searchQuery: "como quebrar maus habitos james clear facilidade",
+    audioId: "2e6d5c62ba721c12675ceee88b3d4752.wav"
+  },
+  {
+    topic: "Psicologia",
+    quote: "A inveja não nasce de pessoas que estão no topo. Ela nasce daqueles que estão no mesmo nível que você, mas deram <strong>um passo à frente</strong>.",
+    author: "Psicologia Social",
+    searchQuery: "origem da inveja comparacao social psicanalise",
+    audioId: "92dfec739ba6bcaa3b6b3f6cb4b8079c.wav"
+  },
+  {
+    topic: "Física Quântica",
+    quote: "Toda matéria é feita de vibrações de energia. Se você der um zoom infinito em sua mão, encontrará apenas <strong>vazio e movimento</strong>.",
+    author: "Teoria das Cordas",
+    searchQuery: "tudo e energia vibracao materia vazia fisica",
+    audioId: "3b51efb8b21a689941ce0375da5841af.wav"
+  },
+  {
+    topic: "Design",
+    quote: "A melhor interface de usuário é aquela que o cérebro decodifica tão rápido que a pessoa acha que a ideia foi <strong>dela mesma</strong>.",
+    author: "UX e Psicologia",
+    searchQuery: "psicologia no design de interfaces experiencia do usuario",
+    audioId: "2009d0ac7c1cd41c293182d2d4f0ff86.wav"
+  },
+  {
+    topic: "Estratégia",
+    quote: "Em um mundo de mudanças extremas, o único risco fatal é <strong>ficar parado abraçado às certezas antigas</strong>.",
+    author: "Adaptabilidade",
+    searchQuery: "gestao de mudancas mundo vuca adaptabilidade",
+    audioId: "afb3f3343a82031f5f489d30b2414fac.wav"
+  },
+  {
+    topic: "Saúde",
+    quote: "Sentar é o novo cigarro. O corpo humano foi forjado para o movimento e adoece rapidamente quando <strong>colocado em repouso forçado</strong>.",
+    author: "Medicina Preventiva",
+    searchQuery: "maleficios de ficar sentado muito tempo sedentarismo",
+    audioId: "b2d4b9340489be292614b6532699f1c7.wav"
+  },
+  {
+    topic: "Criptomoedas",
+    quote: "A blockchain não é apenas sobre moedas virtuais. É sobre a criação de <strong>confiança matemática</strong> entre completos estranhos.",
+    author: "Criptografia",
+    searchQuery: "como a blockchain cria confianca sem bancos",
+    audioId: "a791c7eee903c2c3f281cb2a741e81a0.wav"
+  },
+  {
+    topic: "Estoicismo",
+    quote: "Você não tem poder sobre o que acontece com você. O seu único poder real é decidir <strong>como vai reagir</strong>.",
+    author: "Epicteto",
+    searchQuery: "epicteto reacao aos problemas dicotomia do controle",
+    audioId: "f1b25af2dbe7ead34e88c79170379679.wav"
+  },
+  {
+    topic: "Inovação",
+    quote: "O maior assassino de uma boa ideia não é uma crítica destrutiva. É um elogio vazio de pessoas que <strong>nunca usariam o produto</strong>.",
+    author: "Validação de Ideias",
+    searchQuery: "como testar uma ideia de negocio validacao lean",
+    audioId: "0fac8f4a92373dff336fb3a4ac609eee.wav"
+  },
+  {
+    topic: "Relacionamentos",
+    quote: "A comunicação não é o que você fala. Comunicação é apenas aquilo que o <strong>outro lado conseguiu entender</strong>.",
+    author: "Comunicação Eficaz",
+    searchQuery: "ruidos na comunicacao como ser claro empatia",
+    audioId: "3a1f58b1a0b994c6c3da3df7fd3f8cc1.wav"
+  },
+  {
+    topic: "Metaverso",
+    quote: "Para a nova geração, o avatar digital já tem mais valor social do que a própria <strong>aparência física</strong> no mundo real.",
+    author: "Sociologia Digital",
+    searchQuery: "identidade digital nas redes e jogos sociedade futura",
+    audioId: "7e66e26097f1f026aa3bfbd676446e49.wav"
+  },
+  {
+    topic: "Produtividade",
+    quote: "Se você tem dois minutos para fazer uma tarefa, não a anote na sua lista. <strong>Faça imediatamente</strong> e libere sua carga mental.",
+    author: "Regra dos Dois Minutos",
+    searchQuery: "regra dos dois minutos getting things done gtd",
+    audioId: "a259849ee90d927e292c806f33934b10.wav"
+  },
+  {
+    topic: "Cosmologia",
+    quote: "O universo não está apenas em expansão, ele está acelerando. Eventualmente, o céu noturno do futuro será <strong>completamente escuro e vazio</strong>.",
+    author: "Energia Escura",
+    searchQuery: "expansao acelerada do universo energia escura",
+    audioId: "0072ce19f1c862cf332db2684780be46.wav"
+  },
+  {
+    topic: "Neurociência",
+    quote: "A dopamina não é o hormônio da felicidade. É o hormônio da <strong>busca e da antecipação</strong> da recompensa.",
+    author: "Química Cerebral",
+    searchQuery: "como a dopamina funciona vicio antecipacao",
+    audioId: "6665beb86a9a31aea7299b52c0a2d040.wav"
+  },
+  {
+    topic: "Minimalismo",
+    quote: "Não confunda a ausência de objetos com paz de espírito. Minimalismo físico sem <strong>clareza mental</strong> é apenas uma sala vazia.",
+    author: "Filosofia Zen",
+    searchQuery: "minimalismo mental paz de espirito desapego",
+    audioId: "cc68622506d716689af28f354adfd010.wav"
+  },
+  {
+    topic: "Biohacking",
+    quote: "A exposição ao frio extremo por curtos períodos pode treinar o seu sistema cardiovascular e forjar uma <strong>imunidade inabalável</strong>.",
+    author: "Terapia da Água Fria",
+    searchQuery: "banho gelado beneficios imunidade wim hof",
+    audioId: "5d951f8b85ad933a617b3866455488cf.wav"
+  },
+  {
+    topic: "Filosofia",
+    quote: "O ser humano é a única criatura do universo que precisa inventar um motivo para <strong>justificar a própria existência</strong>.",
+    author: "Albert Camus",
+    searchQuery: "mito de sisifo albert camus sentido da vida",
+    audioId: "2a9d81325e5f9158f0a807ce02ad4713.wav"
+  },
+  {
+    topic: "Economia",
+    quote: "Os juros não são apenas o preço do dinheiro. São a prova tangível de que o <strong>tempo tem um valor financeiro</strong> exato.",
+    author: "Matemática Financeira",
+    searchQuery: "o tempo e dinheiro valor do dinheiro no tempo",
+    audioId: "36177eef7f469d1f5b35db0020befb39.wav"
+  },
+  {
+    topic: "Liderança",
+    quote: "Líderes fracos exigem obediência através do medo. Líderes fortes conquistam lealdade servindo e <strong>protegendo as suas equipes</strong>.",
+    author: "Liderança Servidora",
+    searchQuery: "lideranca servidora como inspirar pessoas simon sinek",
+    audioId: "bc3942a247c44a9bc6ce4883ba6048b6.wav"
+  },
+  {
+    topic: "Psicologia",
+    quote: "A depressão muitas vezes não é apenas uma tristeza profunda. É uma falha aguda do cérebro em imaginar um <strong>futuro diferente do presente</strong>.",
+    author: "Psiquiatria Clínica",
+    searchQuery: "neurobiologia da esperanca depressao e visao de futuro",
+    audioId: "e6eac32a6b89349590d8deef07699e48.wav"
+  },
+  {
+    topic: "Genética",
+    quote: "Não somos os mestres da evolução. Somos apenas veículos temporários que os nossos genes usam para <strong>garantir a própria imortalidade</strong>.",
+    author: "O Gene Egoísta",
+    searchQuery: "richard dawkins gene egoista proposito da evolucao",
+    audioId: "8960b49d6ccdc19c10b8d6aa13d6fe29.wav"
+  },
+  {
+    topic: "Hábitos",
+    quote: "Cada vez que você faz uma escolha difícil e correta, você deposita um voto na urna da <strong>nova identidade</strong> que deseja construir.",
+    author: "Construção de Caráter",
+    searchQuery: "identidade e habitos pequenas vitorias james clear",
+    audioId: "869b0f60e7b8a2f22f8a5caf8ebc2ba5.wav"
+  },
+  {
+    topic: "Tecnologia",
+    quote: "A verdadeira inteligência artificial não vai tentar nos destruir, ela simplesmente vai operar em uma escala onde a nossa existência <strong>seja irrelevante</strong>.",
+    author: "Riscos Existenciais",
+    searchQuery: "riscos da inteligencia artificial superinteligencia",
+    audioId: "dd980836c5e2e24f173dc2ea844721b3.wav"
+  },
+  {
+    topic: "Criatividade",
+    quote: "Escrever é o único jeito humano de extrair um pensamento bagunçado da mente e <strong>ancorá-lo na realidade física</strong>.",
+    author: "Psicologia da Escrita",
+    searchQuery: "escrever para pensar melhor externalizacao cognitiva",
+    audioId: "0a6331d3f54499320b3e9e514a3d308e.wav"
+  },
+  {
+    topic: "Tempo",
+    quote: "Nós gastamos a vida toda tentando ganhar dinheiro, apenas para descobrir na velhice que o dinheiro só serve para tentar <strong>comprar mais tempo</strong>.",
+    author: "Reflexão sobre a Vida",
+    searchQuery: "dinheiro e tempo arrependimentos da vida",
+    audioId: "329373694c4e1a561a3ca5ea89735fc3.wav"
+  },
+  {
+    topic: "Biologia",
+    quote: "As árvores de uma mesma floresta dividem a luz do sol de forma inteligente para que <strong>toda a comunidade sobreviva</strong>.",
+    author: "Inteligência da Natureza",
+    searchQuery: "crown shyness timidez das copas inteligencia das arvores",
+    audioId: "75d6672867cae20a190d2bc31fb02123.wav"
+  },
+  {
+    topic: "Marketing",
+    quote: "A atenção humana é mais volátil do que qualquer mercado de ações. Quem controla a atenção das massas, detém o <strong>monopólio do mundo moderno</strong>.",
+    author: "Economia da Atenção",
+    searchQuery: "economia da atencao como prender publico midias",
+    audioId: "086136e5cc792b21003a7ca6ca0970fc.wav"
+  },
+  {
+    topic: "Aprendizado",
+    quote: "O maior inimigo da maestria não é o fracasso. É o tédio avassalador que surge quando as coisas começam a <strong>ficar fáceis demais</strong>.",
+    author: "Psicologia da Performance",
+    searchQuery: "estado de flow superando o tedio maestria",
+    audioId: "2eed66532eee970ee8a5f9fcad708310.wav"
+  },
+  {
+    topic: "Sociedade",
+    quote: "As leis de trânsito só funcionam porque todos nós compartilhamos uma <strong>ficção mútua</strong> de que elas são reais.",
+    author: "Antropologia",
+    searchQuery: "harari sapiens realidades imaginadas ordem social",
+    audioId: "e1ed0a16ee64b672de1a8ea8cfa45219.wav"
+  },
+  {
+    topic: "Matemática",
+    quote: "A beleza dos fractais reside no fato de que a complexidade do universo pode nascer a partir de uma <strong>equação simples repetida infinitamente</strong>.",
+    author: "Geometria Fractal",
+    searchQuery: "fractais na natureza matematica mandelbrot complexidade",
+    audioId: "32cb7bc83c836a348d84a973a235e720.wav"
+  },
+  {
+    topic: "Foco",
+    quote: "Quando você diz 'sim' para um pedido qualquer, está dizendo 'não' automaticamente para <strong>algo que realmente importa</strong>.",
+    author: "Gestão do Tempo",
+    searchQuery: "o poder do nao essencialismo greg mckeown foco",
+    audioId: "7eef7d8467d69888aa81312c86831488.wav"
+  },
 ];
