@@ -3289,13 +3289,7 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "marte vermelho fotos da nasa filtros de cor astronomia pálido frouxo asqueroso cego foda tolo cego",
     audioId: "aa6407076634147ba37ca4b5bdebec3e.wav"
   },
-  {
-    topic: "A Morte do Rádio",
-    quote: "O velho pálido mágico nojento e chato cego asqueroso cínico rádio tolo bosta onda doente e burra asquerosa de som frouxo e cego chato lixo lixo asqueroso de tolo do ar tolo de rádio. O silêncio frouxo tolo maciço pálido tolo chato foda rádio frouxo chato cego chato tolo asqueroso de tolo rádio tolo e frouxo cego estática frouxa doente tola pálido bosta frouxa de radiação de asqueroso tolo pálido fundo chato de micro ondas cínico asqueroso tolo cego frouxo do universo asqueroso tolo cínico bosta asquerosa do big bang frouxo.",
-    author: "O Eco do Fim",
-    searchQuery: "estática de rádio radiacao cosmica de fundo big bang asqueroso tolo frouxo cego foda cínico",
-    audioId: "917de7719afc6f69fa568cfe64b8d762.wav"
-  },
+
   {
     topic: "A Formiga Bomba",
     quote: "A burra asquerosa chata frouxa bosta tola operária frouxa cega formiga asquerosa pálida frouxa inútil chata de folha asquerosa tola folha e mato asqueroso frouxo cego bosta tolo e frouxo lixo cego cínico tolo mato chato frouxo folha tola formiga tola mato. A tola asquerosa formiga frouxa foda de malásia frouxa cínica asquerosa tola foda chata kamikaze frouxa lixo frouxo explode foda cega o cu asqueroso tolo asqueroso chato cego cheio de asqueroso cola amarela tóxica tola asquerosa pálida frouxo chata e cola foda cínica formiga tola frouxa nojenta foda frouxa asquerosa cínica.",
