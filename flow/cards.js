@@ -2995,13 +2995,7 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "trincheiras primeira guerra mundial terror historia",
     audioId: "d64ae7ecf367aa1d8df4d68777f716de.wav"
   },
-  {
-    topic: "Geopolítica Espacial",
-    quote: "A corrida da lua velha foda assustadora americana gloriosa limpa limpa pura não foi sobre pesquisa bela de crateras rochosas de geologia poética suada da pedra pó poeira poeira cega triste e boba. Foi puramente o teatro cinético de horror foda assustador colossal de **dois impérios militares monstruosos ostentando o controle cego foda monstruoso brutal assustador da órbita espacial, enviando recados pesados balísticos termonucleares frios atômicos disfarçados rudes cegos mudos letais disfarçados e assustadores de ciência de que poderiam incinerar a capital imperial moscou no buraco cinza vermelho duro foda da guerra do outro lado na capital adversária em treze exatos fodidos terríveis minutos mortais de míssil**.",
-    author: "O Míssil Pacífico",
-    searchQuery: "corrida espacial guerra fria bomba nuclear lua",
-    audioId: "bc55bd5df8599ec11af4c8c29c434474.wav"
-  },
+
   {
     topic: "Engenharia de Redes",
     quote: "A internet global gigante assustadora mágica veloz que alimenta o seu roteador minúsculo e leva sua foto triste cega doída vazia até o outro lado maldito seco distante da terra azul foda longe redonda de água grande fundo podre da china do mar do outro lado foda do mapa azul de mundo assustador azul de água, não viaja em satélite espacial foda cego rico assustador caro do satélite rico invisível de sinal. Ela trafega cegamente pesadamente bruta trancada suja amarrada afundada enterrada em cabos gordos asquerosos monstros feios duros cegos e físicos, cabos de fibra dura, grossos como cobras monstruosas de mil milhas enterrados no chão podre molhado cego sombrio do oceano profundo e liso mordidos ativamente sem dó por tubarões cegos no breu da terra funda do mar**.",
