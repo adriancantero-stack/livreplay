@@ -1035,4 +1035,354 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "ausencia fisica fenomenos termodinamica luz",
     audioId: "ed268f9947fa4da8c8542cdcd6f7e404.wav"
   },
+  {
+    topic: "Pensamento Sistêmico",
+    quote: "Para resolver um problema complexo, você não foca na peça quebrada. Você foca nas <strong>relações entre as peças</strong> do sistema inteiro.",
+    author: "Teoria Geral dos Sistemas",
+    searchQuery: "pensamento sistemico complexidade como resolver problemas",
+    audioId: "cce070561f232e02eab57d6c36273dee.wav"
+  },
+  {
+    topic: "Neurociência",
+    quote: "O tédio não é uma emoção inútil. Ele é o estado padrão do cérebro sinalizando que é hora de <strong>começar a criar algo novo</strong>.",
+    author: "Psicologia da Criatividade",
+    searchQuery: "importancia do tedio neurociencia criatividade",
+    audioId: "f511b71940b267402863c050b86f5d7b.wav"
+  },
+  {
+    topic: "Biologia",
+    quote: "O envelhecimento não é um desgaste mecânico. É o acúmulo gradual de <strong>erros de cópia</strong> no nível mais fundamental do seu DNA.",
+    author: "Biogerontologia",
+    searchQuery: "como o corpo envelhece erro de dna telomeros",
+    audioId: "30914262d8319c0d7ad672bf8be60852.wav"
+  },
+  {
+    topic: "Estratégia",
+    quote: "A pressa é o inimigo mortal da precisão. As decisões mais geniais são tomadas por mentes que aprenderam a <strong>desacelerar o tempo</strong>.",
+    author: "Tomada de Decisão",
+    searchQuery: "tomada de decisao sob pressao desacelerar pensamento daniel kahneman",
+    audioId: "3855e4be946898046ed7a19c5e1ea0c2.wav"
+  },
+  {
+    topic: "Finanças",
+    quote: "O maior risco dos investimentos não é o crash do mercado. É a inflação invisível que <strong>derrete o seu dinheiro</strong> lentamente na conta bancária.",
+    author: "Economia Comportamental",
+    searchQuery: "risco da inflacao como proteger o dinheiro",
+    audioId: "c1cb27db7515955c6dc0ac68f398cd37.wav"
+  },
+  {
+    topic: "Psicologia",
+    quote: "A raiva não tem a ver com o que aconteceu com você. A raiva é a dor de ver a realidade quebrando a <strong>expectativa que você tinha criado</strong>.",
+    author: "Terapia Cognitivo-Comportamental",
+    searchQuery: "gestao da raiva frustracao expectativas psicologia",
+    audioId: "7f4f85b692c236a6ea33d2c8b2deb7ac.wav"
+  },
+  {
+    topic: "Astronomia",
+    quote: "Os buracos negros não sugam tudo como aspiradores. Eles apenas distorcem a realidade tão profundamente que até a <strong>luz perde a capacidade de fugir</strong>.",
+    author: "Astrofísica",
+    searchQuery: "como funciona um buraco negro gravidade espaco tempo",
+    audioId: "81ee37c74d35ea590e7c96793b614e02.wav"
+  },
+  {
+    topic: "Biohacking",
+    quote: "Fazer jejum intermitente não é apenas sobre emagrecer. É sobre ativar o processo de autofagia celular, onde o seu corpo literalmente <strong>devora as células velhas e doentes</strong>.",
+    author: "Biologia Metabólica",
+    searchQuery: "autofagia celular jejum intermitente antienvelhecimento",
+    audioId: "2193247b2c8633bba430a090ca87883d.wav"
+  },
+  {
+    topic: "Inovação",
+    quote: "O primeiro celular da Apple não foi feito copiando a Nokia. A disrupção verdadeira acontece quando você ousa <strong>ignorar o líder do mercado</strong>.",
+    author: "Estratégia do Oceano Azul",
+    searchQuery: "inovacao disruptiva como ignorar a concorrencia",
+    audioId: "3dd4db93c41880a15d7a798b9da52ee3.wav"
+  },
+  {
+    topic: "Estoicismo",
+    quote: "A pessoa que tem medo da pobreza não é livre. A verdadeira liberdade começa quando você aprende a <strong>desejar apenas o necessário</strong>.",
+    author: "Sêneca",
+    searchQuery: "seneca estoicismo pobreza liberdade financeira",
+    audioId: "9e927c6db6707b2a5fc2a02bd9aa532a.wav"
+  },
+  {
+    topic: "Liderança",
+    quote: "Um chefe exige obediência. Um líder cria uma visão tão poderosa que as pessoas obedecem porque <strong>querem construir esse futuro juntas</strong>.",
+    author: "Gestão Transformacional",
+    searchQuery: "lideranca transformacional visao de futuro inspirar equipe",
+    audioId: "6db1f2ac7f595e8c0f55a46761eddb41.wav"
+  },
+  {
+    topic: "Futurismo",
+    quote: "Estamos construindo inteligências alienígenas de silício na Terra, não para serem nossos escravos, mas para se tornarem nossos <strong>coautores na evolução cósmica</strong>.",
+    author: "Singularidade Tecnológica",
+    searchQuery: "futuro da ia singularidade evolucao cibernetica",
+    audioId: "07e6881da5a3c43b3a89ad6afe64385d.wav"
+  },
+  {
+    topic: "Produtividade",
+    quote: "O perfeccionismo é apenas o medo da rejeição usando um terno bem cortado. <strong>Lance rápido, erre rápido e concerte rápido</strong>.",
+    author: "Cultura Startup",
+    searchQuery: "perfeccionismo vs agilidade cultura de startup",
+    audioId: "0fb16d25b22d68ebc22fef7e855ab035.wav"
+  },
+  {
+    topic: "Antropologia",
+    quote: "O segredo do sucesso humano não foi o tamanho do cérebro ou a ferramenta de pedra. Foi a fofoca, a capacidade de <strong>falar sobre coisas que não existem</strong>.",
+    author: "História Evolutiva",
+    searchQuery: "yuval noah harari poder da fofoca evolucao linguagem",
+    audioId: "7f07ffa43827a5cedb0ab2b61cadff6e.wav"
+  },
+  {
+    topic: "Minimalismo",
+    quote: "Não acumule coisas físicas para preencher vazios emocionais. Se você tem que organizar a bagunça todo fim de semana, você tem <strong>coisas demais na sua vida</strong>.",
+    author: "Essencialismo Prático",
+    searchQuery: "psicologia do acumulo desapego material minimalismo",
+    audioId: "4f532828f9c979056f9c49501a7e8cb1.wav"
+  },
+  {
+    topic: "Comunicação",
+    quote: "A maior mentira sobre conversas é achar que você só escuta com os ouvidos. O verdadeiro ouvinte escuta com os olhos e <strong>com a postura do corpo</strong>.",
+    author: "Linguagem Não Verbal",
+    searchQuery: "escuta ativa linguagem corporal persuasao",
+    audioId: "1d5ea295a152d1b519cfece3bb9e251e.wav"
+  },
+  {
+    topic: "Física Quântica",
+    quote: "No reino quântico, o tempo não é uma linha reta. As partículas se comportam como se já soubessem qual será a <strong>sua decisão no futuro</strong>.",
+    author: "Entrelaçamento Retrógrado",
+    searchQuery: "mecanica quantica e o tempo o experimento de fenda",
+    audioId: "d1687480a3bd18e9cf406d33cbf05927.wav"
+  },
+  {
+    topic: "Educação",
+    quote: "A escola moderna treina crianças para passarem em provas que um algoritmo de IA resolve em <strong>três segundos</strong>.",
+    author: "Futuro do Aprendizado",
+    searchQuery: "educacao moderna obsoleta ia na escola",
+    audioId: "13ac9f0945e2503be61f7b94b4a72791.wav"
+  },
+  {
+    topic: "Psicologia Social",
+    quote: "O conformismo é um vírus silencioso. Se você cercar um gênio de pessoas medíocres, ele começará a duvidar da sua <strong>própria sanidade</strong>.",
+    author: "Efeito de Manada",
+    searchQuery: "conformismo experiencia de asch pressao social",
+    audioId: "eac6ebc302001f3984f91d4c4c67d500.wav"
+  },
+  {
+    topic: "Genética",
+    quote: "A sua herança genética não é o seu roteiro de vida. Ela é apenas o <strong>baralho de cartas</strong> que lhe foi dado no início do jogo.",
+    author: "Comportamento Humano",
+    searchQuery: "genetica vs ambiente epigenetica destino",
+    audioId: "23e696502248dc6bf61a5033b69b1211.wav"
+  },
+  {
+    topic: "Marketing",
+    quote: "Não venda a furadeira de alto impacto. Venda o <strong>sorriso de satisfação</strong> do cliente ao ver o quadro pendurado perfeitamente na parede da sala.",
+    author: "Comportamento do Consumidor",
+    searchQuery: "vender beneficios emocoes marketing estrategico",
+    audioId: "121abc1451db16fc706b6ae0bab2c617.wav"
+  },
+  {
+    topic: "Ecologia",
+    quote: "A natureza não produz lixo. O conceito de rejeito irreciclável é uma anomalia <strong>exclusiva da espécie humana</strong>.",
+    author: "Design Circular",
+    searchQuery: "economia circular biomimetica sustentabilidade real",
+    audioId: "3bfbe1bfb731a0d103b114acf52d9b74.wav"
+  },
+  {
+    topic: "Hábitos",
+    quote: "Os grandes fracassos raramente vêm de um grande erro. Eles são o acúmulo invisível de <strong>milhares de pequenas más escolhas diárias</strong>.",
+    author: "Efeito Composto Diário",
+    searchQuery: "efeito composto mas escolhas james clear pequenos erros",
+    audioId: "2e8c2922211ebeee3541f646d83051bf.wav"
+  },
+  {
+    topic: "Consciência",
+    quote: "Não somos computadores feitos de carne. A consciência humana continua sendo o maior <strong>mistério indecifrável da ciência moderna</strong>.",
+    author: "Filosofia da Mente",
+    searchQuery: "o problema dificil da consciencia ciencia neurobiologia",
+    audioId: "07bddb928350de6554e2a5f6582c13cb.wav"
+  },
+  {
+    topic: "Matemática",
+    quote: "A aleatoriedade pura quase não existe na vida real. Tudo que parece sorte é geralmente o resultado estatístico da <strong>falta de informação suficiente</strong>.",
+    author: "Teoria das Probabilidades",
+    searchQuery: "aleatoriedade vs padroes ignorancia humana estatistica",
+    audioId: "b5f16e5333d2de5374aac2f8514d0f77.wav"
+  },
+  {
+    topic: "Dinheiro",
+    quote: "Riqueza é o número no banco. Liberdade é a capacidade de acordar de manhã e dizer: 'Eu posso fazer <strong>o que eu quiser hoje</strong>'.",
+    author: "Psicologia da Riqueza",
+    searchQuery: "diferenca entre dinheiro e liberdade ricaço x rico",
+    audioId: "ac36fc39fa2c8cd954acaa5595bb2316.wav"
+  },
+  {
+    topic: "Filosofia",
+    quote: "Não acredite em tudo que você pensa. O cérebro é uma máquina de fabricar <strong>mentiras convincentes para proteger o seu ego</strong>.",
+    author: "Vieses Cognitivos",
+    searchQuery: "autoengano vieses filosoficos ceticismo interno",
+    audioId: "9e3d53b8b1874849d95eb97fb0c67c27.wav"
+  },
+  {
+    topic: "Geopolítica",
+    quote: "As guerras modernas não serão travadas por soldados na lama. Elas serão decididas por inteligências artificiais destruindo silenciosamente a <strong>infraestrutura bancária do inimigo</strong>.",
+    author: "Guerra Cibernética",
+    searchQuery: "ciberguerra geopolitica ataque as infraestruturas digitais",
+    audioId: "4a222140a7d66ea9fe244aea65fa31ca.wav"
+  },
+  {
+    topic: "Estratégia",
+    quote: "A simplicidade é o grau mais alto da sofisticação. Fazer algo complicado é fácil; fazer algo complexo <strong>parecer óbvio e elegante requer genialidade</strong>.",
+    author: "Design de Soluções",
+    searchQuery: "simplicidade leonardo da vinci genialidade no design",
+    audioId: "a03f71167f7dff2a1a1d0320882ddd1f.wav"
+  },
+  {
+    topic: "Foco",
+    quote: "O seu celular não é uma ferramenta neutra. Ele é um caça-níqueis de bolso projetado por engenheiros brilhantes para <strong>sequestrar o seu sistema dopaminérgico</strong>.",
+    author: "Neurobiologia do Vício",
+    searchQuery: "vicio em telas celular dopamina engenharia atencao",
+    audioId: "61478081495ea09460c543f686edf0c3.wav"
+  },
+  {
+    topic: "Biologia",
+    quote: "A mitocôndria, que fornece toda a sua energia, tem o próprio DNA alienígena. Ela foi uma bactéria que o nosso ancestral primitivo <strong>engoliu e decidiu escravizar bilhões de anos atrás</strong>.",
+    author: "Teoria Endossimbiótica",
+    searchQuery: "mitocondria origem das celulas biologia fantastica",
+    audioId: "2b448fbb3420ea64e0e56886542c0b46.wav"
+  },
+  {
+    topic: "Liderança",
+    quote: "Microgerenciamento não melhora o trabalho. Ele destrói o <strong>espírito da iniciativa</strong> e transforma profissionais brilhantes em meros executores de ordens.",
+    author: "Comportamento Organizacional",
+    searchQuery: "maleficios do microgerenciamento delegar tarefas",
+    audioId: "ec54bece0bab08781a9ded5a582ff727.wav"
+  },
+  {
+    topic: "Inteligência Emocional",
+    quote: "O perdão não é um presente que você dá para quem te machucou. É a chave que você usa para destrancar a <strong>sua própria prisão mental</strong>.",
+    author: "Saúde Emocional",
+    searchQuery: "psicologia do perdao soltar rancor cura mental",
+    audioId: "5fc8daf16768e7ba5f5158f2106ae6b5.wav"
+  },
+  {
+    topic: "Criptografia",
+    quote: "O segredo de não ter a sua privacidade violada não é usar senhas difíceis, é criptografar de forma que a sua senha seja a <strong>única chave matemática do universo</strong>.",
+    author: "Segurança da Informação",
+    searchQuery: "criptografia de ponta a ponta como proteger dados",
+    audioId: "21ca9045c3254bd731a4c6ba49c11172.wav"
+  },
+  {
+    topic: "Saúde",
+    quote: "O músculo mais subestimado do seu corpo é o coração. Treine-o como você treinaria os bíceps, porque é ele que vai decidir <strong>se você vai viver para ver os seus netos</strong>.",
+    author: "Condicionamento Cardiovascular",
+    searchQuery: "importancia do cardio coracao musculo vo2max",
+    audioId: "fc32b32935ad1b1404021c948585de46.wav"
+  },
+  {
+    topic: "Motivação",
+    quote: "Se a sua identidade está ancorada no seu cargo ou no seu status, uma demissão não será um problema logístico, será uma <strong>completa desintegração psicológica</strong>.",
+    author: "Autoconhecimento",
+    searchQuery: "identidade vs cargo perder o emprego logoterapia",
+    audioId: "3030b1466d122b7bbf598ca7e60a9df9.wav"
+  },
+  {
+    topic: "Cosmologia",
+    quote: "O Big Bang não aconteceu em um ponto específico do espaço vazio. O Big Bang foi o momento exato em que o próprio espaço <strong>começou a existir e se esticar</strong>.",
+    author: "Origem do Universo",
+    searchQuery: "onde foi o big bang expansao do espaco",
+    audioId: "bed1712f4f6289cfa10dcdfaf7233ac2.wav"
+  },
+  {
+    topic: "Negócios",
+    quote: "Um excelente plano mal executado não vale nada. Um plano medíocre executado com violência brutal e foco implacável quase sempre <strong>vence o jogo</strong>.",
+    author: "Gestão de Execução",
+    searchQuery: "estrategia vs execucao george patton planos perfeitos",
+    audioId: "1e282a871e665ec844fd6c0cd9a18e8c.wav"
+  },
+  {
+    topic: "Filosofia Zen",
+    quote: "Lavar os pratos não é algo que você faz para ter pratos limpos depois. Você deve lavar os pratos para estar <strong>plenamente vivo enquanto lava os pratos</strong>.",
+    author: "Mindfulness Ativo",
+    searchQuery: "mindfulness de thich nhat hanh lavar a louca zen",
+    audioId: "7112e4fe575768e0cc71f9f10685d219.wav"
+  },
+  {
+    topic: "Ciência",
+    quote: "O método científico é brilhante porque parte do princípio de que nós somos <strong>completamente estúpidos e propensos ao autoengano</strong>.",
+    author: "Ceticismo Científico",
+    searchQuery: "o que é metodo cientifico provar que estou errado ciencia",
+    audioId: "dacde2e6881a69c65652efaf18ca8810.wav"
+  },
+  {
+    topic: "Metaverso",
+    quote: "As realidades virtuais do futuro não tentarão imitar a Terra perfeitamente. Elas vão projetar versões do universo onde até as <strong>leis da gravidade serão desenhadas ao nosso gosto</strong>.",
+    author: "Ficção Especulativa",
+    searchQuery: "metaverso criar realidades simulacoes futuras",
+    audioId: "931386d73f529b4df79a6867519cd65b.wav"
+  },
+  {
+    topic: "Evolução",
+    quote: "O amor romântico não é apenas magia poética. É uma poderosa cola biológica projetada pela evolução para forçar pais primatas a <strong>ficarem juntos tempo suficiente para cuidar do filhote vulnerável</strong>.",
+    author: "Química do Amor",
+    searchQuery: "por que amamos antropologia do amor romantico filhos",
+    audioId: "330be997a25404909784dbafd5d29cf8.wav"
+  },
+  {
+    topic: "Aprendizado",
+    quote: "Ler vinte livros de negócios não fará de você um CEO genial, do mesmo jeito que ler vinte livros de aerodinâmica não fará de você <strong>um avião</strong>.",
+    author: "Prática Deliberada",
+    searchQuery: "teoria vs pratica ler nao é fazer implementacao de conhecimento",
+    audioId: "74305a66fabf4f17d58fa06adb7601b1.wav"
+  },
+  {
+    topic: "Psicologia",
+    quote: "A depressão nos diz que o futuro é impossível. A ansiedade nos diz que o futuro é aterrorizante. O objetivo da mente saudável não é focar no futuro, mas apenas <strong>ancorar-se profundamente no agora</strong>.",
+    author: "Terapia de Aceitação",
+    searchQuery: "diferenca entre depressao e ansiedade focar no presente",
+    audioId: "a9cb4985958277f0eb3bf2ef835287a9.wav"
+  },
+  {
+    topic: "Economia",
+    quote: "O verdadeiro custo de um produto não é o valor na etiqueta. É a quantidade exata de vida que você teve que <strong>trocar para conseguir aquele dinheiro</strong>.",
+    author: "Filosofia Econômica",
+    searchQuery: "dinheiro e tempo de vida thoreau minimalismo",
+    audioId: "0d856c0920d92e0c19d5944425a74384.wav"
+  },
+  {
+    topic: "Criatividade",
+    quote: "Mentes brilhantes não nascem originais. Elas apenas aprenderam a absorver dez vezes mais referências do que as mentes normais e a <strong>esconder muito bem as suas fontes</strong>.",
+    author: "Criação Combinatória",
+    searchQuery: "como ser original copie as referencias criatividade conectada",
+    audioId: "744297c9a889dfb41bac0fe471f888d6.wav"
+  },
+  {
+    topic: "Sociedade",
+    quote: "Os tribunais da internet não buscam justiça e reparação de danos. Eles buscam o <strong>prazer primitivo e catártico do linchamento virtual</strong> em praça pública.",
+    author: "Psicologia das Massas",
+    searchQuery: "cultura do cancelamento psicologia linchamento virtual",
+    audioId: "5265152958a96a01b1ade67c7b4317bc.wav"
+  },
+  {
+    topic: "Física Quântica",
+    quote: "A cor vermelha da rosa não existe no mundo exterior. A cor é apenas a sua mente iluminando um universo que, por fora, é <strong>inteiramente cego e escuro</strong>.",
+    author: "Percepção da Realidade",
+    searchQuery: "as cores existem fisica do espectro eletromagnetico neurociencia",
+    audioId: "4f894f817408344927b3b179e603593f.wav"
+  },
+  {
+    topic: "Nutrição",
+    quote: "A indústria vende calorias vazias em pacotes superestimulantes, roubando a sua saúde presente para depois a indústria farmacêutica <strong>te vender o remendo crônico</strong> no futuro.",
+    author: "Indústria Alimentícia",
+    searchQuery: "processados vs in natura doencas cronicas comida de verdade",
+    audioId: "f5dc7e5b9f34efe99947920afcd68cfc.wav"
+  },
+  {
+    topic: "Produtividade",
+    quote: "Descansar não é perder tempo. É afiar o machado. Quem não tem tempo para amolar a lâmina passará a vida inteira <strong>batendo em vão contra a árvore</strong>.",
+    author: "Gestão do Descanso",
+    searchQuery: "afiar o machado stephen covey descanso estrategico",
+    audioId: "09cde819fc81d322a074132c245385e4.wav"
+  },
 ];
