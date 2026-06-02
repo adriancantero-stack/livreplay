@@ -2715,4 +2715,74 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "como funciona tdah neurociencia foco psiquiatria filtragem atencional",
     audioId: "f3a3bd68c26fdcd8ceed68c005784946.wav"
   },
+  {
+    topic: "Evolução Genética",
+    quote: "O apêndice humano, durante séculos considerado um erro inútil da evolução pronto para inflamar e matar você à toa, na verdade funciona como um precioso **esconderijo biológico secreto que guarda bactérias intestinais vitais para repovoar seu sistema após uma grave infecção fulminante**.",
+    author: "O Bunker das Bactérias",
+    searchQuery: "para que serve o apendice biologia evolucao humana digestao",
+    audioId: "93d3c0398e4ec7fddde608fba1943c10.wav"
+  },
+  {
+    topic: "Biologia Vegetal",
+    quote: "A planta da qual fazemos o papel que você rasga com tanta facilidade possui um DNA assustador. Uma simples árvore de pinheiro comum, que fica parada no quintal, tem **sete vezes mais complexidade genética pura espalhada nos seus cromossomos do que o genoma humano de um gênio cientista**.",
+    author: "O Genoma do Pinheiro",
+    searchQuery: "tamanho do dna do pinheiro biologia vegetal genetica da arvore",
+    audioId: "5628271bcfdf84031d3c0ac5d25770fe.wav"
+  },
+  {
+    topic: "Física de Materiais",
+    quote: "O vidro cristalino das janelas não é tecnicamente um material sólido congelado, nem totalmente um líquido derretido solto. Ele é definido como um raro 'sólido amorfo', que significa que os seus átomos **ficaram tragicamente travados no meio de uma dança aleatória antes que pudessem formar uma estrutura de cristal rígida e perfeita**.",
+    author: "O Sólido Congelado no Tempo",
+    searchQuery: "o que e o vidro solido amorfo quimica de materiais",
+    audioId: "df8abcb3d304e8a3c3e835b0719441f3.wav"
+  },
+  {
+    topic: "Oceanografia",
+    quote: "O ponto mais profundo e esmagador do inexplorado oceano terrestre, conhecido como a assustadora Fossa das Marianas, é tão monstruosamente fundo e imenso, que se nós jogássemos o gigante Monte Everest de cabeça para baixo lá dentro, **o topo gelado da sua montanha mais alta ainda ficaria submergido a mais de dois quilômetros inteiros de distância da luz da superfície**.",
+    author: "A Fossa das Marianas",
+    searchQuery: "fossa das marianas profundidade oceano monte everest comparacao",
+    audioId: "d641cc9e02fa0a4f4518d0fac92c01dc.wav"
+  },
+  {
+    topic: "Neurociência Evolutiva",
+    quote: "Bocejar violentamente quando você vê uma pessoa cansada bocejando não é tédio ou falta de oxigênio escasso. Trata-se de um brilhante **gatilho de contágio motor ancestral herdado da nossa tribo primitiva para tentar sincronizar perfeitamente o ciclo de sono profundo do bando inteiro para o perigoso acampamento da noite**.",
+    author: "O Contágio do Bocejo",
+    searchQuery: "por que o bocejo e contagioso biologia evolutiva neurociencia do sono",
+    audioId: "df63dd6615b99af17987cb0e1c3e2708.wav"
+  },
+  {
+    topic: "História da Computação",
+    quote: "O inventor brutal e brilhante que decifrou as assustadoras máquinas Enigma da guerra militar e inventou os computadores abstratos lógicos modernos não usou aço brilhante em sua pesquisa inicial. Ele **usou apenas papel e um lápis afiado para imaginar e desenhar toda a lógica binária de uma inteligência matemática que governaria o mundo anos depois**.",
+    author: "A Máquina de Turing",
+    searchQuery: "alan turing inteligencia artificial computacao enigma",
+    audioId: "d2df8b53fdc172e90cc1ad612533b68d.wav"
+  },
+  {
+    topic: "Antropologia Linguística",
+    quote: "Os famosos hieróglifos imponentes e complexos nas pedras de calcário antigo egípcio permaneceram mudos e intraduzíveis, indecifráveis por um gigantesco e terrível milênio e meio de tempo sombrio. Até que um general exilado encontrou um pedaço de rocha suja preta com o mesmo exato e burocrático **texto imperial inútil escrito traduzido na nossa conhecida língua grega para os oficiais antigos da época**. A Pedra de Roseta.",
+    author: "A Chave do Egito Antigo",
+    searchQuery: "pedra de roseta hieroglifos linguistica arqueologia",
+    audioId: "3278e1602ee779b2c3404e38f9b49215.wav"
+  },
+  {
+    topic: "Economia Monetária",
+    quote: "A gigantesca dívida multibilionária mundial acumulada e espalhada pelas ricas nações superpoderosas do globo nunca será paga matematicamente. O sistema de crédito e criação de dinheiro fiduciário não foi feito ou desenhado com o propósito moral de ser quitado finalizado e zerado com moedas ou notas de ouro puro, mas de **fluir de forma perpétua como a própria energia arterial fluindo pelas estradas quentes de uma criatura financeira gigante sedenta que só sobrevive crescendo ou estourando**.",
+    author: "O Motor da Dívida",
+    searchQuery: "dinheiro fiduciario inflacao divida externa global",
+    audioId: "f8f0c2ab5288c2f1a2f72b4b24e536a1.wav"
+  },
+  {
+    topic: "Matemática da Beleza",
+    quote: "As incríveis pétalas brilhantes do girassol dourado e as assustadoras escamas duras espirais do abacaxi tropical nunca crescem de forma aleatória descuidada. Elas **seguem rigorosamente, passo a passo infalível e perfeito, a rígida ordem numérica divina abstrata infinita da exata sequência clássica sagrada matemática cega de Fibonacci**.",
+    author: "O Código da Natureza",
+    searchQuery: "sequencia de fibonacci natureza girassol matematica divina",
+    audioId: "1ed42590f67c67fe9270e8122f9a4446.wav"
+  },
+  {
+    topic: "Astronomia de Colisão",
+    quote: "Quando a nossa maravilhosa grandiosa galáxia colossal de estrelas da Via Láctea finalmente colidir brutalmente com a violenta nossa gigante vizinha de Andrômeda a milhões de anos longínquos de distância, **provavelmente nenhuma estrela solitária esbarrará de frente em outra. Porque a distância pura fantasmagórica isolada de vácuo frio e assustador entre cada estrela e poeira brilhante é infinitamente vasta do que imaginamos no céu profundo.**",
+    author: "A Dança dos Fantasmas",
+    searchQuery: "colisao de galaxias andromeda via lactea astrofisica de espaco",
+    audioId: "06ce140e1e7c74a0a580656681eb4345.wav"
+  },
 ];
