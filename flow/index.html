@@ -633,8 +633,7 @@
                 if (currentCardIndex >= feedCards.length - 2) appendCards(5);
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
-                    const container = document.getElementById('flowContainer');
-                    container.scrollTo({ top: nextCard.offsetTop, behavior: 'smooth' });
+                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setTimeout(() => {
                         readCard(currentCardIndex);
                         setTimeout(() => { isAutoScrolling = false; }, 1000);
@@ -655,8 +654,7 @@
                 if (currentCardIndex >= feedCards.length - 2) appendCards(5);
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
-                    const container = document.getElementById('flowContainer');
-                    container.scrollTo({ top: nextCard.offsetTop, behavior: 'smooth' });
+                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     setTimeout(() => {
                         readCard(currentCardIndex);
                         setTimeout(() => { isAutoScrolling = false; }, 1000);
@@ -789,6 +787,7 @@
     const container = document.getElementById('flowContainer');
     container.addEventListener('touchstart', pausePlayback, {passive: true});
     container.addEventListener('touchend', resumePlayback, {passive: true});
+    container.addEventListener('touchcancel', resumePlayback, {passive: true});
     container.addEventListener('mousedown', pausePlayback, {passive: true});
     container.addEventListener('mouseup', resumePlayback, {passive: true});
     container.addEventListener('mouseleave', resumePlayback, {passive: true});
