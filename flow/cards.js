@@ -685,4 +685,354 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "o poder do nao essencialismo greg mckeown foco",
     audioId: "7eef7d8467d69888aa81312c86831488.wav"
   },
+  {
+    topic: "Modelos Mentais",
+    quote: "Um modelo mental é como um aplicativo para o seu cérebro. Quem tem mais modelos, enxerga o mundo em <strong>alta resolução</strong>.",
+    author: "Pensamento Crítico",
+    searchQuery: "modelos mentais charlie munger tomada de decisao",
+    audioId: "e4c72c1789b7c587c3c8b96e0943961e.wav"
+  },
+  {
+    topic: "Biologia Evolutiva",
+    quote: "Seu corpo não foi feito para a abundância. A obesidade moderna é apenas a sua biologia pré-histórica <strong>fazendo o trabalho dela</strong>.",
+    author: "Nutrição e Evolução",
+    searchQuery: "ambiente obesogenico evolucao humana dieta",
+    audioId: "7d8688c7bb53d3a9a2179166f6f5c886.wav"
+  },
+  {
+    topic: "Neurociência",
+    quote: "A memória não é uma fita cassete que você reproduz. Cada vez que você lembra de algo, o seu cérebro <strong>reescreve a memória</strong>.",
+    author: "Funcionamento Cerebral",
+    searchQuery: "falsas memorias neurociencia de como o cerebro lembra",
+    audioId: "df71eed52a00b4a44e8d3a1f43d72f0a.wav"
+  },
+  {
+    topic: "Comportamento",
+    quote: "As pessoas não mudam quando ouvem um bom argumento. Elas mudam quando sentem que a velha identidade <strong>não serve mais</strong>.",
+    author: "Psicologia da Mudança",
+    searchQuery: "mudanca de identidade formacao de habitos cognitivos",
+    audioId: "d65d0cb3240cdf3da2208ec44c706715.wav"
+  },
+  {
+    topic: "Economia",
+    quote: "O lucro de uma empresa é a recompensa que a sociedade dá por ela ter <strong>resolvido um problema difícil</strong>.",
+    author: "Capitalismo e Valor",
+    searchQuery: "teoria do lucro valor agregado mercado",
+    audioId: "04c141c1bce4f9f4ae01ac020fcd6694.wav"
+  },
+  {
+    topic: "Saúde",
+    quote: "O músculo não cresce durante o treino. Ele cresce durante o sono e o descanso, quando você <strong>não está fazendo nada</strong>.",
+    author: "Fisiologia do Exercício",
+    searchQuery: "hipertrofia e descanso anabolismo sono profundo",
+    audioId: "1edb6874568bf0259f2d1dbccfa76c69.wav"
+  },
+  {
+    topic: "Cibernética",
+    quote: "A internet não é uma rede de computadores. É uma rede de <strong>mentes humanas</strong> conectadas por cabos submarinos.",
+    author: "Redes Complexas",
+    searchQuery: "rede neural global internet como organismo vivo",
+    audioId: "e6c3bcb6d70c51a5862aba085b90d876.wav"
+  },
+  {
+    topic: "Foco",
+    quote: "A diferença entre os amadores e os mestres é a capacidade de suportar o <strong>tédio infinito</strong> da prática diária.",
+    author: "Psicologia da Performance",
+    searchQuery: "regra das 10 mil horas tedio e maestria",
+    audioId: "51c8013543b7026cf7801cd0276cff8a.wav"
+  },
+  {
+    topic: "Estratégia",
+    quote: "Táticas dizem o que fazer no campo de batalha. A estratégia diz se você deveria <strong>estar no campo de batalha</strong> em primeiro lugar.",
+    author: "Arte da Guerra",
+    searchQuery: "diferenca entre tatica e estrategia sun tzu",
+    audioId: "c3492aa202021eba5d7989f7aae93359.wav"
+  },
+  {
+    topic: "Estoicismo",
+    quote: "Você tem poder sobre a sua mente, não sobre os eventos externos. Perceba isso, e você encontrará a <strong>força verdadeira</strong>.",
+    author: "Marco Aurélio",
+    searchQuery: "controle emocional estoicismo marco aurelio meditaçoes",
+    audioId: "9bd480f434defe6147bec01ba46bf1cb.wav"
+  },
+  {
+    topic: "Inovação",
+    quote: "Se você quer construir um barco, não dê ordens aos homens para juntar madeira. Ensine-os a ansiar pela <strong>vastidão do mar</strong>.",
+    author: "Liderança Criativa",
+    searchQuery: "antoine de saint exupery lideranca e proposito",
+    audioId: "ba3e23d57be10e7ad2f79d4d074c2322.wav"
+  },
+  {
+    topic: "Física Clássica",
+    quote: "O tempo é relativo. Mas a entropia, a flecha que empurra tudo para a destruição e o caos, é a única <strong>certeza absoluta do universo</strong>.",
+    author: "Termodinâmica",
+    searchQuery: "flecha do tempo entropia decaimento",
+    audioId: "1a1e6f3df8293a401c77140a8767ccda.wav"
+  },
+  {
+    topic: "Psicologia",
+    quote: "A síndrome do impostor não afeta os incompetentes. Ela é um sintoma claro de pessoas que estão empurrando os <strong>seus próprios limites</strong>.",
+    author: "Saúde Mental",
+    searchQuery: "sindrome do impostor como superar efeito dunning kruger",
+    audioId: "2165a8846a6838ff20185cc7f18496e1.wav"
+  },
+  {
+    topic: "Minimalismo",
+    quote: "A verdadeira liberdade não é o poder de comprar tudo o que você quer. É a capacidade de não querer as coisas que você <strong>não precisa</strong>.",
+    author: "Filosofia do Desapego",
+    searchQuery: "minimalismo liberdade financeira consumo",
+    audioId: "74ce05ba3186a43c49dc613707ca6914.wav"
+  },
+  {
+    topic: "Inteligência Artificial",
+    quote: "Os computadores são incrivelmente rápidos, precisos e estúpidos. Os seres humanos são incrivelmente lentos, imprecisos e <strong>brilhantes</strong>.",
+    author: "Futuro da Computação",
+    searchQuery: "ia vs inteligencia humana limites da tecnologia",
+    audioId: "a29a1d78bfd0eaf112746f9379b00964.wav"
+  },
+  {
+    topic: "Sociedade",
+    quote: "As cidades são os maiores aceleradores de partículas humanas já criados. Elas forçam ideias a colidir para <strong>criar inovação</strong>.",
+    author: "Urbanismo",
+    searchQuery: "importancia das cidades colisao de ideias inovacao",
+    audioId: "ea7b48ea0950fcea280c1f9c8f7be973.wav"
+  },
+  {
+    topic: "Aprendizado",
+    quote: "O cérebro prefere a ilusão da competência. Ler e grifar um texto parece estudo, mas é apenas <strong>reconhecimento visual passivo</strong>.",
+    author: "Técnicas de Estudo",
+    searchQuery: "ilusao de competencia active recall grifar textos",
+    audioId: "a4abff517301636db4dce66c3006f0a6.wav"
+  },
+  {
+    topic: "Dinheiro",
+    quote: "A independência financeira não compra coisas. Ela compra o ativo mais raro e cobiçado da modernidade: a <strong>soberania sobre o seu tempo</strong>.",
+    author: "Soberania Financeira",
+    searchQuery: "liberdade financeira tempo vs dinheiro",
+    audioId: "1b14cc3e98ed111e8037d9ffb312f456.wav"
+  },
+  {
+    topic: "Viés Cognitivo",
+    quote: "Nós julgamos os outros pelas ações deles, mas julgamos a nós mesmos pelas <strong>nossas intenções</strong>.",
+    author: "Erro Fundamental de Atribuição",
+    searchQuery: "erro fundamental de atribuicao psicologia social",
+    audioId: "a87bd091adb6c8490cb6ca44490dc1c3.wav"
+  },
+  {
+    topic: "Genética",
+    quote: "Apenas 2% do seu DNA codifica proteínas. O resto não é lixo genético, é um manual de instruções sutil que <strong>regula toda a sua vida</strong>.",
+    author: "Biologia Molecular",
+    searchQuery: "dna lixo epigenetica biologia moderna",
+    audioId: "56e63ccfa1683d78d5c613de491ed7bf.wav"
+  },
+  {
+    topic: "Evolução",
+    quote: "O açúcar é tão viciante quanto drogas pesadas porque, há cem mil anos, encontrar algo doce era um <strong>bilhete dourado de sobrevivência</strong>.",
+    author: "Nutrição Evolutiva",
+    searchQuery: "vicio em acucar evolucao paladar",
+    audioId: "a0148ee4c0341df887f71cc0c76317c6.wav"
+  },
+  {
+    topic: "Astronomia",
+    quote: "O fato de estarmos sozinhos ou acompanhados no universo são duas hipóteses <strong>igualmente aterrorizantes</strong>.",
+    author: "Paradoxo de Fermi",
+    searchQuery: "paradoxo de fermi alienigenas vida fora da terra",
+    audioId: "49e9d99d0be1bde225641754ba4143a3.wav"
+  },
+  {
+    topic: "Liderança",
+    quote: "Se você é a pessoa mais inteligente da sala, então você está definitivamente na <strong>sala errada</strong>.",
+    author: "Crescimento Pessoal",
+    searchQuery: "rodear-se de pessoas melhores networking",
+    audioId: "75b91bc57a5556785e67329cb58df5c2.wav"
+  },
+  {
+    topic: "Resiliência",
+    quote: "A ferver da água amolece a batata e endurece o ovo. Não importa o tamanho da crise, importa de <strong>que material você é feito</strong>.",
+    author: "Inteligência Emocional",
+    searchQuery: "analogia da resiliencia batata ovo cafe adaptacao",
+    audioId: "662e3af9f86afba46019f18c458ad758.wav"
+  },
+  {
+    topic: "Tecnologia",
+    quote: "Toda tecnologia suficientemente avançada é indistinguível da <strong>magia</strong>.",
+    author: "Arthur C. Clarke",
+    searchQuery: "leis de clarke impacto da tecnologia avancada",
+    audioId: "ca0e1f4109467101a160c01ff301e992.wav"
+  },
+  {
+    topic: "Marketing",
+    quote: "As pessoas não compram brocas de um quarto de polegada. Elas compram <strong>buracos de um quarto de polegada</strong>.",
+    author: "Gestão de Produtos",
+    searchQuery: "jobs to be done marketing focos na solucao",
+    audioId: "ecefc396fafb99c19c08183fe79221d6.wav"
+  },
+  {
+    topic: "Filosofia",
+    quote: "O homem nasce livre, mas por toda parte encontra-se aprisionado pelos sistemas que ele mesmo ajudou a <strong>construir e validar</strong>.",
+    author: "Contrato Social",
+    searchQuery: "rousseau liberdade contrato social sistemas opressores",
+    audioId: "95c6864331dab789d9088d9fada56c42.wav"
+  },
+  {
+    topic: "Comunicação",
+    quote: "A maior prova de inteligência não é ter a resposta certa. É conseguir fazer a <strong>pergunta certa</strong> na hora exata.",
+    author: "Maiêutica",
+    searchQuery: "poder das perguntas socrates maieutica",
+    audioId: "ccdbeb95bedb799366309df87fbcd0b4.wav"
+  },
+  {
+    topic: "Matemática",
+    quote: "Os números exponenciais enganam o cérebro humano. Uma dobra a mais na curva, e o que era inofensivo se torna <strong>incontrolável</strong>.",
+    author: "Crescimento Exponencial",
+    searchQuery: "funcoes exponenciais ilusao humana previsao de crises",
+    audioId: "7c491e90e83f944e8f1851aa30e90b6d.wav"
+  },
+  {
+    topic: "Saúde Mental",
+    quote: "A ansiedade é o pagamento antecipado de uma dívida que você talvez <strong>nunca chegue a contrair</strong>.",
+    author: "Gestão da Ansiedade",
+    searchQuery: "sofrimento por antecipacao ansiedade psicologia",
+    audioId: "6c99d8a04053f02700b8c2c2af7278d7.wav"
+  },
+  {
+    topic: "Biohacking",
+    quote: "A luz solar nos primeiros 30 minutos da manhã regula todo o seu ciclo circadiano, sendo a âncora natural da <strong>sua biologia humana</strong>.",
+    author: "Ritmo Circadiano",
+    searchQuery: "ciclo circadiano andrew huberman sol da manha",
+    audioId: "2c2447d5c4e37454ed0add3acae69d2f.wav"
+  },
+  {
+    topic: "História",
+    quote: "O colapso das grandes civilizações raramente vem por ataques externos. Eles começam com a <strong>apodrecimento lento das suas próprias instituições</strong>.",
+    author: "Queda de Impérios",
+    searchQuery: "como imperios caem historia da civilizacao roma",
+    audioId: "f63a0468a285fbd556e8c37d74a13e9b.wav"
+  },
+  {
+    topic: "Metaverso",
+    quote: "O mundo virtual não vai substituir o físico. Ele vai se sobrepor a ele, criando uma realidade mista onde a tela <strong>desaparece na nossa visão</strong>.",
+    author: "Realidade Aumentada",
+    searchQuery: "computacao espacial realidade mista futuro",
+    audioId: "d6d84ad86ca0ca7f878d43db3797a577.wav"
+  },
+  {
+    topic: "Estratégia",
+    quote: "A perfeição é o inimigo do bom. Lançar algo imperfeito hoje é infinitamente melhor do que lançar algo <strong>perfeito no ano que vem</strong>.",
+    author: "Metodologia Ágil",
+    searchQuery: "feito é melhor que perfeito mvp startup enxuta",
+    audioId: "06d0e269e10541a01035881de28c368f.wav"
+  },
+  {
+    topic: "Produtividade",
+    quote: "A sua caixa de entrada de e-mails não é sua lista de tarefas. É a lista de prioridades <strong>das outras pessoas</strong> para a sua vida.",
+    author: "Gestão do Tempo",
+    searchQuery: "gerenciamento de e-mails prioridades essencialismo",
+    audioId: "22e4f7f50daa30201c78ce50736bfc7f.wav"
+  },
+  {
+    topic: "Cultura",
+    quote: "Mitos, religiões e nações não existem no mundo físico. Eles são construções imaginárias que permitem milhões de estranhos <strong>cooperarem em massa</strong>.",
+    author: "Antropologia Evolutiva",
+    searchQuery: "yuval harari sapiens cooperacao humana ficcao",
+    audioId: "6a495d2797fcbedf3c4fd96c4485ccb7.wav"
+  },
+  {
+    topic: "Criatividade",
+    quote: "Bons artistas copiam. Grandes artistas <strong>roubam a essência</strong> e a transformam em algo irreconhecível.",
+    author: "Inovação Artística",
+    searchQuery: "picasso criatividade originalidade inspiracao",
+    audioId: "65efebe31a761f37c8e2cbc765e1e84a.wav"
+  },
+  {
+    topic: "Natureza",
+    quote: "As formigas constroem impérios, cultivam fungos e travam guerras complexas. A verdadeira inteligência em colônia nasce sem a necessidade de um <strong>líder central</strong>.",
+    author: "Inteligência de Enxame",
+    searchQuery: "inteligencia coletiva formigas autoorganizacao",
+    audioId: "3f16eac8e61d1a1e5c41f36fac4a64b8.wav"
+  },
+  {
+    topic: "Física Quântica",
+    quote: "O teletransporte quântico não move matéria. Ele move <strong>informação pura</strong>, destruindo o original para recriá-lo à distância.",
+    author: "Emaranhamento Quântico",
+    searchQuery: "teletransporte quantico como funciona informacao",
+    audioId: "935ce55fcc6011c0cf696ef7280ecd5e.wav"
+  },
+  {
+    topic: "Psicologia",
+    quote: "Nós preferimos o sofrimento familiar do que uma felicidade <strong>desconhecida e incerta</strong>.",
+    author: "Zona de Conforto",
+    searchQuery: "por que ficamos na zona de conforto psicanalise",
+    audioId: "4091d6fdb2ffd8420bd0459f46e6f84b.wav"
+  },
+  {
+    topic: "Negócios",
+    quote: "Competir no mesmo mercado destruindo preços é um jogo de perdedores. O segredo é nadar para o oceano azul e tornar a concorrência <strong>irrelevante</strong>.",
+    author: "Estratégia Empresarial",
+    searchQuery: "estrategia do oceano azul inovacao de valor",
+    audioId: "4e12f81e660af35ec2e50d2a230c3d24.wav"
+  },
+  {
+    topic: "Evolução",
+    quote: "Sua ansiedade moderna vem de um cérebro projetado para evitar ursos e leões, mas que hoje é acionado por <strong>notificações e boletos</strong>.",
+    author: "Descompasso Evolutivo",
+    searchQuery: "mismatch evolutivo ansiedade celular notificacoes",
+    audioId: "01d29a4c79ae95f98ee8fa57885b2849.wav"
+  },
+  {
+    topic: "Conhecimento",
+    quote: "Informação não é conhecimento. E conhecimento não é sabedoria. Sabedoria é a arte de saber o que <strong>ignorar completamente</strong>.",
+    author: "Epistemologia",
+    searchQuery: "era da informacao como ter sabedoria filtrar dados",
+    audioId: "e1b7bd07ee6fada44e2a9c227543d427.wav"
+  },
+  {
+    topic: "Ecologia",
+    quote: "Nenhuma espécie pode crescer indefinidamente em um ambiente de recursos finitos. A Terra é uma nave espacial fechada <strong>sem saídas de emergência</strong>.",
+    author: "Limites do Crescimento",
+    searchQuery: "sustentabilidade ecologia teoria dos sistemas finitos",
+    audioId: "9d4645e1ad8fabeb9b5c3e14db9614d4.wav"
+  },
+  {
+    topic: "Dinheiro",
+    quote: "O mercado financeiro é o único lugar no mundo onde pessoas chegam de Rolls-Royce para pedir conselhos a pessoas que chegaram <strong>de metrô</strong>.",
+    author: "Warren Buffett",
+    searchQuery: "wall street ilusoes do mercado ironia warren buffett",
+    audioId: "bb6b670b6bd8a58084dae73b4eadf3ca.wav"
+  },
+  {
+    topic: "Tecnologia",
+    quote: "Você não pode culpar a gravidade por as pessoas caírem. E não pode culpar os smartphones pelas pessoas se esquecerem de <strong>viver a vida real</strong>.",
+    author: "Ética Digital",
+    searchQuery: "responsabilidade individual tecnologia redes sociais",
+    audioId: "d21089a044c003e2e9301fd5cd4c9430.wav"
+  },
+  {
+    topic: "Motivação",
+    quote: "Se o seu objetivo é muito fácil, você se entedia. Se é muito difícil, você desiste. A zona de fluxo vive exatamente no limite da <strong>sua capacidade atual</strong>.",
+    author: "Teoria do Flow",
+    searchQuery: "estado de flow mihaly csikszentmihalyi desafio vs habilidade",
+    audioId: "b1129eb8c406e555a653742b497f58bf.wav"
+  },
+  {
+    topic: "Design",
+    quote: "Design não é apenas como o produto se parece e o que se sente. Design é essencialmente <strong>como o produto funciona</strong>.",
+    author: "Steve Jobs",
+    searchQuery: "steve jobs o que e design funcionalidade UX",
+    audioId: "488285610ec276b1e817694a78c8c0bd.wav"
+  },
+  {
+    topic: "Sociedade",
+    quote: "Em épocas de crise econômica severa, as sociedades sempre trocam parte de suas liberdades individuais pela promessa de <strong>segurança estatal</strong>.",
+    author: "Ciência Política",
+    searchQuery: "liberdade vs seguranca politica totalitarismo autoritarismo",
+    audioId: "c36224685824b8a47e9aab044bf599f4.wav"
+  },
+  {
+    topic: "Física",
+    quote: "A escuridão não é uma força. Ela é apenas a <strong>ausência absoluta de luz</strong>. O frio não existe, é apenas a ausência de calor.",
+    author: "Natureza da Realidade",
+    searchQuery: "ausencia fisica fenomenos termodinamica luz",
+    audioId: "ed268f9947fa4da8c8542cdcd6f7e404.wav"
+  },
 ];
