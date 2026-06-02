@@ -250,6 +250,7 @@
       if (e.touches && e.touches.length > 1) { e.preventDefault(); }
     }, { passive: false });
   </script>
+  <script src="cards.js"></script>
 </head>
 <body>
 
@@ -277,92 +278,6 @@
 
   <script>
     // Banco de Dados "Tinder de Ideias"
-    const KNOWLEDGE_CARDS = [
-      {
-        topic: "Inteligência Artificial",
-        quote: "O algoritmo não prevê o futuro. Ele cria o <strong>comportamento necessário</strong> para que o futuro previsto aconteça.",
-        audioId: "4d9ba51e61fdab80674643f797fe1323.wav",
-        author: "Ciência de Dados",
-        searchQuery: "como algoritmos moldam comportamento inteligencia artificial"
-      },
-      {
-        topic: "Física Quântica",
-        quote: "Na escala quântica, a observação altera a realidade. O universo é um mar de <strong>infinitas possibilidades</strong> até que você decida olhar.",
-        audioId: "19eae3bb7d1c6b1dc6ee694f2accdd51.wav",
-        author: "Mecânica Quântica",
-        searchQuery: "física quântica dupla fenda explicação"
-      },
-      {
-        topic: "Minimalismo",
-        quote: "O minimalismo não é sobre ter menos coisas. É sobre ter <strong>espaço</strong> para as coisas que realmente importam.",
-        audioId: "b8a90c61b7f682dbcd3721db1aca6fc9.wav",
-        author: "Essencialismo",
-        searchQuery: "minimalismo como começar vida essencialista"
-      },
-      {
-        topic: "Finanças",
-        quote: "Juros compostos são a 8ª maravilha do mundo. Quem entende, <strong>ganha</strong>. Quem não entende, <strong>paga</strong>.",
-        audioId: "a24bb678f2ff6177cfcb5fa315a08126.wav",
-        author: "Albert Einstein (Atribuído)",
-        searchQuery: "como funcionam juros compostos investimentos"
-      },
-      {
-        topic: "Biohacking",
-        quote: "Seu cérebro é neuroplástico. Cada hábito repetido constrói literalmente uma <strong>nova rodovia física</strong> na sua mente.",
-        audioId: "8a3e69be0f2bca021ce90c9e34a262e7.wav",
-        author: "Neurociência Prática",
-        searchQuery: "neuroplasticidade como mudar habitos biohacking"
-      },
-      {
-        topic: "Produtividade",
-        quote: "Estar ocupado não é o mesmo que ser produtivo. A maioria das pessoas passa o dia <strong>correndo em uma esteira</strong> sem sair do lugar.",
-        audioId: "b60064045ef3d4a619b59d26db7a378e.wav",
-        author: "Gestão do Tempo",
-        searchQuery: "produtividade vs ocupação essencialismo"
-      },
-      {
-        topic: "Saúde & Longevidade",
-        quote: "O sono não é um luxo, é o seu <strong>sistema de suporte vital</strong>. É o maior biohack que existe.",
-        audioId: "f549c8bcd3ba6adc10984d2cf00ee104.wav",
-        author: "Medicina do Sono",
-        searchQuery: "importância do sono profundo saude matthew walker"
-      },
-      {
-        topic: "Psicologia",
-        quote: "Você não é os seus pensamentos. Você é a <strong>consciência</strong> que observa eles passarem.",
-        audioId: "ac5556324972c714941e5e64a870a844.wav",
-        author: "Atenção Plena",
-        searchQuery: "mindfulness meditação atenção plena"
-      },
-      {
-        topic: "Aprendizado",
-        quote: "Você não aprende lendo passivamente. Você aprende quando tenta <strong>explicar o conceito</strong> de forma simples para alguém.",
-        audioId: "bd7307ab0c4429376d1fd54837717a92.wav",
-        author: "Técnica Feynman",
-        searchQuery: "técnica de feynman aprendizado acelerado"
-      },
-      {
-        topic: "Criptomoedas",
-        quote: "O Bitcoin não é apenas uma moeda. É o primeiro <strong>banco central matemático</strong> e incorruptível da história humana.",
-        audioId: "64e57dc74591f711d68c57043c7e4ec9.wav",
-        author: "Economia Descentralizada",
-        searchQuery: "o que é bitcoin descentralização blockchain"
-      },
-      {
-        topic: "Filosofia Estoica",
-        quote: "Nós sofremos mais na <strong>imaginação</strong> do que na realidade.",
-        audioId: "bf7727db03f536fd6b3e438a98bac387.wav",
-        author: "Sêneca",
-        searchQuery: "estoicismo como parar de sofrer por antecipação"
-      },
-      {
-        topic: "Ciência das Coisas",
-        quote: "Você é feito de <strong>poeira estelar</strong>. O ferro no seu sangue foi forjado no núcleo de uma estrela em explosão.",
-        audioId: "27b32abcf296decb8cd3e1c59626b1f8.wav",
-        author: "Astrofísica",
-        searchQuery: "somos feitos de poeira de estrelas astrofísica"
-      }
-    ];
 
     const TOPIC_COLORS = {
       "Inteligência Artificial": { bg: "#0a192f", badge: "#64ffda", rgb: "100, 255, 218" },
