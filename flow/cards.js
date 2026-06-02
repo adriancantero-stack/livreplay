@@ -2414,4 +2414,305 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "carol dweck mindset de crescimento como elogiar filhos infantil neurociencia",
     audioId: "15b0acd340545a01878f7c1529dbc907.wav"
   },
+  {
+    topic: "Teoria da Informação",
+    quote: "Um pendrive vazio e um pendrive cheio de arquivos têm exatamente a mesma massa física. A <strong>informação não tem peso na balança, mas altera fundamentalmente a entropia microscópica e a estrutura de organização do universo</strong>.",
+    author: "A Matéria da Informação",
+    searchQuery: "claude shannon teoria da informacao peso dos dados",
+    audioId: "6a11546ce647fde31b3ddac59220f10f.wav"
+  },
+  {
+    topic: "Biologia Circadiana",
+    quote: "Seu corpo não sabe que horas são olhando para um relógio na parede. O seu cérebro possui um <strong>senso mestre de tempo calibrado exclusivamente pelos fótons de luz do sol azul que atingem diretamente o fundo da sua retina ao acordar</strong>.",
+    author: "Relógio Biológico",
+    searchQuery: "ritmo circadiano neurociencia do sono andrew huberman",
+    audioId: "2a441f7207d0981de6c98e08687c414d.wav"
+  },
+  {
+    topic: "Falácias Cognitivas",
+    quote: "Você frequentemente compra coisas caras que não precisa, não porque quer impressionar os outros, mas devido à Falácia do Custo Irrecuperável: <strong>seu cérebro se recusa a abandonar um investimento ruim simplesmente porque você já perdeu muito tempo tentando fazê-lo dar certo</strong>.",
+    author: "O Efeito Concorde",
+    searchQuery: "custo irrecuperavel economia comportamental tomada de decisao",
+    audioId: "fdc9f17d9348b45e62d6a022449bcb1d.wav"
+  },
+  {
+    topic: "História Antiga",
+    quote: "As Pirâmides do Egito são tão inacreditavelmente antigas que, quando a grande rainha Cleópatra governou o mundo romano e egípcio, <strong>as Grandes Pirâmides já eram ruínas muito mais antigas para ela do que ela mesma é para nós hoje</strong>.",
+    author: "O Tempo Profundo",
+    searchQuery: "piramides do egito linha do tempo cleopatra historia",
+    audioId: "d0500bc28c1235a04eb09505f1a05ea9.wav"
+  },
+  {
+    topic: "Física Quântica",
+    quote: "O gato de Schrödinger não é uma história bonitinha sobre um animal em uma caixa. É uma perturbadora prova de que, no mundo quântico, <strong>um átomo realmente existe em vários estados ao mesmo tempo até que um observador consciente decida olhar para ele</strong>.",
+    author: "A Sobrecarga de Schrödinger",
+    searchQuery: "gato de schrodinger mecanica quantica fisica",
+    audioId: "fe2ebf1ad20dbb57a101cdd8a4d09c17.wav"
+  },
+  {
+    topic: "Bioquímica Nutricional",
+    quote: "O açúcar puro não apenas engorda o tecido adiposo, ele entra na corrente sanguínea como um ácido reativo e <strong>carameliza literalmente as proteínas vitais dos seus órgãos internos num processo químico mortal chamado de Glicação Avançada</strong>.",
+    author: "O Dano do Açúcar",
+    searchQuery: "AGEs glicacao nutricao bioquimica envelhecimento",
+    audioId: "f729b8398dc6ad7697064737808215b0.wav"
+  },
+  {
+    topic: "Engenharia Aeroespacial",
+    quote: "Os trajes espaciais da Apollo não foram costurados por engenheiros metálicos durões da NASA. Eles tiveram que ser <strong>costurados meticulosamente à mão por senhoras fabricantes de sutiãs da Playtex para garantir a máxima flexibilidade nas articulações lunares</strong>.",
+    author: "A Costura Lunar",
+    searchQuery: "playtex trajes espaciais apollo nasa engenharia",
+    audioId: "32164df82b189e526985c0e223333175.wav"
+  },
+  {
+    topic: "Psicologia de Grupos",
+    quote: "O efeito espectador prova de forma assustadora que, se você tiver um ataque cardíaco no meio de uma multidão de mil pessoas, <strong>a sua chance de receber ajuda é matematicamente muito menor do que se houvesse apenas uma única pessoa na rua com você</strong>.",
+    author: "A Difusão da Responsabilidade",
+    searchQuery: "efeito espectador psicologia social bystander effect",
+    audioId: "538a0355459a171e34521d88a4b6a96f.wav"
+  },
+  {
+    topic: "Geologia Planetária",
+    quote: "O núcleo interno da Terra não é uma bola derretida de lava líquida caótica. Devido à pressão gravitacional esmagadora e absurda, <strong>ele é uma esfera sólida e cristalina de ferro puro que gira ligeiramente mais rápido do que a crosta inteira do planeta em cima dele</strong>.",
+    author: "O Motor da Terra",
+    searchQuery: "nucleo da terra geologia campo magnetico",
+    audioId: "457d8050b9de20014578c2d75f49aebe.wav"
+  },
+  {
+    topic: "Criptografia Moderna",
+    quote: "Cada vez que você faz uma simples compra online usando o seu cartão de crédito, o seu humilde celular está <strong>resolvendo um cálculo matemático de números primos tão assombrosamente vasto que todos os computadores do mundo juntos não conseguiriam quebrá-lo em um bilhão de anos</strong>.",
+    author: "A Criptografia RSA",
+    searchQuery: "como funciona a criptografia rsa numeros primos seguranca",
+    audioId: "1243b2415d46bc0ae750ffff6a59cb7b.wav"
+  },
+  {
+    topic: "Paleoantropologia",
+    quote: "Os Neandertais não eram homens das cavernas brutais e estúpidos. Eles tinham cérebros maiores do que os nossos, <strong>enterravam seus mortos com flores, fabricavam colas químicas complexas e possivelmente faziam artes nas paredes antes mesmo do Homo sapiens existir</strong>.",
+    author: "A Inteligência Neandertal",
+    searchQuery: "quem eram os neandertais paleoantropologia evolucao humana",
+    audioId: "42ea725a8d55d9f88b9edba8f50e2f52.wav"
+  },
+  {
+    topic: "Neuroplasticidade",
+    quote: "Ler um livro novo não apenas coloca fatos invisíveis na sua mente. A leitura é um exercício físico extremo que <strong>obriga neurônios a literalmente crescerem ramificações e se conectarem fisicamente uns aos outros dentro do seu crânio a cada página virada</strong>.",
+    author: "O Crescimento do Cérebro",
+    searchQuery: "neuroplasticidade ler livros neurociencia ramificacoes",
+    audioId: "53f6a642385b7ae9d1db11248d65ac89.wav"
+  },
+  {
+    topic: "Arquitetura Românica",
+    quote: "Os arcos do Panteão de Roma não caíram mesmo depois de dois mil anos de terremotos e guerras porque o concreto romano <strong>continha cinzas vulcânicas secretas que continuam se consertando quimicamente sozinhas sempre que a água da chuva entra pelas rachaduras</strong>.",
+    author: "Concreto Auto-curável",
+    searchQuery: "concreto romano panteao arquitetura engenharia",
+    audioId: "70cefc42fcc0986b431c535a2deaec82.wav"
+  },
+  {
+    topic: "Economia Comportamental",
+    quote: "As pessoas preferem ganhar um salário de cinco mil dólares se seus amigos ganharem três mil, do que ganhar um salário de dez mil dólares se seus amigos ganharem doze. <strong>A nossa felicidade financeira não é absoluta, é tragicamente baseada apenas em rivalidade e comparação social</strong>.",
+    author: "A Relatividade da Riqueza",
+    searchQuery: "status social economia comportamental paradoxo da riqueza",
+    audioId: "ed5389e513028374044d2a1f21075c16.wav"
+  },
+  {
+    topic: "Botânica de Defesa",
+    quote: "A grama recém-cortada cheira tão bem porque <strong>o que você está respirando é, na verdade, o grito químico de socorro das plantas mutiladas avisando a outras ao redor de que um predador devastador acabou de atacar a área</strong>.",
+    author: "O Grito das Plantas",
+    searchQuery: "cheiro de grama cortada botanica comunicacao quimica vegetal",
+    audioId: "becdfbba5094db899aa3ff27c6df3537.wav"
+  },
+  {
+    topic: "Genética Evolutiva",
+    quote: "Quase todos os seres humanos nascidos fora do continente africano carregam entre 1% e 2% de puro DNA Neandertal. <strong>Nossos ancestrais não apenas lutaram contra outras espécies humanas, nós também namoramos com eles no escuro das cavernas pré-históricas</strong>.",
+    author: "A Herança Neandertal",
+    searchQuery: "dna neandertal genetica humana evolucao",
+    audioId: "c33df8ca040cc3d61dd097618b1e3415.wav"
+  },
+  {
+    topic: "Matemática do Caos",
+    quote: "O bater das asas de uma borboleta no Brasil não causa diretamente um furacão no Texas, mas demonstra o Efeito Borboleta: <strong>a ideia matemática de que sistemas complexos são impossíveis de prever porque a menor variação imaginável no início muda completamente o destino no final</strong>.",
+    author: "Teoria do Caos",
+    searchQuery: "efeito borboleta teoria do caos previsibilidade",
+    audioId: "3a3560d3559576fe75e9381d233a16b7.wav"
+  },
+  {
+    topic: "Filosofia da Ciência",
+    quote: "A ciência não é a busca definitiva pela verdade absoluta e inquestionável. Ela é <strong>o melhor método que inventamos para provar constantemente a nós mesmos o quanto nós estivemos profundamente errados no dia de ontem</strong>.",
+    author: "A Falseabilidade",
+    searchQuery: "karl popper metodo cientifico filosofia da ciencia",
+    audioId: "47b3adb45ba889b4d141283b5e527f56.wav"
+  },
+  {
+    topic: "Engenharia de Software",
+    quote: "O primeiro erro computacional, ou 'bug', da história não foi um erro de código na tela. <strong>Foi uma mariposa de verdade que ficou fisicamente esmagada nos relés de choque e travou um dos primeiros computadores militares de uma tonelada do mundo</strong>.",
+    author: "A Origem do Bug",
+    searchQuery: "grace hopper primeiro bug de computador historia da programacao",
+    audioId: "b316b2b186405d65bed179052ea6f357.wav"
+  },
+  {
+    topic: "Mecânica Fluida",
+    quote: "Os aviões não voam porque os motores os empurram fortemente para cima contra as nuvens. Eles voam porque o formato brutalmente inteligente da asa <strong>manipula o ar para criar uma pressão tão violenta por baixo dela que o avião é fisicamente expulso do chão</strong>.",
+    author: "O Paradoxo de Bernoulli",
+    searchQuery: "como um aviao voa principio de bernoulli aerodinamica",
+    audioId: "5b7d7a964ed1094be4676da57ac58507.wav"
+  },
+  {
+    topic: "Sociologia e Tribos",
+    quote: "Nós temos uma tendência instintiva violenta de dividir as pessoas entre o 'nosso grupo' e 'eles'. <strong>Experimentos mostram que formamos panelinhas exclusivas e preconceituosas baseadas até mesmo no simples lançamento de uma moeda aleatória sem importância</strong>.",
+    author: "A Criação do Outro",
+    searchQuery: "vies de grupo psicologia social nos contra eles",
+    audioId: "857c0d174f8f8c358723c4339646f67c.wav"
+  },
+  {
+    topic: "Biologia Imunológica",
+    quote: "As vacinas não são medicamentos curativos que matam as doenças por você. Elas são essencialmente <strong>simuladores de treinamento militar contendo alvos inimigos mortos para treinar as suas defesas brancas nativas sem risco de uma guerra real dentro do seu corpo</strong>.",
+    author: "O Simulador Imunológico",
+    searchQuery: "como funcionam vacinas sistema imunologico biologia",
+    audioId: "33ae37b5aedc9d19a7856b42de0cad7c.wav"
+  },
+  {
+    topic: "Estudos do Sono",
+    quote: "Nós não dormimos para que o corpo descanse; os seus músculos poderiam relaxar tranquilamente acordados no sofá. <strong>Dormimos quase exclusivamente para que o sistema linfático no crânio abra canais de água e lave os resíduos tóxicos do cérebro antes que envenenem os pensamentos</strong>.",
+    author: "A Lavagem Cerebral Noturna",
+    searchQuery: "sistema glinfatico porque dormimos saude do sono",
+    audioId: "e3bc06594ddb302ae9b79dd3a59830ec.wav"
+  },
+  {
+    topic: "Química Estelar",
+    quote: "Todo o ouro sólido e resistente das suas alianças de casamento e o ferro vermelho correndo nas suas veias <strong>não foram criados na Terra. Eles foram forjados no coração violento e brutal da explosão cataclísmica de estrelas agonizantes a bilhões de anos atrás</strong>.",
+    author: "Poeira de Estrelas",
+    searchQuery: "somos poeira de estrelas origem do ouro astrofisica",
+    audioId: "a03566f8076037fd2c59689a9ecee4e0.wav"
+  },
+  {
+    topic: "Matemática Pura",
+    quote: "O conceito matemático do Zero (0) não existiu em Roma ou na Grécia Antiga. Ele precisou ser <strong>inventado quase mil anos depois na Índia clássica para que, pela primeira vez, os cientistas tivessem uma palavra e um símbolo numérico para representar o 'Nada'</strong>.",
+    author: "A Invenção do Nada",
+    searchQuery: "historia do zero matematica indiana invenção",
+    audioId: "60eac5567f6900d5b987cfc26531cc18.wav"
+  },
+  {
+    topic: "Gestão e Estratégia",
+    quote: "Você não delega tarefas porque tem preguiça e deseja descansar no escritório confortável. Você delega porque se o líder gastar sua capacidade de processamento operando as máquinas com as mãos, <strong>ninguém estará no timão prestando atenção nos icebergs gigantes à frente do navio cego</strong>.",
+    author: "O Verdadeiro Papel do Líder",
+    searchQuery: "lideranca delegacao de tarefas visao estrategica",
+    audioId: "bde9341fb3f2bfa9a474c496cd963a1d.wav"
+  },
+  {
+    topic: "Filosofia Estética",
+    quote: "O conceito de que 'a beleza está nos olhos de quem vê' é uma mentira biológica. Nossos cérebros estão programados geneticamente para enxergar beleza em rostos <strong>perfeitamente matemáticos e simétricos, porque isso indica secretamente um DNA saudável sem deformações parasitárias</strong>.",
+    author: "A Matemática da Beleza",
+    searchQuery: "o que e beleza biologia evolutiva simetria facial",
+    audioId: "faf11613179cf1c12ed7da3d73f1aaae.wav"
+  },
+  {
+    topic: "Engenharia de Estruturas",
+    quote: "As pontes suspensas gigantescas balançam fortemente sob ventos intensos não porque têm defeito de material de construção leve. <strong>Elas balançam intencionalmente por design técnico perfeito, porque se fossem absolutamente duras e fixas, elas se partiriam ao meio como um graveto de vidro na tempestade</strong>.",
+    author: "A Força da Flexibilidade",
+    searchQuery: "pontes suspensas engenharia civil flexibilidade estruturas",
+    audioId: "6e69fdc9989483dfc6dc0a160e227448.wav"
+  },
+  {
+    topic: "Comportamento Animal",
+    quote: "Os corvos conseguem usar gravetos finos como ferramentas complexas e até resolver quebra-cabeças com várias etapas difíceis para obter comida. <strong>Eles têm a inteligência prática assustadora de uma criança de sete anos, presa num cérebro do tamanho de uma noz americana</strong>.",
+    author: "A Inteligência dos Corvos",
+    searchQuery: "corvos inteligentes neurociencia animal ferramentas passaros",
+    audioId: "9c1f5f0a61d7df2a50fbbdd5a3639302.wav"
+  },
+  {
+    topic: "Neurociência Auditiva",
+    quote: "O arrepio súbito nas costas que você sente quando ouve o refrão épico e arrebatador da sua música favorita não é apenas emoção abstrata flutuante. É uma <strong>tempestade maciça e explosiva do hormônio dopamina inundando o seu córtex auditivo no exato segundo em que o cérebro prevê o próximo acorde com perfeição</strong>.",
+    author: "A Música e a Dopamina",
+    searchQuery: "arrepios com musica dopamina neurociencia frisson",
+    audioId: "ab850d23818b1444318e243b95b8539f.wav"
+  },
+  {
+    topic: "Antropologia e Dieta",
+    quote: "Nós fomos a única espécie de primatas que trocou um intestino gigantesco focado em digerir folhas por um intestino fino e curto focado em digerir carne assada densa, <strong>liberando energia brutal extra suficiente para inflar o nosso córtex cerebral até o tamanho absurdo de hoje</strong>.",
+    author: "O Fogo e o Cérebro",
+    searchQuery: "como cozinhamos nos fez humanos intestino e cerebro antropologia da dieta",
+    audioId: "f23ad15df2148fc0c513d65b639dff4c.wav"
+  },
+  {
+    topic: "Estratégia Militar de Sun Tzu",
+    quote: "A maior vitória militar que um exército poderoso pode alcançar em toda a guerra <strong>nunca acontece nos campos de batalhas cheios de sangue e fumaça, mas sim quando se vence e domina a mente do inimigo de forma tão brutal que ele desiste antes de atirar a primeira flecha</strong>.",
+    author: "A Arte da Guerra",
+    searchQuery: "sun tzu arte da guerra estrategia vitoria sem lutar",
+    audioId: "1a2cfe67b1d0b2cd296b8291da37cc32.wav"
+  },
+  {
+    topic: "Filosofia Epistemológica",
+    quote: "O paradoxo de Sócrates 'Só sei que nada sei' não era uma falsa modéstia para irritar generais atenienses. Era uma lâmina de corte afiada para provar que <strong>a inteligência genuína não é o acúmulo de dados triviais vazios, mas sim a capacidade de aceitar o nível devastador da nossa própria cegueira colossal</strong>.",
+    author: "A Ignorância Consciente",
+    searchQuery: "socrates epistemologia ignorancia sabedoria",
+    audioId: "0b427613ba8f0275aedad936afa07acb.wav"
+  },
+  {
+    topic: "Economia da Tecnologia",
+    quote: "Um smartphone comum de bolso no ano de hoje possui infinitamente mais capacidade de puro poder de processamento bruto matemático do que <strong>todas as salas de computadores gigantes e combinadas que levaram a primeira missão do homem corajoso da Apollo para pousar e andar na poeira da Lua</strong>.",
+    author: "A Lei de Moore",
+    searchQuery: "poder de processamento do celular apollo 11 lei de moore",
+    audioId: "c87e7b129b7fc83a4089b285967387a1.wav"
+  },
+  {
+    topic: "Biologia Animal de Profundeza",
+    quote: "Nos oceanos escuros insondáveis, onde não existe nenhuma energia de fóton de luz para a vida funcionar, existem imensos ecossistemas extraterrestres fervendo onde <strong>bactérias retiram sua energia vital química mastigando as rochas ricas em enxofre venenoso que brotam das chaminés de fumaça preta vulcanicas quentes</strong>.",
+    author: "Vida no Fundo do Mar",
+    searchQuery: "chamines hidrotermais biologia de profundidade sem sol",
+    audioId: "f7edd707e85559fb5aa550a36e29ec66.wav"
+  },
+  {
+    topic: "Neurociência do Comportamento",
+    quote: "As fobias bizarras não aprendidas que temos, como o pânico terrível irracional de ver cobras de longe ou aranhas na parede escura, não são traumas adquiridos de nascença na sua breve vida pessoal. São <strong>fantasmas ancestrais de três milhões de anos embutidos diretamente no código de fábrica do seu sistema de alarme amígdala cerebral para sobrevivência nas selvas</strong>.",
+    author: "O Medo Evolutivo",
+    searchQuery: "por que temos medo de cobra fobias biologia evolutiva",
+    audioId: "4e7d4af01d045253c1a54ddd0e507eb5.wav"
+  },
+  {
+    topic: "Sociologia da Moda",
+    quote: "Roupas e trajes elegantes com um excelente caimento nas ruas das cidades de alto padrão não têm uma única maldita vantagem sequer para te proteger contra o frio polar. A moda é, quase inteiramente e exclusivamente, <strong>uma competição contínua de guerra silenciosa de uniformes para demarcar território, afirmar superioridade de riqueza econômica e excluir os indesejados da elite fechada</strong>.",
+    author: "O Teatro Social do Vestuário",
+    searchQuery: "sociologia da moda status roupas sinalizacao custosa",
+    audioId: "b872d3845dea16f77cd05d722c21f87e.wav"
+  },
+  {
+    topic: "Termodinâmica Prática",
+    quote: "Um ar-condicionado na sala da sua casa fechada não tem a mágica química capacidade de produzir vento gelado novo ou soprar gelo macio dentro da sua casa abafada. Ele opera violentamente como uma esponja mecânica furiosa que <strong>suga o fogo do ar quente ambiente por contato direto, e força esse fogo a ser jogado sem dó do lado de fora pela tubulação externa quente</strong>.",
+    author: "O Sequestro do Calor",
+    searchQuery: "como funciona o ar condicionado termodinamica calor",
+    audioId: "ad008851af8955b742c919ea40e2f722.wav"
+  },
+  {
+    topic: "História da Moeda",
+    quote: "O conceito inicial genial das notas planas de papel moeda de dinheiro não começou e nasceu com os grandes reinos antigos e deuses. Eles surgiram de forma improvisada com simples <strong>recibos rudes de ferreiros de confiança na época em que pessoas odiavam carregar pedras e moedas de puro ouro bruto amarradas por medo absoluto dos salteadores das estradas sombrias noturnas</strong>.",
+    author: "A Origem do Dinheiro",
+    searchQuery: "origem do dinheiro de papel economia moedas de ouro recibos",
+    audioId: "af7df691f39db73c8f70a5c9bfb4d92d.wav"
+  },
+  {
+    topic: "Filosofia Niilista",
+    quote: "Quando Nietzsche gritou agressivamente a famosa frase que chocou os anos que se seguiram: 'Deus está morto', ele não estava celebrando e sorrindo e comemorando arrogantemente com uma cerveja alemã no bar da esquina noturna de Berlim. Ele estava <strong>alertando aos humanos assustados que se o alicerce absoluto de toda a nossa forte moral religiosa tradicional entrasse em forte colapso absoluto com a nossa revolução iluminista intelectual de razão, a Europa iria se afogar num oceano letal sangrento gigante escuro de guerras sem qualquer moral, niilismo, de depressão moderna grave e falta absurda severa de absoluto profundo e enorme sentido moral e social existencial</strong>.",
+    author: "O Aviso de Nietzsche",
+    searchQuery: "deus esta morto nietzsche niilismo iluminismo filosofia moral",
+    audioId: "9e804dc81b3288f28269c2b798872260.wav"
+  },
+  {
+    topic: "Genética e Doenças",
+    quote: "A terrível anemia falciforme causa sofrimento massivo aos glóbulos vermelhos deformados e fracos da corrente sanguínea dolorosa nas nossas veias vermelhas batendo e latejando em africanos nascidos. Mas esse exato defeito violento fatal perdura no forte e longo tempo, apenas porque carregar uma única dessas terríveis mutações nocivas perigosas fornece aos mesmos humanos <strong>uma defesa quase inviolável maravilhosa poderosa absurda incrivel genial contra o perigoso ataque do terrível mosquito agressivo chato da temida Malária nos pântanos e matos do campo</strong>.",
+    author: "A Vantagem do Defeito",
+    searchQuery: "anemia falciforme e malaria vantagem heterozigoto evolucao genetica doencas",
+    audioId: "6cbf61e2f84a08c3ed9f92010ee35391.wav"
+  },
+  {
+    topic: "Ciência da Liderança Moderna",
+    quote: "Os comandantes dos complexos e claustrofóbicos submarinos gigantes armados com ogivas nucleares sombrias e atômicas na Marinha silenciosa e militar do exército dos generais não mandam arrogantemente seus duros e assustados marinheiros rasos apenas empurrarem cegamente todos os pesados botões críticos no controle vermelho de ataque final fatal e destruidor. Eles gastam o caro precioso tempo escasso na longa preparação para <strong>informar de forma radical cristalina a brilhante 'intenção' exata global tática brutal e estratégica e moral do grande comandante para que todo último recruta possa e consiga decidir agir rápido e pensar forte corretamente pelas fortes próprias ordens certas num apagão brutal final noturno da guerra mortal fria sem comando</strong>.",
+    author: "O Comando por Intenção",
+    searchQuery: "comando por intencao david marquet turn the ship around lideranca militar",
+    audioId: "d94f1648cc0d7c5f3b662ba90fb57962.wav"
+  },
+  {
+    topic: "Psiquiatria da Atenção (TDAH)",
+    quote: "O cérebro complexo dos humanos rápidos frenéticos adultos modernos e crianças perdidas assustadas e dispersas e aflitas que possuem grave diagnóstico real do Transtorno de Déficit de Atenção com Hiperatividade veloz não sofre terrivelmente e miseravelmente apenas e somente da enorme e bruta absurda falta doentia da importante e escassa falta de atenção. Muito pelo contrário, eles operam intensamente como antenas violentas ultra sensíveis em constante sobrecarga absurda massiva e barulhenta que na verdade e na prática, <strong>absorvem vorazmente toda e absolutamente toda possível inútil mínima e estúpida pequena fútil menor informação ao redor simultaneamente o tempo todo sem ter nenhum bendito brutal escudo e inibidor filtrador para cancelar e reduzir ou esconder e abafar completamente todos os ruídos idiotas e inúteis paralelos insignificantes externos que os humanos e mentes comuns e triviais saudáveis filtram brutalmente o tempo todo invisivelmente com total forte facilidade cega sem grande grande gigantesco enorme esforço de dor dor e sofrimento cansaço massivo letal</strong>.",
+    author: "O Paradoxo do TDAH",
+    searchQuery: "como funciona tdah neurociencia foco psiquiatria filtragem atencional",
+    audioId: "f3a3bd68c26fdcd8ceed68c005784946.wav"
+  },
 ];
