@@ -454,8 +454,8 @@
         const bgMusicElement = document.getElementById('bgMusic');
         const track = audioCtx.createMediaElementSource(bgMusicElement);
         bgGainNode = audioCtx.createGain();
-        // Em iOS o .volume é ignorado, então usamos o WebAudio para forçar 1.5% do volume original
-        bgGainNode.gain.value = 0.015; 
+        // Em iOS o .volume é ignorado, então usamos o WebAudio para forçar 5% do volume original
+        bgGainNode.gain.value = 0.05; 
         track.connect(bgGainNode).connect(audioCtx.destination);
       } catch (e) {
         console.log("WebAudio not supported", e);
@@ -484,8 +484,8 @@
       }
       
       const bgMusic = document.getElementById('bgMusic');
-      bgMusic.volume = 0.015; // Fallback para PC
-      if(bgGainNode) bgGainNode.gain.value = 0.015;
+      bgMusic.volume = 0.05; // Fallback para PC
+      if(bgGainNode) bgGainNode.gain.value = 0.05;
       
       bgMusic.src = bgPlaylist[currentTrackIndex];
       bgMusic.play().catch(e => console.log("Music error:", e));
@@ -528,8 +528,8 @@
       document.getElementById('icon-sound').style.display = isSoundOn ? 'block' : 'none';
       
       const bgMusic = document.getElementById('bgMusic');
-      bgMusic.volume = 0.015;
-      if(bgGainNode) bgGainNode.gain.value = 0.015;
+      bgMusic.volume = 0.05;
+      if(bgGainNode) bgGainNode.gain.value = 0.05;
 
       if (isSoundOn) {
         if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
