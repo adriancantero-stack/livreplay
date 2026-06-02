@@ -268,6 +268,9 @@
     <!-- As músicas são controladas pelo JS -->
   </audio>
 
+  <!-- Player de Voz Neural (Piper TTS Backend) -->
+  <audio id="voicePlayer"></audio>
+
   <div class="flow-container" id="flowContainer">
     <!-- Cards injetados via JS -->
   </div>
@@ -368,12 +371,12 @@
     let progressBarInterval = null;
     let observer = null;
     let currentCardIndex = -1;
-    let currentUtterance = null;
     let isPaused = false;
     let progressValue = 0;
     const TOTAL_SCROLL_TIME = 4000;
     let feedCards = [];
     let globalDeck = []; // Baralho global para garantir que não haja repetição
+    const TTS_API_URL = "http://localhost:8000/tts";
 
     const bgPlaylist = [
       "../assets/bg1.mp3",
@@ -406,7 +409,8 @@
         if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]);
       } else {
         bgMusic.pause();
-        window.speechSynthesis.cancel();
+        const voicePlayer = document.getElementById('voicePlayer');
+        if(voicePlayer) voicePlayer.pause();
         clearAutoScroll();
       }
     }
@@ -421,7 +425,7 @@
     function pausePlayback() {
       if (!isSoundOn || isPaused) return;
       isPaused = true;
-      window.speechSynthesis.pause();
+      document.getElementById('voicePlayer').pause();
       document.getElementById('bgMusic').pause();
       clearInterval(progressBarInterval);
     }
@@ -429,7 +433,13 @@
     function resumePlayback() {
       if (!isSoundOn || !isPaused) return;
       isPaused = false;
-      window.speechSynthesis.resume();
+      
+      const voicePlayer = document.getElementById('voicePlayer');
+      voicePlayer.play().catch(e => {
+        // Fallback caso a URL falhe
+        if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]);
+      });
+      
       document.getElementById('bgMusic').play().catch(e => console.log(e));
       
       if (progressValue > 0 && progressValue < TOTAL_SCROLL_TIME) {
@@ -477,37 +487,22 @@
 
     function readCard(cardElement) {
       clearAutoScroll();
-      window.speechSynthesis.cancel();
-      isPaused = false;
+      if (!isSoundOn || isPaused) return;
 
-      if (!isSoundOn) return;
-
+      const voicePlayer = document.getElementById('voicePlayer');
       const textToRead = cardElement.getAttribute('data-quote');
       if (!textToRead) return;
 
-      currentUtterance = new SpeechSynthesisUtterance(textToRead);
-      currentUtterance.lang = 'pt-BR';
-      currentUtterance.rate = 1.05;
+      voicePlayer.pause();
+      voicePlayer.currentTime = 0;
+      voicePlayer.src = `${TTS_API_URL}?text=${encodeURIComponent(textToRead)}`;
       
-      const voices = window.speechSynthesis.getVoices();
-      const ptVoices = voices.filter(v => v.lang.includes('pt-BR'));
-      if(ptVoices.length > 0) {
-        // Tenta encontrar uma voz de maior qualidade
-        const bestVoice = ptVoices.find(v => 
-          v.name.includes('Premium') || 
-          v.name.includes('Google') || 
-          v.name.includes('Natural') || 
-          v.name.includes('Luciana') // Voz excelente nativa do macOS/iOS
-        );
-        currentUtterance.voice = bestVoice || ptVoices[0];
-      }
-
-      currentUtterance.onend = () => {
+      voicePlayer.onended = () => {
         if(isPaused) return;
         startProgressBar(cardElement);
       };
 
-      window.speechSynthesis.speak(currentUtterance);
+      voicePlayer.play().catch(e => console.log("Voice play error:", e));
     }
 
     function appendCards(count) {
