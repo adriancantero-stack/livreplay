@@ -625,7 +625,7 @@
             if (isPaused) return;
             audioState = 'idle';
             
-            // Aguarda 1 segundo de silêncio após a voz terminar e então rola
+            // Aguarda 2 segundos de silêncio após a voz terminar e então rola
             setTimeout(() => {
                 if (isPaused) return;
                 isAutoScrolling = true;
@@ -633,11 +633,16 @@
                 if (currentCardIndex >= feedCards.length - 2) appendCards(5);
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
-                    document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-                    readCard(currentCardIndex);
+                    const container = document.getElementById('flowContainer');
+                    container.scrollTo({ top: nextCard.offsetTop, behavior: 'smooth' });
+                    setTimeout(() => {
+                        readCard(currentCardIndex);
+                        setTimeout(() => { isAutoScrolling = false; }, 1000);
+                    }, 500);
+                } else {
+                    isAutoScrolling = false;
                 }
-                setTimeout(() => { isAutoScrolling = false; }, 1000);
-            }, 1000);
+            }, 2000);
         };
 
         voicePlayer.onerror = (e) => {
@@ -650,10 +655,15 @@
                 if (currentCardIndex >= feedCards.length - 2) appendCards(5);
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
-                    document.getElementById('flowContainer').scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-                    readCard(currentCardIndex);
+                    const container = document.getElementById('flowContainer');
+                    container.scrollTo({ top: nextCard.offsetTop, behavior: 'smooth' });
+                    setTimeout(() => {
+                        readCard(currentCardIndex);
+                        setTimeout(() => { isAutoScrolling = false; }, 1000);
+                    }, 500);
+                } else {
+                    isAutoScrolling = false;
                 }
-                setTimeout(() => { isAutoScrolling = false; }, 1000);
             }, 2000);
         };
     }
