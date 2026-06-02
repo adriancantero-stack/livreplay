@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: livreplay-tts-backend
+    env: docker
+    rootDir: backend
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8000
