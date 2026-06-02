@@ -273,36 +273,63 @@
       text-align: center;
       padding: 0 20px;
     }
-    .splash-topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      max-width: 90%;
-      margin-bottom: 60px;
-    }
-    .splash-topics span {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      color: #ddd;
-    }
     .start-btn {
       background: var(--accent);
       color: #fff;
       border: none;
-      padding: 20px 60px;
-      border-radius: 40px;
-      font-size: 20px;
-      font-weight: 700;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4);
       transition: transform 0.2s;
+      margin-bottom: 30px;
+    }
+    .start-btn svg {
+      width: 40px;
+      height: 40px;
+      margin-left: 5px; /* Offset for visual center of play icon */
     }
     .start-btn:active {
       transform: scale(0.95);
+    }
+    .splash-topics-container {
+      width: 90%;
+      max-width: 400px;
+      max-height: 40vh;
+      overflow-y: auto;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 15px;
+      margin-top: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) rgba(255,255,255,0.05);
+    }
+    .splash-topics-title {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .splash-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .splash-topics span {
+      background: rgba(255, 140, 0, 0.1);
+      border: 1px solid rgba(255, 140, 0, 0.3);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--accent);
     }
 
   </style>
@@ -320,18 +347,21 @@
 
   <!-- Tela Inicial (Onboarding) -->
   <div id="startScreen">
-    <div class="splash-title">Conhecimento Profundo</div>
-    <div class="splash-subtitle">Aprenda algo novo e genial a cada deslize.</div>
-    <div class="splash-topics">
-      <span>Inteligência Artificial</span>
-      <span>Biohacking</span>
-      <span>Finanças</span>
-      <span>Estratégia</span>
-      <span>Psicologia</span>
-      <span>Física Quântica</span>
-      <span>Evolução</span>
+    <div class="splash-title">LivrePlay</div>
+    <div class="splash-subtitle">Deslize para o conhecimento.</div>
+    
+    <button class="start-btn" onclick="startJourney()">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+      </svg>
+    </button>
+
+    <div class="splash-topics-container">
+      <div class="splash-topics-title">Tudo o que você vai aprender:</div>
+      <div class="splash-topics" id="splashTopicsList">
+        <!-- Injetado dinamicamente -->
+      </div>
     </div>
-    <button class="start-btn" onclick="startJourney()">Começar Jornada</button>
   </div>
 
 
@@ -380,6 +410,13 @@
     let observer = null;
 
     document.addEventListener("DOMContentLoaded", () => {
+      // Popula tópicos dinamicamente
+      if (typeof feedCards !== 'undefined' && feedCards.length > 0) {
+        const uniqueTopics = [...new Set(feedCards.map(c => c.topic))].sort();
+        const topicsHtml = uniqueTopics.map(t => `<span>${t}</span>`).join('');
+        document.getElementById('splashTopicsList').innerHTML = topicsHtml;
+      }
+
       const voicePlayer = document.getElementById('voicePlayer');
       if(voicePlayer) {
         voicePlayer.addEventListener('pause', () => {
