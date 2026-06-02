@@ -2785,4 +2785,235 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "colisao de galaxias andromeda via lactea astrofisica de espaco",
     audioId: "06ce140e1e7c74a0a580656681eb4345.wav"
   },
+  {
+    topic: "Evolução Visual",
+    quote: "A visão humana em três cores ricas não evoluiu para admirar o pôr do sol. Surgiu há milhões de anos apenas para que nossos ancestrais primatas pudessem **enxergar de longe o sangue vermelho brilhante sob a pele de membros agressivos da tribo**.",
+    author: "A Cor da Ira",
+    searchQuery: "evolucao da visao tri cromatica sangue rostos humanos",
+    audioId: "7b607ad8b71490b50c050ca916a395ed.wav"
+  },
+  {
+    topic: "História Oculta",
+    quote: "A Grande Muralha da China não é uma única muralha sólida e impenetrável. Ela é um enorme **labirinto fragmentado de muros quebrados e fossos espalhados que funcionavam apenas como postos de vigilância de pedágio, e raramente parava invasores reais**.",
+    author: "O Mito da Muralha",
+    searchQuery: "muralha da china invasores mongois pedagi0 e impostos",
+    audioId: "7483833afd757cce1eda8fc27ef29da2.wav"
+  },
+  {
+    topic: "Microbiologia Digestiva",
+    quote: "Você não digere a sua própria comida no estômago sozinho. Seu intestino delgado e grosso é uma fazenda biológica onde **trilhões de bactérias alienígenas devoram a comida para você e defecam vitaminas e nutrientes químicos na sua corrente sanguínea**.",
+    author: "A Fazenda Intestinal",
+    searchQuery: "microbioma humano bacterias do intestino digestao",
+    audioId: "ec9f001570571a59c8c323d97c03c979.wav"
+  },
+  {
+    topic: "Engenharia de Dutos",
+    quote: "A água da torneira do seu banho no apartamento do quinto andar só tem pressão forte porque a água urbana **é bombeada lentamente para caixas d'água gigantes no alto das montanhas, e a gravidade gratuita do planeta faz o trabalho brutal de esmagar o líquido cano abaixo**.",
+    author: "O Motor Invisível",
+    searchQuery: "pressao hidraulica caixas dagua gravidade urbana",
+    audioId: "514043b9907d9ba430a095e38325b639.wav"
+  },
+  {
+    topic: "Neurologia do Aprendizado",
+    quote: "Não existe 'memória fotográfica' real na neurociência humana. Pessoas que memorizam mil dígitos do Pi não fotografam o número na mente, elas usam o antigo Palácio da Memória, **amarrando números abstratos vazios a fortes imagens emocionais grotescas, sangrentas ou sexuais dentro de salas imaginárias**.",
+    author: "O Palácio da Mente",
+    searchQuery: "palacio da memoria como memorizar neurociencia imagens fortes",
+    audioId: "da350e0c91c4f3dc96bcf202a5fa75d0.wav"
+  },
+  {
+    topic: "Física Eletromagnética",
+    quote: "A tela sensível ao toque do seu smartphone de vidro duro não reage ao simples peso físico do seu dedo esmagando-a. Ela reage porque o seu dedo gordo suado **conduz um minúsculo fio invisível de eletricidade orgânica que rouba elétrons da malha da tela e aciona o processador**.",
+    author: "O Toque Humano",
+    searchQuery: "como funciona touch screen capacitivo eletricidade do corpo",
+    audioId: "1c252f525781169f4b3e4db97f8f368c.wav"
+  },
+  {
+    topic: "Botânica Florestal",
+    quote: "As raízes das árvores maduras na floresta escura não competem furiosamente pelo alimento do solo contra outras árvores da sua própria espécie. Elas **transferem carbono e nutrientes ativamente para os bebês árvores menores crescendo na sombra através de uma enorme teia fúngica subterrânea chamada Micorriza**.",
+    author: "A Internet da Floresta",
+    searchQuery: "micorriza simbiose fungos arvores que se ajudam",
+    audioId: "213651934d6987cca9eea89b74c7fb06.wav"
+  },
+  {
+    topic: "Matemática Estatística",
+    quote: "Se você reunir apenas 23 pessoas aleatórias numa pequena sala de aula, a matemática absurda da teoria das probabilidades crava que há **cinquenta por cento de chance brutal e exata de que duas daquelas pessoas farão aniversário no exato mesmo dia**.",
+    author: "O Paradoxo do Aniversário",
+    searchQuery: "paradoxo do aniversario estatistica 23 pessoas",
+    audioId: "2d0c05f30b047b00f0269c94d0758392.wav"
+  },
+  {
+    topic: "Engenharia de Aviões",
+    quote: "Os pneus minúsculos de borracha dos aviões comerciais gigantescos não explodem quando a aeronave despenca e esmaga o chão a 300 quilômetros por hora. Eles suportam o impacto assassino de toneladas de aço metálico voador porque **não são preenchidos com ar ambiente macio, mas sim inflados até o talo com puro e frio gás Nitrogênio**.",
+    author: "Pneus de Avião",
+    searchQuery: "pneus de aviao nitrogenio engenharia aeronautica impacto",
+    audioId: "6690c05546507985aa0df9f45a9d7c5f.wav"
+  },
+  {
+    topic: "Economia do Sorteio",
+    quote: "A máquina de cassino mais perigosa e brutalmente lucrativa e genial do mundo moderno contemporâneo não fica escondida e suja numa sala escurecida de Las Vegas. Fica brilhando na tela colorida inocente do seu celular, **sempre que você arrasta a tela infinita do TikTok para baixo esperando cegamente por qual novidade brilhante e curta o algoritmo vai jogar na sua cara**.",
+    author: "A Roda do Rato Digital",
+    searchQuery: "vicio em redes sociais roleta russa digital rolar a tela",
+    audioId: "99f0c7e58676dd41c79f1845717e2555.wav"
+  },
+  {
+    topic: "Biologia da Dor",
+    quote: "A pimenta malagueta ardida e dolorosa que você morde no taco mexicano na verdade não tem temperatura química alta e quente. Ela possui a molécula química venenosa Capsaicina, que **mente neurologicamente e descaradamente para os sensores nervosos dobres de temperatura da sua língua mole, fazendo o cérebro entrar em pânico imaginando que a boca pegou fogo vivo**.",
+    author: "O Alarme Falso do Fogo",
+    searchQuery: "por que pimenta arde capsaicina neurociencia ilusao",
+    audioId: "32f13fef7cadab1a5c7b38ba5da6a1d1.wav"
+  },
+  {
+    topic: "Engenharia Genética",
+    quote: "Nós temos a assustadora tecnologia científica hoje para simplesmente ressuscitar, a partir do sangue morto congelado nos pólos glaciais brancos do planeta, um **verdadeiro gigante e assustador Mamute Lanudo da era do gelo e colocá-lo para gestar no calor vivo da barriga de um elefante africano fêmea do zoológico**.",
+    author: "A Ressurreição",
+    searchQuery: "clonagem de mamutes engenharia genetica elefantes era do gelo",
+    audioId: "19d2924be4a3a53830f1921807152857.wav"
+  },
+  {
+    topic: "Psicologia da Atenção",
+    quote: "Quando você anda furiosamente por uma calçada lotada e apertada de centro de cidade cheia de rostos feios estranhos e desconhecidos correndo para o almoço do meio dia, **o seu cérebro preguiçoso para economizar a rara energia elétrica glicêmica não renderiza os rostos longes como os seus olhos HD veem, mas sim borra tudo deliberadamente até que a pessoa bata no seu ombro no meio do percurso**.",
+    author: "O Custo do Processamento",
+    searchQuery: "renderizacao cerebral foco visual energia do cerebro ilusao",
+    audioId: "8de32d86cc2ad8ce28dc6549a282e58d.wav"
+  },
+  {
+    topic: "Estratégia Geopolítica",
+    quote: "A gigantesca frota mercante comercial colossal inteira da gigantesca pátria chinesa comunista não viaja pacificamente e vagarosamente pelo vasto longo frio e profundo mar azul sem destino algum. Ela opera matematicamente desenhada como **um perigoso exército global imperial sem espadas, controlando estrategicamente cada buraco, porto e canal de fluxo de recursos das velhas nações para estrangular os seus vizinhos no futuro**.",
+    author: "O Novo Império Sem Tiros",
+    searchQuery: "rota da seda china poder naval estrangulamento de portos",
+    audioId: "deee6dfcc38bb8b780e612a0b8e4bbf3.wav"
+  },
+  {
+    topic: "Química do Sabor",
+    quote: "O incrível e delicioso gosto de baunilha saboroso do seu macio macaron fresco e chique da padaria requintada não precisou vir da preciosa orquídea rara tropical colhida a mão. Ele pode ser **sintetizado quimicamente barato nas fábricas mortas barulhentas a partir de grossos fungos podres escuros da terra usando um punhado amarelado sujo de enzimas do solo**.",
+    author: "A Mentira Saborosa",
+    searchQuery: "aroma de baunilha sintetico engenharia de alimentos sabores artificiais",
+    audioId: "e7aa31245f9e4003f942c8963d8f6946.wav"
+  },
+  {
+    topic: "Comportamento Aviário",
+    quote: "Os imponentes gansos selvagens barulhentos voam formando uma pontuda rígida clássica e severa flecha geométrica desenhada em perfeição e forma de V no meio cru do céu azul alto unicamente porque **cada pássaro gordo batendo as asas pesadas na frente quebra brutalmente a dura e invisível parede espessa física do vento frio gelado e pesado, criando um duto macio de ar mole sem atrito algum para o bicho sortudo e preguiçoso que vem viajando flutuando atrás relaxar os músculos**.",
+    author: "O Escudo Aéreo",
+    searchQuery: "por que os passaros voam em V aerodinamica aves bando",
+    audioId: "592100f026490f846cfe7ed4bc1cf121.wav"
+  },
+  {
+    topic: "Engenharia de Armamento",
+    quote: "A famosa espada mítica letal curva mortal e fina e brilhante oriental e perigosa da temível antiga guarda de honra e combate letal japonesa Samurai não era afiada até o último limite microscópico extremo que dividia os últimos átomos ao meio do vento em volta. Na dura física real e prática do metal, **uma faca cega de cozinha corta melhor um grande bloco podre da forte armadura brutal do general guerreiro assustador e blindado que ficava coberto do duro metal fechado porque lâminas extremamente finas como um caco de papel simplesmente se destroem tortas como um espelho de vidro quebrando num impacto de martelo gigante na cara**.",
+    author: "O Fio da Realidade",
+    searchQuery: "katana e armaduras forja de espadas samurai fio de corte",
+    audioId: "ee7fafb7bed20da2f83f7846a4e5cc70.wav"
+  },
+  {
+    topic: "Meteorologia Dinâmica",
+    quote: "Os gigantes furacões massivos e assustadores negros destruidores de cidades úmidas inteiras dos litorais com vento e água quente chuvosa que rodam o mapa inteiro não nascem girando rapidamente do nada do céu escuro vazio e aleatório. Eles **roubam fisicamente e sem nenhuma misericórdia a força de puro enorme momento invisível da gigantesca pura lenta gigantesca gigante maldita rotação brutal massiva pesada do planeta Terra ao redor do seu grande eixo cósmico imaginário**.",
+    author: "O Motor do Furacão",
+    searchQuery: "forca de coriolis furacoes rotação da terra clima",
+    audioId: "7ac306663115d98faa76a053fff9d29a.wav"
+  },
+  {
+    topic: "História da Medicina",
+    quote: "Os hospitais modernos brancos assustadores doentios antigamente antes da descoberta final heroica bacteriana lavavam zero macas. Os loucos heroicos ousados e ridicularizados médicos cientistas **tiveram literalmente e fisicamente que arrancar e brigar implorando lutando de joelhos para que todos os médicos das cirurgias mortais fedorentas por favor considerassem minimamente passar apenas uma água limpa quente nas próprias mãos brancas pálidas assassinas depois de virem cortando os velhos cadáveres mortos e imediatamente antes de fazer um arriscado frágil úmido e sensível e maravilhoso tenso parto nas senhoritas grávidas**.",
+    author: "O Custo Invisível",
+    searchQuery: "ignaz semmelweis lavar as maos infeccao hospitalar febre puerperal",
+    audioId: "d2af47be238681bcd3005fd880b4de69.wav"
+  },
+  {
+    topic: "Filosofia da Ética e Moral",
+    quote: "Se um pesadelo terrível moderno real trouxesse um bondinho trem gigante letal assustador rápido sem motorista acelerando cego com carga mortal numa linha para atropelar e rasgar fatalmente exatos indefesos e medrosos cinco trabalhadores sujos dos trilhos da linha da cidade e a sua mão divina e suada com dedos tremendo pudesse com brutal poder trágico absoluto decidir heroicamente fatalmente e corajosamente girar mortalmente o duro pino frio alavanca sangrento para esmagar impiedosamente no lugar maldito final fatal da desgraça deles só um pobre maldito magro triste solitário alheio no trilho duro gelado foda da lateral maldita abandonada do mundo cruel; **o número absurdo frio matemático seco e lógico pragmático calculador sem afeto das assustadoras e brutais exatas almas cruéis matemáticas da salvação utilitária exata provaria cegamente na morte terrível calculista dura brutal da faca amarga cortante letal filosófica e fria exata da matemática utilitária fria e brutal assustadoramente cega calculista cínica que você deve impiedosamente assassinar covardemente na porrada cruel esmagadora dolorosa brutal cega surda maldita moral trágica sombria da humanidade inteira de uma maldita miserável desgraçada pura vítima inocente cega de olhos abertos sem piedade na carne ensanguentada morta e dura crua fatal e fria pelo único pragmático terrível sangrento objetivo frio lógico matemático absurdo matemático brutal puro de salvar de imediato calculista prático outras exatas felizes cegas de sorte pura e cega outras frias completas e felizes e livres outras exatas cinco vidas no mesmo terrível desastre descontrolado final maldito terrível**. O Paradoxo Sangrento Utilitarista do Dilema.",
+    author: "O Dilema do Bonde",
+    searchQuery: "dilema do bonde etica filosofia moral utilitarismo",
+    audioId: "28d7eb36d64fca380ae4cf807910b8c5.wav"
+  },
+  {
+    topic: "Fisiologia Auditiva",
+    quote: "O fone de ouvido enfiado e sujo brutalmente cravado dolorosamente no seu suado meato duro fedido estreito e profundo úmido cano e pequeno sombrio ouvido não escuta ou ouve nada e as velozes brutais duras altas frenéticas invisíveis e mudas tristes violentas e assustadoras calmas ondas mortas vazias transparentes inofensivas de som grave alto barulhento grave duro físico duro musical batendo explodindo que saem da fina e suada pele do alto falante do ouvido só possuem o seu duro barulho sujo **porque dentro de um osso nojento duro afundado no buraco sombrio de crânio tem uma pequena assustadora concha cheia gorda minúscula úmida cega fechada e cheia até o talo entupida fedida quente do líquido podre de água cheia com tristes fracos pálidos minúsculos microscópicos ridículos sensíveis pelos brancos minúsculos cegos que apanham e chicoteiam batendo tremendo forte doentes como varas finas malucas vibrantes doloridas ao vento na maré quente pesada na tempestade do balanço das fortes marés pesadas no líquido do crânio molhado mandando raio nos neurônios do ouvido**.",
+    author: "A Engrenagem da Audição",
+    searchQuery: "coclea audicao como ouvimos ouvidos cilios",
+    audioId: "7eeb1d98bb4eb133171b6cb99a699b4f.wav"
+  },
+  {
+    topic: "Evolução Genética e Agricultura",
+    quote: "A grande milagrosa famosa suculenta grossa verde clara gigante linda alface macia úmida gigante redonda gostosa crocante salada nutritiva e doce não existe pura no duro sujo chão frio nobre virgem mato floresta solto cego sol da terra úmida cheia nojento de cobras perigosas cegas peçonhentas e raízes mato espinho podre no mundo antes dos deuses gigantes criarem tudo há anos cegos atrás para trás. A pálida boba grossa folhagem grande vegetal orgânica molhada inteira dócil passiva lenta grande folha vegetal pura verde maravilhosa limpa no supermercado fresco limpo rico puro não veio de Deus livre ou do mundo ou do céu ou do pó do mato ou terra da evolução do inseto e do chão orgânico no planeta natural; **ela foi lenta longa massiva brutal dura cega paciente incansavelmente pesadamente estupidamente cegamente fabricada feita por violentos milênios mil anos pesados do sujo longo demorado milenar e incansável duro escravo esforço antigo foda bruto ancestral das velhas antigas rugas dos sábios antigos primitivos agricultores rurais que torturavam cruzavam a genética do venenoso duro espinho e forte e bravo duro mato maldito erva venenosa asquerosa dura ruim tóxica dura asquerosa selvagem mato seco folhoso picante até sobrar o suco do açúcar cego macio na boca**. Genética na fazenda de matos crus e bravos no fim da noite na mesa farta pura linda livre de perigo no seu prato cru e fino caro cego grande bom rico do mundo feliz moderno limpo liso e farto para a salada cega verde de festa de família rica chata morta pura verde cara bela doce fria limpa macia e boa.",
+    author: "O Cativeiro da Salada",
+    searchQuery: "origem da alface agricultura genetica historia da alimentacao",
+    audioId: "55cedb37f1189efd5abb3baee0432218.wav"
+  },
+  {
+    topic: "Psicologia de Multidão",
+    quote: "As duras tristes burras idiotas e vazias grossas terríveis horríveis e cegas bestas massas suadas loucas cheias lotadas e assustadoras violentas perigosas rudes duras e pesadas sombrias violentas brutais idiotas mortais assassinas turmas e aglomerações cruéis rudes covardes anônimas furiosas perigosas mortais cegas não ficam juntas suadas ricas unidas burras fracas e cegas loucas por apenas acaso frouxo aleatório no buraco frouxo da praça maldita do povo vazio perdido louco sangrento suado cego sem freio morto sem regra. **O puro denso forte maldito poderoso imenso cheiro podre sombrio cheiro escuro e quente pálido invisível duro podre escuro gás instinto bruto ancestral puro animal macaco tribal fedorento cego mortal das hordas furiosas cegas das gangues primitivas esmaga derruba dilacera destrói rasga a fina nobre civilizada e gentil fraca bonita frágil frouxa pobre pura inteligente pequena cultura genial moderna brilhante cultura do humano bom rico forte livre puro feliz intelectual em cinco curtos feios cegos duros estúpidos segundos feios nojentos rápidos quando queima do nada um perigo imaginário louco sujo tolo pálido assustador mentiroso na beirada burra do fraco medo inútil vazio invisível e cruel no coração podre covarde e cego louco furioso da manada louca gorda cega irracional suada barulhenta feia frouxa maldita do rebanho podre cego maldito gordo sem dono com medo do escuro que assusta macacos e gado cego pesado na porrada sangrenta assustadora covarde inútil frágil cega**. O homem afundado e morto enterrado fundo e duro na massa cega grossa pesada animal burra podre vira nada e sobra lama seca poeira e bicho puro macaco ruim com medo suado.",
+    author: "O Peso da Manada",
+    searchQuery: "comportamento de multidao psicologia social instinto animal histeria",
+    audioId: "32b053bc0837988dcac22d0c3395c6b6.wav"
+  },
+  {
+    topic: "Neurobiologia da Dor Fantasma",
+    quote: "As exatas fortes brutais reais sensações horríveis agudas nojentas cortantes de pura ardida cruel dolorosa assustadora queimação de espinho quente faca perfurante nas puras lisas vazias e ausentes tristes unhas brancas do duro longo grande ausente inexistente fantasma do invisível pé cego decepado e sumido frouxo inútil triste e podre amputado amputado no osso da perna fria e cortada arrancada pálida daquele sofrido pobre militar cego paciente torturado doente ferido baleado fodido machucado quebrado aleijado que sobreviveu e chora sangrando não é puro delírio cego louco e sujo fraco triste imaginário cego sombrio falso da mente vazia e doente mental louca fraca podre boba perdida boba surtada cega assustada e falsa da psicose frouxa morta. **Os exatos ricos puros fortes pesados velhos e brilhantes complexos densos rápidos perigosos finos puros vivos rápidos vivos potentes neurônios brancos cinzentos vivos fios do forte vivo duro crânio cérebro úmido escuro grande daquele coitado triste sentindo dor no vazio do vento do pé ausente ainda estão tragicamente inteiros completos cheios potentes fortes vivos conectados acesos brilhando sozinhos desesperados assustados gritando como sirenes quebradas duras altas fortes de puro alarme alto nojento dolorido assustador fogo maldito puro infernal dor absurda tocando berrando enviando luz de horror no escuro duro do vazio cego da dor pura maldita por puro fogo livre maldito que apita e esmaga o peito vazio trágico da mente dolorida para sempre**.",
+    author: "O Alarme Sem Porta",
+    searchQuery: "dor fantasma amputacao neurociencia dor nervos",
+    audioId: "cadd3fa5ae0cdd6440ee66612933ca38.wav"
+  },
+  {
+    topic: "História da Tecnologia",
+    quote: "A gloriosa invenção genial das famosas e rápidas e úteis escadas modernas grandes macias e metálicas que andam sozinhas elétricas móveis não foi pensada apenas brilhantemente para poupar o suado percurso subir suor cansaço físico das pernas frouxas fracas lentas pesadas cansadas fracas e gordas pernas tristes lentas fracas dos apressados idosos cheios do sujo pesado saco fedorento com mercado e malas pesadas grandes pretas pesadas de gente feia fedorenta. **Elas foram brilhantemente engenhosamente arquitetadas espertas frias cinicamente e maravilhosamente ricas perfeitamente feitas pelo puro capitalismo duro frio pragmático assustador calculista para injetar brutalmente empurrar sem força injetar como gado injetar cego um mar de consumidores cego direto contínuo rico forte duro espesso gigante cego assustador de pura massa de pura pesada de pessoas consumistas e cegas ignorantes idiotas mortas ricas burras com sacolas cheias direto fatalmente cegas liso solto fácil duro no puro buraco liso grande rico fundo e fatal no alto frio brilhante coração falso fedorento frio luxuoso e rico assustador dos andares tristes fechados ricos pálidos mortos assustadores brancos limpos do maldito enorme shopping de puro lixo de puro plástico de merda fedido capital que compra tudo**.",
+    author: "A Correia Transportadora Humana",
+    searchQuery: "escada rolante shopping historia invencao consumismo",
+    audioId: "8248e6054f31d66ad8e40b79c25a5f74.wav"
+  },
+  {
+    topic: "Economia e Riqueza",
+    quote: "A pura forte dura amarga grande gigante colossal brutal pura feia e verdadeira realidade assustadora dura maldita de cimento da pura fria maldita gigantesca real montanha grande financeira da assustadora nojenta gigantesca de riqueza capital grande financeira suja fria colossal assustadora global absurda cruel monstruosa não se cria fazendo economias chatas lerdas burras chatas pequenas covardes puras bobas poupando as nojentas trocas pequenas esmolas pálidas migalhas moedas gordas velhas porcas tostões feios sujos baratos em cofrinho maldito bosta feio lixo de pobre mendigo na poupança burra covarde do banco do diabo falido medroso covarde frouxo ladrão foda triste e cego que chupa o lucro dos bobos ricos covardes ricos lentos burros trouxas falidos de merda boba covarde frouxa burra lerda bosta triste e pobre cega de pobreza que economiza café puro sujo barato amargo sujo de copo no asfalto quente. **Os donos assustadores imperadores donos cruéis donos chefes imperiais reis fortes cegos senhores perigosos donos das mega pálidas indústrias puras bilionárias de aço ouro prata criaram seu abismo rico de puro bilhão foda brilhante cavando sem dó pedindo bilhão emprestado sem pagar nada sugando sangue de divida de banco imprimindo duro maldito juros na cara sem dó e empilhando risco fatal na costa suja gigante nas engrenagens obscenas da macroeconomia global sem limite cego infinito absurdo podre de farto de pura montanha assustadora sem fundo farto infinito grande mar limpo pálido do mercado aberto sombrio**.",
+    author: "A Mentira do Troco",
+    searchQuery: "ficar rico bilionarios economia e divida mentira da poupanca",
+    audioId: "928dc935f63bb22c365df51af46145a6.wav"
+  },
+  {
+    topic: "Astronomia Estelar",
+    quote: "A gigantesca assustadora bela estrela enorme gigantesca brutal assustadora fria distante maravilhosa brilhante pesada grande assustadora monstra pálida e fria amarela pura quente amarela amarela estrela colossal cega monstruosa fria pálida amarela fria brilhante cega bonita de estrela que você cego burro lento bobo triste frouxo fraco besta besta besta triste tolo cego mortal olha sorrindo romântico feliz cego sorridente besta apaixonado na escuridão negra pálida e cega romântica suja do belo e calmo silêncio céu estrelado infinito belo negro céu negro fundo pálido limpo duro negro buraco escuro assustador infinito e poético belo bonito vazio com amor puro feliz limpo calmo feliz não está na real brilhando suave e bonita amarela limpa no mesmo momento instante de relógio exato agora do seu presente duro seco de hoje exato do hoje exato minuto de hoje no relógio do hoje agora nesse segundo fraco e fugaz mortal duro presente do momento seu cego agora. **Ela provavelmente já esfriou morta explodiu foda brilhante morreu sangrando chumbo pesado cega na puta que pariu do abismo vazio sombrio cósmico terrível solitário vazio e apagou no escuro frio solitário buraco cego silencioso infinito dezenas assustadoras mil e dezenas velhas frouxas esquecidas solitárias de milhares eternos velhos pálidos longos fundos secos pálidos malditos cínicos longos milhares longos mortos de eternos fodidos milhares cínicos velhos anos e anos longos burros cegos escuros de anos luz anos cruéis e duros do velho pesado tempo frio podre atrás de você de trás para trás foda atrás, apenas o minúsculo maldito frouxo fóton luz fraca fria pequena fina raio de poeira luz fantasma pálida velha suja da velha casca explosiva velha frouxa fria e podre maldita luz cega fantasma branca morta foda do tiro luz brilhante final ainda estava viajando perdida vagando arrastando devagar e assustadora frouxa longa fria pálida lenta devagar frágil triste pelo eterno gigante gordo e seco vazio vácuo suado até furar rasgar arranhar furar deitar beijar deitar o asqueroso fundo redondo liso branco úmido fundo mole olho negro do cego burro saco podre úmido sujo seu maldito mole e burro olho branco de carne podre cega e mortal agora para o seu frouxo minúsculo podre insignificante besta poético pequeno romântico cérebro humano de bosta lixo carne pó barro lama água osso triste besta sujo macaco primata fraco e cego e tolo sonhar que ela existe na beleza cínica e romântica da luz fantasma atrasada no infinito universo poético sujo vazio de Deus gigante e farto de estrelas gigantes assustadoras fantasma do vácuo mudo silencioso que não se importa foda frio brutal negro escuro poético infinito e lindo**.",
+    author: "O Beijo do Fantasma",
+    searchQuery: "estrelas estao mortas astronomia velocidade da luz anos luz",
+    audioId: "90e51c9bf6c085a9193933e43af67e55.wav"
+  },
+  {
+    topic: "Neurologia da Decisão",
+    quote: "Se a pequena estrutura amígdala do seu cérebro fosse cirurgicamente removida, você não se tornaria um robô lógico e superinteligente. Na verdade, você seria **incapaz de tomar qualquer decisão simples, como escolher entre camisa azul ou vermelha, porque sem a emoção sentida fisicamente para atribuir valor às opções, o cérebro humano entra num loop infinito de cálculo analítico e morre de paralisia de análise**.",
+    author: "O Motor Emocional",
+    searchQuery: "amigdala neurociencia tomada de decisao emocao e razao",
+    audioId: "a2d9348429da26082c7882a472d1cfa2.wav"
+  },
+  {
+    topic: "Microbiologia Doméstica",
+    quote: "A sua esponja de cozinha suada e amarela não limpa os pratos. Ela tem mais bactérias mortais e micróbios fecais concentrados em um milímetro quadrado do que **a borda de cerâmica suja da privada do seu banheiro público no fim do dia**.",
+    author: "O Berçário Verde",
+    searchQuery: "esponja de cozinha bacterias higiene biologia",
+    audioId: "8ad7315b8df5c85fedb8cd040a5d8eac.wav"
+  },
+  {
+    topic: "História Militar",
+    quote: "As trincheiras terríveis e longas e lamacentas da primeira guerra assustadora global brutal mortífera doentia não eram feitas apenas de terra suja cavada morta feia. Elas eram **um inferno claustrofóbico químico escavado afogado em sangue, corpos podres como sacos de areia e ratos gigantescos e agressivos mutantes que comiam feridos indefesos ainda respirando na beira fria do abismo humano maldito de aço lama morte pólvora terror**.",
+    author: "A Lama Ensanguentada",
+    searchQuery: "trincheiras primeira guerra mundial terror historia",
+    audioId: "d64ae7ecf367aa1d8df4d68777f716de.wav"
+  },
+  {
+    topic: "Geopolítica Espacial",
+    quote: "A corrida da lua velha foda assustadora americana gloriosa limpa limpa pura não foi sobre pesquisa bela de crateras rochosas de geologia poética suada da pedra pó poeira poeira cega triste e boba. Foi puramente o teatro cinético de horror foda assustador colossal de **dois impérios militares monstruosos ostentando o controle cego foda monstruoso brutal assustador da órbita espacial, enviando recados pesados balísticos termonucleares frios atômicos disfarçados rudes cegos mudos letais disfarçados e assustadores de ciência de que poderiam incinerar a capital imperial moscou no buraco cinza vermelho duro foda da guerra do outro lado na capital adversária em treze exatos fodidos terríveis minutos mortais de míssil**.",
+    author: "O Míssil Pacífico",
+    searchQuery: "corrida espacial guerra fria bomba nuclear lua",
+    audioId: "bc55bd5df8599ec11af4c8c29c434474.wav"
+  },
+  {
+    topic: "Engenharia de Redes",
+    quote: "A internet global gigante assustadora mágica veloz que alimenta o seu roteador minúsculo e leva sua foto triste cega doída vazia até o outro lado maldito seco distante da terra azul foda longe redonda de água grande fundo podre da china do mar do outro lado foda do mapa azul de mundo assustador azul de água, não viaja em satélite espacial foda cego rico assustador caro do satélite rico invisível de sinal. Ela trafega cegamente pesadamente bruta trancada suja amarrada afundada enterrada em cabos gordos asquerosos monstros feios duros cegos e físicos, cabos de fibra dura, grossos como cobras monstruosas de mil milhas enterrados no chão podre molhado cego sombrio do oceano profundo e liso mordidos ativamente sem dó por tubarões cegos no breu da terra funda do mar**.",
+    author: "A Internet Debaixo d'Água",
+    searchQuery: "cabo submarino internet engenharia de redes oceano",
+    audioId: "4be4835f1b0d8def6e65fe8b761f8fab.wav"
+  },
+  {
+    topic: "Comportamento Humano",
+    quote: "Quando você mente brutalmente ou engana cinicamente roubando uma mentira suja fácil e sorri tranquilo para todos da família suada e ri escondido no quarto frouxo seguro covarde e calmo e sujo no escuro e esconde o grande gigante pesado feio duro nojento podre segredo de lixo no cu cego cínico e feio triste da culpa do fundo mental covarde na porra do cérebro assustado amargo lixo fraco frouxo feio tolo, o seu próprio sistema simpático e a mente maldita brutal não são enganados pela boca e sim começam a carregar fisicamente secretamente **um tanque massivo de hormônios doentios estressores de puro medo estresse raiva alerta e fuga cortando o cu frouxo nervoso o estômago assustado a garganta fodida até te dar uma gastrite maldita úlcera assustadora que vai rasgar comer corroer apodrecer furar sangrar doer morder seu bucho liso branco de dentro pra fora em alguns tristes cruéis meses solitários**.",
+    author: "O Preço da Mentira",
+    searchQuery: "mentira e estresse biologia da culpa doencas psicossomaticas psicobiologia",
+    audioId: "00c32b8c7462b433d6ebbe8eff8f3fa9.wav"
+  },
 ];
