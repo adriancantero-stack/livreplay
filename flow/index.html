@@ -400,17 +400,43 @@
       }
     });
 
+    let audioCtx = null;
+    let bgGainNode = null;
+
+    function initWebAudio() {
+      if (audioCtx) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+        const bgMusicElement = document.getElementById('bgMusic');
+        const track = audioCtx.createMediaElementSource(bgMusicElement);
+        bgGainNode = audioCtx.createGain();
+        // Em iOS o .volume é ignorado, então usamos o WebAudio para forçar 5% do volume original
+        bgGainNode.gain.value = 0.05; 
+        track.connect(bgGainNode).connect(audioCtx.destination);
+      } catch (e) {
+        console.log("WebAudio not supported", e);
+      }
+    }
+
     function startJourney() {
       const splash = document.getElementById('startScreen');
       splash.style.opacity = '0';
       setTimeout(() => splash.style.display = 'none', 500);
+      
+      initWebAudio();
+      if(audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
       
       isSoundOn = true;
       document.getElementById('icon-muted').style.display = 'none';
       document.getElementById('icon-sound').style.display = 'block';
       
       const bgMusic = document.getElementById('bgMusic');
-      bgMusic.volume = 0.02;
+      bgMusic.volume = 0.05; // Fallback para PC
+      if(bgGainNode) bgGainNode.gain.value = 0.05;
+      
       bgMusic.src = bgPlaylist[currentTrackIndex];
       bgMusic.play().catch(e => console.log("Music error:", e));
       
@@ -452,9 +478,11 @@
       document.getElementById('icon-sound').style.display = isSoundOn ? 'block' : 'none';
       
       const bgMusic = document.getElementById('bgMusic');
-      bgMusic.volume = 0.02;
+      bgMusic.volume = 0.05;
+      if(bgGainNode) bgGainNode.gain.value = 0.05;
 
       if (isSoundOn) {
+        if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
         if (!bgMusic.src || bgMusic.src === "" || bgMusic.src === window.location.href) {
           bgMusic.src = bgPlaylist[currentTrackIndex];
         }
@@ -467,17 +495,10 @@
            voicePlayer.pause();
            voicePlayer.src = "";
         }
-        audioState = 'idle';
-        clearAutoScroll();
       }
     }
 
-    function clearAutoScroll() {
-      clearInterval(progressBarInterval);
-      const activeBars = document.querySelectorAll('.progress-bar');
-      activeBars.forEach(bar => bar.style.width = '0%');
-      progressValue = 0;
-    }
+    
 
     function pausePlayback() {
       if (!isPaused) {
@@ -501,40 +522,20 @@
       }
     }
 
-    function startProgressBar(cardElement) {
-        if(!cardElement) return;
-        const progressBar = cardElement.querySelector('.progress-bar');
-        const interval = 50;
-        let lastTime = Date.now();
+    
 
-        progressBarInterval = setInterval(() => {
-          if(isPaused) {
-            lastTime = Date.now();
-            return;
-          }
-          const now = Date.now();
-          const delta = now - lastTime;
-          lastTime = now;
-          progressValue += delta;
-          if(progressBar) progressBar.style.width = `${(progressValue/TOTAL_SCROLL_TIME)*100}%`;
-          
-          if (progressValue >= TOTAL_SCROLL_TIME) {
-            clearInterval(progressBarInterval);
-            progressValue = 0;
-            
-            // Move para a próxima carta
-            isAutoScrolling = true;
-            currentCardIndex++;
-            if (currentCardIndex >= feedCards.length - 2) appendCards(5);
-            const nextCard = feedCards[currentCardIndex];
-            if (nextCard) {
-                nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-            
-            // Libera a trava de scroll automático após o deslizamento terminar (1 segundo)
-            setTimeout(() => { isAutoScrolling = false; }, 1000);
-          }
-        }, interval);
+    
+
+    function clearAutoScroll() {
+      // Retido apenas para compatibilidade, mas não precisamos mais de setInterval
+      if (progressBarInterval) {
+          clearInterval(progressBarInterval);
+          progressBarInterval = null;
+      }
+      feedCards.forEach(c => {
+         const pb = c.querySelector('.progress-bar');
+         if(pb) pb.style.width = '0%';
+      });
     }
 
     function readCard(index) {
@@ -551,34 +552,57 @@
       voicePlayer.src = `${AUDIO_BASE_URL}/${audioId}`;
       voicePlayer.play().catch(e => {
          console.log("Voice play error:", e);
-         // Fallback se bloquear (provavelmente iOS ignorando play automático fora de evento)
-         startProgressBar(cardElement);
       });
     }
 
     function setupAudioStateMachine() {
         const voicePlayer = document.getElementById('voicePlayer');
         if(!voicePlayer) return;
+        
+        voicePlayer.addEventListener('timeupdate', () => {
+            if (audioState !== 'reading') return;
+            const card = feedCards[currentCardIndex];
+            if (card && voicePlayer.duration) {
+                const progressBar = card.querySelector('.progress-bar');
+                if(progressBar) {
+                    const percent = (voicePlayer.currentTime / voicePlayer.duration) * 100;
+                    progressBar.style.width = percent + '%';
+                }
+            }
+        });
+
         voicePlayer.onended = () => {
             if (isPaused) return;
-            if (audioState === 'reading') {
-                audioState = 'pausing';
-                voicePlayer.src = SILENCE_B64;
-                voicePlayer.play().catch(e=>{});
-                startProgressBar(feedCards[currentCardIndex]);
-            } else if (audioState === 'pausing') {
-                audioState = 'idle';
+            audioState = 'idle';
+            
+            // Aguarda 1 segundo de silêncio após a voz terminar e então rola
+            setTimeout(() => {
+                if (isPaused) return;
                 isAutoScrolling = true;
                 currentCardIndex++;
                 if (currentCardIndex >= feedCards.length - 2) appendCards(5);
-      setupAudioStateMachine();
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
                     nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    readCard(currentCardIndex);
                 }
                 setTimeout(() => { isAutoScrolling = false; }, 1000);
-            }
+            }, 1000);
+        };
+
+        voicePlayer.onerror = (e) => {
+            console.error("Audio playback error", e);
+            audioState = 'idle';
+            // Se der erro, rola em 2 segundos
+            setTimeout(() => {
+                isAutoScrolling = true;
+                currentCardIndex++;
+                if (currentCardIndex >= feedCards.length - 2) appendCards(5);
+                const nextCard = feedCards[currentCardIndex];
+                if (nextCard) {
+                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                setTimeout(() => { isAutoScrolling = false; }, 1000);
+            }, 2000);
         };
     }
 
