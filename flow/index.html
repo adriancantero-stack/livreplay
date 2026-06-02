@@ -411,8 +411,8 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       // Popula tópicos dinamicamente
-      if (typeof feedCards !== 'undefined' && feedCards.length > 0) {
-        const uniqueTopics = [...new Set(feedCards.map(c => c.topic))].sort();
+      if (typeof KNOWLEDGE_CARDS !== 'undefined' && KNOWLEDGE_CARDS.length > 0) {
+        const uniqueTopics = [...new Set(KNOWLEDGE_CARDS.map(c => c.topic))].sort();
         const topicsHtml = uniqueTopics.map(t => `<span>${t}</span>`).join('');
         document.getElementById('splashTopicsList').innerHTML = topicsHtml;
       }
