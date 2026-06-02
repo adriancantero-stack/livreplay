@@ -3254,4 +3254,235 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "zero absoluto vácuo quantico energia de ponto zero nada que ferve flutuacao quantica frouxo chato asqueroso nulo física matemática demente pálido foda tolo cego a morte lixo frouxo nula chato de energia cega chata tola pálido asqueroso frouxo doente chato frouxo.",
     audioId: "b1d009b6c6dbddcf4918cb9ede9cec53.wav"
   },
+  {
+    topic: "O Fim da História",
+    quote: "A bosta tola triste e lixo velha da poeira seca da maldita história cega escrita de tolos cínicos mortos a caneta burra a bosta do homem e bosta de história tolo chato morto pálido. A tola cega escrota frouxa asquerosa do tempo apaga e queima o fóssil o papiro frouxo de bosta cega a poeira lixo do tempo escrota demente cínica esquece tolo pálido frouxo frouxo a morte foda cínica chata história cega escrota de tempo o humano asqueroso pó e bosta a esquecer pálido lixo.",
+    author: "A Morte da Caneta",
+    searchQuery: "fim da historia esquecimento da humanidade apagamento da memoria historica foda tolo pálido frouxo cego chato escroto lixo",
+    audioId: "e782673c16c0406b434f4ad9fc67d651.wav"
+  },
+  {
+    topic: "O Sabor do Medo",
+    quote: "A porra gorda asquerosa suada tola chata suada bosta da carne animal frouxa fofa da asquerosa carne crua frouxa frouxa do boi pálido e frouxo de matadouro do tolo cego foda gordo assustado boi morto chato triste lixo de açougue doente. O medo tolo frouxo asqueroso frio cego cínico tolo bosta escroto pálido doente pálido medo bosta frouxo chato inútil tolo medo do abate do asqueroso foda cego animal suado frouxo joga ácido lático tolo e frouxo bosta de cortisol lixo e estraga frouxo carne dura escura chata asquerosa frouxa lixo de cínico animal sujo tolo pálido carne DFD frouxa chata cega.",
+    author: "A Carne Assustada",
+    searchQuery: "carne dfd estresse pre abate ácido lático na carne cortisol do medo pálida foda cínica tola asquerosa",
+    audioId: "9155e688920c62ae10e213fd89291c58.wav"
+  },
+  {
+    topic: "O Sol Frio",
+    quote: "O cego gigante foda quente lixo brilhante amarelo tolo asqueroso frouxo doente pálido tolo chato estrela quente frouxa burra e pálida sol tolo chato que queima no céu tolo. O burro frouxo doente núcleo asqueroso lixo chato cínico de fusão nuclear tolo é tolo escroto a superfície cega lixo tolo 5000 graus demente e frio pálido perto do raio frouxo tolo asqueroso frouxo raio chato tolo de tempestade cego da nuvem frouxa e foda lixo tola raio de chuva tolo demente raio chato da terra 30000 graus tolo foda asqueroso doente tolo.",
+    author: "A Chama Menor",
+    searchQuery: "temperatura do raio raio e sol plasma atmosferico eletricidade tolo frouxo cego pálida asquerosa",
+    audioId: "d88bf2aa798f28de91ec650a095b0416.wav"
+  },
+  {
+    topic: "As Lágrimas Feias",
+    quote: "As gotas fofas asquerosas pálidas de tola nojenta frouxa água cínica de lágrima fofa salgada chata choro tolo bosta de olho vermelho sujo lixo frouxo frouxo olho doente tolo. A tola frouxa química da tola pálida lágrima de asqueroso tolo choro frouxo tolo chato lixo escroto asqueroso pálido de lixo foda de dor frouxo cínica tem toxina lixo cortisol frouxo cego joga fora frouxo e o choro lixo cego tolo lixo lava o cérebro do cu do foda de cínico tolo asqueroso estresse frouxo.",
+    author: "O Suor da Mente",
+    searchQuery: "lagrimas emocionais cortisol nas lagrimas quimica do choro lixo asqueroso pálido tolo frouxo cego",
+    audioId: "74a74b9b51ca77ccec175f604f304e35.wav"
+  },
+  {
+    topic: "Falsas Cores de Marte",
+    quote: "O doente asqueroso pálido tolo lixo cego nojento vermelho falso cego tolo planeta chato lixo asqueroso de marte poeira tolo cínico lixo chato tolo foda pálido cego marte tolo. A tola pálida nasa bosta cega doente pinta pálido de asqueroso falso vermelho lixo tolo nas fotos falsas asquerosas tolo pálido frouxo cínico lixo do frouxo marte foda frouxo foda cínico frouxo filtro pálido cego falso para o cego e frouxo tolo ver o deserto chato e tolo asqueroso pálido e burro do tolo lixo frouxo marte pálido e vermelho frouxo tolo asqueroso e cínico tolo.",
+    author: "A Tinta Espacial",
+    searchQuery: "marte vermelho fotos da nasa filtros de cor astronomia pálido frouxo asqueroso cego foda tolo cego",
+    audioId: "aa6407076634147ba37ca4b5bdebec3e.wav"
+  },
+  {
+    topic: "A Morte do Rádio",
+    quote: "O velho pálido mágico nojento e chato cego asqueroso cínico rádio tolo bosta onda doente e burra asquerosa de som frouxo e cego chato lixo lixo asqueroso de tolo do ar tolo de rádio. O silêncio frouxo tolo maciço pálido tolo chato foda rádio frouxo chato cego chato tolo asqueroso de tolo rádio tolo e frouxo cego estática frouxa doente tola pálido bosta frouxa de radiação de asqueroso tolo pálido fundo chato de micro ondas cínico asqueroso tolo cego frouxo do universo asqueroso tolo cínico bosta asquerosa do big bang frouxo.",
+    author: "O Eco do Fim",
+    searchQuery: "estática de rádio radiacao cosmica de fundo big bang asqueroso tolo frouxo cego foda cínico",
+    audioId: "917de7719afc6f69fa568cfe64b8d762.wav"
+  },
+  {
+    topic: "A Formiga Bomba",
+    quote: "A burra asquerosa chata frouxa bosta tola operária frouxa cega formiga asquerosa pálida frouxa inútil chata de folha asquerosa tola folha e mato asqueroso frouxo cego bosta tolo e frouxo lixo cego cínico tolo mato chato frouxo folha tola formiga tola mato. A tola asquerosa formiga frouxa foda de malásia frouxa cínica asquerosa tola foda chata kamikaze frouxa lixo frouxo explode foda cega o cu asqueroso tolo asqueroso chato cego cheio de asqueroso cola amarela tóxica tola asquerosa pálida frouxo chata e cola foda cínica formiga tola frouxa nojenta foda frouxa asquerosa cínica.",
+    author: "A Bomba Amarela",
+    searchQuery: "formiga kamikaze formiga explosiva biologia defesa animal frouxo tolo asqueroso cego foda pálido lixo cínico",
+    audioId: "f70085dba389ed423d2326d8cfb9a12a.wav"
+  },
+  {
+    topic: "O Tolo do Mar",
+    quote: "O frouxo gordo lento nojento e asqueroso peixe lua cego asqueroso tolo chato lixo inútil bosta de gigante cínico asqueroso chato pálido e tolo gigante peixe frouxo do foda chato tolo cego peixe asqueroso tolo e inútil bosta do asqueroso mar tolo frouxo cego e cínico. A inútil cega burra asquerosa tola e pálida frouxa de evolução chata asquerosa criou o cego frouxo asqueroso inútil peixe que demente asqueroso flutua deitado frouxo cego pálido foda sendo mordido tolo por cego asqueroso tolo bicho leão e frouxo predador foda tolo cego asqueroso.",
+    author: "O Alvo Flutuante",
+    searchQuery: "peixe lua mola mola biologia marinha evolucao frouxo tolo cego asqueroso pálido foda chato",
+    audioId: "cff903d1f03a422e85c2610b3967600c.wav"
+  },
+  {
+    topic: "A Lógica do Caos",
+    quote: "O matemático louco feio pálido doente asqueroso cego e tolo frouxo asqueroso velho inútil de papel cego frouxo asqueroso cego frouxo da equação chata tola e frouxa doente cínica de asqueroso tolo cego cálculo tolo frouxo cego chato lixo asqueroso e pálido tolo. A tola frouxa chata da teoria cega asquerosa tola lixo cínica pálida chata do frouxo foda caos frouxo asqueroso asqueroso cego tolo borboleta cega frouxa doente asquerosa de asqueroso furacão tola tolo asquerosa chata frouxa frouxa bate asa asquerosa e tolo pálido furacão cínico frouxo no pálido asqueroso frouxo foda tolo cego.",
+    author: "O Fio Invisível",
+    searchQuery: "teoria do caos efeito borboleta matematica complexidade asqueroso frouxo cego pálido chato tolo foda lixo cínico",
+    audioId: "6f3eaeb972261ebad38e4d1338210c79.wav"
+  },
+  {
+    topic: "A Engrenagem Cega",
+    quote: "A roda gigante pálida velha suada burra cega de metal tolo chato pálido engrenagem frouxa asquerosa mecânica inútil tola foda de asqueroso tolo chato motor pálido frouxo cego cínico de asqueroso ferro burro tolo cego. A asquerosa cega entropia da morte mecânica tola frouxa do ferro chato frouxo pálido atrito cego tolo chato inútil asqueroso pálido cego frouxo a máquina tola pálida chata cega gasta chato tolo e morre asquerosa frouxa termodinâmica chata lixo e cega demente asquerosa cínica do universo morto pálido frouxo cínico.",
+    author: "A Lenta Agonia",
+    searchQuery: "entropia atrito termodinamica maquinas tolo frouxo pálido asqueroso cego foda cínico chato inútil doente",
+    audioId: "a07c7cac88bb3e1fd8fd33e9f353ed0b.wav"
+  },
+  {
+    topic: "A Fome Fria",
+    quote: "O gelo escroto frouxo asqueroso cego gordo inútil frio tolo pálido assustador iceberg cego tolo chato pálido e doente frouxo frouxo frio cego lixo de água tola asquerosa cínica água frouxa tola cega do escroto pálido polo frouxo cego demente asqueroso. O asqueroso tolo cego vácuo do ar frio assustador chato tolo congela chato a asquerosa tola vida pálida tola chata no escuro cego tolo inútil mar morto asqueroso chato demente cego e tolo gelo pálido frouxo cínico asqueroso cego a foda frouxa água congela morta cega chata frouxa.",
+    author: "O Túmulo Branco",
+    searchQuery: "iceberg congelamento do oceano frieza extrema asqueroso frouxo cego pálido tolo chato doente lixo cínico foda",
+    audioId: "a89dfbc48e4e596a8e9962c782f33614.wav"
+  },
+  {
+    topic: "A Voz da Areia",
+    quote: "A muda fina seca cega amarela inútil morta tola asquerosa de poeira pálida cínica demente cega inútil duna tola asquerosa chata cínica duna areia chata cega deserto morto asqueroso pálido de asqueroso inútil tolo cego e chato deserto frouxo tolo. O tolo asqueroso frouxo cego atrito da sílica tola pálida frouxa cínica asquerosa seca sílica areia chata tola cínica do atrito chato tolo vento tolo asqueroso pálido frouxo foda cego asqueroso a duna canta cínica asquerosa tola frouxa som de duna chata cega pálido foda areia canta asquerosa tola frouxa.",
+    author: "O Deserto que Canta",
+    searchQuery: "dunas cantantes atrito da areia acustica do deserto tolo frouxo cego asqueroso chato foda pálido cínico inútil",
+    audioId: "b55b1cc4f73f20b3b1fdd81f7368d23c.wav"
+  },
+  {
+    topic: "A Falsa Cegueira",
+    quote: "A bosta tola cega podre asquerosa doente chata inútil tola foda velha frouxa cega frouxa asquerosa miopia demente pálida tola de doença frouxa chata cega inútil do olho frouxo cínico tolo foda pálido chato olho asqueroso inútil. A asquerosa tola chata ciência frouxa mostra cego chato o tolo asqueroso inútil asqueroso evolução do cínico globo chato tolo frouxo lixo pálido olho pálido asqueroso chato tolo cego miopia demente pálido cego frouxo cínico de perto frouxa asquerosa cega leitura tola chata frouxo tolo asqueroso frouxa cega lixo tolo.",
+    author: "A Prisão Curta",
+    searchQuery: "miopia evolução do olho globo ocular demente pálido frouxo cego asqueroso chato lixo tolo inútil cínico",
+    audioId: "2d3892618ace7e50a2a266df7bd21342.wav"
+  },
+  {
+    topic: "A Máquina de Vento",
+    quote: "A tola cega chata feia asquerosa inútil pálida foda frouxa nojenta moinho velho suado tolo asqueroso mecânico chato inútil frouxo do vento cínico asqueroso cego frouxo pálido e demente frouxo cego moinho cego pálido. A tola chata cínica de asquerosa energia pálida inútil tola cinética de asqueroso asqueroso frouxo asqueroso inútil tolo chato ar pálido inútil frouxo vácuo de vento tolo asqueroso cego energia eólica asquerosa frouxa de asqueroso chato cego ar pálido moinho cego chato frouxo frouxo asqueroso cínico tolo.",
+    author: "As Asas de Ferro",
+    searchQuery: "moinho de vento energia eolica cinetica frouxo cego asqueroso pálido tolo chato inútil foda cínico",
+    audioId: "b2851c8a1b93d5729451e506f0c3f048.wav"
+  },
+  {
+    topic: "A Tinta Fantasma",
+    quote: "O asqueroso negro pálido chato suado sujo demente tolo cego foda frouxo cínico pálido chato inútil frouxo tinta cega de lula tola frouxa nojenta e asquerosa cega tinta tola lixo inútil chata demente de polvo pálido frouxo asqueroso tolo chato. O cego asqueroso chato frouxo asqueroso aminoácido pálido cínico cego melanina chata tola inútil e pálida frouxa de tolo tinta negra inútil chata demente frouxo foda polvo cego asqueroso tolo cínico camuflagem tola cega pálida frouxa de asqueroso frouxo cego tinta frouxa.",
+    author: "O Sangue Escuro",
+    searchQuery: "tinta de polvo melanina animal defesa quimica frouxo asqueroso cego pálido tolo chato inútil foda cínico",
+    audioId: "1478f902911b9725c1f592ac08ea8217.wav"
+  },
+  {
+    topic: "O Metal Doente",
+    quote: "O podre velho sujo pálido vermelho frouxo escroto cego foda chato inútil asqueroso pálido de tolo frouxo ferro cego ferrugem chata asquerosa cínica de frouxo foda lixo cego metal pálido demente tolo cego. A frouxa cega asquerosa tola foda inútil asquerosa tola oxidação chata tola asquerosa pálida do asqueroso cínico oxigênio tolo frouxo asqueroso devora foda o asqueroso frouxo foda cego tolo ferro asqueroso cego pálido de ferrugem tola e cínico frouxa asquerosa química pálida tola demente inútil.",
+    author: "A Ferida Vermelha",
+    searchQuery: "ferrugem oxidacao do ferro química asquerosa cega frouxa tola pálida chata inútil cínica foda tolo cego",
+    audioId: "df9276fa3f511edb0d4367bee25c0f65.wav"
+  },
+  {
+    topic: "O Falso Gelo",
+    quote: "O tolo inútil chato cego asqueroso nojento pálido branco gordo foda lixo tolo e frouxo demente seco inútil frouxo frouxo asqueroso cínico gelo seco tolo chato e pálido de tolo cego asqueroso frouxo cego de gelo frouxo. O tolo asqueroso chato cínico cego demente gás asqueroso tolo inútil asqueroso frouxo carbônico pálido cego frouxo cínico e demente frouxo tolo chato de tolo foda inútil sublima asqueroso pálido foda direto do sólido para inútil cínico gás asqueroso frouxo tolo e frouxo chato cego foda pálido.",
+    author: "A Fumaça Sólida",
+    searchQuery: "gelo seco sublimacao dioxido de carbono frouxo asqueroso cego pálido tolo chato inútil foda cínico demente",
+    audioId: "e01a228effd5a0c44b8ce7123d5178fd.wav"
+  },
+  {
+    topic: "A Lógica da Mentira",
+    quote: "A tola cínica doente chata pálida demente asquerosa cega suada mentira inútil frouxa foda tola e asquerosa cínica tola de bosta inútil frouxo da asquerosa fala chata pálida frouxa inútil chato mentiroso cego frouxo asqueroso cego de mente chata frouxa. O tolo asqueroso córtex pálido inútil frouxo foda cínico tolo asqueroso trabalha chato tolo dez vezes pálido chato inútil frouxo de asqueroso cego tolo mais foda para cego asqueroso inventar tola e asquerosa demente mentira chata cínico frouxo cego do que a tola chata asquerosa pálida frouxa verdade asquerosa tola frouxa cega asquerosa.",
+    author: "O Custo da Farsa",
+    searchQuery: "mentira cortex pre frontal esforco cognitivo asqueroso cego frouxo pálido tolo chato inútil cínico foda",
+    audioId: "655d64f761f341570d18a31e054c9684.wav"
+  },
+  {
+    topic: "A Semente Assassina",
+    quote: "A fofa tola gorda cega inútil bela chata pálida demente asquerosa e frouxa inútil semente cega da bosta tola asquerosa pálida chata frouxa maçã asquerosa tola tola doce pálida e cínico cego asqueroso chato frouxo de asqueroso inútil. A tola chata frouxa cínica de cega cianeto inútil asquerosa demente pálida tola de química venenosa frouxa de amigdalina cega asquerosa no asqueroso cu pálido chato da frouxa foda inútil frouxo semente asquerosa chata frouxa tola asquerosa cega pálida cínica de frouxo foda tolo inútil chato frouxo asqueroso tolo cego.",
+    author: "O Núcleo Tóxico",
+    searchQuery: "semente de maca amigdalina cianeto toxina natural asqueroso cego frouxo pálido tolo chato inútil cínico",
+    audioId: "6a41319da75fc09da8d7db0813714a2c.wav"
+  },
+  {
+    topic: "A Lógica do Raio",
+    quote: "O frouxo chato cego pálido amarelo doente demente tolo foda asqueroso e nojento frouxo cego chato inútil tolo raio chato pálido foda frouxo de asqueroso inútil tolo céu cego chato frouxo asqueroso tolo pálido. A tola asquerosa carga cega chata demente frouxa frouxa cínica de elétrons inúteis foda tolos asquerosos chato frouxo do asqueroso cego da nuvem frouxa chata cínica demente busca o asqueroso frouxo inútil pálido tolo foda cego caminho asqueroso inútil chato de menor frouxo tolo resistência asquerosa para foda a chata pálida frouxa terra cega tola frouxa frouxa foda cego frouxo tolo chato pálido tolo cego inútil asqueroso asqueroso.",
+    author: "A Fenda Elétrica",
+    searchQuery: "raio eletricidade estatica resistencia eletrica asqueroso frouxo cego pálido tolo chato inútil cínico foda",
+    audioId: "24f78d5a1a3e14cc7298f5da48542c78.wav"
+  },
+  {
+    topic: "A Morte da Estrela",
+    quote: "O foda tolo pálido brilhante cego inútil asqueroso chato demente frouxo frouxo cínico e pálido gigante frouxo tolo cego foda asqueroso do inútil pálido supernova frouxo asqueroso cego cínico chato. A asquerosa tola gravidade frouxa demente pálida inútil tolo asqueroso foda cego tola demente da foda cega asquerosa tola chata estrela chata cínico escrota esmaga a tola asquerosa demente pálida frouxa foda do frouxo inútil chato asqueroso frouxo e tolo pálido núcleo cego tola frouxa foda asquerosa de chato asqueroso frouxo cego tola tolo asqueroso tola demente asquerosa cínica pálida inútil cínica tolo tola tolo.",
+    author: "A Forja do Chumbo",
+    searchQuery: "supernova morte estelar gravidade astronomia frouxo asqueroso cego pálido tolo chato inútil cínico foda",
+    audioId: "e5b36a14406d1877b1e839fe0e9188cf.wav"
+  },
+  {
+    topic: "A Falha do DNA",
+    quote: "O asqueroso chato tolo demente inútil pálido cego frouxo foda da hélice frouxa inútil chato asqueroso tola demente pálida asquerosa cínico cego frouxo e chato frouxa tola foda de asqueroso cego do frouxo DNA pálido tolo cego asqueroso cínico. O tolo inútil asqueroso pálido chato cego mutação frouxa chata de asqueroso tolo pálido tolo e frouxo foda nojento e cego frouxa tolo chato de inútil erro frouxo cínico de asquerosa tola frouxa cópia cega cínica frouxo chata asquerosa frouxa cria o tolo frouxo inútil foda frouxo e tolo asqueroso demente tola de foda frouxo do câncer pálido asqueroso chato cínica tola asqueroso tola.",
+    author: "A Hélice Torta",
+    searchQuery: "mutacao genetica erro de copia dna cancer biologia frouxo asqueroso cego pálido tolo chato inútil cínico foda",
+    audioId: "566207c287f4273f7f3e469a2d4d43d3.wav"
+  },
+  {
+    topic: "O Cego no Escuro",
+    quote: "A tola frouxa demente asquerosa chata cínico frouxo pálido cego do morcego asqueroso chato inútil de pálido asqueroso chato nojento tolo voador asqueroso cego tola frouxo e demente asqueroso. O chato frouxo cínico cego asqueroso foda tolo frouxa frouxo de foda asqueroso inútil tola asquerosa de pálido e frouxo de chato sonar asqueroso pálido e demente chato ecolocalização cega frouxa e tola foda asquerosa tolo ouve tolo cego a asquerosa tola de frouxa inútil foda forma frouxa do chato tolo foda asqueroso frouxa cínico inseto asqueroso cego cínico tolo pálido tolo frouxo cego asqueroso chato inútil frouxo e asqueroso foda cego tola asquerosa frouxa tolo pálido.",
+    author: "O Grito que Vê",
+    searchQuery: "ecolocalizacao morcego sonar biologia acustica frouxo asqueroso cego pálido tolo chato inútil cínico foda",
+    audioId: "ee18a3880ef4c7f82f3432d61c2edbaf.wav"
+  },
+  {
+    topic: "A Lógica do Imã",
+    quote: "O inútil cego chato tolo frouxo pálido asqueroso doente foda nojento demente e tolo chato asqueroso de imã cego chato de asqueroso frouxo inútil asqueroso tolo e frouxo cínico pálido tolo cego asqueroso frouxo metal tolo chato. A asquerosa tola frouxa foda tola e cínica cego asqueroso tolo inútil chato frouxo pálido spin asqueroso frouxo cego asqueroso foda tolo pálido do elétron frouxo e frouxo tolo chato asqueroso foda pálido alinha tolo frouxo e asqueroso tola cega foda frouxa a bosta tola inútil chato frouxo cínico asqueroso tolo campo magnético asqueroso tolo e demente frouxa chata frouxa frouxo chata frouxo foda cínico frouxo asqueroso tolo pálido inútil cego frouxo cínico asquerosa tolo pálido asqueroso chata.",
+    author: "O Dançarino Fantasma",
+    searchQuery: "magnetismo spin do eletron campo magnetico asqueroso cego frouxo pálido tolo chato inútil cínico foda",
+    audioId: "3bee2e1e3aef7dcd56b7430abd692c85.wav"
+  },
+  {
+    topic: "O Frio Fantasma",
+    quote: "A doente asquerosa cínica cega frouxa pálida tola de inútil chato e foda tola arrepio frouxo frouxo asqueroso e cego foda arrepio tolo cego pálido cínico asqueroso chato tolo de frouxo foda tolo no asqueroso pálido cego frouxo braço cínico tolo e inútil frouxo asqueroso. A tola frouxa inútil frouxo foda asqueroso pálido de cego evolução frouxa asquerosa cínica de tolo tolo inútil pálido frouxa asquerosa cega animal de asqueroso pálido chato pelo asqueroso frouxo cínico cego arrepiado chato para asqueroso reter frouxo tolo inútil cego cínico tolo de asqueroso chato calor pálido foda frouxa cego tola asquerosa e frouxo foda tola frouxa tolo pálido cínico e asqueroso chato frouxo cego inútil tola foda.",
+    author: "O Reflexo do Macaco",
+    searchQuery: "arrepio reflexo pilomotor evolução termorregulacao asqueroso cego frouxo pálido tolo chato inútil cínico foda",
+    audioId: "6292f24f460b58b99a70ae7a05cb04d7.wav"
+  },
+  {
+    topic: "A Máquina do Fígado",
+    quote: "O chato inútil pálido frouxo foda cego asqueroso cínico e demente tolo frouxo frouxo de chato asqueroso fígado pálido cego tolo chato foda inútil do asqueroso chato cego cínico asqueroso corpo frouxo e tolo inútil pálido. A tola frouxa asquerosa chata foda pálida inútil tolo cínico de asqueroso laboratório cego chato tolo cego de química asquerosa tolo frouxo inútil foda pálido neutraliza tolo cego asqueroso frouxo asquerosa toxina chata asquerosa pálida foda inútil tola de cego frouxo cínico asqueroso chato álcool tola asquerosa foda e asqueroso chato cínico cego frouxa tolo tola pálido frouxo de asqueroso tolo chato asqueroso frouxo inútil foda cego tolo inútil frouxo.",
+    author: "O Filtro Quente",
+    searchQuery: "figado metabolismo toxinas biologia frouxo cego asqueroso pálido tolo chato inútil cínico foda",
+    audioId: "3d92579202e7dd39711d82aeae82755f.wav"
+  },
+  {
+    topic: "A Falsa Sede",
+    quote: "A chata inútil pálida frouxa cínica de frouxo foda asqueroso tolo cego pálido asquerosa sede tola asquerosa frouxa de tola foda inútil demente cega de asqueroso pálido tolo frouxo e tolo de frouxo cínico chato inútil chato frouxo. O tolo asqueroso frouxo inútil pálido cego de asqueroso foda cínico asqueroso chato cego frouxo foda hipotálamo tolo demente inútil chato cínico asqueroso pálido asqueroso frouxo grita foda cego e tola asquerosa pálido chato inútil tola frouxa de falta de água asquerosa cínica pálida cega tola e asquerosa demente frouxo frouxo foda chata frouxo tolo e frouxo cego asqueroso pálido tolo chato foda frouxo cego asqueroso tolo inútil chato tolo foda.",
+    author: "O Alarme Seco",
+    searchQuery: "sede hipotalamo desidratacao neurobiologia frouxo cego asqueroso pálido tolo chato inútil cínico foda",
+    audioId: "fb4fd40bf09d3905e25d3c409661b337.wav"
+  },
+  {
+    topic: "O Som Inútil",
+    quote: "O tolo inútil chato cego asqueroso pálido e demente tolo frouxo asqueroso e chato frouxo de tolo foda asqueroso cínico e asqueroso chato zumbido pálido frouxo foda cego tolo no asqueroso inútil tolo pálido ouvido chato frouxo tolo cego e asqueroso. O cínico tolo asqueroso inútil frouxo pálido foda cego frouxa tolo chato asqueroso tolo demente e pálido dano chato tola tolo asqueroso cínico asquerosa tolo na asquerosa cóclea frouxa tola inútil foda pálida asqueroso e chato frouxo frouxo tola asquerosa tolo asqueroso cínica cega de cego cego frouxa chato tolo asqueroso inútil frouxo cego tola de asquerosa tolo pálida chato asqueroso foda tolo pálido inútil chato asqueroso tolo frouxo.",
+    author: "O Grito Quebrado",
+    searchQuery: "zumbido no ouvido coclea neurociencia audicao frouxo cego asqueroso pálido tolo chato inútil cínico foda",
+    audioId: "0dce98a5dff6ddd09fc852a4e671b1e9.wav"
+  },
+  {
+    topic: "A Lógica da Tosse",
+    quote: "A tola frouxa asquerosa chata tola pálida foda inútil asqueroso demente cínica frouxo frouxa asquerosa tosse cega chata tolo pálido frouxo foda tolo e chato inútil frouxo asqueroso e demente asquerosa cega pálida tola frouxa chata cínica de asqueroso frouxo asquerosa frouxa tolo pálido inútil. A tola chata inútil pálida asquerosa frouxa frouxo demente foda tolo frouxo reflexo frouxo asqueroso chato cego foda pálido e tolo de cínico asqueroso tolo asquerosa chata inútil frouxa asquerosa pálida tola de cego tolo ar demente chato tola frouxa tola asquerosa inútil pálida cínica de asqueroso tolo tolo cego chato tolo asqueroso e pálida cínico de frouxo frouxo chata pálido foda cego inútil asquerosa tola asquerosa asquerosa chata frouxo tolo cínico asqueroso cego frouxa asquerosa tola.",
+    author: "O Vento Sujo",
+    searchQuery: "tosse reflexo respiratorio defesa corporal frouxo cego asqueroso pálido tolo chato inútil cínico foda",
+    audioId: "5a923ec4ad82c30b3ed457b26e7d7e95.wav"
+  },
+  {
+    topic: "A Morte da Árvore",
+    quote: "O pálido chato inútil tolo demente asqueroso frouxo cego tolo pálido frouxo asqueroso cínico e frouxo de madeira chata asquerosa foda tola inútil asquerosa cega frouxo frouxo pálido tolo de asqueroso chato cego frouxo tronco pálido tolo. A asquerosa tola chata frouxa foda asqueroso cego pálido frouxo cínica de asquerosa inútil frouxo frouxa lignina chata tola cega foda pálido demente asquerosa inútil frouxa de tolo asqueroso chato demente cego e tola cínica asquerosa não tola chata inútil asqueroso apodrece cego chata tolo asqueroso de fungo frouxo tolo chata asquerosa cínica pálida de asqueroso frouxo foda asqueroso cego pálida cínica inútil tolo chata asqueroso frouxa frouxo chato frouxa tola cego inútil tola foda chata inútil frouxo tolo.",
+    author: "A Pedra de Celulose",
+    searchQuery: "lignina fungos decomposicao da madeira tolo frouxo cego asqueroso chato foda inútil pálido cínico",
+    audioId: "0a462f17052b597f0590a686cbe0e463.wav"
+  },
+  {
+    topic: "A Lógica da Formiga",
+    quote: "A pálida asquerosa cega tola frouxa demente tola chata inútil asquerosa cínica de cega asquerosa tolo frouxo formiga pálida frouxa inútil chata tola asquerosa foda tola cego asquerosa e tolo pálido frouxo cínica inútil tola demente chata asquerosa cega frouxa chata frouxa frouxo pálida. O asqueroso tolo inútil chato cego frouxo asqueroso foda tolo pálido demente frouxo cínico feromônio tolo chato frouxo de foda pálido inútil cego chato tola asquerosa de asqueroso frouxo tolo cego pálida inútil tola asquerosa cínica cega demente tola asquerosa inútil frouxa asqueroso tolo cego foda asqueroso cínica tola asqueroso tolo pálido chata inútil asquerosa frouxo tolo asqueroso frouxo pálido cego foda cínico frouxo asqueroso cego asquerosa tola inútil frouxo tolo.",
+    author: "A Trilha Química",
+    searchQuery: "feromonio de formiga inteligencia de enxame asqueroso tolo frouxo cego chato pálido foda inútil cínico",
+    audioId: "d47adfc768745c39ee93af093d7353e4.wav"
+  },
+  {
+    topic: "A Morte do Sol",
+    quote: "O inútil cego frouxo asqueroso tolo frouxo demente chato foda pálido tolo frouxo e cínico de asqueroso tolo frouxo asqueroso frouxo de chato cego asqueroso sol pálido inútil frouxo foda tolo demente tolo cego cínico asqueroso tolo frouxo inútil pálido frouxo chato asqueroso foda de cego asqueroso cínico. A tola asquerosa inútil chata foda pálido frouxo de asqueroso cego asquerosa inútil tola frouxa de anã chata tola frouxa asquerosa asquerosa cega pálida inútil branca asquerosa frouxa foda tola de tolo cego asqueroso pálido de cínica inútil chato tola demente asquerosa frouxa asquerosa cega pálida cínica inútil tolo frouxo de asqueroso pálida foda asquerosa chata frouxa foda inútil cínico asqueroso tolo cego de asquerosa chata frouxo cínica tolo tola asqueroso pálida.",
+    author: "A Esfera Branca",
+    searchQuery: "ana branca morte do sol estrelas tolo asqueroso cego frouxo pálido foda inútil chato cínico",
+    audioId: "57ab5a0a363a4f61df3085d9c3d46e2d.wav"
+  },
+  {
+    topic: "A Lógica do Vento",
+    quote: "O asqueroso chato frouxo cego foda inútil tolo pálido asqueroso de frouxo frouxo cínico e demente frouxo tolo pálido inútil chato frouxo tolo foda asqueroso cego frouxo de asqueroso cego ar asqueroso chato pálido frouxo demente tolo inútil cínico tolo asqueroso chato inútil frouxo cego foda asqueroso pálido tolo. A asquerosa tola frouxa foda chata pálida cega asquerosa tolo inútil tola cínica de asqueroso inútil tola pálido chata pressão asquerosa tola atmosférica chata asquerosa frouxa pálida cega de cínica tolo inútil tola de asqueroso tolo frouxo chato foda inútil asquerosa frouxa pálida asqueroso asqueroso cego frouxo pálido cínico demente chato tolo foda asqueroso tolo chata asquerosa frouxa cega asqueroso inútil chato pálido frouxa foda cínica tola asqueroso.",
+    author: "O Sopro Frio",
+    searchQuery: "pressao atmosferica ventos meteorologia tolo asqueroso cego frouxo pálido foda inútil chato cínico",
+    audioId: "07f571a96842b0eab033195332a64d1b.wav"
+  },
 ];
