@@ -378,6 +378,10 @@
     let globalDeck = []; 
     const TTS_API_URL = "https://livreplay-tts-backend.onrender.com/tts";
 
+    // Variáveis para Web Audio API (Burla o bloqueio do iOS Safari)
+    let audioCtx = null;
+    let currentVoiceSource = null;
+
     const bgPlaylist = [
       "../assets/bg1.mp3",
       "../assets/bg2.mp3",
@@ -386,7 +390,6 @@
     ];
     let currentTrackIndex = 0;
 
-    // Remove tags HTML (como <strong>) para a leitura limpa da voz
     function stripHtml(html) {
       let tmp = document.createElement("DIV");
       tmp.innerHTML = html;
@@ -399,9 +402,13 @@
       document.getElementById('icon-sound').style.display = isSoundOn ? 'block' : 'none';
       
       const bgMusic = document.getElementById('bgMusic');
-      bgMusic.volume = 0.3; // Ajustado para 30% a pedido do usuário
+      bgMusic.volume = 0.3;
 
       if (isSoundOn) {
+        // Iniciar Web Audio Context (Exige interação do usuário, que é o clique no botão)
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
         if (!bgMusic.src || bgMusic.src === "" || bgMusic.src === window.location.href) {
           bgMusic.src = bgPlaylist[currentTrackIndex];
         }
@@ -409,8 +416,10 @@
         if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]);
       } else {
         bgMusic.pause();
-        const voicePlayer = document.getElementById('voicePlayer');
-        if(voicePlayer) voicePlayer.pause();
+        if (currentVoiceSource) {
+           currentVoiceSource.stop();
+           currentVoiceSource = null;
+        }
         clearAutoScroll();
       }
     }
@@ -423,25 +432,26 @@
     }
 
     function pausePlayback() {
-      if (!isSoundOn || isPaused) return;
-      isPaused = true;
-      document.getElementById('voicePlayer').pause();
-      document.getElementById('bgMusic').pause();
-      clearInterval(progressBarInterval);
+      if (!isPaused) {
+         isPaused = true;
+         document.getElementById('bgMusic').pause();
+         if (currentVoiceSource) {
+            currentVoiceSource.stop();
+            currentVoiceSource = null;
+         }
+         document.querySelectorAll('.progress-bar').forEach(p => p.style.transition = 'none');
+      }
     }
 
     function resumePlayback() {
-      if (!isSoundOn || !isPaused) return;
-      isPaused = false;
-      
-      const voicePlayer = document.getElementById('voicePlayer');
-      voicePlayer.play().catch(e => {
-        // Fallback caso a URL falhe
-        if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]);
-      });
-      
-      document.getElementById('bgMusic').play().catch(e => console.log(e));
-      
+      if (isPaused) {
+         isPaused = false;
+         if (isSoundOn) {
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+            document.getElementById('bgMusic').play().catch(e => console.log(e));
+            if(feedCards[currentCardIndex]) readCard(feedCards[currentCardIndex]);
+         }
+      }
       if (progressValue > 0 && progressValue < TOTAL_SCROLL_TIME) {
          startProgressBar(feedCards[currentCardIndex]);
       }
@@ -485,24 +495,43 @@
         }, interval);
     }
 
-    function readCard(cardElement) {
+    async function readCard(cardElement) {
       clearAutoScroll();
       if (!isSoundOn || isPaused) return;
 
-      const voicePlayer = document.getElementById('voicePlayer');
       const textToRead = cardElement.getAttribute('data-quote');
       if (!textToRead) return;
 
-      voicePlayer.pause();
-      voicePlayer.currentTime = 0;
-      voicePlayer.src = `${TTS_API_URL}?text=${encodeURIComponent(textToRead)}`;
-      
-      voicePlayer.onended = () => {
-        if(isPaused) return;
-        startProgressBar(cardElement);
-      };
+      if (currentVoiceSource) {
+         currentVoiceSource.stop();
+         currentVoiceSource = null;
+      }
 
-      voicePlayer.play().catch(e => console.log("Voice play error:", e));
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      try {
+         const response = await fetch(`${TTS_API_URL}?text=${encodeURIComponent(textToRead)}`);
+         const arrayBuffer = await response.arrayBuffer();
+         const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+         
+         if (isPaused) return;
+
+         currentVoiceSource = audioCtx.createBufferSource();
+         currentVoiceSource.buffer = audioBuffer;
+         currentVoiceSource.connect(audioCtx.destination);
+         
+         currentVoiceSource.onended = () => {
+            if(isPaused) return;
+            startProgressBar(cardElement);
+         };
+
+         currentVoiceSource.start();
+      } catch (e) {
+         console.log("Voice play error:", e);
+         // Se a API falhar, segue o scroll mesmo sem voz
+         startProgressBar(cardElement);
+      }
     }
 
     function appendCards(count) {
