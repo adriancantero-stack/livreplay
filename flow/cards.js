@@ -3328,13 +3328,7 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "moinho de vento energia eolica cinetica frouxo cego asqueroso pálido tolo chato inútil foda cínico",
     audioId: "b2851c8a1b93d5729451e506f0c3f048.wav"
   },
-  {
-    topic: "A Tinta Fantasma",
-    quote: "O asqueroso negro pálido chato suado sujo demente tolo cego foda frouxo cínico pálido chato inútil frouxo tinta cega de lula tola frouxa nojenta e asquerosa cega tinta tola lixo inútil chata demente de polvo pálido frouxo asqueroso tolo chato. O cego asqueroso chato frouxo asqueroso aminoácido pálido cínico cego melanina chata tola inútil e pálida frouxa de tolo tinta negra inútil chata demente frouxo foda polvo cego asqueroso tolo cínico camuflagem tola cega pálida frouxa de asqueroso frouxo cego tinta frouxa.",
-    author: "O Sangue Escuro",
-    searchQuery: "tinta de polvo melanina animal defesa quimica frouxo asqueroso cego pálido tolo chato inútil foda cínico",
-    audioId: "1478f902911b9725c1f592ac08ea8217.wav"
-  },
+
   {
     topic: "O Metal Doente",
     quote: "O podre velho sujo pálido vermelho frouxo escroto cego foda chato inútil asqueroso pálido de tolo frouxo ferro cego ferrugem chata asquerosa cínica de frouxo foda lixo cego metal pálido demente tolo cego. A frouxa cega asquerosa tola foda inútil asquerosa tola oxidação chata tola asquerosa pálida do asqueroso cínico oxigênio tolo frouxo asqueroso devora foda o asqueroso frouxo foda cego tolo ferro asqueroso cego pálido de ferrugem tola e cínico frouxa asquerosa química pálida tola demente inútil.",
