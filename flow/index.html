@@ -521,8 +521,18 @@
           if (progressValue >= TOTAL_SCROLL_TIME) {
             clearInterval(progressBarInterval);
             progressValue = 0;
-            // Remover fallback setTimeout, pois as vozes estáticas nunca travam,
-            // e ele quebrava o ritmo se o usuário pausasse.
+            
+            // Move para a próxima carta
+            isAutoScrolling = true;
+            currentCardIndex++;
+            if (currentCardIndex >= feedCards.length - 2) appendCards(5);
+            const nextCard = feedCards[currentCardIndex];
+            if (nextCard) {
+                nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+            // Libera a trava de scroll automático após o deslizamento terminar (1 segundo)
+            setTimeout(() => { isAutoScrolling = false; }, 1000);
           }
         }, interval);
     }
