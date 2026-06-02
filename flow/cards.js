@@ -2898,13 +2898,6 @@ const KNOWLEDGE_CARDS = [
     "audioId": "592100f026490f846cfe7ed4bc1cf121.wav"
   },
   {
-    "topic": "Engenharia de Armamento",
-    "quote": "A famosa espada mítica letal curva mortal e fina e brilhante oriental e perigosa da temível antiga guarda de honra e combate letal japonesa Samurai não era afiada até o último limite microscópico extremo que dividia os últimos átomos ao meio do vento em volta. Na dura física real e prática do metal, **uma faca cega de cozinha corta melhor um grande bloco podre da forte armadura brutal do general guerreiro assustador e blindado que ficava coberto do duro metal fechado porque lâminas extremamente finas como um caco de papel simplesmente se destroem tortas como um espelho de vidro quebrando num impacto de martelo gigante na cara**.",
-    "author": "O Fio da Realidade",
-    "searchQuery": "katana e armaduras forja de espadas samurai fio de corte",
-    "audioId": "ee7fafb7bed20da2f83f7846a4e5cc70.wav"
-  },
-  {
     "topic": "Meteorologia Dinâmica",
     "quote": "Os gigantes furacões massivos e assustadores negros destruidores de cidades úmidas inteiras dos litorais com vento e água quente chuvosa que rodam o mapa inteiro não nascem girando rapidamente do nada do céu escuro vazio e aleatório. Eles **roubam fisicamente e sem nenhuma misericórdia a força de puro enorme momento invisível da gigantesca pura lenta gigantesca gigante maldita rotação brutal massiva pesada do planeta Terra ao redor do seu grande eixo cósmico imaginário**.",
     "author": "O Motor do Furacão",
