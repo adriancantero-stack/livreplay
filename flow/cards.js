@@ -2085,4 +2085,333 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "consciencia navio de teseu filosofia da inteligencia artificial",
     audioId: "621397a00ca18468c1fc0b6bf9708633.wav"
   },
+  {
+    topic: "Comportamento Animal",
+    quote: "Os lobos alfa não são ditadores violentos que ganharam a liderança brigando. Eles são apenas <strong>os pais mais experientes e pacíficos da alcateia</strong>, que cuidam da família inteira.",
+    author: "O Mito do Macho Alfa",
+    searchQuery: "macho alfa lobos biologia lideranca david mech",
+    audioId: "92050b589e7730feb7a016583427502a.wav"
+  },
+  {
+    topic: "Neurobiologia da Dor",
+    quote: "Um analgésico como o Tylenol não diminui apenas a sua dor de cabeça. Estudos mostram que ele também anestesia <strong>a sua capacidade de sentir empatia pela dor emocional dos outros</strong>.",
+    author: "Empatia Química",
+    searchQuery: "paracetamol e empatia neurociencia dor social",
+    audioId: "09ce71f3a2447b8c558844dd2817f812.wav"
+  },
+  {
+    topic: "Filosofia da Mente",
+    quote: "Ninguém sabe exatamente onde você guarda suas memórias porque elas não estão em uma gaveta no cérebro. Elas existem <strong>nos espaços elétricos vazios e fluidos entre os neurônios</strong>.",
+    author: "Sinapses da Memória",
+    searchQuery: "onde ficam as memorias neurobiologia sinapses vazias",
+    audioId: "cc53c182171fffec167f04c9f8e151ad.wav"
+  },
+  {
+    topic: "Estratégia de Negócios",
+    quote: "O maior erro de uma empresa iniciante é tentar ser melhor do que a concorrência. A genialidade verdadeira está em inventar um mercado tão novo que <strong>você seja o único competidor existente</strong>.",
+    author: "Estratégia do Oceano Azul",
+    searchQuery: "oceano azul peter thiel zero to one startup",
+    audioId: "d173b03288945650145ba1e1cbe66d1a.wav"
+  },
+  {
+    topic: "Termodinâmica",
+    quote: "O universo não exige que você pague com dinheiro pelas coisas. Ele exige que você pague em energia. <strong>A exaustão que você sente no fim do dia é o preço cósmico de estar vivo</strong>.",
+    author: "A Moeda do Universo",
+    searchQuery: "energia universal termodinamica biologia humana",
+    audioId: "8400e28fc03e28c8ec42aa97fb128c43.wav"
+  },
+  {
+    topic: "Neurociência do Aprendizado",
+    quote: "Se você quer memorizar algo, não leia dez vezes de forma passiva. Feche o livro e tente lembrar à força. <strong>O aprendizado não acontece quando a informação entra, mas quando o cérebro faz força para puxá-la de volta</strong>.",
+    author: "Active Recall",
+    searchQuery: "active recall como estudar melhor neurociencia",
+    audioId: "9408b2974624d3268f54d611ce9865ff.wav"
+  },
+  {
+    topic: "Psicologia Positiva",
+    quote: "O ser humano tem um viés de negatividade tão forte que precisa de <strong>cinco interações positivas para anular o dano emocional de uma única interação negativa</strong> em um relacionamento.",
+    author: "A Proporção de Gottman",
+    searchQuery: "john gottman psicologia de casais vies de negatividade",
+    audioId: "58d017fc40db0b256699f01140788fec.wav"
+  },
+  {
+    topic: "Epigenética",
+    quote: "Seus genes não são um projeto fechado. O trauma extremo de uma guerra ou a fome prolongada sofrida pelo seu avô podem deixar marcas químicas no DNA que <strong>alteram a forma como o seu corpo reage ao estresse hoje</strong>.",
+    author: "Herança Transgeracional",
+    searchQuery: "epigenetica trauma hereditario biologia do estresse",
+    audioId: "1bbe319f90d94e43f6d125f3fd980622.wav"
+  },
+  {
+    topic: "Astronomia",
+    quote: "Todas as noites nós olhamos para a lua como se ela fosse nossa companheira eterna, mas ela está <strong>se afastando da Terra a quase quatro centímetros por ano</strong>. No futuro distante, o céu será mais vazio.",
+    author: "Afastamento Lunar",
+    searchQuery: "lua se afastando astrofisica futuro da terra",
+    audioId: "bb0c5654b06ff460fa495bdfa1565ee6.wav"
+  },
+  {
+    topic: "Design de Produtos",
+    quote: "Um aplicativo que tem um manual de instruções já fracassou antes de ser lançado. Um bom design é tão intuitivo que o usuário se sente <strong>genial apenas por usá-lo sem precisar pensar</strong>.",
+    author: "Usabilidade Intuitiva",
+    searchQuery: "design ux apple manual de instrucoes steve jobs",
+    audioId: "9d78766b761378e43081173f4f020a3c.wav"
+  },
+  {
+    topic: "História da Tecnologia",
+    quote: "A invenção da prensa de Gutenberg não apenas barateou a produção de livros. Ela espalhou o conhecimento e implodiu impérios ao permitir que o camponês <strong>lesse a Bíblia e questionasse as autoridades pela primeira vez</strong>.",
+    author: "A Revolução da Informação",
+    searchQuery: "gutenberg impressao impacto historico tecnologia",
+    audioId: "7fd9eea36b3c22b98a2fa9dfd184983b.wav"
+  },
+  {
+    topic: "Filosofia Estoica",
+    quote: "Você não se machuca porque sofreu uma ofensa. O machucado acontece apenas no exato milissegundo em que <strong>você decide mentalmente que a atitude do outro lhe causou um dano</strong>.",
+    author: "Marco Aurélio",
+    searchQuery: "estoicismo marco aurelio sofrimento mental reacao emocional",
+    audioId: "d885dc1ffc4c96e708a9937ae471e430.wav"
+  },
+  {
+    topic: "Antropologia Cultural",
+    quote: "A agricultura foi inventada de forma independente em continentes isolados quase ao mesmo tempo na história humana. Não porque fomos iluminados por deuses, mas porque o <strong>aquecimento climático simultâneo tornou o planeta propício ao plantio</strong>.",
+    author: "O Fim da Era do Gelo",
+    searchQuery: "origem da agricultura antropologia holoceno",
+    audioId: "d8a31df1aeda9efdb21b517aa3e0cf40.wav"
+  },
+  {
+    topic: "Finanças Pessoais",
+    quote: "Economizar alguns centavos cortando o café diário não vai deixá-lo rico. O que constrói impérios financeiros é a <strong>agressividade impiedosa em investir grandes quantias do seu salário nas coisas certas logo no início da vida</strong>.",
+    author: "O Efeito Bola de Neve",
+    searchQuery: "efeito compostos cortar o cafezinho investimentos finanças",
+    audioId: "b3623381bf0d469d2611fd80d5f77f01.wav"
+  },
+  {
+    topic: "Inteligência Emocional",
+    quote: "Tentar suprimir emoções tristes é como segurar uma bola de basquete debaixo d'água. <strong>Cedo ou tarde o seu braço cansa, e a bola explode violentamente na sua cara</strong>.",
+    author: "Repressão Emocional",
+    searchQuery: "psicologia da emocao reprimir sentimentos terapia emocional",
+    audioId: "c402b5ae48a2cb28474ea997e4bf69a4.wav"
+  },
+  {
+    topic: "Linguística Cognitiva",
+    quote: "A pontuação não serve apenas para respirar durante a leitura. A vírgula e o ponto final são ferramentas cirúrgicas desenhadas para <strong>esculpir o fluxo de pensamento dentro da cabeça de quem lê</strong>.",
+    author: "A Arte da Escrita",
+    searchQuery: "pontuacao gramatica psicologia da leitura",
+    audioId: "ee1a0921e75efa53136ca84e505c861a.wav"
+  },
+  {
+    topic: "Gestão do Tempo",
+    quote: "Não existe falta de tempo. Existe apenas falta de clareza moral sobre as suas próprias prioridades. Quando você diz 'não tenho tempo', o universo ouve <strong>'isso não é tão importante para mim agora'</strong>.",
+    author: "Priorização Radical",
+    searchQuery: "gestao de tempo prioridades como ter mais tempo",
+    audioId: "bf1ed5f98ce2a32b72d39f4e1158d5fc.wav"
+  },
+  {
+    topic: "Biologia Sintética",
+    quote: "Cientistas não estão apenas editando DNA de plantas para resistir a pragas. Já estamos armazenando gigantescas bibliotecas digitais e vídeos em 4K dentro de <strong>células de DNA vivas, usando a biologia como o disco rígido mais durável do mundo</strong>.",
+    author: "Armazenamento em DNA",
+    searchQuery: "dados em dna tecnologia biologica futuro da informacao",
+    audioId: "ae389d5b550b2bae1d041586020cf806.wav"
+  },
+  {
+    topic: "Cibernética",
+    quote: "Nós somos a primeira espécie na história a assumir ativamente o controle sobre a nossa própria evolução. A seleção natural parou na biologia humana, e agora <strong>a engenharia e a cibernética tomaram as rédeas do futuro humano</strong>.",
+    author: "O Fim da Seleção Natural",
+    searchQuery: "transumanismo evolucao tecnologica ciborgues",
+    audioId: "2c0d918905e2589b2a835d5f0eed96a5.wav"
+  },
+  {
+    topic: "Evolução Genética",
+    quote: "Homens têm mamilos porque no útero, todos nós começamos como um projeto de desenvolvimento feminino. O <strong>cromossomo Y entra em ação apenas depois que o chassi principal já foi construído</strong>.",
+    author: "Embriologia Humana",
+    searchQuery: "por que homens tem mamilos biologia embriologia ciencia",
+    audioId: "d45eee61034d5359b9567fe3ebe819be.wav"
+  },
+  {
+    topic: "Economia e Riqueza",
+    quote: "A verdadeira vantagem dos juros compostos não é ganhar muito no começo, é sobreviver a longo prazo. Um investidor excelente que evita perder dinheiro por 30 anos <strong>vai massacrar matematicamente o trader genial que arrisca tudo para dobrar de capital em um mês</strong>.",
+    author: "A Sobrevivência Financeira",
+    searchQuery: "warren buffett juros compostos longo prazo risco financeiro",
+    audioId: "d8224f0eae01fa6ce91e75301cea622f.wav"
+  },
+  {
+    topic: "Microbiologia",
+    quote: "O cheiro de terra molhada após a chuva não é o cheiro de água batendo no chão. É o cheiro de uma <strong>substância química produzida por bilhões de bactérias no solo em resposta à água</strong>, chamada Geosmina.",
+    author: "Petricor",
+    searchQuery: "cheiro de chuva geosmina biologia do solo",
+    audioId: "a71f29e5e9038d1f8cf7cf4b8f173d53.wav"
+  },
+  {
+    topic: "Física Clássica",
+    quote: "Quando um patinador de gelo recolhe os braços e começa a girar mais rápido, ele está usando a Lei de Conservação do Momento Angular. O <strong>universo obriga a velocidade a aumentar quando o raio diminui</strong> para manter o equilíbrio energético intacto.",
+    author: "Momento Angular",
+    searchQuery: "fisica da patinacao conservacao do momento angular mecanica",
+    audioId: "d5e8eabb112fa64bf2576a041fa3342b.wav"
+  },
+  {
+    topic: "Estratégia Militar",
+    quote: "A manobra em pinça não visa destruir o inimigo lutando contra ele pela frente, mas isolar o seu comando e <strong>paralisar o seu sistema logístico pelo medo de ser cercado por todos os lados</strong>.",
+    author: "A Arte de Cercar",
+    searchQuery: "estrategia militar manobra em pinca logistica na guerra",
+    audioId: "ebd5edb236b6a764da1b27be583c711a.wav"
+  },
+  {
+    topic: "Sociologia Digital",
+    quote: "Os 'likes' em redes sociais operam com base na caixa de Skinner. Eles fornecem pequenas, porém irregulares e incertas doses de validação social, <strong>hackeando a exata vulnerabilidade cerebral que nos torna viciados em cassinos</strong>.",
+    author: "Economia da Atenção",
+    searchQuery: "vicio em redes sociais maquina de caca niqueis celular b f skinner",
+    audioId: "57eef0c5c0d3004ebdfc9d9bd1a72409.wav"
+  },
+  {
+    topic: "Cosmologia",
+    quote: "O universo não tem centro e não tem bordas. Todas as galáxias parecem estar se afastando de nós simplesmente porque <strong>é o próprio tecido do espaço que está esticando como um balão em todas as direções possíveis</strong>.",
+    author: "A Expansão Cósmica",
+    searchQuery: "onde fica o centro do universo cosmologia expansao",
+    audioId: "98f9ba8472c1764e594b9a453228efa4.wav"
+  },
+  {
+    topic: "Matemática da Sorte",
+    quote: "Comprar um bilhete de loteria é estatisticamente o pior investimento imaginável. Porém, no nível da psicologia humana, é muitas vezes a forma mais barata de <strong>comprar alguns dias agradáveis de fantasia escapista</strong>.",
+    author: "Valor Esperado Negativo",
+    searchQuery: "loterias vale a pena jogar economia comportamental fantasia",
+    audioId: "5817f9ac7b03479083f949502528c10c.wav"
+  },
+  {
+    topic: "Foco Profundo",
+    quote: "Interrupções constantes no trabalho não apenas atrasam a tarefa em alguns segundos. Elas quebram o estado de 'flow' cognitivo, obrigando o cérebro a <strong>reiniciar todo o carregamento do contexto na memória de curto prazo, o que leva minutos valiosos</strong>.",
+    author: "Custo da Interrupção",
+    searchQuery: "estado de flow produtividade interrupcoes no trabalho memoria",
+    audioId: "7aaa71ccd7169206e7ec99d713d45008.wav"
+  },
+  {
+    topic: "Neuromarketing",
+    quote: "Músicas lentas nos corredores dos supermercados não são escolhidas ao acaso. Elas têm a função neurológica de desacelerar as ondas cerebrais, fazendo o consumidor andar mais devagar e <strong>comprar 38% a mais por impulso cego</strong>.",
+    author: "O Truque da Música",
+    searchQuery: "estrategias de supermercado neuromarketing comportamento consumidor",
+    audioId: "3b35c674abe2a9ff861d8adc63d0111e.wav"
+  },
+  {
+    topic: "Liderança e Gestão",
+    quote: "Se as suas regras organizacionais preveem punições severas para erros que foram comunicados abertamente, você não elimina as falhas. Você apenas <strong>cria uma máquina poderosa de esconder erros corporativos catastróficos até que eles explodam a empresa inteira</strong>.",
+    author: "Segurança Psicológica",
+    searchQuery: "cultura sem culpa esconder erros lideranca e falha",
+    audioId: "614cb13c7497965a67b4bbf8c2740f46.wav"
+  },
+  {
+    topic: "Paleontologia Evolutiva",
+    quote: "O petróleo não vem de dinossauros soterrados, mas sim de gigantescas camadas de algas primitivas e plânctons microscópicos que, sem predadores de reciclagem química, <strong>afundaram intocados nos oceanos antigos, gerando o ouro negro de hoje</strong>.",
+    author: "A Origem do Petróleo",
+    searchQuery: "de onde vem o petroleo dinossauros algas combustivel fossil",
+    audioId: "544233c6b9a2f2180dd224e4819f70fe.wav"
+  },
+  {
+    topic: "Antropologia Social",
+    quote: "Uma aliança no dedo anelar e um carro esportivo não servem apenas propósitos funcionais. Eles agem perante o seu grupo como poderosas <strong>sinalizações custosas na biologia da comunicação não verbal humana</strong>.",
+    author: "Sinalização de Status",
+    searchQuery: "psicologia do luxo anel de casamento sinalizacao custosa evolucao",
+    audioId: "09fab6a7a9d1050ca5ad547a6cbfeafa.wav"
+  },
+  {
+    topic: "Geopolítica da Água",
+    quote: "As guerras do passado eram financiadas e decididas pelo controle de minérios de ouro, ferro e poços de petróleo. Os conflitos globais da segunda metade do nosso século, muito provavelmente, <strong>serão travados puramente pelo controle das bacias de água potável escassa</strong>.",
+    author: "A Escassez Hídrica",
+    searchQuery: "guerras por agua geopolitica crise hidrica futuro",
+    audioId: "4f31b902624dccd5aaac49886a560eb6.wav"
+  },
+  {
+    topic: "Filosofia da Mente Artificial",
+    quote: "A máquina não sabe pensar. O ChatGPT gera conversas brilhantes prevendo probabilidades estatísticas cegamente, um pedaço minúsculo de sílaba por vez, <strong>desafiando a nossa ilusão de que escrever exige inteligência ou sequer compreensão do mundo real</strong>.",
+    author: "O Quarto Chinês",
+    searchQuery: "como funciona inteligencia artificial quarto chines chatgpt",
+    audioId: "fe342d330d0cfc459d83650558530ccd.wav"
+  },
+  {
+    topic: "Teoria Evolutiva dos Sentimentos",
+    quote: "A inveja não existe na natureza como castigo moral. Evolutivamente, é um forte sinal biológico que, quando calibrado, <strong>funcionava para te alertar sobre desvantagens em hierarquias e obrigar o grupo primitivo a lutar contra abusadores dominantes</strong>.",
+    author: "Utilidade da Inveja",
+    searchQuery: "para que serve a inveja evolucao psicologica tribos",
+    audioId: "af3e2b51cd3ea60a506611ed3ee1f399.wav"
+  },
+  {
+    topic: "Arquitetura Hospitalar",
+    quote: "Quartos de hospital que têm uma janela com visão direta para a natureza reduzem o tempo da internação, aceleram drasticamente a cicatrização de cortes profundos e <strong>reduzem a prescrição de doses cavalares de morfina para dor por via química do cérebro</strong>.",
+    author: "Design Baseado em Evidência",
+    searchQuery: "natureza cura rapido hospitais e arvores biofilia na saude",
+    audioId: "8683893e47b3fe458161b292b0f80098.wav"
+  },
+  {
+    topic: "Dinheiro e Propósito",
+    quote: "Ricos não evitam impostos carregando pastas suadas de dinheiro para fora. Ricos usam dívidas controladas colateralizadas contra as suas próprias empresas para sacar montanhas de liquidez diária, <strong>um hack brutal da engenharia contábil isento de impostos mundiais</strong>.",
+    author: "Comprar Dinheiro Emprestado",
+    searchQuery: "como ricos evitam impostos engenharia contabil riqueza",
+    audioId: "4191043ee48c36908c0dc354ca39970b.wav"
+  },
+  {
+    topic: "Matemática do Tempo",
+    quote: "Faltam apenas mil dias até seus filhos mais velhos baterem as asas e mudarem de casa, mas o seu cérebro prefere acreditar que <strong>tem milênios ilimitados disponíveis, fazendo-o gastar fins de semana inteiros com uma tela na mão em vez de brincar</strong>.",
+    author: "O Ilusionismo do Tempo Infinito",
+    searchQuery: "tim urban a cauda da vida tempo com a familia prioridades",
+    audioId: "79182c920a936ca4273eccb8f6847b0c.wav"
+  },
+  {
+    topic: "Bioquímica da Longevidade",
+    quote: "Exposição diária ao calor brutal de saunas não é apenas para relaxar os nervos contra a tensão moderna; é o estresse térmico ativando as Proteínas de Choque Térmico (HSPs) que irão literalmente <strong>desfazer proteínas erradas da célula para prevenir o acúmulo de esclerose</strong>.",
+    author: "Benefícios da Sauna",
+    searchQuery: "proteinas de choque termico beneficios sauna longevidade alzheimer",
+    audioId: "d7b16aca19f5274b6390dc9ef2e210d8.wav"
+  },
+  {
+    topic: "Ecologia Circular",
+    quote: "As plantas não puxam a própria matéria do solo negro úmido e morto. O gigantesco tronco massivo e sólido do imponente carvalho foi <strong>literalmente puxado de forma gasosa e invisível a partir de carbono roubado das moléculas do ar transparente em volta de você</strong>.",
+    author: "O Paradoxo da Fotossíntese",
+    searchQuery: "de onde vem as arvores carbono e ar peso da madeira fotossintese",
+    audioId: "128d145f95d0d5f476baebe6b0470363.wav"
+  },
+  {
+    topic: "Evolução Genética Humana",
+    quote: "Nós somos a única espécie animal que pode beber leite depois do desmame e da infância. Essa brilhante e bizarra mutação da tolerância à lactose, apenas 10.000 anos atrás, <strong>deu aos pastores nômades caloria extra suficiente para sobreviverem na escassez do inverno letal congelante</strong>.",
+    author: "A Mutação do Leite",
+    searchQuery: "intolerancia a lactose porque tomamos leite evolucao humana",
+    audioId: "b1eacf30f6e86cd208228befcb4a4b6e.wav"
+  },
+  {
+    topic: "Produtividade Radical",
+    quote: "Um projeto de trabalho irá se inchar como uma esponja na água ou murchar até caber perfeitamente <strong>no tempo psicológico fixo exato que você resolveu destinar para que ele seja entregue pelo seu prazo rígido</strong>.",
+    author: "A Lei de Parkinson",
+    searchQuery: "lei de parkinson dilatacao de tempo prazo produtividade",
+    audioId: "200a9602308bf3a773ce898b25936c68.wav"
+  },
+  {
+    topic: "Estratégia de Marketing",
+    quote: "Você não está lutando contra marcas baratas concorrentes na publicidade diária. Você está travando um duelo pelo cérebro contra os <strong>notificadores agressivos dos smartphones dos consumidores que roubam trinta horas úteis semanais de dopamina e foco profundo</strong>.",
+    author: "A Guerra da Atenção",
+    searchQuery: "concorrencia de atencao celular e marketing vendas online",
+    audioId: "fdef022509b12fb0123f23cc9679d037.wav"
+  },
+  {
+    topic: "Astronomia de Curta Distância",
+    quote: "O brilho fraco e inconstante da bela Estrela da Manhã brilhando ao amanhecer não é de uma estrela solitária longínqua. É Vênus refletindo a claridade incandescente do sol nas <strong>suas espessas nuvens de puro ácido sulfúrico tóxico, onde chove metal líquido para baixo</strong>.",
+    author: "O Falso Brilho de Vênus",
+    searchQuery: "estrela dalva sol sistema solar espaco chuva acida",
+    audioId: "3b3fa584bce6f636e1b15ad0ad80349e.wav"
+  },
+  {
+    topic: "Medicina Regenerativa",
+    quote: "Um fígado adulto saudável tem o notável poder quase ficcional de poder sofrer a perda severa de impressionantes setenta por cento de sua massa total original e, incrivelmente, conseguir <strong>reconstruir ativamente quase toda a estrutura completa perfeita funcional do tamanho de sempre logo em seguida em algumas poucas semanas depois</strong>.",
+    author: "Crescimento de Fígado",
+    searchQuery: "como figado cresce medicina regeneracao orgao biologia",
+    audioId: "36b58fe6cef0bc092f4b56f135da83bc.wav"
+  },
+  {
+    topic: "Dinâmica Organizacional",
+    quote: "Em toda rígida hierarquia, as pessoas geniais são inevitavelmente promovidas aos melhores cargos ano após ano, de degrau por degrau, até que, um dia glorioso fatalmente inadiável, <strong>eles finalmente atingem o exato limite superior do seu terrível e deprimente nível total de incompetência prática e ali empacam desmotivados por décadas depois</strong>.",
+    author: "O Princípio de Peter",
+    searchQuery: "promovido a incompetente principio de peter gerencia lideranca hierarquias",
+    audioId: "c4e936ae88b63a42303a47d43172b5ab.wav"
+  },
+  {
+    topic: "Psicologia Infantil",
+    quote: "Elogiar ferozmente o desempenho da inteligência das crianças, e não premiar verbalmente e celebrar ruidosamente o próprio doloroso grande esforço gasto no percurso suado e brutal para concluir difíceis testes impossíveis na escola inteira de hoje, irá inevitavelmente <strong>garantir uma assombrosa e gigante geração global inteira imobilizada, petrificada, presa na dolorosa prisão de aterrorizante profundo fobia covarde aos grandes riscos necessários aos enormes avanços gigantes de crescimento</strong>.",
+    author: "O Mindset Fixo vs Crescimento",
+    searchQuery: "carol dweck mindset de crescimento como elogiar filhos infantil neurociencia",
+    audioId: "15b0acd340545a01878f7c1529dbc907.wav"
+  },
 ];
