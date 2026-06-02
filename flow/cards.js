@@ -1735,4 +1735,354 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "importancia do sono doenca de alzheimer sistema glinfatico",
     audioId: "3b0cd4fe23a37ce9f82d8959450fca5f.wav"
   },
+  {
+    topic: "História Antiga",
+    quote: "Os romanos não inventaram o concreto apenas para fazer prédios bonitos. Eles inventaram um cimento que endurecia debaixo d'água, o que lhes permitiu <strong>construir portos e dominar o comércio marítimo do mundo</strong>.",
+    author: "Engenharia Romana",
+    searchQuery: "concreto romano engenharia civil imperio historia",
+    audioId: "8903c2e74a69eba11754e81e7f7a0f76.wav"
+  },
+  {
+    topic: "Teoria da Informação",
+    quote: "Um dado não é informação. Informação é apenas aquele pedaço específico de dado que <strong>tem o poder de mudar a sua próxima decisão</strong>.",
+    author: "Claude Shannon",
+    searchQuery: "teoria da informacao claude shannon dados vs informacao",
+    audioId: "ceed9a55741ef3b5fce42f0477632b18.wav"
+  },
+  {
+    topic: "Biologia Quântica",
+    quote: "Os pássaros não se perdem na migração porque conseguem literalmente <strong>ver os campos magnéticos da Terra</strong> usando o entrelaçamento quântico dentro dos próprios olhos.",
+    author: "Navegação Aviária",
+    searchQuery: "biologia quantica passaros campo magnetico migracao",
+    audioId: "5b37fa605b3fac33878fc3c4cd2a57d4.wav"
+  },
+  {
+    topic: "Microeconomia",
+    quote: "O conceito de custo de oportunidade nos ensina que o preço de qualquer coisa que você escolhe fazer é, na verdade, <strong>tudo aquilo que você teve que abrir mão para poder fazê-la</strong>.",
+    author: "Custo de Oportunidade",
+    searchQuery: "economia basica custo de oportunidade escolhas",
+    audioId: "df627a4221ed26852942147fd7f1f713.wav"
+  },
+  {
+    topic: "Epistemologia",
+    quote: "A ignorância raramente é a completa falta de conhecimento. Na maioria das vezes, a ignorância é a <strong>falsa convicção absoluta de que você já sabe de tudo</strong>.",
+    author: "Efeito Dunning-Kruger",
+    searchQuery: "ignorancia socrates dunning kruger filosofia do conhecimento",
+    audioId: "b6ab3cd221c44dd2ea55aecf3fe05d37.wav"
+  },
+  {
+    topic: "Psicologia Comportamental",
+    quote: "O cérebro não quer que você seja magro ou musculoso. Ele quer que você <strong>armazene gordura para sobreviver ao próximo inverno</strong> que, no mundo moderno, nunca vai chegar.",
+    author: "Adaptação Evolutiva",
+    searchQuery: "por que engordamos evolucao do cerebro gordura",
+    audioId: "8f7e9b9fef53e036eb518505dc0a1095.wav"
+  },
+  {
+    topic: "Física de Partículas",
+    quote: "Se você remover todo o espaço vazio de dentro dos átomos de todas as pessoas da Terra, a humanidade inteira caberia no volume de <strong>um único cubo de açúcar</strong>.",
+    author: "Estrutura Atômica",
+    searchQuery: "espaço vazio nos atomos fisica quantica cubo de acucar",
+    audioId: "c67f78dcdbb4293eb09da53fab837688.wav"
+  },
+  {
+    topic: "Genética Comportamental",
+    quote: "A inteligência não é determinada apenas pelos seus genes. Os seus genes fornecem os limites máximos e mínimos, mas é o <strong>seu ambiente que escolhe onde você vai parar dentro desse espectro</strong>.",
+    author: "Interação Gene-Ambiente",
+    searchQuery: "genetica da inteligencia ambiente vs genes epigenetica",
+    audioId: "865d9f187dec4e4a0b57ab0b280e0c4d.wav"
+  },
+  {
+    topic: "Engenharia Aeroespacial",
+    quote: "Os foguetes não precisam empurrar o ar para se mover no espaço. Eles se movem puramente pela terceira lei de Newton: <strong>ao ejetar massa para trás, o universo é obrigado a empurrá-los para frente</strong>.",
+    author: "Lei da Ação e Reação",
+    searchQuery: "como foguetes funcionam no vacuo terceira lei de newton",
+    audioId: "a914ec6320034eca495f20ecf4163310.wav"
+  },
+  {
+    topic: "Filosofia Política",
+    quote: "A democracia não foi criada para escolher os líderes mais geniais e visionários. Ela foi criada puramente para <strong>conseguirmos remover líderes péssimos sem derramar uma gota de sangue</strong>.",
+    author: "Karl Popper",
+    searchQuery: "para que serve a democracia filosofia politica karl popper",
+    audioId: "ccde765eab78b3a609fe71c130bdb75a.wav"
+  },
+  {
+    topic: "Neurociência",
+    quote: "A dor crônica não significa necessariamente que o seu corpo ainda está machucado. Muitas vezes, significa apenas que o seu alarme neurológico <strong>ficou travado no volume máximo e esqueceu como desligar</strong>.",
+    author: "Dor Neuroplástica",
+    searchQuery: "como a dor funciona dor cronica neurociencia dor fantasma",
+    audioId: "77a765ab670dc5b1beb3da8dd02737bd.wav"
+  },
+  {
+    topic: "Lógica Matemática",
+    quote: "Não existe paradoxo no mundo real. Quando o seu cérebro encontra um paradoxo inaceitável, isso é apenas o universo te avisando que <strong>uma de suas premissas básicas está completamente errada</strong>.",
+    author: "Teorema da Incompletude",
+    searchQuery: "paradoxos logica matematica premissas falsas",
+    audioId: "0c18cd3c108f3166f38243855d9fb06d.wav"
+  },
+  {
+    topic: "Comunicação",
+    quote: "A maior ilusão da comunicação humana é a crença perigosa de que, só porque você abriu a boca e falou, <strong>a comunicação realmente aconteceu na cabeça do outro</strong>.",
+    author: "George Bernard Shaw",
+    searchQuery: "falha na comunicacao escuta ativa ilusao do entendimento",
+    audioId: "e90b745b8681bb52b2eb3f46abccce98.wav"
+  },
+  {
+    topic: "Evolução",
+    quote: "Os dinossauros não foram totalmente extintos pelo asteroide. Os menores e com penas sobreviveram ao apocalipse, e hoje nós <strong>os chamamos de pássaros e os prendemos em gaiolas</strong>.",
+    author: "Evolução das Aves",
+    searchQuery: "dinossauros viraram aves evolucao extincao",
+    audioId: "31c0e51bd80d5825a0e81d98ba953460.wav"
+  },
+  {
+    topic: "Dinâmica de Sistemas",
+    quote: "Resolver o congestionamento de trânsito construindo mais faixas nas ruas é como tentar curar a obesidade <strong>comprando calças de um tamanho maior</strong>.",
+    author: "Demanda Induzida",
+    searchQuery: "demanda induzida transito urbanismo cidades para pessoas",
+    audioId: "96ed4e7d87e6a5d5cb9d2d00e1c30c44.wav"
+  },
+  {
+    topic: "Medicina",
+    quote: "A febre não é a doença. A febre é o seu sistema imunológico <strong>ligando o forno interno do corpo</strong> para literalmente cozinhar os vírus invasores até a morte.",
+    author: "Imunologia",
+    searchQuery: "para que serve a febre sistema imune biologia",
+    audioId: "1e5975877dc28833b5c0d8e2ea8bd8aa.wav"
+  },
+  {
+    topic: "Estratégia",
+    quote: "Você não precisa ser mais rápido que o urso que está te perseguindo. Você só precisa ser <strong>mais rápido que a pessoa que está correndo do seu lado</strong>.",
+    author: "Vantagem Competitiva",
+    searchQuery: "vantagem competitiva estrategia ursos e sobrevivencia",
+    audioId: "494a4cb3e138a815208757d08f16d4fc.wav"
+  },
+  {
+    topic: "Cibernética",
+    quote: "O problema dos algoritmos de recomendação não é que eles sabem o que você quer. É que eles lentamente <strong>te treinam para querer exatamente o que eles querem recomendar</strong>.",
+    author: "Câmara de Eco",
+    searchQuery: "algoritmos das redes sociais manipulacao de consumo",
+    audioId: "2db47a57d62405d6b340792f52c81da5.wav"
+  },
+  {
+    topic: "Finanças Pessoais",
+    quote: "Comprar algo em doze vezes sem juros não significa que você não pagou juros. Significa apenas que o custo do juro <strong>já estava embutido no preço absurdamente inflado do produto</strong>.",
+    author: "Matemática Financeira",
+    searchQuery: "ilusoes do parcelamento educacao financeira sem juros",
+    audioId: "f83b89dcc7ffa6dcbefa9cb8b1254321.wav"
+  },
+  {
+    topic: "Psicanálise",
+    quote: "A inveja não é o desejo cego de destruir o outro. A inveja é a dor silenciosa de ver no outro <strong>o sucesso que você secretamente acredita que deveria ser seu</strong>.",
+    author: "Mecanismos de Defesa",
+    searchQuery: "inveja na psicanalise freud lacan dor do sucesso",
+    audioId: "5d08b168b11adc7ac2ad95eed94c057c.wav"
+  },
+  {
+    topic: "Termodinâmica",
+    quote: "O frio não existe como uma entidade física na natureza. O frio é apenas a <strong>ausência absoluta de calor e de movimento atômico</strong>.",
+    author: "Zero Absoluto",
+    searchQuery: "o que e frio fisica zero absoluto calor",
+    audioId: "58a25fc2cdde706c48947d29ad18aa36.wav"
+  },
+  {
+    topic: "Design de Interação",
+    quote: "Um bom design é como o ar-condicionado. Você só percebe que ele existe no momento exato em que ele <strong>para de funcionar e tudo começa a dar errado</strong>.",
+    author: "Usabilidade",
+    searchQuery: "bom design ux ui usabilidade invisivel",
+    audioId: "7042e837d7644035ca1479672ad75d77.wav"
+  },
+  {
+    topic: "Paleontologia",
+    quote: "O planeta Terra já foi uma bola de neve congelada, já foi coberto de lava e já teve níveis tóxicos de oxigênio. A vida não se adapta para preservar o planeta, ela <strong>muda o planeta para se preservar</strong>.",
+    author: "Hipótese de Gaia",
+    searchQuery: "hipotese de gaia paleontologia mudancas climaticas",
+    audioId: "c241e2f29e9137976b9d0b9b62bbc2cf.wav"
+  },
+  {
+    topic: "Neuromarketing",
+    quote: "Os supermercados colocam a padaria no fundo da loja por um motivo simples: o cheiro de pão fresco <strong>abre o apetite e te faz comprar coisas que você não precisava no meio do caminho</strong>.",
+    author: "Psicologia do Consumo",
+    searchQuery: "neuromarketing trucao de supermercado comportamento",
+    audioId: "783d2586fc162ac81025c8ee0707bb8e.wav"
+  },
+  {
+    topic: "Liderança",
+    quote: "Um líder tóxico foca em encontrar culpados. Um líder de alta performance entende que a culpa não importa e foca cem por cento em <strong>descobrir onde o processo falhou</strong>.",
+    author: "Cultura de Segurança",
+    searchQuery: "cultura sem culpa lideranca gestao de crise",
+    audioId: "62488a73749812d6be11a0512fe7b5aa.wav"
+  },
+  {
+    topic: "Astronomia",
+    quote: "O sol que você vê no céu não é o sol de agora. A luz demora oito minutos para chegar à Terra. Você está, o tempo todo, <strong>olhando para o passado do universo</strong>.",
+    author: "Velocidade da Luz",
+    searchQuery: "tempo no espaco velocidade da luz sol oito minutos",
+    audioId: "a28bf3c38e443d86dde7bd7917b08923.wav"
+  },
+  {
+    topic: "Estoicismo",
+    quote: "Nós sofremos muito mais na imaginação do que na realidade. A sua mente tem o péssimo hábito de <strong>ensaiar tragédias que jamais chegarão a acontecer</strong>.",
+    author: "Sêneca",
+    searchQuery: "ansiedade sêneca estoicismo sofrimento imaginario",
+    audioId: "a61388c0151b8602681dffde22af8a59.wav"
+  },
+  {
+    topic: "Inteligência Coletiva",
+    quote: "As formigas individuais são animais relativamente burros, mas uma colônia de formigas é um superorganismo altamente inteligente capaz de <strong>construir pontes e declarar guerras complexas</strong>.",
+    author: "Comportamento Emergente",
+    searchQuery: "inteligencia coletiva formigas comportamento emergente",
+    audioId: "f4abc513efb210204b20f24a4a4b541b.wav"
+  },
+  {
+    topic: "Evolução Tecnológica",
+    quote: "A roda não foi inventada originalmente para transportar coisas. Durante milênios, os humanos só a usaram na olaria para <strong>modelar vasos de argila giratórios</strong>.",
+    author: "Invenções e Exaptação",
+    searchQuery: "quem inventou a roda historia da tecnologia",
+    audioId: "aa36bd688e3d480197190969c6833930.wav"
+  },
+  {
+    topic: "Psicologia Cognitiva",
+    quote: "A sua memória não foi projetada para arquivar perfeitamente o passado. Ela evoluiu puramente para tentar <strong>prever as ameaças do seu futuro com base no que já aconteceu</strong>.",
+    author: "Função da Memória",
+    searchQuery: "para que serve a memoria prever o futuro psicologia",
+    audioId: "56ab9776cce83cc47f286f711a356212.wav"
+  },
+  {
+    topic: "Bioquímica",
+    quote: "O açúcar vicia mais rápido que muita droga ilícita porque ele <strong>hackeia diretamente o antigo sistema de recompensa</strong> que desenvolvemos na selva para evitar morrer de fome.",
+    author: "Vício em Açúcar",
+    searchQuery: "vicio em acucar biologia bioquimica sistema de recompensa",
+    audioId: "2f5f63cc8f0cd6e92f5ec316a46b5ea0.wav"
+  },
+  {
+    topic: "Filosofia Moral",
+    quote: "A ética não é sobre descobrir o que é perfeitamente certo. É o processo constante e angustiante de <strong>escolher qual a opção menos dolorosa e errada no momento</strong>.",
+    author: "O Dilema do Bonde",
+    searchQuery: "etica e moral dilemas filosoficos o problema do mal",
+    audioId: "87825e96c3713374328724761c893338.wav"
+  },
+  {
+    topic: "Produtividade",
+    quote: "Estar ocupado não é sinônimo de estar produzindo. Correr em círculos na velocidade máxima vai te deixar suado e exausto, mas <strong>não vai te tirar do lugar</strong>.",
+    author: "Eficiência vs Eficácia",
+    searchQuery: "trabalho ocupado produtividade fazer a coisa certa",
+    audioId: "fe83de25ec013047ee816892231f32af.wav"
+  },
+  {
+    topic: "Física Mecânica",
+    quote: "O som não viaja no espaço vazio não porque as estrelas são silenciosas, mas porque o som precisa de <strong>moléculas físicas se chocando para poder se propagar</strong>.",
+    author: "Ondas Sonoras",
+    searchQuery: "por que nao tem som no espaco vacuo fisica sonora",
+    audioId: "1a2722766986e7b665c409c4e2cb30fe.wav"
+  },
+  {
+    topic: "Criptoeconomia",
+    quote: "O Bitcoin não é inovador por ser dinheiro digital. Ele é a primeira vez na história da humanidade em que <strong>conseguimos criar escassez absoluta dentro de um computador</strong>.",
+    author: "Satoshi Nakamoto",
+    searchQuery: "escassez digital bitcoin criptomoedas tecnologia blockchain",
+    audioId: "22a27b56f8bd76f40e5a413a78aaab7d.wav"
+  },
+  {
+    topic: "Biologia Vegetal",
+    quote: "As árvores de uma floresta não competem sozinhas. Elas compartilham nutrientes e conversam entre si usando uma <strong>gigantesca rede de fungos conectada às suas raízes</strong>.",
+    author: "A Wood Wide Web",
+    searchQuery: "comunicacao das arvores rede de fungos ecologia da floresta",
+    audioId: "1167e2b8a373a2ece29f4d3da882f69d.wav"
+  },
+  {
+    topic: "Ciência Política",
+    quote: "O extremismo é atraente porque o cérebro humano odeia a incerteza. Fanáticos não buscam a verdade, eles buscam <strong>a anestesia confortável de achar que sabem tudo</strong>.",
+    author: "O Conforto do Extremismo",
+    searchQuery: "fanatismo politico incerteza psicologia social",
+    audioId: "ca04f15c887567e399104339fab5ee7e.wav"
+  },
+  {
+    topic: "Nutrição Esportiva",
+    quote: "Você não constrói músculos na academia levantando peso. Na academia, você apenas destroi as fibras. O músculo <strong>cresce e fica forte apenas enquanto você está dormindo</strong>.",
+    author: "Hipertrofia Muscular",
+    searchQuery: "como ganhar massa muscular descanso e hipertrofia fitness",
+    audioId: "0c5a7de783b7355cbd69f01ceb3726c0.wav"
+  },
+  {
+    topic: "Antropologia",
+    quote: "A revolução agrícola não nos salvou da fome. Ironicamente, os primeiros fazendeiros tinham uma nutrição muito pior e trabalhavam muito mais horas do que <strong>os caçadores-coletores livres na selva</strong>.",
+    author: "A Armadilha Agrícola",
+    searchQuery: "revolucao agricola yuval harari dieta paleolitica",
+    audioId: "00cd21f5a9cb2e10084d75b0dad8c20e.wav"
+  },
+  {
+    topic: "Mecânica Quântica",
+    quote: "O universo não é feito de bolinhas sólidas de matéria chamadas de átomos. O universo é feito inteiramente de <strong>campos de energia que vibram em diferentes frequências e tons</strong>.",
+    author: "Teoria Quântica de Campos",
+    searchQuery: "do que sao feitos os atomos teoria de campos fisica moderna",
+    audioId: "f01136e9c6c309c286bf10cfd2ab55a5.wav"
+  },
+  {
+    topic: "Terapia de Casal",
+    quote: "O oposto do amor não é o ódio profundo. Quando chega o ódio, ainda há muita paixão investida. <strong>O verdadeiro oposto do amor é a apatia e a indiferença total</strong>.",
+    author: "Psicologia dos Relacionamentos",
+    searchQuery: "apatia o fim do amor john gottman relacionamento conjugal",
+    audioId: "e2afa49bfed387bbfd554c2879c2f05c.wav"
+  },
+  {
+    topic: "Engenharia de Software",
+    quote: "A lei de Brooks dita que adicionar mais programadores a um projeto de software atrasado só vai <strong>fazer com que o projeto atrase ainda mais devido ao caos da comunicação</strong>.",
+    author: "O Mês-Homem Mítico",
+    searchQuery: "lei de brooks gerenciamento de projetos ti",
+    audioId: "8b489080c775a3371fe60ff55369c555.wav"
+  },
+  {
+    topic: "Genética Evolutiva",
+    quote: "Os cães não são lobos que os humanos domesticaram à força. São descendentes dos lobos menos agressivos que <strong>perceberam que era mais lucrativo e fácil viver perto das nossas fogueiras</strong>.",
+    author: "Auto-domesticação dos Cães",
+    searchQuery: "como os caes foram domesticados biologia canina",
+    audioId: "056c7b0293906803e34a37f1116be90d.wav"
+  },
+  {
+    topic: "Foco Estratégico",
+    quote: "A palavra prioridade entrou na língua inglesa no século XV no singular, indicando a única coisa que importava. A loucura de usá-la no plural <strong>'prioridades'</strong> só surgiu quatrocentos anos depois.",
+    author: "Essencialismo Histórico",
+    searchQuery: "greg mckeown essencialismo prioridade singular",
+    audioId: "476580dfaab639fe9882ec37eb70c9c8.wav"
+  },
+  {
+    topic: "Biohacking",
+    quote: "A luz azul das telas de celular à noite não faz apenas os seus olhos doerem. Ela sinaliza para o relógio do seu cérebro que ainda é meio-dia, <strong>matando a sua produção de melatonina instantaneamente</strong>.",
+    author: "Ritmo Circadiano",
+    searchQuery: "luz azul sono melatonina ritmo circadiano celular",
+    audioId: "ccfd4baadabd508b4a901028175fb481.wav"
+  },
+  {
+    topic: "Arquitetura e Urbanismo",
+    quote: "Cidades projetadas em torno do carro destroem o senso de comunidade. A verdadeira rua não é um tubo de passagem rápida, é <strong>o palco central da convivência e civilização humana</strong>.",
+    author: "Cidades para Pessoas",
+    searchQuery: "jane jacobs urbanismo sustentavel mobilidade urbana",
+    audioId: "532e549dde6d349c50fc188e9592fbf0.wav"
+  },
+  {
+    topic: "Sociologia da Religião",
+    quote: "Os mitos antigos não eram tratados como fatos científicos a serem comprovados no laboratório. Eles eram <strong>arquétipos vivos ensinando verdades morais sobre a natureza da alma humana</strong>.",
+    author: "Mitologia Comparada",
+    searchQuery: "joseph campbell religiao vs mito jung arquetipos",
+    audioId: "b875d7286a13ff1333060f5bbb12bb75.wav"
+  },
+  {
+    topic: "Inovação Disruptiva",
+    quote: "A Kodak não faliu porque ignorou a fotografia digital. Ironicamente, eles inventaram a primeira câmera digital da história, mas <strong>esconderam o projeto com medo de perder a venda de filmes fotográficos</strong>.",
+    author: "O Dilema do Inovador",
+    searchQuery: "por que a kodak faliu inovacao disruptiva gestao",
+    audioId: "0c9f78c91d04952e2159dd18407bbf0b.wav"
+  },
+  {
+    topic: "Geopolítica",
+    quote: "A geografia dita o destino das nações. Países abençoados com muitos rios navegáveis inevitavelmente se tornam potências comerciais, porque <strong>o transporte por água é infinitamente mais barato do que por terra</strong>.",
+    author: "Determinismo Geográfico",
+    searchQuery: "tim marshall prisioneiros da geografia rios navegaveis",
+    audioId: "bf77f0dd05e387da62059939ec50980e.wav"
+  },
+  {
+    topic: "Filosofia da Mente",
+    quote: "Se substituirmos cada neurônio do seu cérebro, um por um, por microchips perfeitos, <strong>você ainda seria você mesmo, ou a sua consciência original deixaria de existir?</strong>",
+    author: "O Paradoxo do Navio de Teseu",
+    searchQuery: "consciencia navio de teseu filosofia da inteligencia artificial",
+    audioId: "621397a00ca18468c1fc0b6bf9708633.wav"
+  },
 ];
