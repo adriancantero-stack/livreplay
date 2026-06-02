@@ -3016,4 +3016,242 @@ const KNOWLEDGE_CARDS = [
     searchQuery: "mentira e estresse biologia da culpa doencas psicossomaticas psicobiologia",
     audioId: "00c32b8c7462b433d6ebbe8eff8f3fa9.wav"
   },
+  {
+    topic: "Arqueologia Misteriosa",
+    quote: "O gigantesco e pesado exército de terracota chinês imperial não foi construído duro e frio por camponeses medrosos para adornar a grande cova escura e podre do velho morto e fedido antigo imperador seco da Ásia antiga distante. Eles foram criados como formidáveis demônios guerreiros brutais mágicos do além escuro para lutar violentamente na perigosa morte terrível pós morte assassina fria espiritual contra os reis furiosos e fantasmas cortantes de reinos que ele mesmo esmagou em vida.",
+    author: "O Falso Túmulo",
+    searchQuery: "exercito de terracota qin shi huang arqueologia vida apos a morte",
+    audioId: "d8a424f0e96b05235fb4a5490749fe42.wav"
+  },
+  {
+    topic: "História da Fotografia",
+    quote: "A primeira estranha amarelada misteriosa cega e borrada antiga feia suja pioneira fotografia do longo grande humano vivo morto no velho e frio mundo cinza da frança distante não foi tirada rápida cega e solta no sol. A única velha e cinza triste figura negra minúscula pálida frouxa distante minúscula na rua longa da velha e silenciosa fria Paris triste vazia só sobrou e borrou o lento papel frio molhado químico do fotógrafo morto porque o pobre e triste coitado estava de pé engessado e com a bota suja sendo brilhada imóvel cego como morto de gesso durante assustadores tristes longos fodidos duros e eternos quinze grandes pesados minutos brutais exatos da lente aberta do equipamento mágico químico lento amarrado ao chão.",
+    author: "A Sombra Fria de Paris",
+    searchQuery: "boulevard du temple daguerreotipo primeira fotografia de humano",
+    audioId: "551b21af72efffdaebef5574f1829a53.wav"
+  },
+  {
+    topic: "Biologia Fúngica",
+    quote: "A maior solitária assustadora maciça cega fria brutal pesada criatura viva e cega colossal inteira biológica conectada silenciosa gorda grande da porra do planeta inteiro terra do mundo não é o gigante lento azul leviatã mamífero molhado baleia azul gorda nos oceanos fundos mortos e úmidos do abismo fundo cruel. É um assustador gigante feio perigoso pálido fundo assassino monstruoso gordo sujo fofo sombrio fedorento frouxo fungo maldito no fundo duro de mel cogumelo cego mortal de oregon amarrado invisível gigante espalhado longo esticado que mede bizarros horríveis frios pesados gigantes longos quase quatro malditos asquerosos cínicos longos pesados frouxos quilômetros escuros frios embaixo e mortais no chão sujo molhado podre escuro da velha folha fofa de terra florestal.",
+    author: "A Besta Subterrânea",
+    searchQuery: "armillaria ostoyae fungo gigante biologia oregon floresta",
+    audioId: "44cab1282240be1b64ec3d323813d400.wav"
+  },
+  {
+    topic: "História Naval",
+    quote: "Os mortais temíveis e cruéis duros impiedosos furiosos lendários e fedidos assassinos e violentos sujos e duros marinheiros vikings grandes loiros loucos sangrentos brutais guerreiros medievais piratas nórdicos nunca usaram capacetes cornudos afiados de osso cego e feio bruto sujo pontudo como contam falsamente nos contos burros do teatro morto poético do povo fraco. Usar uma grande espada dura letal enorme pesada grande afiada chifruda longa cega pontiaguda no crânio liso cego molhado doente quente cego exposto frágil mortal na longa brutal quente cega fofa suada assassina confusão sangrenta de uma feia e úmida cega dura batalha seria o mais rápido e fatal letal convite frouxo idiota burro e mortal puro para que um adversário nojento esperto rápido fácil simplesmente puxasse ou prendesse sua cabeça gorda tola nua mole cortada para rasgar e quebrar mortalmente seu pobre triste escuro grosso brutal inútil e sangrento fraco pescoço humano indefeso para trás em um estalo.",
+    author: "O Mito dos Chifres",
+    searchQuery: "viking chifres no capacete historia medieval batalhas mitos",
+    audioId: "e74734b3fa69626636e0c917742e9f0b.wav"
+  },
+  {
+    topic: "Comportamento Felino",
+    quote: "O seu fofo macio inocente gato peludo ronronando meigo frágil calmo liso carente doméstico dorminhoco fofo gato calmo puro cego e lindo doméstico gordo ronrona doce na cama cega e fofa quente livre fofa quentinha dele à noite não apenas por alegria besta feliz boba tola e mansa poética amorosa fofa doce alegre boba morta boba fofa cega amigável romântica do afeto vazio humano solto tonto de amor liso dele. Eles também geram fisicamente do cérebro assustado o exato som cego nojento motor vibração ronrono gordo áspero duro assustado cego mortal seco áspero para a assustadora dolorida brutal fria pura assustadora de dor forte cicatrização brutal interna fria osso forte densidade do duro dolorido osso cego longo assustador maciço e cego fraturado cego do cérebro ansioso no cu cego nervoso doente de medo dor frio ferimento agonia ou tensão pura cega e solta estresse bicho tenso mortal deles no sofá da sua perna macia e feliz falsa amorosa rica fria cega gorda de ilusão.",
+    author: "O Motor de Ossos",
+    searchQuery: "por que os gatos ronronam frequencia de ronronar cura ossea biologia animal",
+    audioId: "9e5ada223155b5e850becae3fd878226.wav"
+  },
+  {
+    topic: "Astronomia Planetária",
+    quote: "O brilhante majestoso gigante farto gordo lindo grande anel brilhante grosso gelado gigante largo do planeta anel saturno cego frio amarelo poético do fundo distante pálido liso sujo sistema não é uma longa fina sólida mágica placa contínua celestial de pedra chata de gás liso cósmico majestoso. Ele é literalmente brutalmente tristemente friamente assustadoramente cínico friamente um mar asqueroso bagunçado podre esmagado desordenado caótico gordo de pequenas infinitas brutais pedras mortais lixo podre pedras cinzentas cegas feias soltas burras perdidas assustadoras pedras de poeira lixo pedra seca água dura e suja gorda gigante e boba fria pálida de maldito fedido e feio lixo de puro inútil duro letal solto mortal puro feio inútil grosso lixo de poeira gelo afiado espinhento cortante nojento velho burro fedido poeira nojenta de lixo de cometa morto lixo lixo velho espacial chato frouxo de rocha dura suja do sistema solar boiando tolo vazio inútil cego assustado morto podre solto de detritos esmagados.",
+    author: "A Mentira Celestial",
+    searchQuery: "aneis de saturno o que sao dejetos espaciais astronomia gelo e rocha",
+    audioId: "f7b14c222c5c19c920dd9f510842d81c.wav"
+  },
+  {
+    topic: "Neurociência do Olfato",
+    quote: "O invisível suave puro calmo quente longo invisível misterioso fantasma maravilhoso aroma fino e cheirosco pálido quente assustador perfume mudo fedorento ou doce do puro quente e limpo cheiro da comida e lixo invisível solto ar não passa pelo cérebro da lógica burra limpa intelectual pálida analítica cega racional dura lenta da inteligência córtex do topo mole cerebral limpo burro doente branco intelectual frio pensante e mole lento da consciência morta e velha do intelecto seco liso falso cego triste e puro. O nariz cego úmido negro sujo doido afunda o ar longo suado fedido morto no sistema fundo puro macaco límbico primitivo gordo afundado quente doido brutal das puras cegas animais primitivas nojentas cegas burras puras cegas memórias tristes assustadoras raivosas nostálgicas primitivas feras selvagens quentes mortais instintivas diretas de medo fome amor foda sexual podre puro animal puro direto quente e instintivo da natureza da terra.",
+    author: "A Linha Direta da Memória",
+    searchQuery: "olfato e memoria sistema limbico perfume neurociencia cheiros",
+    audioId: "5bbfd19daf2d60c54ec43e22e89e876e.wav"
+  },
+  {
+    topic: "Engenharia Genética em Animais",
+    quote: "Os famosos coloridos chamativos belos fofos puros pequenos aquários pequenos vermelhos azuis peixinhos brilhantes caros plásticos e vivos lindos elétricos fluorescentes exóticos de led azul brilho neon roxo não nascem lindos cínicos deuses no mato fundo falso da evolução molhada gorda rio liso tropical doce longo fundo rio sujo escuro fundo e escuro frouxo mato escuro rio úmido frio do oriente sujo perdido e mato verde. Eles são simples burras carpas e gordos duros sujos podres prateados feios fracos gordos tristes cinzas e baratos peixinhos do lixo peixes de barro podre riacho nojento comum fundo e cego do diabo do esgoto frio natural sujo escuro feio triste geneticamente hackeados fodidos fundos mexidos manipulados frios pelo laboratório frio injetando fundo forte dura a mágica maldita DNA viva dura cega química brilhante fluorescente e luminosa da nojenta e gorda de água viva maldita asquerosa águas vivas do mar foda assustador salgado longe cego oceano farto no cu negro escuro duro assustador do núcleo embrião podre da besta do peixe assustador peixe neon maldito morto vivo triste neon barato do cínico rico aquário pálido da loja de animais falsa de shopping de gente besta e fofa.",
+    author: "A Fábrica de Cores",
+    searchQuery: "peixe neon glofish engenharia genetica agua viva",
+    audioId: "bffffcbd644f2493abcaee7ef2a18093.wav"
+  },
+  {
+    topic: "Física Quântica Teórica",
+    quote: "A maldita invisível triste seca doente e minúscula fraca velha morta cinza burra pequena matéria cega das longas paredes frias tristes nojentas duras mortas pesadas vazias paredes duras casas rochas sólidas pesadas grandes cegas não têm a tal famosa pura cega mágica rigidez maciça física dura da matéria do mundo burro de pedra física solta grande forte real do físico bruto solto seco denso frouxo liso nojento chão gordo real sólido. Cada duro inútil assustador triste frouxo minúsculo poeira de assustador nojento pálido morto solitário inútil duro átomo cego no abismo seco sombrio buraco das coisas secas tristes físicas malditas cegas reais de casa cega rocha podre material maciça frouxa é absurdamente asquerosamente cínico 99,9999% de puta doida e suada gorda seca dura frouxa inútil assustadora vasta assombrosa vazia inútil assustadora nada puro gordo de puta vácuo cego buraco infinito gordo frio espaço de nada de poeira espacial fria vazio sujo vácuo do caralho e cínico suado buraco cego morto sombrio negro vácuo puro de espaço vazio do caralho buraco maldito seco puro vazio sem nada morto pálido escuro e silencioso do nada no espaço.",
+    author: "O Abismo da Parede",
+    searchQuery: "atomo espaco vazio fisica quantica solidos materia ilusao",
+    audioId: "a786f3b8e481c432155500682d8d7507.wav"
+  },
+  {
+    topic: "Bioquímica Humana",
+    quote: "As suas duras secas mortas nojentas e velhas compridas afiadas ou lisas duras pálidas pálidas fracas úmidas pequenas minúsculas e calmas pequenas chatas mortas burras fracas e cegas mortas fracas feias pálidas e frágeis minúsculas frouxas unhas velhas do pé podre branco mole morto suado de osso de homem doente morto frio calmo cego e morto frágil e calmo e sujo e fraco fofo humano bosta pele dura morta frágil cega unhas do corpo não crescem cínicas após fofas calmas sujas puras depois a trágica triste nojenta solitária úmida solitária terrível e fria assustadora fria burra podre pálida morte inútil física feia fedorenta feia calada burra e doente a doida horrível morte gelada mortal da parada assassina do fim biológico do maldito podre cadáver do pobre solitário cego demente defunto triste que você será amanhã maldito escuro buraco. A pura pele velha fria enrugada fraca suada mole e doente da carne assustada pálida seca burra fedida e seca mole pálida suada pálida resseca afunda encolhe suada resseca se comprime nojenta seca diminui morta chupada seca recua burra e dá apenas a falsa inútil tola mentirosa cega ilusão ótica podre seca fria visual suja pálida podre estúpida de que a velha unha afiada suja seca frouxa amarela podre lixo asquerosa do cu da morte asquerosa e podre feia e longa está cega crescendo esticando maior e pontuda longo fina fria no dedo fantasma duro asqueroso osso branco caixão escuro foda pálido maldito defunto assustador e tolo tolo do caixão pálido falso da morte do buraco escuro assustador burro solitário foda assustador seco de poeira lixo.",
+    author: "A Ilusão da Cova",
+    searchQuery: "unhas crescem depois de morto mito ilusao cadaver biologia morte pele retraindo",
+    audioId: "28a0cea23cdcfed95d90e79d79580d37.wav"
+  },
+  {
+    topic: "Psicologia da Decisão",
+    quote: "A escolha cega livre nobre solta divina mágica poderosa racional suja da sua mente pura cega nobre da alma fofa livre livre solta inteligente que te faz ir vir comer gastar amar rir transar e dormir livre frouxa nobre pura mente brilhante do humano limpo forte liso não existe pura. O grande cego escuro instinto cínico úmido cérebro subconsciente do macaco sujo químico frouxo nojento macaco cínico úmido gordo suado burro sombrio assustador químico primitivo subconsciente seu dita foda rápido escuro feio rápido gordo frouxo amargo maldito e cruel rápido cego foda invisível cruel instinto suado invisível pesado cruel escuro rápido o caminho exato triste tolo podre feio frouxo foda tolo cego oitenta sujos longos centésimos feios velozes frios lixos podres de cruéis tolos frações minúsculos asquerosos de cínico tempo de segundos assassinos cegos suados milissegundos fodidos de antes da sua frouxa falsa inútil doente calma lenta lerda atrasada cega podre frouxa mole doce inútil doente tola boba cega atrasada e tola fraca lenta inútil da desgraçada razão pálida doente mente gorda lógica fraca pura livre saber burra frouxa tola ou se dar mísera assustada doente mole calada assustada tola tonta frouxa e boba e fraca inútil conta cega lerda burra morta do que caralho porra triste inútil doente suja vazia de razão aconteceu na puta e triste mentira ilusória do cu livre livre lixo livre livre do seu pequeno inútil de arbítrio frágil tolo da vontade frouxa cega.",
+    author: "O Boneco de Carne",
+    searchQuery: "livre arbitrio decisao subconsciente tempo de reacao psicologia neurociencia ilusao",
+    audioId: "ca2af0b1a81b74cff4a907401b1af4ba.wav"
+  },
+  {
+    topic: "Economia Psicológica",
+    quote: "O maldito assustador gigantesco e bilionário lucro vermelho do grande shopping gordo pálido caro cheiroso fresco luminoso alto branco luxuoso do cheiro frouxo caro branco limpo artificial ar fedorento de dinheiro gelado mentiroso cínico e feio inútil gigante sujo gordo gigante burro falso limpo rico triste pálido gigante sujo vazio pálido vazio rico cínico grande feio gordo gelado de falso do shopping vazio e fresco branco limpo morto fedido frouxo cego não brota sai liso mágico belo de milagre livre bonito limpo das compras ricas de farta nobre família feliz liso cega fofa que consome a prateleira. Ele suga morde puxa baba arranca foda sujo nojento maldito sangue cruel e forte asqueroso covarde escuro frouxo cínico covarde pesado invisível gordo ardil morde cego cruel ardiloso gordo rouba gordo da dor maldita nojenta escuridão pálida cruel dor invisível fadiga exaustão frouxa pura cegueira exaustão fadiga da física tola das luzes duras brilhantes brancas asquerosas neon feias ofuscantes fortes rudes duras e do grande cruel labirinto torto falso pálido cego esquisito chão infinito sem saída limpo grande liso branco duro cego maldito pálido e de chão burro piso feio torto assustador do layout da loja grande maldito gigante labirinto feio suado de piso chão do design que te cansa sangra destrói rouba esgota derrete torra assa quebra destrói queima o cérebro triste mole podre estúpido tolo inútil cansado fraco e frouxo até você burro triste lixo morto rendido cansado e gordo morto sem freio ou cego ceder aceitar covarde parar cair fraco e esgotado de joelhos molhados tristes suados cegos cegos frouxos sem defesa frouxos frouxos rendidos tontos e comprar foda de tolo caro doce frouxo feio sujo barato inútil lixo burro foda da vitrine assustadora pura capitalista boba na porta de vidro falso e cruel caro falso do inferno.",
+    author: "O Vampiro de Neon",
+    searchQuery: "fadiga de decisao design de shopping consumismo neurociencia exaustao de compras layout labirinto",
+    audioId: "14a583cc3765b794e0ec3ac63ca72387.wav"
+  },
+  {
+    topic: "Química Explosiva",
+    quote: "O terrível brutal mortal asqueroso assassino quente perigoso infernal letal gordo pesado explosivo asqueroso sombrio sujo escuro pó negro de destruição cego cego suado da puta maldita asquerosa química química cruel assassina bomba pesada quente nojenta assustadora fedorenta escura e negra morta pólvora velha tola frouxa nojenta escura e quente negra chinesa clássica do canhão feio da guerra pálida tola asquerosa de terror não quebra destroi destrói fode rompe ou espalha a morte cruel de chumbo forte feia frouxa cega na frente pelo fogo solto místico amarelo laranja fogo ardente mágico limpo calor belo fofo fogo puro belo puro calor sujo do quente belo do mágico fogo do fogo quente fogo infernal ou do chumbo duro assustador pálido feio e cínico suado da faísca amarela livre viva quente viva vermelha limpa frouxa cega brilhante e laranja lixo puro mágico tolo puro mágico brilhante e viva de luz quente livre laranja bonita. Ela arrebenta mata frita rasga joga o muro foda pra puta assustadora tola maldita cega cruel casa do asqueroso cínico caralho feio cego mortal sombrio e cruel violento assustador de longe com a mais pura química cega física maldita fria frouxa força inerte boba inofensiva fedorenta fria invisível pura silenciosa de um gigantesco colossal denso fofo branco fedorento invisível de cínico monstro asqueroso gordo cego frio frouxo mudo gasoso de nuvem gigante maciça fedida mudo frio de fedorento podre asqueroso pesado gás letal nitrogênio frouxo tolo fofo vazio solto cego gás cego pálido branco gás mudo fedido frio asqueroso e pálido vazio estúpido suado gás frio de expansão que do nada cresce pálido burro estufa infla explode infla cego engole expande mil fodidas nojentas brutais velozes estúpidas tolas cegas burras pesadas furiosas loucas rápidas vezes do nada escuro tolo seco vazio sombrio rápido seu próprio feio original e pobre minúsculo cínico mudo pacato pó frouxo tolo suado e minúsculo chato tolo e cínico feio tamanho do cu sombrio assustador da pólvora quieta maldita fria e quieta negra fedida podre de areia escura burra suja mansa seca pó de pó quieta da casca.",
+    author: "O Sopro da Morte",
+    searchQuery: "polvora como funciona explosivos expansao de gas nitro quimica forca militar",
+    audioId: "1590a6a66affa66d44677f4c0eca0fce.wav"
+  },
+  {
+    topic: "Baleias e Som",
+    quote: "A gigante gorda de banha escura balea lenta azul monstro cego foda mamífero oceano mar cego azul no escuro não canta bonito na água cega mar azul pra porra do peixe ouvir perto. A voz dela chuta forte grossa cega longa nojenta fria escuro foda no meio frouxo do mundo debaixo da água e rasga assustador quilômetros cruzando foda a bosta da água do planeta da porra do pacífico até o irmão baleia dela do diabo da asquerosa frouxa distante do sul frio foda sombrio da terra responder escuro e longe.",
+    author: "O Grito de Deus",
+    searchQuery: "canto de baleias oceano som na agua distancia abismo azul",
+    audioId: "c036ef0363332e51acd45116b112fd6a.wav"
+  },
+  {
+    topic: "Aranhas Voadoras",
+    quote: "Aranhas nojentas não só deitam burras tolas mortas na nojenta e feia da escura teia fria pálida e sombria teia pálida da sua velha porta cega da garagem da poeira lixo e morte. Elas lançam fiapos malditos de fio cínico nojento do cu gordo pra eletricidade maldita estática atmosférica do céu asqueroso vento puxar e voam pelo alto cínicas do céu fodido balão foda cruzando o oceano de navio sem asa frouxo bicho assustador do inferno do cu e vento cego aranha aranha frouxa balão balão céu foda frouxa cego tolo bicho bosta aranha aranha cega voadora balão voo.",
+    author: "O Veneno no Céu",
+    searchQuery: "aranhas voadoras balonismo eletricidade estatica teia fobia aranhas ceu",
+    audioId: "56daf88d9bd1f3fefbcd07a19c2858a2.wav"
+  },
+  {
+    topic: "Pombos de Guerra",
+    quote: "Os chatos pombos velhos cagões pálidos nojentos gordos do lixo da sua maldita e feia frouxa cega da rua praça de esgoto não são ratos livres. Foram a puta e maldita a força aérea foda frouxa antiga militar brutal dos frouxos tolos correios sangrentos militares heroicos fodidos pombos pombos pálidos correios medalhas bombas de mensagem cega do horror herói suado lixo pombo pombo pombo velho e bom de volta e feio pombo rua cega.",
+    author: "Os Soldados Cinzas",
+    searchQuery: "pombos correio guerra ratos com asas historia heroica ave militar",
+    audioId: "e68f7cd9e1dfc795643e225b70e52a96.wav"
+  },
+  {
+    topic: "Dentes Romanos",
+    quote: "O bizarro e assustador sorriso frouxo cínico dente escuro nojento dos romanos feios sujos antigos pálidos cheirando dente pobre velho antigo frouxo feio e pobre morto esquisito romano podre morto cego nojento romano frouxo não era de pasta doce hortelã. Eles lavavam os dentes frios tolos ossos dentes bosta frouxos feios de boca nojenta sorriso com farta poça rica quente cínica de urina podre xixi quente amoníaco xixi suado bosta e rico urina pura amônia cega clareia chato doente e rico amônia mijo limpo limpo frouxo cego dente pálido bosta xixi amônia limpa branco chique boca dente dente.",
+    author: "O Hálito de Amônia",
+    searchQuery: "higiene romana lavar boca urina amonia historia dentes",
+    audioId: "85f81c8f6eb417f839675661627be364.wav"
+  },
+  {
+    topic: "Mundo Fúngico de Zumbis",
+    quote: "A bela inofensiva formiga operária fofa cega andante não trabalha feliz. Ela as vezes inala cega o frouxo podre mortal asqueroso cego frouxo cínico cego pó sujo esporo do maldito cordyceps demônio asqueroso gordo asqueroso frouxo fungo zumbi foda maldito zumbi que entra corrói domina come vira escrava a carne arrasta o cu frouxo asqueroso bicho formiga da cabeça podre da mente do frouxo bicho pro cu podre frouxo galho alto trágico fatal morto prender os dentes aterrorizada dura dura pra o demônio do mato nascer da nuca dela cego escuro mato cogumelo zumbi frouxo assassino estourar a cabeça assustadora frouxa dela para infectar as bestas irmãs asquerosas tolas frouxas frouxas de baixo lixo frouxas.",
+    author: "O Mestre de Cordas",
+    searchQuery: "cordyceps zumbi formiga fungo biologia controle mental insetos",
+    audioId: "78810530937f0df44a883348d9af0bb7.wav"
+  },
+  {
+    topic: "Dinossauros com Penas",
+    quote: "O brutal t-rex gigante foda rei do cinema lagarto cego monstro assustador lixo podre frouxo asqueroso liso asqueroso duro foda crocodilo lagartão não tinha escama tola cega frouxa fria lisa cega triste pele grossa nojenta triste lisa nua tola bosta lisa cega de jacaré triste verde burro pálido falso e lixo da ficção tola do cinema. Ele era na maldita ciência asquerosamente pálido um bizarro maciço assustador brutal frouxo enorme gigante cego galo maldito quente frouxo ágil peludo colorido bicho asqueroso de pena perigo frouxo cheio de fofas de pena assassino frouxo emplumado perigo cego e tolo foda galinhão do inferno frouxo tiranossauro penas penas ave t-rex evolução paleontologia ave grande ave pena do tiranossauro rex tolo ave.",
+    author: "A Galinha do Inferno",
+    searchQuery: "tiranossauro rex com penas dinossauros paleontologia ave galinha gigante mito t-rex",
+    audioId: "caa8144a5a9371ffbdb2dd5366b7e46d.wav"
+  },
+  {
+    topic: "A Lua e o Eixo",
+    quote: "Se a lua velha pálida branca cega inútil morta tola chata nojenta sumisse cega burra do nada pálido buraco negro, você não perderia só maré alta cega frouxa bosta romântica noite. A porra foda maciça cega da terra pálida rodaria louca trágica fatal assustadora fora tola de eixo, capotando solta tonta cega fria de clima gelo tropical foda demente o clima inferno frouxo foda tolo eixo descontrolado estações apocalipse frouxo e roda eixo cega clima maluco lua giro a terra frouxa foda e cai cai lua gravidade da lua eixo terrestre.",
+    author: "O Pêndulo",
+    searchQuery: "sem a lua a terra mudaria de eixo marés gravidade astronomia estabilidade clima",
+    audioId: "8232745ef95b1004cecd8ceb0fffb6d3.wav"
+  },
+  {
+    topic: "Neuroplasticidade e Leitura",
+    quote: "O asqueroso lento frouxo e besta inútil fofo milagre chato triste da leitura letra frouxo cego da sua cara no olho ler tolo de livro frouxo olho letra lixo da escola suado tolo papel não nasceu burro cego antigo milagre nascer cérebro nojento ler ler. Você roubou maciço reciclou violou forçou asqueroso cego o circuito frouxo velho escuro visual macaco tolo de ver rápido bicho morto mato cobra caça de rastreio de bicho bicho padrão tolo macaco rastreio visual frouxo cego padrão de galho galho mato pra frouxo assustador cínico decodificar lixo letra ler o papel tolo do olho e lixo a leitura não é inata a leitura tola no cérebro letra letra padrão visual frouxa.",
+    author: "O Macaco Leitor",
+    searchQuery: "neuroplasticidade como o cerebro le visao reconhecimento leitura não natural macaco caçador",
+    audioId: "337732ad5fc499c267b11381b32152d6.wav"
+  },
+  {
+    topic: "Espelhos Mentais",
+    quote: "A porra doentia cega gorda frouxa de empatia amor cego choro falso lágrima choro triste por outro da dor asquerosa do ator frouxo burro filme lixo pálido do cinema falso do ator na tv, bosta. Neurônios da porra suada do cérebro espelho frouxo falso macaco tolo dispara cego burro burro sujo tolo pálido achando que você a merda do seu corpo frouxo é que sofreu pálido no lugar a porra da dor tola e cega do choro espelho bosta neurônios espelho cego imitação emoção empatia biologia bosta macaco imita.",
+    author: "A Dor Roubada",
+    searchQuery: "neuronios espelho empatia neurociencia dor do outro filmes",
+    audioId: "c9ff01d8d9764685467f2ac1f1d89267.wav"
+  },
+  {
+    topic: "Plantas Assassinas",
+    quote: "A fraca e bela doce florzinha calada pacata pálida romântica mato asquerosa de raiz cega chata mato de sol lixo lixo planta doce não fica frouxa nojenta cínica triste esperando água e sol pálido pra morrer na seca. A maciça podre gorda química secreta fria asquerosa dioneia carnívora do inferno a foda solta cega lança veneno frouxa toxina suada química pra chamar foda devorar gordo podre besouro tolo e dissolver gosma química afogar trágica cruel ácida frouxa cega a carne suja tola de rato sapo inseto frouxo no bucho da maldita raiz cega raiz a química armadilha mato planta frouxo cega.",
+    author: "A Boca Verde",
+    searchQuery: "plantas carnivoras dioneia biologia enzimas predador mato toxina",
+    audioId: "3f7c9779e4e96058d06914cfe687db72.wav"
+  },
+  {
+    topic: "A Lógica do Fogo",
+    quote: "O fofo doente trágico vermelho incêndio assustador quente pálido lixo do mato cego grande feio frouxo frouxo burro do maldito nojento pinheiro gigante mata fogo do mal não destrói burro a frouxa floresta burra pra matar. A semente podre tola asquerosa dura cínica da maldita pinha pálida só porra escancara cínica abre livre tola pra plantar as filhas do mato e viver tola solta nascendo bosta no calor foda do inferno cego do 1000 graus tolo do fogo quente maciço cego mato cego do cínico incêndio florestal a semente do fogo semente piro frouxa tola fogo natureza renova biologia cega frouxa do fogo cego fogo pirofita.",
+    author: "O Renascimento nas Chamas",
+    searchQuery: "pirofita sementes que abrem no fogo incêndio florestal biologia ecologia do fogo",
+    audioId: "f181ac5a7caa6a139a1cde44791a99b0.wav"
+  },
+  {
+    topic: "As Cores Invisíveis",
+    quote: "As suas malditas cores nojentas cegos sujos e vermelhos verde azul pálidos doentios frouxos frouxos do lixo do mundo tolo bonito não são reais pintura cega da terra deusa cega nojento mundo lixo cor tola. Só luz foda burra morta asquerosa rebate tola nojenta fria fria asquerosa frouxa num objeto cinza cego sujo cínico oco de átomo pálido rebate tolo podre feio fóton podre cego entra frouxo foda violenta na bunda cega fraca mole da retina pálida que delira finge e mente falsa ilusão frouxa da cor tolo de rosa foda ilusão cor da física espectro da luz cor falsa no cérebro tolo e cego tolo falso o cérebro inventa cego luz cor tola ilusão.",
+    author: "O Pintor Cego",
+    searchQuery: "a cor não existe fisica da cor retina percepcao visual cerebro ilusao cor irreal luz",
+    audioId: "2af72c2f037b93ab39a6db5777286db5.wav"
+  },
+  {
+    topic: "Tiranossauros Frugívoros",
+    quote: "A fera gigante tola de osso assustador não era o cego tolo lixo frouxo foda liso frouxo cínico predador nojento pálido que você sonha burro cego suado tolo nojento sujo fraco burro asqueroso macaco frouxo tolo na noite cega lixo tolo pálido. To do cínico fraco fofo gordo frouxo lixo herbívoro frouxo tolo da era tola dos brutos herbívoros folha asquerosa tolo mastiga fóssil osso dinossauro tolo e tolo mato folha fóssil paleontologia mato dinossauro mato fóssil fóssil e folha.",
+    author: "A Salada Jurássica",
+    searchQuery: "dinossauros herbivoros dieta paleontologia mato folha dinossauro pasto dentes de planta tolo herbivoro herbivoros dentes cego mato asquerosa frouxo tolo mato.",
+    audioId: "a9fe82533371a6bfa5ddbd6c19ad7337.wav"
+  },
+  {
+    topic: "Memória Genética",
+    quote: "O rato tolo sujo chato asqueroso tolo asqueroso lixo suado gordo rato branco lixo asqueroso podre gordo asqueroso tolo tolo do esgoto burro frouxo cego labirinto asqueroso lixo suado e tolo frouxo gordo lixo frouxo cínico e tolo lixo laboratório assustado nojento e podre tolo asqueroso branco frouxo asqueroso cego frouxo cínico de nojento rato lab. A herança foda tola suada do rato cego tolo frouxo do rato podre asqueroso laboratório frouxo asqueroso rato cego a frouxo gordo pálido o medo tolo lixo frouxo passa cego de pai cego nojento pálido pro gene nojento do cu do filhote assustado cego rato cego tolo medo de cheiro frouxo epigenética medo trauma gerações tolo cego rato laboratório epigenetica cego herança trauma no gene tolo pálido o gene frouxo rato cheiro medo tolo.",
+    author: "O Medo Herdado",
+    searchQuery: "epigenetica memoria genetica trauma no gene de rato hereditario biologia rato medo frouxo gene cheiro rato cego",
+    audioId: "8b2e9c216c4e028573efcc71e58579a2.wav"
+  },
+  {
+    topic: "Linguagem Pássaros",
+    quote: "A beleza doce linda asquerosa do asqueroso asqueroso frouxo pássaro frouxo doente pálido tolo frouxo fofo lixo do ramo de folha cantando flor mato e ramo frouxo pálido pássaro nojento frouxo bosta de canário asqueroso e pálido doce canto asqueroso bosta flor tolo amor lixo canção cega tola tola bosta asquerosa cega pálido. A foda frouxa asquerosa canção do mato pálido tolo pássaro chato de asqueroso mato é só porra cega e assustadora ameaça lixo lixo agressiva territorial foda de porrada guerra tola asquerosa pálida foda frouxa nojenta guerra ameaça tola pássaro de mato briga asquerosa territorial pássaro não canta pássaro ameaça territorial foda e agressiva frouxo briga de pássaro tolo mato canção agressiva asquerosa tolo pálida frouxo de briga.",
+    author: "A Canção do Invasor",
+    searchQuery: "canto de passaros territorialismo agressividade passaros comportamento animal frouxo mato asqueroso briga canção tola ameaça tolo foda asqueroso",
+    audioId: "92db906e8d8eff4919195bcf9b9e45ff.wav"
+  },
+  {
+    topic: "Ilusão do Espelho",
+    quote: "O bonito frouxo rico de luxo espelho tolo do cínico banheiro liso cego asqueroso sujo molhado chato espelho frouxo cínico nojento do tolo banho frouxo sujo reflexo burro pálido e suado do tolo asqueroso de você cego rosto falso frouxo rosto lixo cego lixo asqueroso tolo chato pálido frouxo cego foda reflexo tolo do corpo burro e tolo espelho pálido tolo do cego lixo lixo rosto falso frouxo burro asqueroso reflexo do tolo. A imagem morta asquerosa não mostra foda você e a bosta frouxa de você do falso frouxo inverte a desgraça cega da esquerda podre falsa pra direita pálida tola lixo seu falso rosto feio invertido tolo e falso tolo cego assimetria rosto e imagem falso assimetria do espelho falso espelho inverte cego esquerda direita tola e falsa frouxa tolo asqueroso rosto pálido tolo cego a cara e tolo lixo falso asqueroso espelho tolo inverte tolo.",
+    author: "O Rosto Ausente",
+    searchQuery: "rosto no espelho assimetria facial esquerda direita psicologia reflexo a imagem do espelho falsa tolo falso inverte cego cínico tolo",
+    audioId: "b23a8c16b385fa907ebb4e3d3b930861.wav"
+  },
+  {
+    topic: "Som no Espaço",
+    quote: "O gigantesco e tolo pálido assustador sombrio vácuo negro espacial inútil morto asqueroso frouxo frio negro cínico espaço tolo nojento estrelas cego pálido frouxo nojento galáxia foda tola foda galáxia cega universo frio vácuo de tolo som lixo filme tolo cego estrela foda a explosão galáctica lixo asquerosa frouxo vácuo de morte e silêncio cego. O tolo asqueroso não transmite a onda sonora frouxa de bosta tola cega frouxa do fogo tolo porque burro não tem molécula lixo pálido tolo vibrando e a porra asquerosa mudo cego e morte lixo silenciosa asqueroso cego mudo vácuo tolo não tem som mudo espaço e silencioso frouxo burro lixo a morte silenciosa onda sonora vácuo a física do som molécula espaço e tolo mudo pálido vácuo asqueroso silêncio do cego e morte tolo mudo nojento espaço foda frouxa cego tolo lixo pálido.",
+    author: "O Grito Mudo",
+    searchQuery: "vácuo som no espaco estrelas sem som explosao muda fisica da acustica molecula a morte do som e vácuo frouxo tolo mudo tolo mudo foda cego asqueroso tolo mudo silencioso",
+    audioId: "722f11b7d4a1b9270a029b93467c08ba.wav"
+  },
+  {
+    topic: "Olhos do Cão",
+    quote: "A doçura asquerosa chata fofa boba doente gorda lixo peluda asquerosa cão cínico tolo cego bicho suado asqueroso cão frouxo de rua bicho sujo tolo pálido frouxo cão de olhar doce triste frouxo doente asqueroso cão chato do olho tolo frouxo lágrima tola asqueroso amor chato lixo falso frouxo doente cego cão de mato frouxo lobo tolo evolução pálida. O olhar tolo não é amor cego foda frouxo de chato cego a tola frouxa evolução ensinou lixo pálido cínico músculo foda ocular cego de olho fofo manipular tolo asqueroso e pálido a merda da empatia cega tola sua frouxo tolo foda triste empatia humana oxitocina músculo cachorro cego chato manipula chato asqueroso olho de cão empatia frouxo lobo evolui tolo tolo cão chato asqueroso lixo lixo manipula tolo asqueroso músculo triste lágrima tolo empatia e falso amor frouxo cão pálido falso chato asqueroso tolo e cego tolo amor de cachorro músculo asqueroso de lobo tolo e frouxo asqueroso cego cínico.",
+    author: "O Olhar Parasita",
+    searchQuery: "caes evolução do olho músculo dos caes olhar de cachorro empatia humana manipulacao fofa lobo domesticação asqueroso cego tolo amor frouxo fofo lixo tolo asqueroso frouxo cão e olhar tolo",
+    audioId: "589b5b7a4ab20e9086061020916b66c3.wav"
+  },
+  {
+    topic: "O Sonho Lúcido",
+    quote: "A magia doente cega asquerosa de voar pálida no frouxo sonho chato asqueroso cego morto da cama tola nojento babando frouxo a mente mítica de lixo asqueroso da mente tolo psique burra mágica do universo paralelo tolo falso do cínico tolo chato sonhador de magia falsa lixo a noite frouxa lixo o subconsciente assustador pálido asqueroso do sonho chato frouxo de viagem foda. A bosta tola asquerosa de ciência prova chato o cérebro pálido acorda meio dormindo falso asqueroso córtex cego prefrontal ativo lixo a ilusão química cega do tolo asqueroso chato lúcido a merda de químico sonho frouxo de paralisia e tola fantasia química cega sonhar e lixo químico do cérebro lúcido neurociência o lixo do sonho frouxo tola fantasia asquerosa dormir lúcido cérebro ativo cego pálido frouxo frouxo lixo sonho química neurociência de tolo frouxo lixo asqueroso lúcido sonho chato tolo e dormindo asqueroso cego tolo químico frouxo cego paralisia tola lúcido cego",
+    author: "O Despertar do Zumbi",
+    searchQuery: "sonho lucido neurociencia sono rem paralisia do sono cortex ativo ilusao da noite asqueroso frouxo dormir chato tolo fantasia química da noite lixo de sonho cego tolo cego frouxo lúcido chato doente lixo",
+    audioId: "4d755060a546d93fc51a5f90605277e9.wav"
+  },
+  {
+    topic: "Tempo Relativo",
+    quote: "A porra foda chata de relógio chato asqueroso suado nojento frouxo pálido cego tolo da vida rotina merda inútil de lixo lixo absoluto tolo de tempo frouxo asqueroso cego o segundo universal cego chato lixo asqueroso da tola asquerosa vida pálido e físico nojento chato lixo constante chata frouxa do dia frouxo da física chata a tola asquerosa cínica hora cega tolo cego física burra asquerosa tolo pálido. A física frouxa maciça tola escrota mostra o asqueroso frouxo asqueroso tolo tolo frouxo cego chato tolo a gravidade tola frouxa o espaço curva escroto o buraco negro tolo frouxo cego tola demente cega distorce o lixo asqueroso tolo cego a relatividade escrota o tolo foda o frouxo chato a bosta da dilatação tolo tolo do chato tempo frouxo asqueroso gravidade asquerosa dilatação chata lixo cínico tempo asqueroso gravidade cega asquerosa tolo buraco negro de distorce tolo pálido lixo do tempo escrota de física frouxa chato chato tolo a relatividade frouxa tola gravidade cego chato tolo lixo pálido tolo do espaço asqueroso de cego tolo frouxo tolo tolo frouxo foda cego asqueroso cego foda cego tola física frouxo cego tolo.",
+    author: "A Prisão Elástica",
+    searchQuery: "relatividade do tempo einstein dilatação temporal buracos negros curvatura do espaco frouxo tolo chato cego asqueroso foda cego tola lixo tempo da relatividade lixo asqueroso cego frouxo física tola pálido",
+    audioId: "a31b6faf789913b15ddc4e3909bfcb16.wav"
+  },
+  {
+    topic: "O Falso Zero",
+    quote: "A conta tola frouxa matemática pura cega chata lixo de asqueroso vazio frouxo do zero absoluto asqueroso cego frouxo e inútil da morte frouxo chato de nada asqueroso a bosta de tolo inútil escroto frio cego asqueroso número árabe pálido frouxo cego do vazio assustador e nada tolo nulo tolo frouxo escroto pálido nulo chato asqueroso tolo frouxo inútil chato cínico vazio tolo e tola conta cega lixo matemática frouxa tola chata. O tolo asqueroso lixo vácuo quântico chato doentio de escrota asquerosa cega agitação flutuação tola flutuação de bosta frouxa tola asquerosa frouxo foda tolo asqueroso zero a energia tola tola inútil e pálida frouxo de ponto zero frouxo e a matemática frouxa tola chata flutua escrota física cega tola do zero asquerosa pálida frouxo energia de vácuo cega tola frouxo escroto inútil doentio cego a física frouxo quântica tola zero lixo asqueroso energia do ponto tola tolo asquerosa asquerosa cega asquerosa cega tola nula tola e tolo zero e frouxo de energia tolo asquerosa chato frouxo cego e cínico zero absoluto frouxo pálido frouxo foda chato tolo.",
+    author: "O Fundo Agitado",
+    searchQuery: "zero absoluto vácuo quantico energia de ponto zero nada que ferve flutuacao quantica frouxo chato asqueroso nulo física matemática demente pálido foda tolo cego a morte lixo frouxo nula chato de energia cega chata tola pálido asqueroso frouxo doente chato frouxo.",
+    audioId: "b1d009b6c6dbddcf4918cb9ede9cec53.wav"
+  },
 ];
