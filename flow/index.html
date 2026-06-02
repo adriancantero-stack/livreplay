@@ -621,6 +621,7 @@
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
                     nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    readCard(currentCardIndex);
                 }
                 setTimeout(() => { isAutoScrolling = false; }, 1000);
             }, 1000);
@@ -637,6 +638,7 @@
                 const nextCard = feedCards[currentCardIndex];
                 if (nextCard) {
                     nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    readCard(currentCardIndex);
                 }
                 setTimeout(() => { isAutoScrolling = false; }, 1000);
             }, 2000);
