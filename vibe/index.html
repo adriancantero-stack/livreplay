@@ -1160,5 +1160,23 @@
       }
     });
   </script>
+
+  <script>
+    // Capacitor Background Mode initialization
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.BackgroundMode) {
+        try {
+          await window.Capacitor.Plugins.BackgroundMode.enable();
+          await window.Capacitor.Plugins.BackgroundMode.updateNotification({
+            title: "LivrePlay",
+            text: "Reproduzindo áudio em segundo plano",
+            color: "1A1A1A"
+          });
+          console.log("Background mode enabled");
+        } catch (e) { console.error("BackgroundMode error:", e); }
+      }
+    });
+  </script>
 </body>
+
 </html>
