@@ -91,6 +91,10 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
@@ -862,6 +866,7 @@
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
       gap: 16px;
       overflow-y: auto;
+      scroll-behavior: smooth;
       flex: 1;
       padding-bottom: 12px;
     }
@@ -933,6 +938,7 @@
       flex-direction: column;
       padding: 16px;
       overflow-y: auto;
+      scroll-behavior: smooth;
       transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -1400,6 +1406,9 @@
     }
 
     /* Foco explícito para TV/Teclado */
+    .focusable {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     .focusable:focus-visible { outline: none; box-shadow: var(--focus-ring); transform: scale(1.02); }
 
     /* Modal de adicionar pill */
