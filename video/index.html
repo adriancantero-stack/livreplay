@@ -1872,12 +1872,13 @@
       section.style.display = 'block';
       list.innerHTML = '';
       videoQueue.forEach((item, idx) => {
-        const thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url
+        let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url
           || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
+        if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
         const div = document.createElement('div');
         div.className = 'queue-item';
         div.innerHTML = `
-          <img class="queue-item-thumb" src="${thumb}" alt="${item.title}" loading="lazy">
+          <img class="queue-item-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
           <div class="queue-item-title">${item.title}</div>
         `;
         div.onclick = () => {
@@ -2337,8 +2338,9 @@
           const title = item.title;
           const author = item.author;
           const duration = formatDuration(item.lengthSeconds);
-          const thumbnail = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+          let thumbnail = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
             || `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+          if (thumbnail.startsWith('//')) thumbnail = 'https:' + thumbnail;
           const views = item.viewCountText || `${item.viewCount || 0} visualizações`;
           const published = item.publishedText || '';
           
@@ -2362,7 +2364,7 @@
           
           card.innerHTML = `
             <div class="thumbnail-wrapper">
-              <img src="${thumbnail}" alt="${title}" loading="lazy">
+              <img src="${thumbnail}" alt="${title}" loading="lazy" referrerpolicy="no-referrer">
               <span class="duration-tag">${duration}</span>
               <button class="queue-add-btn focusable" title="Adicionar à fila" onclick="event.stopPropagation();addToQueue(${JSON.stringify({videoId,title,author,lengthSeconds:item.lengthSeconds,videoThumbnails:item.videoThumbnails}).replace(/"/g,'&quot;')})">+</button>
             </div>
@@ -2852,8 +2854,9 @@
         recentesEmpty.style.display = 'none';
         
         history.forEach(item => {
-          const thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+          let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
             || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
+          if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
           const duration = formatDuration(item.lengthSeconds);
           
           const div = document.createElement('div');
@@ -2872,7 +2875,7 @@
           
           div.innerHTML = `
             <div class="carousel-thumb-wrapper">
-              <img class="carousel-thumb" src="${thumb}" alt="${item.title}" loading="lazy">
+              <img class="carousel-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
               <span class="carousel-duration">${duration}</span>
             </div>
             <h4 class="carousel-title">${item.title}</h4>
@@ -2899,8 +2902,9 @@
         favoritosEmpty.style.display = 'none';
         
         favorites.forEach(item => {
-          const thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+          let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
             || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
+          if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
           const duration = formatDuration(item.lengthSeconds);
           
           const div = document.createElement('div');
@@ -2919,7 +2923,7 @@
           
           div.innerHTML = `
             <div class="carousel-thumb-wrapper">
-              <img class="carousel-thumb" src="${thumb}" alt="${item.title}" loading="lazy">
+              <img class="carousel-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
               <span class="carousel-duration">${duration}</span>
             </div>
             <h4 class="carousel-title">${item.title}</h4>
@@ -2951,8 +2955,9 @@
       sidebar.style.display = 'flex';
       
       relatedVideos.forEach(item => {
-        const thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+        let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
           || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
+        if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
         
         const card = document.createElement('div');
         card.className = 'mini-card focusable';
@@ -2970,7 +2975,7 @@
         
         const dateText = item.publishedText ? ` • ${item.publishedText}` : '';
         card.innerHTML = `
-          <img class="mini-thumb" src="${thumb}" alt="${item.title}" loading="lazy">
+          <img class="mini-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
           <div class="mini-details">
             <h4 class="mini-title">${item.title}</h4>
             <p class="mini-author">${item.author}${dateText}</p>
@@ -3006,8 +3011,9 @@
       const limit = Math.min(relatedVideos.length, 6);
       for (let i = 0; i < limit; i++) {
         const item = relatedVideos[i];
-        const thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+        let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
           || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
+        if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
           
         const card = document.createElement('div');
         card.className = 'overlay-card focusable';
@@ -3032,7 +3038,7 @@
         card.addEventListener('touchstart', prefetchStream, { once: true, passive: true });
         
         card.innerHTML = `
-          <img class="overlay-thumb" src="${thumb}" alt="${item.title}" loading="lazy">
+          <img class="overlay-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
           <div class="overlay-details">
             <h4 class="overlay-title">${item.title}</h4>
             <p class="overlay-author">${item.author || 'LivrePlay'}</p>

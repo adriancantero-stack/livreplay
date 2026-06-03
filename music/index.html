@@ -1739,8 +1739,9 @@
         const videoId = item.videoId;
         const cleanTitle = d.cleanTitle;
         const author = item.author || 'Artista Desconhecido';
-        const thumbnail = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+        let thumbnail = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
           || `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+        if (thumbnail.startsWith('//')) thumbnail = 'https:' + thumbnail;
         
         const isFav = favorites.some(v => v.videoId === videoId);
 
@@ -1765,7 +1766,7 @@
 
         card.innerHTML = `
           <div class="art-wrapper">
-            <img class="art-img" src="${thumbnail}" alt="${cleanTitle}" loading="lazy" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(cleanTitle)}';">
+            <img class="art-img" src="${thumbnail}" alt="${cleanTitle}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(cleanTitle)}';">
           </div>
           <div class="music-info">
             <h3 class="music-title">${cleanTitle}</h3>
@@ -1807,8 +1808,9 @@
       
       const title = cleanTitle || item.title;
       const author = item.author || item.uploader || 'Artista Desconhecido';
-      const thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+      let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
         || `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+      if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
       
       // Remove loading state de qualquer botão anterior
       document.querySelectorAll('.play-float-btn.loading').forEach(b => b.classList.remove('loading'));
@@ -2517,7 +2519,7 @@
       }
 
       if (thumbUrl) {
-        cover.innerHTML = `<img src="${thumbUrl}" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" loading="lazy">`;
+        cover.innerHTML = `<img src="${thumbUrl}" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" loading="lazy" referrerpolicy="no-referrer">`;
       } else {
         cover.innerHTML = `<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`;
       }
@@ -2700,7 +2702,7 @@
           }
           
           el.innerHTML = `
-            <img class="artist-avatar" style="border-radius: 8px; width: 120px; height: 120px; min-width: 120px; object-fit: cover;" src="${thumbUrl}" alt="${pl.name}" loading="lazy">
+            <img class="artist-avatar" style="border-radius: 8px; width: 120px; height: 120px; min-width: 120px; object-fit: cover;" src="${thumbUrl}" alt="${pl.name}" loading="lazy" referrerpolicy="no-referrer">
             <span class="artist-name" style="max-width: 120px; text-align: center;">${pl.name}</span>
             <span class="artist-tag" style="max-width: 120px; font-size: 10px; text-align: center;">${pl.tracks.length} músicas</span>
           `;
