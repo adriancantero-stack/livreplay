@@ -2958,6 +2958,7 @@
       if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.BackgroundMode) {
         try {
           await window.Capacitor.Plugins.BackgroundMode.enable();
+          await window.Capacitor.Plugins.BackgroundMode.disableWebViewOptimizations();
           await window.Capacitor.Plugins.BackgroundMode.updateNotification({
             title: "LivrePlay",
             text: "Reproduzindo áudio em segundo plano",

@@ -2976,7 +2976,7 @@
       const sidebar = document.getElementById('playerSidebar');
       sidebarGrid.innerHTML = '';
       
-      const relatedVideos = currentSearchResults.filter(item => item.videoId !== currentlyPlayingVideo.videoId);
+      const relatedVideos = currentSearchResults.filter(item => item.videoId && item.videoId !== currentlyPlayingVideo.videoId);
       
       if (relatedVideos.length === 0) {
         sidebar.style.display = 'none';
@@ -3006,7 +3006,7 @@
         
         const dateText = item.publishedText ? ` • ${item.publishedText}` : '';
         card.innerHTML = `
-          <img class="mini-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
+          <img class="mini-thumb" src="${thumb}" alt="${item.title}" onerror="this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" referrerpolicy="no-referrer">
           <div class="mini-details">
             <h4 class="mini-title">${item.title}</h4>
             <p class="mini-author">${item.author}${dateText}</p>
@@ -3022,26 +3022,44 @@
       const overlay = document.getElementById('recommendationsOverlay');
       overlayGrid.innerHTML = '';
       
-      const relatedVideos = currentSearchResults.filter(item => item.videoId !== currentlyPlayingVideo.videoId);
+      const relatedVideos = currentSearchResults.filter(item => item.videoId && item.videoId !== currentlyPlayingVideo.videoId);
       
       if (relatedVideos.length === 0) {
         const history = JSON.parse(localStorage.getItem('livreplay_history') || '[]');
         const filteredHistory = history.filter(item => item.videoId !== currentlyPlayingVideo.videoId);
         if (filteredHistory.length > 0) {
-          relatedVideos.push(...filteredHistory);
+          // Usa histórico
+          filteredHistory.slice(0, 10).forEach(item => {
+            let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
+              || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
+            if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+            
+            const card = document.createElement('div');
+            card.className = 'overlay-card focusable';
+            card.tabIndex = 0;
+            card.onclick = () => {
+              overlay.style.display = 'none';
+              playVideo(item.videoId, item.title);
+            };
+            card.onkeypress = (e) => { if (e.key === 'Enter') card.click(); };
+            
+            card.innerHTML = `
+              <img class="overlay-thumb" src="${thumb}" alt="${item.title}" onerror="this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" referrerpolicy="no-referrer">
+              <div class="overlay-details">
+                <h4 class="overlay-title">${item.title}</h4>
+                <p class="overlay-author">${item.author || 'LivrePlay'}</p>
+              </div>
+            `;
+            overlayGrid.appendChild(card);
+          });
+          overlay.style.display = 'flex';
         }
-      }
-      
-      if (relatedVideos.length === 0) {
-        overlay.style.display = 'none';
         return;
       }
       
       overlay.style.display = 'flex';
       
-      const limit = Math.min(relatedVideos.length, 6);
-      for (let i = 0; i < limit; i++) {
-        const item = relatedVideos[i];
+      relatedVideos.slice(0, 10).forEach(item => {
         let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
           || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
         if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
@@ -3053,12 +3071,7 @@
           overlay.style.display = 'none';
           playVideo(item.videoId, item.title);
         };
-        card.onkeypress = (e) => {
-          if (e.key === 'Enter') {
-            overlay.style.display = 'none';
-            playVideo(item.videoId, item.title);
-          }
-        };
+        card.onkeypress = (e) => { if (e.key === 'Enter') card.click(); };
 
         const prefetchStream = () => {
           if (!streamUrlCache.has(item.videoId)) {
@@ -3069,7 +3082,7 @@
         card.addEventListener('touchstart', prefetchStream, { once: true, passive: true });
         
         card.innerHTML = `
-          <img class="overlay-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
+          <img class="overlay-thumb" src="${thumb}" alt="${item.title}" onerror="this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" referrerpolicy="no-referrer">
           <div class="overlay-details">
             <h4 class="overlay-title">${item.title}</h4>
             <p class="overlay-author">${item.author || 'LivrePlay'}</p>
@@ -3210,6 +3223,7 @@
       if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.BackgroundMode) {
         try {
           await window.Capacitor.Plugins.BackgroundMode.enable();
+          await window.Capacitor.Plugins.BackgroundMode.disableWebViewOptimizations();
           await window.Capacitor.Plugins.BackgroundMode.updateNotification({
             title: "LivrePlay",
             text: "Reproduzindo áudio em segundo plano",
