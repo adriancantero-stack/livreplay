@@ -2340,7 +2340,7 @@
           const duration = formatDuration(item.lengthSeconds);
           let thumbnail = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
             || `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
-          if (thumbnail.startsWith('//')) thumbnail = 'https:' + thumbnail;
+          if (thumbnail) thumbnail = thumbnail.replace(/^http:\/\//i, 'https://').replace(/^\/\//, 'https://');
           const views = item.viewCountText || `${item.viewCount || 0} visualizações`;
           const published = item.publishedText || '';
           
