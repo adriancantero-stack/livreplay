@@ -3211,8 +3211,9 @@
       if (e.key === 'ArrowRight') {
         const active = document.activeElement;
         // If the browser view is active (playing video) and we are not in the sidebar, move focus to the sidebar
+        // BUT do NOT intercept if user is navigating the top action buttons
         if (active && document.getElementById('browserView').classList.contains('active')) {
-          if (!active.closest('.player-sidebar')) {
+          if (!active.closest('.player-sidebar') && !active.closest('.browser-actions') && !active.closest('.browser-view-header')) {
             const firstSidebarItem = document.querySelector('.player-sidebar .focusable');
             if (firstSidebarItem && firstSidebarItem.offsetParent !== null) {
               firstSidebarItem.focus();
