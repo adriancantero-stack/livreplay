@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">LivrePlay</string>
+    <string name="title_activity_main">LivrePlay</string>
+    <string name="package_name">com.livreplay.app</string>
+    <string name="custom_url_scheme">com.livreplay.app</string>
+</resources>
