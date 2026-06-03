@@ -937,11 +937,32 @@
     }
 
     body.cinema-mode .player-sidebar {
-      width: 0 !important;
-      padding: 0 !important;
-      opacity: 0 !important;
-      border-left-color: transparent !important;
-      pointer-events: none;
+      display: none !important;
+    }
+    body.cinema-mode .browser-view {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 99999 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+    body.cinema-mode .browser-view-header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 100000;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    body.cinema-mode .browser-view-header:hover,
+    body.cinema-mode .browser-view-header:focus-within {
+      opacity: 1;
+    }
+    body.cinema-mode .iframe-wrapper {
+      height: 100vh !important;
     }
 
     #cinemaToggleBtn.active {
@@ -1878,7 +1899,7 @@
         const div = document.createElement('div');
         div.className = 'queue-item';
         div.innerHTML = `
-          <img class="queue-item-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
+          <img class="queue-item-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
           <div class="queue-item-title">${item.title}</div>
         `;
         div.onclick = () => {
@@ -2364,7 +2385,7 @@
           
           card.innerHTML = `
             <div class="thumbnail-wrapper">
-              <img src="${thumbnail}" alt="${title}" loading="lazy" referrerpolicy="no-referrer">
+              <img src="${thumbnail}" alt="${title}"  referrerpolicy="no-referrer">
               <span class="duration-tag">${duration}</span>
               <button class="queue-add-btn focusable" title="Adicionar à fila" onclick="event.stopPropagation();addToQueue(${JSON.stringify({videoId,title,author,lengthSeconds:item.lengthSeconds,videoThumbnails:item.videoThumbnails}).replace(/"/g,'&quot;')})">+</button>
             </div>
@@ -2591,10 +2612,20 @@
       
       if (isCinema) {
         btn.classList.add('active');
-        showToast('Modo Cinema Ativado');
+        showToast('Modo Cinema Ativado (Pressione Voltar para sair)');
+        try {
+          if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+          }
+        } catch(e) {}
       } else {
         btn.classList.remove('active');
         showToast('Modo Cinema Desativado');
+        try {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        } catch(e) {}
       }
     }
 
@@ -2875,7 +2906,7 @@
           
           div.innerHTML = `
             <div class="carousel-thumb-wrapper">
-              <img class="carousel-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
+              <img class="carousel-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
               <span class="carousel-duration">${duration}</span>
             </div>
             <h4 class="carousel-title">${item.title}</h4>
@@ -2923,7 +2954,7 @@
           
           div.innerHTML = `
             <div class="carousel-thumb-wrapper">
-              <img class="carousel-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
+              <img class="carousel-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
               <span class="carousel-duration">${duration}</span>
             </div>
             <h4 class="carousel-title">${item.title}</h4>
@@ -2975,7 +3006,7 @@
         
         const dateText = item.publishedText ? ` • ${item.publishedText}` : '';
         card.innerHTML = `
-          <img class="mini-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
+          <img class="mini-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
           <div class="mini-details">
             <h4 class="mini-title">${item.title}</h4>
             <p class="mini-author">${item.author}${dateText}</p>
@@ -3038,7 +3069,7 @@
         card.addEventListener('touchstart', prefetchStream, { once: true, passive: true });
         
         card.innerHTML = `
-          <img class="overlay-thumb" src="${thumb}" alt="${item.title}" loading="lazy" referrerpolicy="no-referrer">
+          <img class="overlay-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
           <div class="overlay-details">
             <h4 class="overlay-title">${item.title}</h4>
             <p class="overlay-author">${item.author || 'LivrePlay'}</p>
@@ -3161,6 +3192,13 @@
         const active = document.activeElement;
         if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA'].includes(active.tagName)) {
           active.click();
+        }
+      }
+      if (e.key === 'ArrowDown') {
+        const active = document.activeElement;
+        if (active && active.id === 'urlInput') {
+          const firstPill = document.querySelector('.theme-pill.focusable');
+          if (firstPill) { firstPill.focus(); e.preventDefault(); }
         }
       }
     });

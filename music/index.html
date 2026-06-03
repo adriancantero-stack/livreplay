@@ -1617,11 +1617,13 @@
       rowBR.innerHTML = '';
       shufflePick(allBrazilianArtists, 8).forEach(a => {
         const el = document.createElement('div');
-        el.className = 'artist-card';
+        el.className = 'artist-card focusable';
+        el.tabIndex = 0;
         el.title = a.name;
         el.onclick = () => performSearch(a.search + ' music');
+        el.onkeypress = (e) => { if (e.key === 'Enter') el.click(); };
         el.innerHTML = `
-          <img class="artist-avatar" src="${a.avatar}" alt="${a.name}" loading="lazy" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(a.name)}';">
+          <img class="artist-avatar" src="${a.avatar}" alt="${a.name}"  onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(a.name)}';">
           <span class="artist-name">${a.name}</span>
           <span class="artist-tag">${a.tag}</span>
         `;
@@ -1648,9 +1650,11 @@
       genreGrid.innerHTML = '';
       shufflePick(allGenres, 8).forEach(g => {
         const el = document.createElement('div');
-        el.className = 'genre-card';
+        el.className = 'genre-card focusable';
+        el.tabIndex = 0;
         el.style.background = `linear-gradient(135deg, ${g.colors[0]}, ${g.colors[1]})`;
         el.onclick = () => performSearch(g.title + ' musica');
+        el.onkeypress = (e) => { if (e.key === 'Enter') el.click(); };
         el.innerHTML = `
           <span class="genre-card-title">${g.title}</span>
           <span class="genre-card-emoji">${g.emoji}</span>
@@ -1676,11 +1680,13 @@
       rowIntl.innerHTML = '';
       shufflePick(allIntlArtists, 7).forEach(a => {
         const el = document.createElement('div');
-        el.className = 'artist-card';
+        el.className = 'artist-card focusable';
+        el.tabIndex = 0;
         el.title = a.name;
         el.onclick = () => performSearch(a.search + ' music');
+        el.onkeypress = (e) => { if (e.key === 'Enter') el.click(); };
         el.innerHTML = `
-          <img class="artist-avatar" src="${a.avatar}" alt="${a.name}" loading="lazy" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(a.name)}';">
+          <img class="artist-avatar" src="${a.avatar}" alt="${a.name}"  onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(a.name)}';">
           <span class="artist-name">${a.name}</span>
           <span class="artist-tag">${a.tag}</span>
         `;
@@ -1746,10 +1752,12 @@
         const isFav = favorites.some(v => v.videoId === videoId);
 
         const card = document.createElement('div');
-        card.className = 'music-card';
+        card.className = 'music-card focusable';
+        card.tabIndex = 0;
         if (activeTrackId === videoId) card.classList.add('active-track');
         card.dataset.videoId = videoId;
         card.onclick = () => playMusic(item, cleanTitle, cleanQueue);
+        card.onkeypress = (e) => { if (e.key === 'Enter') card.click(); };
 
         // 🔮 Pré-busca inteligente por Toque (Mobile) ou Hover (Desktop) para latência zero no clique
         const prefetchStream = () => {
@@ -1766,7 +1774,7 @@
 
         card.innerHTML = `
           <div class="art-wrapper">
-            <img class="art-img" src="${thumbnail}" alt="${cleanTitle}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(cleanTitle)}';">
+            <img class="art-img" src="${thumbnail}" alt="${cleanTitle}"  referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(cleanTitle)}';">
           </div>
           <div class="music-info">
             <h3 class="music-title">${cleanTitle}</h3>
@@ -2520,7 +2528,7 @@
       if (thumbUrl && typeof thumbUrl === 'string') thumbUrl = thumbUrl.replace(/^http:\/\//i, 'https://').replace(/^\/\//, 'https://');
 
       if (thumbUrl) {
-        cover.innerHTML = `<img src="${thumbUrl}" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" loading="lazy" referrerpolicy="no-referrer">`;
+        cover.innerHTML = `<img src="${thumbUrl}" style="width:100%; height:100%; object-fit:cover; border-radius:12px;"  referrerpolicy="no-referrer">`;
       } else {
         cover.innerHTML = `<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`;
       }
@@ -2556,6 +2564,8 @@
         const author = item.author || item.uploader || 'Artista desconhecido';
         
         const row = document.createElement('div');
+        row.className = 'focusable';
+        row.tabIndex = 0;
         row.style.display = 'flex';
         row.style.alignItems = 'center';
         row.style.gap = '16px';
@@ -2568,6 +2578,7 @@
         row.onmouseover = () => row.style.background = 'rgba(255, 255, 255, 0.08)';
         row.onmouseout = () => row.style.background = 'rgba(255, 255, 255, 0.02)';
         row.onclick = () => playMusic(item, cleanTitle, items);
+        row.onkeypress = (e) => { if (e.key === 'Enter') row.click(); };
 
         // 🔮 Pré-busca inteligente por Toque (Mobile) ou Hover (Desktop) para latência zero no clique
         const prefetchStream = () => {
@@ -2686,12 +2697,14 @@
         
         playlists.forEach(pl => {
           const el = document.createElement('div');
-          el.className = 'artist-card';
+          el.className = 'playlist-card focusable';
+          el.tabIndex = 0;
           el.title = pl.name;
           el.onclick = () => {
             document.getElementById('viewBiblioteca').style.display = 'none';
             showPlaylistView(pl.id);
           };
+          el.onkeypress = (e) => { if (e.key === 'Enter') el.click(); };
           
           let thumbUrl = '';
           if (pl.thumbnail) {
@@ -2704,7 +2717,7 @@
           if (thumbUrl && typeof thumbUrl === 'string') thumbUrl = thumbUrl.replace(/^http:\/\//i, 'https://').replace(/^\/\//, 'https://');
           
           el.innerHTML = `
-            <img class="artist-avatar" style="border-radius: 8px; width: 120px; height: 120px; min-width: 120px; object-fit: cover;" src="${thumbUrl}" alt="${pl.name}" loading="lazy" referrerpolicy="no-referrer">
+            <img class="artist-avatar" style="border-radius: 8px; width: 120px; height: 120px; min-width: 120px; object-fit: cover;" src="${thumbUrl}" alt="${pl.name}"  referrerpolicy="no-referrer">
             <span class="artist-name" style="max-width: 120px; text-align: center;">${pl.name}</span>
             <span class="artist-tag" style="max-width: 120px; font-size: 10px; text-align: center;">${pl.tracks.length} músicas</span>
           `;
@@ -2927,6 +2940,13 @@
         const active = document.activeElement;
         if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA'].includes(active.tagName)) {
           active.click();
+        }
+      }
+      if (e.key === 'ArrowRight') {
+        const active = document.activeElement;
+        if (active && active.closest('.sidebar')) {
+          const firstContentPill = document.querySelector('.main-content .focusable');
+          if (firstContentPill) { firstContentPill.focus(); e.preventDefault(); }
         }
       }
     });
