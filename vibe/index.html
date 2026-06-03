@@ -1154,7 +1154,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         const active = document.activeElement;
-        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA'].includes(active.tagName)) {
+        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA', 'BUTTON', 'A'].includes(active.tagName)) {
           active.click();
         }
       }

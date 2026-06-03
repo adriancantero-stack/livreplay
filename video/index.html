@@ -3203,8 +3203,36 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         const active = document.activeElement;
-        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA'].includes(active.tagName)) {
+        // Don't call active.click() on elements that natively handle Enter (BUTTON, A), to avoid double-clicks that instantly toggle settings off.
+        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA', 'BUTTON', 'A'].includes(active.tagName)) {
           active.click();
+        }
+      }
+      if (e.key === 'ArrowRight') {
+        const active = document.activeElement;
+        // If the browser view is active (playing video) and we are not in the sidebar, move focus to the sidebar
+        if (active && document.getElementById('browserView').classList.contains('active')) {
+          if (!active.closest('.player-sidebar')) {
+            const firstSidebarItem = document.querySelector('.player-sidebar .focusable');
+            if (firstSidebarItem && firstSidebarItem.offsetParent !== null) {
+              firstSidebarItem.focus();
+              e.preventDefault();
+            }
+          }
+        } else if (active && !active.closest('.sidebar')) {
+          const firstContentPill = document.querySelector('.main-content .focusable');
+          if (firstContentPill) { firstContentPill.focus(); e.preventDefault(); }
+        }
+      }
+      if (e.key === 'ArrowLeft') {
+        const active = document.activeElement;
+        // Move back to player header if we were in the sidebar
+        if (active && active.closest('.player-sidebar')) {
+          const backBtn = document.querySelector('.browser-view-header .focusable');
+          if (backBtn && backBtn.offsetParent !== null) {
+            backBtn.focus();
+            e.preventDefault();
+          }
         }
       }
       if (e.key === 'ArrowDown') {
