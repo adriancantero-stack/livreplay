@@ -949,7 +949,7 @@
       margin: 0 !important;
       border-radius: 0 !important;
     }
-    body.cinema-mode .browser-view-header {
+    body.cinema-mode .browser-header {
       position: absolute;
       top: 0;
       width: 100%;
@@ -961,7 +961,7 @@
       border-bottom: none;
       pointer-events: none;
     }
-    body.cinema-mode.cinema-header-visible .browser-view-header {
+    body.cinema-mode.cinema-header-visible .browser-header {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
@@ -3237,7 +3237,7 @@
         // If the browser view is active (playing video) and we are not in the sidebar, move focus to the sidebar
         // BUT do NOT intercept if user is navigating the top action buttons
         if (active && document.getElementById('browserView').classList.contains('active')) {
-          if (!active.closest('.player-sidebar') && !active.closest('.browser-actions') && !active.closest('.browser-view-header')) {
+          if (!active.closest('.player-sidebar') && !active.closest('.browser-actions') && !active.closest('.browser-header')) {
             const firstSidebarItem = document.querySelector('.player-sidebar .focusable');
             if (firstSidebarItem && firstSidebarItem.offsetParent !== null) {
               firstSidebarItem.focus();
@@ -3253,7 +3253,7 @@
         const active = document.activeElement;
         // Move back to player header if we were in the sidebar
         if (active && active.closest('.player-sidebar')) {
-          const backBtn = document.querySelector('.browser-view-header .focusable');
+          const backBtn = document.querySelector('.browser-header .focusable');
           if (backBtn && backBtn.offsetParent !== null) {
             backBtn.focus();
             e.preventDefault();
