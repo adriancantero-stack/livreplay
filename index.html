@@ -381,6 +381,68 @@
         gap: 40px;
       }
     }
+
+    /* APK Modal */
+    .apk-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.2s ease-out;
+    }
+    .apk-modal-overlay.active { display: flex; }
+    .apk-modal {
+      background: rgba(26,26,26,0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 32px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+    .apk-modal h3 { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #fff;}
+    .apk-modal p { color: var(--text-secondary); font-size: 15px; margin-bottom: 24px; line-height: 1.5; text-align: left; }
+    .apk-modal ol { text-align: left; color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; padding-left: 20px; }
+    .apk-modal ol li { margin-bottom: 8px; }
+    .apk-modal strong { color: #fff; }
+    .apk-download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 16px;
+      font-weight: 600;
+      transition: var(--transition);
+      width: 100%;
+    }
+    .apk-download-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+    .close-modal {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid; place-items: center;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+    .close-modal:hover { background: rgba(255,255,255,0.2); }
   </style>
   <script>
     // Prevent pinch-to-zoom on iOS
@@ -448,11 +510,33 @@
         <span class="card-btn">Entrar no Flow</span>
       </a>
     </main>
+    
+    <footer style="margin-top: 16px; text-align: center; width: 100%;">
+      <button onclick="document.getElementById('apkModal').classList.add('active')" style="background: none; border: none; color: var(--text-secondary); font-family: inherit; font-size: 14px; cursor: pointer; text-decoration: underline; transition: var(--transition); outline: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-secondary)'">
+        Baixar Aplicativo (Android / Smart TV)
+      </button>
+    </footer>
 
     <footer style="text-align: center; color: rgba(255,255,255,0.6); padding-bottom: 20px;">
       &copy; 2026 LivrePlay. Todos os direitos reservados.<br>
       <span style="font-size: 0.9em; opacity: 1; color: var(--primary-color); font-weight: 600; margin-top: 8px; display: inline-block;">Desenvolvido por CanteroLabs</span>
     </footer>
+  </div>
+
+  <div id="apkModal" class="apk-modal-overlay" onclick="this.classList.remove('active')">
+    <div class="apk-modal" onclick="event.stopPropagation()">
+      <button class="close-modal" onclick="document.getElementById('apkModal').classList.remove('active')">✕</button>
+      <h3>Instalar no Android e TV</h3>
+      <p>Tenha o LivrePlay como um aplicativo nativo na sua casa.</p>
+      <ol>
+        <li><strong>No Celular:</strong> Baixe o arquivo abaixo e abra-o para instalar.</li>
+        <li><strong>Na Smart TV:</strong> Copie o arquivo para um Pendrive, insira na TV e instale usando um app como o <em>FX File Explorer</em>.</li>
+      </ol>
+      <a href="LivrePlay.apk" class="apk-download-btn" download>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Baixar LivrePlay.apk
+      </a>
+    </div>
   </div>
 
   <script>
