@@ -1913,7 +1913,7 @@
         const div = document.createElement('div');
         div.className = 'queue-item';
         div.innerHTML = `
-          <img class="queue-item-thumb" src="${thumb}" alt="${item.title}"  referrerpolicy="no-referrer">
+          <img class="queue-item-thumb" src="${thumb}" alt="${item.title}" onerror="this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" referrerpolicy="no-referrer">
           <div class="queue-item-title">${item.title}</div>
         `;
         div.onclick = () => {
