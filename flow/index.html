@@ -3,7 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>LivrePlay Flow - Tinder do Conhecimento</title>
+  <title>LivrePlay Flow - O Tinder do Conhecimento</title>
+  <meta name="description" content="Aprenda algo novo a cada deslizada. O LivrePlay Flow traz pílulas de conhecimento narradas por vozes neurais e música relaxante. Experimente grátis!">
+  <meta name="keywords" content="livreplay flow, tinder do conhecimento, aprender rapido, curiosidades em audio, microlearning, tiktok de conhecimento">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://livreplay.com/flow/">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LivrePlay Flow">
+  <meta property="og:url" content="https://livreplay.com/flow/">
+  <meta property="og:title" content="LivrePlay Flow - O Tinder do Conhecimento">
+  <meta property="og:description" content="Aprenda algo novo a cada deslizada. O LivrePlay Flow traz pílulas de conhecimento narradas por vozes neurais e música relaxante. Experimente grátis!">
+  <meta property="og:image" content="https://livreplay.com/logo-flow.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LivrePlay Flow - O Tinder do Conhecimento">
+  <meta name="twitter:description" content="Aprenda algo novo a cada deslizada com áudio neural e música relaxante.">
+  <meta name="twitter:image" content="https://livreplay.com/logo-flow.png">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "LivrePlay Flow",
+    "url": "https://livreplay.com/flow/",
+    "description": "Plataforma de microlearning e descoberta de curiosidades em formato de feed infinito com áudio neural.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All"
+  }
+  </script>
   <link rel="manifest" href="../manifest.json">
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -885,6 +913,15 @@
     });
 
     document.addEventListener('DOMContentLoaded', init);
+    // Global Smart TV D-Pad support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const active = document.activeElement;
+        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA'].includes(active.tagName)) {
+          active.click();
+        }
+      }
+    });
   </script>
 </body>
 </html>

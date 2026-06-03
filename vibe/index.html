@@ -6,14 +6,35 @@
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>LivrePlay Vibe - Descoberta Infinita</title>
-  <meta name="description" content="LivrePlay Vibe: Descubra novas músicas e sons em trechos curtos. Deslize para encontrar a sua próxima vibe musical perfeita, sem limites e sem anúncios.">
-  <meta name="keywords" content="livreplay vibe, descobrir musicas, musicas curtas, trechos de musica, tiktok de musica, streaming sem anuncios">
-  <meta property="og:title" content="LivrePlay Vibe - Descoberta Infinita">
-  <meta property="og:description" content="Descubra novas músicas e sons em trechos rápidos. Sua próxima vibe favorita está a um deslize de distância.">
-  <meta property="og:image" content="https://livreplay.com/logo-vibe.png">
-  <meta property="og:url" content="https://livreplay.com/vibe/">
+  <title>LivrePlay Vibe - O TikTok da Música Sem Anúncios</title>
+  <meta name="description" content="Descubra sua próxima música favorita em segundos. Deslize pelo feed infinito do LivrePlay Vibe e adicione as melhores faixas à sua playlist.">
+  <meta name="keywords" content="livreplay vibe, descobrir musicas, tiktok de musica, achar musicas novas, streaming de trechos, feed infinito musica">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://livreplay.com/vibe/">
+  
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LivrePlay Vibe">
+  <meta property="og:url" content="https://livreplay.com/vibe/">
+  <meta property="og:title" content="LivrePlay Vibe - O TikTok da Música Sem Anúncios">
+  <meta property="og:description" content="Descubra sua próxima música favorita em segundos. Deslize pelo feed infinito do LivrePlay Vibe e adicione as melhores faixas à sua playlist.">
+  <meta property="og:image" content="https://livreplay.com/logo-vibe.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LivrePlay Vibe - Descoberta Musical">
+  <meta name="twitter:description" content="Feed infinito de trechos musicais para você descobrir sua próxima faixa favorita.">
+  <meta name="twitter:image" content="https://livreplay.com/logo-vibe.png">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "LivrePlay Vibe",
+    "url": "https://livreplay.com/vibe/",
+    "description": "Feed infinito de descobertas musicais com foco em navegação rápida (estilo TikTok) para encontrar novas faixas.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "All"
+  }
+  </script>
   <link rel="icon" type="image/png" href="../logo-vibe.png" onerror="this.href='../logo.png'">
   <link rel="apple-touch-icon" href="../logo-vibe.png">
   <link rel="manifest" href="../manifest.json">
@@ -47,7 +68,6 @@
       background-color: var(--bg-dark);
       color: var(--text-main);
       overflow: hidden; /* O feed que vai rolar, não o body */
-      touch-action: pan-y; /* Prevent pinch zoom, allow vertical scroll */
     }
 
     /* Top Navigation / Chips */
@@ -1130,6 +1150,15 @@
     }
 
     init();
+    // Global Smart TV D-Pad support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const active = document.activeElement;
+        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA'].includes(active.tagName)) {
+          active.click();
+        }
+      }
+    });
   </script>
 </body>
 </html>
