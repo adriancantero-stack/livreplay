@@ -203,10 +203,13 @@
       padding: 8px;
       border-radius: 8px;
       cursor: pointer;
-      transition: var(--transition);
+      transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s, color 0.2s;
     }
     .library-item:hover {
       background: rgba(255, 255, 255, 0.03);
+    }
+    .library-item:active {
+      transform: scale(0.96);
     }
     .lib-thumb {
       width: 40px;
@@ -281,6 +284,7 @@
       flex-shrink: 0;
     }
     .back-home-btn:hover { background: rgba(255, 255, 255, 0.1); }
+    .back-home-btn:active { transform: scale(0.96); }
     .back-home-btn svg { width: 14px; height: 14px; }
 
     .search-box-container {
@@ -362,6 +366,9 @@
       border-color: rgba(29, 185, 84, 0.3);
       box-shadow: 0 0 15px rgba(29, 185, 84, 0.15);
       transform: none;
+    }
+    .music-card:active {
+      transform: scale(0.98);
     }
     .music-card.active-track {
       background: rgba(29, 185, 84, 0.15);
@@ -481,6 +488,7 @@
       flex-shrink: 0;
     }
     .artist-card:hover { transform: translateY(-4px); }
+    .artist-card:active { transform: scale(0.94); }
     .artist-avatar {
       width: 120px;
       height: 120px;
@@ -529,6 +537,7 @@
       transition: var(--transition);
     }
     .genre-card:hover { transform: scale(1.03); filter: brightness(1.1); }
+    .genre-card:active { transform: scale(0.98); }
     .genre-card-title {
       font-size: 15px;
       font-weight: 800;
@@ -638,11 +647,12 @@
       border: none;
       color: var(--text-muted);
       cursor: pointer;
-      transition: var(--transition);
+      transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.2s;
       display: grid;
       place-items: center;
     }
-    .ctrl-btn:hover { color: #fff; }
+    .ctrl-btn:hover { color: #fff; transform: scale(1.1); }
+    .ctrl-btn:active { transform: scale(0.85); opacity: 0.8; }
     .ctrl-btn.active { color: var(--accent); }
     
     .ctrl-btn-play {
@@ -658,11 +668,16 @@
       border: none;
       outline: none;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s, color 0.2s;
     }
     .ctrl-btn-play:hover {
       background: #fff;
       color: #000;
       transform: scale(1.06);
+    }
+    .ctrl-btn-play:active {
+      transform: scale(0.92) !important;
+      background-color: #ddd;
     }
     .ctrl-btn-play.playing {
       background: var(--bg-dark);
@@ -756,9 +771,10 @@
       border: none;
       color: var(--text-muted);
       cursor: pointer;
-      transition: var(--transition);
+      transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s, color 0.2s;
     }
     .heart-toggle-btn:hover { color: #ff3b30; }
+    .heart-toggle-btn:active { transform: scale(0.9); }
     .heart-toggle-btn.active { color: #ff3b30; }
     .heart-toggle-btn svg {
       width: 18px;
