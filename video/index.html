@@ -164,9 +164,16 @@
     }
 
     /* Logo */
-    .logo-wrapper { display:flex; justify-content:center; margin-bottom:28px; }
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .logo-wrapper { display:flex; justify-content:center; }
     .logo {
-      width: 64px; height: 64px;
+      width: 44px; height: 44px;
       display: grid; place-items: center;
       position: relative;
       filter: drop-shadow(0 8px 24px rgba(255, 59, 48, 0.45));
@@ -180,8 +187,8 @@
 
     /* Tipografia */
     h1 {
-      font-size: clamp(32px, 8vw, 44px);
-      font-weight: 600; letter-spacing: -0.02em; text-align: center; margin-bottom: 6px;
+      font-size: clamp(28px, 7vw, 40px);
+      font-weight: 600; letter-spacing: -0.02em; text-align: center; margin: 0;
       background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.85) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
@@ -1483,13 +1490,14 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       <span>Início</span>
     </a>
-    <div class="logo-wrapper">
-      <div class="logo">
-        <img src="../logo-video.png" alt="LivrePlay Logo" style="width: 100%; height: 100%; object-fit: contain;">
+    <div class="header-title-row">
+      <div class="logo-wrapper">
+        <div class="logo">
+          <img src="../logo-video.png" alt="LivrePlay Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
       </div>
+      <h1>LivrePlay Video</h1>
     </div>
-
-    <h1>LivrePlay</h1>
     <p class="subtitle">Simples. Rápido. Sem Anúncios.</p>
     
     <div class="search-container">
