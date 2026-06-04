@@ -1036,7 +1036,7 @@
   <footer class="player-bar">
     <!-- Track Info -->
     <div class="current-track-info">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="now-playing-thumb" id="playingThumb">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="now-playing-thumb" id="playingThumb" referrerpolicy="no-referrer">
       <div class="now-playing-details">
         <span class="now-playing-title" id="playingTitle">Nenhuma música</span>
         <span class="now-playing-artist" id="playingArtist">LivrePlay Music</span>
@@ -1961,7 +1961,11 @@
       });
 
       // Atualizar o player inferior
-      document.getElementById('playingThumb').src = thumb;
+      const playingThumbEl = document.getElementById('playingThumb');
+      playingThumbEl.src = thumb;
+      playingThumbEl.onerror = () => {
+        playingThumbEl.src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(title)}`;
+      };
       document.getElementById('playingTitle').innerText = title;
       document.getElementById('playingArtist').innerText = author;
       document.getElementById('favPlayToggleBtn').style.display = 'block';
