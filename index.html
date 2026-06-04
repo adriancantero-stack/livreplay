@@ -154,13 +154,18 @@
       flex-direction: column;
       align-items: center;
       gap: 12px;
+      margin-top: 10px;
+    }
+    .header-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
     }
     .logo {
-      width: 78px;
-      height: 78px;
-      margin-top: 24px;
-      margin-bottom: 0px;
-      border-radius: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.5);
       transition: var(--transition);
     }
@@ -176,6 +181,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin: 0;
+      line-height: 1;
     }
     .subtitle {
       font-size: clamp(16px, 3.5vw, 19px);
@@ -462,10 +469,12 @@
 
   <div class="container">
     <header>
-      <div class="logo">
-        <img src="logo.png" alt="LivrePlay Logo" style="width: 100%; height: 100%; object-fit: contain;">
+      <div class="header-title-row">
+        <div class="logo">
+          <img src="logo.png" alt="LivrePlay Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <h1>LivrePlay</h1>
       </div>
-      <h1>LivrePlay</h1>
       <p class="subtitle">Entretenimento sem interrupções. Simples, extremamente rápido e 100% livre de anúncios.</p>
     </header>
 
