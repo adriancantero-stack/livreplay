@@ -1835,7 +1835,7 @@
       const author = item.author || item.uploader || 'Artista Desconhecido';
       let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
         || `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
-      if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+      if (thumb) thumb = thumb.replace(/^http:\/\//i, 'https://').replace(/^\/\//, 'https://');
       
       // Remove loading state de qualquer botão anterior
       document.querySelectorAll('.play-float-btn.loading').forEach(b => b.classList.remove('loading'));
@@ -1980,7 +1980,7 @@
       const playingThumbEl = document.getElementById('playingThumb');
       playingThumbEl.src = thumb;
       playingThumbEl.onerror = () => {
-        playingThumbEl.src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(title)}`;
+        playingThumbEl.src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(author)}`;
       };
       document.getElementById('playingTitle').innerText = title;
       document.getElementById('playingArtist').innerText = author;
