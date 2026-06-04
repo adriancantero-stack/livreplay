@@ -259,9 +259,17 @@
       to { opacity: 1; }
     }
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-      40% { transform: translate(-50%, -10px); }
       60% { transform: translate(-50%, -5px); }
+    }
+
+    .focusable:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px #ff8c00 !important;
+      transform: scale(1.05);
+      transition: all 0.2s;
+    }
+    .deep-dive-btn.focusable:focus {
+      box-shadow: 0 0 0 4px #ff8c00 !important;
     }
 
     /* Padrão visual de fundo */
@@ -427,7 +435,7 @@
     </div>
     <div class="splash-subtitle">Deslize para o conhecimento.</div>
     
-    <button class="start-btn" onclick="startJourney()">
+    <button class="start-btn focusable" tabindex="0" onclick="startJourney()">
       <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
         <polygon points="5 3 19 12 5 21 5 3"></polygon>
       </svg>
@@ -446,12 +454,12 @@
 
 
   <nav class="top-nav">
-    <a href="../" class="back-btn">←</a>
+    <a href="../" class="back-btn focusable" tabindex="0">←</a>
     <div class="logo-text">
       <img src="../logo-flow.png" alt="LivrePlay Flow Logo" style="width: 24px; height: 24px; border-radius: 6px; object-fit: contain;">
       LivrePlay <span>Flow</span>
     </div>
-    <button class="sound-btn" id="soundToggle" onclick="toggleSound()">
+    <button class="sound-btn focusable" tabindex="0" id="soundToggle" onclick="toggleSound()">
       <!-- Ícone de mudo por padrão -->
       <svg id="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
       <svg id="icon-sound" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
@@ -574,11 +582,17 @@
       document.getElementById('icon-muted').style.display = 'none';
       document.getElementById('icon-sound').style.display = 'block';
       
-      const voicePlayer = document.getElementById('voicePlayer');
       if (voicePlayer) {
           isUnlocking = true;
           voicePlayer.src = SILENCE_B64;
-          voicePlayer.play().catch(e => {
+          voicePlayer.play().then(() => {
+              isUnlocking = false;
+              // On success, explicitly play the first card's audio to ensure it starts on TVs
+              if (currentCardIndex === -1 && feedCards.length > 0) {
+                  currentCardIndex = 0;
+              }
+              if (currentCardIndex >= 0 && feedCards[currentCardIndex]) readCard(currentCardIndex);
+          }).catch(e => {
               console.log("Unlock audio blocked:", e);
               isUnlocking = false;
               if (currentCardIndex >= 0 && feedCards[currentCardIndex]) readCard(currentCardIndex);
@@ -592,10 +606,10 @@
       bgMusic.src = bgPlaylist[currentTrackIndex];
       bgMusic.play().catch(e => console.log("Music error:", e));
       
-      if (!voicePlayer) {
-          if (currentCardIndex >= 0 && feedCards[currentCardIndex]) {
-              readCard(currentCardIndex);
-          }
+      // For TVs where the async unlocking fails, we also try a direct synchronous play attempt if ready
+      if (feedCards.length > 0 && currentCardIndex === -1) {
+          currentCardIndex = 0;
+          readCard(0);
       }
     }
 
@@ -843,7 +857,7 @@
             <h1 class="quote-text">"${cardData.quote}"</h1>
             <p class="author-text">— ${cardData.author}</p>
             
-            <button class="deep-dive-btn" onclick="deepDive('${encodeURIComponent(cardData.searchQuery)}')">
+            <button class="deep-dive-btn focusable" tabindex="0" onclick="deepDive('${encodeURIComponent(cardData.searchQuery)}')">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               Mergulhar Fundo
             </button>
@@ -928,10 +942,53 @@
     document.addEventListener('DOMContentLoaded', init);
     // Global Smart TV D-Pad support
     document.addEventListener('keydown', (e) => {
+      const active = document.activeElement;
+      
       if (e.key === 'Enter') {
-        const active = document.activeElement;
-        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA', 'BUTTON', 'A'].includes(active.tagName)) {
+        if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA', 'A'].includes(active.tagName)) {
           active.click();
+        }
+      }
+
+      if (document.getElementById('startScreen').style.display !== 'none') {
+        return; // Let native navigation handle the start screen
+      }
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (active && active.closest('.top-nav')) {
+          const currentCard = feedCards[Math.max(0, currentCardIndex)];
+          if (currentCard) {
+            const btn = currentCard.querySelector('.deep-dive-btn');
+            if (btn) btn.focus();
+          }
+        } else {
+          // Scroll to next card
+          if (currentCardIndex < feedCards.length - 1) {
+             const nextCard = feedCards[currentCardIndex + 1];
+             if (nextCard) {
+                nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => {
+                   const btn = nextCard.querySelector('.deep-dive-btn');
+                   if (btn) btn.focus();
+                }, 300);
+             }
+          }
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentCardIndex === 0) {
+           const backBtn = document.querySelector('.back-btn');
+           if (backBtn) backBtn.focus();
+        } else if (currentCardIndex > 0) {
+           const prevCard = feedCards[currentCardIndex - 1];
+           if (prevCard) {
+              prevCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              setTimeout(() => {
+                 const btn = prevCard.querySelector('.deep-dive-btn');
+                 if (btn) btn.focus();
+              }, 300);
+           }
         }
       }
     });
