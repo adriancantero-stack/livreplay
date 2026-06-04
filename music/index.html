@@ -1578,6 +1578,11 @@
         const results = await fetchSearch(query);
         currentSearchResults = results;
         renderGrid(results, grid);
+        // Garante que o foco vá para o primeiro resultado na TV
+        setTimeout(() => {
+          const firstTrack = grid.querySelector('.focusable');
+          if (firstTrack) firstTrack.focus();
+        }, 100);
       } catch (err) {
         alert(err.message || 'Erro ao pesquisar músicas.');
       } finally {
@@ -1621,7 +1626,6 @@
         el.tabIndex = 0;
         el.title = a.name;
         el.onclick = () => performSearch(a.search + ' music');
-        el.onkeypress = (e) => { if (e.key === 'Enter') el.click(); };
         el.innerHTML = `
           <img class="artist-avatar" src="${a.avatar}" alt="${a.name}"  onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(a.name)}';">
           <span class="artist-name">${a.name}</span>
@@ -1654,7 +1658,6 @@
         el.tabIndex = 0;
         el.style.background = `linear-gradient(135deg, ${g.colors[0]}, ${g.colors[1]})`;
         el.onclick = () => performSearch(g.title + ' musica');
-        el.onkeypress = (e) => { if (e.key === 'Enter') el.click(); };
         el.innerHTML = `
           <span class="genre-card-title">${g.title}</span>
           <span class="genre-card-emoji">${g.emoji}</span>
@@ -1684,7 +1687,6 @@
         el.tabIndex = 0;
         el.title = a.name;
         el.onclick = () => performSearch(a.search + ' music');
-        el.onkeypress = (e) => { if (e.key === 'Enter') el.click(); };
         el.innerHTML = `
           <img class="artist-avatar" src="${a.avatar}" alt="${a.name}"  onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(a.name)}';">
           <span class="artist-name">${a.name}</span>
@@ -1757,7 +1759,6 @@
         if (activeTrackId === videoId) card.classList.add('active-track');
         card.dataset.videoId = videoId;
         card.onclick = () => playMusic(item, cleanTitle, cleanQueue);
-        card.onkeypress = (e) => { if (e.key === 'Enter') card.click(); };
 
         // 🔮 Pré-busca inteligente por Toque (Mobile) ou Hover (Desktop) para latência zero no clique
         const prefetchStream = () => {
@@ -2578,8 +2579,7 @@
         row.onmouseover = () => row.style.background = 'rgba(255, 255, 255, 0.08)';
         row.onmouseout = () => row.style.background = 'rgba(255, 255, 255, 0.02)';
         row.onclick = () => playMusic(item, cleanTitle, items);
-        row.onkeypress = (e) => { if (e.key === 'Enter') row.click(); };
-
+        
         // 🔮 Pré-busca inteligente por Toque (Mobile) ou Hover (Desktop) para latência zero no clique
         const prefetchStream = () => {
           if (!streamUrlCache.has(videoId)) {
@@ -2701,6 +2701,7 @@
           el.tabIndex = 0;
           el.title = pl.name;
           el.onclick = () => {
+            activePlaylistId = pl.id;
             document.getElementById('viewBiblioteca').style.display = 'none';
             showPlaylistView(pl.id);
           };
