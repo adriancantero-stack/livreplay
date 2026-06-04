@@ -1135,18 +1135,14 @@
       const nextIndex = activeCardIndex + 1;
       const nextCard = document.querySelector(`.vibe-card[data-index="${nextIndex}"]`);
       if (nextCard) {
-        // Extrair dados IMEDIATAMENTE para tentar dar play síncrono com o evento
         const previewUrl = nextCard.dataset.preview;
         const trackName = nextCard.dataset.trackName;
         const artistName = nextCard.dataset.artistName;
         const artworkUrl = nextCard.dataset.artwork;
 
-        // Se a tela estiver bloqueada ou em background, o IntersectionObserver pode falhar ou atrasar.
-        // E manipulação de DOM (scroll) atrasa o áudio bloqueando a permissão do iOS.
         if (document.hidden) {
            activeCardIndex = nextIndex;
            playTrackPreview(previewUrl, nextIndex, trackName, artistName, artworkUrl);
-           // Rola a tela sutilmente sem smooth em background para não gastar processamento
            nextCard.scrollIntoView();
         } else {
            nextCard.scrollIntoView({ behavior: 'smooth' });
@@ -1160,13 +1156,80 @@
       }
     }
 
+    function scrollToPrevCard() {
+      const prevIndex = activeCardIndex - 1;
+      if (prevIndex >= 0) {
+        const prevCard = document.querySelector(`.vibe-card[data-index="${prevIndex}"]`);
+        if (prevCard) {
+          const previewUrl = prevCard.dataset.preview;
+          const trackName = prevCard.dataset.trackName;
+          const artistName = prevCard.dataset.artistName;
+          const artworkUrl = prevCard.dataset.artwork;
+
+          if (document.hidden) {
+             activeCardIndex = prevIndex;
+             playTrackPreview(previewUrl, prevIndex, trackName, artistName, artworkUrl);
+             prevCard.scrollIntoView();
+          } else {
+             prevCard.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    }
+
     init();
     // Global Smart TV D-Pad support
     document.addEventListener('keydown', (e) => {
+      const active = document.activeElement;
+      
       if (e.key === 'Enter') {
-        const active = document.activeElement;
         if (active && typeof active.click === 'function' && !['INPUT', 'TEXTAREA', 'BUTTON', 'A'].includes(active.tagName)) {
           active.click();
+        }
+      }
+
+      // Se o modal de busca estiver aberto, não força as setas
+      if (document.getElementById('searchModalOverlay').style.display === 'flex') return;
+      // Se estiver digitando, não força
+      if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault(); // Impede o navegador de bugar
+        if (active && active.closest('.top-nav')) {
+          // Se está no menu superior, foca no botão de ouvir completo do card atual
+          const currentCard = document.querySelector(`.vibe-card[data-index="${Math.max(0, activeCardIndex)}"]`);
+          if (currentCard) {
+            const btn = currentCard.querySelector('.listen-full-btn');
+            if (btn) btn.focus();
+          }
+        } else {
+          // Se já está num card, vai para o PRÓXIMO card
+          scrollToNextCard();
+          setTimeout(() => {
+            const currentCard = document.querySelector(`.vibe-card[data-index="${activeCardIndex}"]`);
+            if (currentCard) {
+              const btn = currentCard.querySelector('.listen-full-btn');
+              if (btn) btn.focus();
+            }
+          }, 300); // tempo pro smooth scroll terminar
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        // Se está no primeiro card, sobe para os chips
+        if (activeCardIndex === 0) {
+          const firstChip = document.querySelector('.chip');
+          if (firstChip) firstChip.focus();
+        } 
+        // Senão, sobe pro card anterior
+        else if (activeCardIndex > 0) {
+          scrollToPrevCard();
+          setTimeout(() => {
+            const currentCard = document.querySelector(`.vibe-card[data-index="${activeCardIndex}"]`);
+            if (currentCard) {
+              const btn = currentCard.querySelector('.listen-full-btn');
+              if (btn) btn.focus();
+            }
+          }, 300);
         }
       }
     });
