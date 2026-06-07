@@ -1477,13 +1477,15 @@
       top: calc(100% + 4px);
       left: 0;
       right: 0;
-      background: var(--surface);
+      background: rgba(28, 28, 28, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       overflow: hidden;
       z-index: 1000;
       display: none;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
     .suggestions-dropdown.active {
       display: block;
