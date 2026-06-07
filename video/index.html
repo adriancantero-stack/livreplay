@@ -1470,6 +1470,42 @@
     .pill-modal-btns .btn-cancel { background: rgba(255,255,255,0.08); color: var(--text-secondary); }
     .pill-modal-btns .btn-add { background: var(--accent); color: #fff; }
     .pill-modal-btns .btn-add:hover { background: var(--accent-hover); }
+
+    /* ================= AUTOCOMPLETE ================= */
+    .suggestions-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      z-index: 1000;
+      display: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .suggestions-dropdown.active {
+      display: block;
+    }
+    .suggestion-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-primary);
+      font-size: 15px;
+      transition: var(--transition);
+    }
+    .suggestion-item:hover, .suggestion-item.selected {
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .suggestion-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.5;
+    }
   </style>
   <script>
     // Prevent pinch-to-zoom on iOS
@@ -1506,6 +1542,8 @@
       <button class="go-btn focusable" onclick="navigate()" aria-label="Abrir">
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
+      <!-- Dropdown Sugestões -->
+      <div class="suggestions-dropdown" id="homeSuggestions"></div>
     </div>
 
     <!-- THEME PILLS (FILTROS RÁPIDOS) -->
@@ -1560,6 +1598,8 @@
         <button class="go-btn focusable" onclick="navigateFromResults()" aria-label="Pesquisar">
           <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
+        <!-- Dropdown Sugestões -->
+        <div class="suggestions-dropdown" id="resultsSuggestions"></div>
       </div>
     </div>
     <div class="results-grid" id="resultsGrid"></div>
@@ -3299,6 +3339,122 @@
   </script>
 
   <script>
+    // ================= AUTOCOMPLETE INTELIGENTE =================
+    let suggestionTimeout = null;
+    let selectedSuggestionIndex = -1;
+    let currentSuggestions = [];
+
+    function setupAutocomplete(inputId, dropdownId) {
+      const input = document.getElementById(inputId);
+      const dropdown = document.getElementById(dropdownId);
+
+      input.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        clearTimeout(suggestionTimeout);
+
+        if (query.length < 2) {
+          dropdown.classList.remove('active');
+          return;
+        }
+
+        suggestionTimeout = setTimeout(() => {
+          fetchSuggestions(query, dropdown, input);
+        }, 300);
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (!dropdown.classList.contains('active')) return;
+        
+        const items = dropdown.querySelectorAll('.suggestion-item');
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedSuggestionIndex = (selectedSuggestionIndex + 1) % items.length;
+          updateSuggestionSelection(items, input);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedSuggestionIndex = (selectedSuggestionIndex - 1 + items.length) % items.length;
+          updateSuggestionSelection(items, input);
+        } else if (e.key === 'Enter') {
+          if (selectedSuggestionIndex >= 0 && selectedSuggestionIndex < currentSuggestions.length) {
+            e.preventDefault();
+            input.value = currentSuggestions[selectedSuggestionIndex];
+            dropdown.classList.remove('active');
+            if (inputId === 'urlInput') navigate();
+            else navigateFromResults();
+          }
+        } else if (e.key === 'Escape') {
+          dropdown.classList.remove('active');
+        }
+      });
+
+      // Fechar dropdown ao clicar fora
+      document.addEventListener('click', (e) => {
+        if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.classList.remove('active');
+        }
+      });
+    }
+
+    function updateSuggestionSelection(items, input) {
+      items.forEach((item, index) => {
+        if (index === selectedSuggestionIndex) {
+          item.classList.add('selected');
+          input.value = currentSuggestions[index];
+        } else {
+          item.classList.remove('selected');
+        }
+      });
+    }
+
+    function fetchSuggestions(query, dropdown, input) {
+      const script = document.createElement('script');
+      const callbackName = 'jsonpCallback_' + Math.round(100000 * Math.random());
+      
+      window[callbackName] = function(data) {
+        delete window[callbackName];
+        document.body.removeChild(script);
+        renderSuggestions(data[1] || [], dropdown, input);
+      };
+      
+      script.src = `https://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=${encodeURIComponent(query)}&jsonp=${callbackName}`;
+      document.body.appendChild(script);
+    }
+
+    function renderSuggestions(suggestionsData, dropdown, input) {
+      currentSuggestions = suggestionsData.map(item => item[0]);
+      selectedSuggestionIndex = -1;
+      
+      if (currentSuggestions.length === 0) {
+        dropdown.classList.remove('active');
+        return;
+      }
+      
+      dropdown.innerHTML = '';
+      currentSuggestions.forEach((text, index) => {
+        const div = document.createElement('div');
+        div.className = 'suggestion-item';
+        div.innerHTML = `
+          <svg class="suggestion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>${text}</span>
+        `;
+        div.onmousedown = (e) => {
+          e.preventDefault(); // Evita perder foco do input
+          input.value = text;
+          dropdown.classList.remove('active');
+          if (input.id === 'urlInput') navigate();
+          else navigateFromResults();
+        };
+        dropdown.appendChild(div);
+      });
+      
+      dropdown.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupAutocomplete('urlInput', 'homeSuggestions');
+      setupAutocomplete('resultsUrlInput', 'resultsSuggestions');
+    });
+
     // Capacitor Background Mode initialization
     document.addEventListener('DOMContentLoaded', async () => {
       if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.BackgroundMode) {
