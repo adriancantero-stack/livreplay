@@ -1506,6 +1506,39 @@
       height: 16px;
       opacity: 0.5;
     }
+
+    /* ================= FILTROS DE BUSCA ================= */
+    .search-filters {
+      display: flex;
+      gap: 10px;
+      padding: 0 20px 16px 20px;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+    }
+    .search-filters::-webkit-scrollbar {
+      display: none; /* Safari/Chrome */
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+    }
+    .filter-btn.active {
+      background: var(--text-primary);
+      color: var(--bg);
+      border-color: var(--text-primary);
+    }
   </style>
   <script>
     // Prevent pinch-to-zoom on iOS
@@ -1601,6 +1634,11 @@
         <!-- Dropdown Sugestões -->
         <div class="suggestions-dropdown" id="resultsSuggestions"></div>
       </div>
+    </div>
+    <div class="search-filters" id="searchFiltersContainer">
+      <button class="filter-btn" data-sort="relevance" onclick="setSearchFilter('relevance')">Relevância</button>
+      <button class="filter-btn active" data-sort="upload_date" onclick="setSearchFilter('upload_date')">Recentes</button>
+      <button class="filter-btn" data-sort="view_count" onclick="setSearchFilter('view_count')">Populares</button>
     </div>
     <div class="results-grid" id="resultsGrid"></div>
   </div>
@@ -1818,7 +1856,7 @@
       renderThemePills();
       // Remove emoji e pesquisa apenas o texto
       const query = pill.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]\s*/gu, '').trim();
-      searchAndRender(query, true);
+      searchAndRender(query, 'upload_date');
     }
 
     function removePill(e, pill) {
@@ -1918,7 +1956,7 @@
         div.className = 'fav-channel-avatar';
         div.title = ch.name;
         div.onclick = () => {
-          searchAndRender(ch.name, true);
+          searchAndRender(ch.name, 'upload_date');
         };
         div.innerHTML = `
           <div class="fav-channel-circle" style="background:${ch.gradient}">${initials}</div>
@@ -2134,7 +2172,7 @@
     }
 
     // Executa busca sequencial automática com auto-recuperação dinâmica e CORS direto (sem proxy)
-    async function fetchSearch(query, sortByDate = false) {
+    async function fetchSearch(query, sortBy = 'upload_date') {
       let instancesToTry = dynamicInvidiousInstances.length > 0 ? dynamicInvidiousInstances : [...FALLBACK_INSTANCES];
       
       console.log('Tentando buscar em instâncias:', instancesToTry);
@@ -2146,8 +2184,8 @@
           const timeoutId = setTimeout(() => controller.abort(), 4000);
           
           let searchUrl = `${instance}/api/v1/search?q=${encodeURIComponent(query)}&type=video`;
-          if (sortByDate) {
-            searchUrl += '&sort_by=upload_date';
+          if (sortBy !== 'relevance') {
+            searchUrl += `&sort_by=${sortBy}`;
           }
           
           const res = await fetch(searchUrl, { signal: controller.signal });
@@ -2191,17 +2229,39 @@
         }
       }
 
-      await searchAndRender(val);
+      await searchAndRender(val, currentSortBy);
     }
 
     // Iniciar busca a partir da tela de resultados compacta
     async function navigateFromResults() {
       const val = document.getElementById('resultsUrlInput').value.trim();
       if (!val) return;
-      await searchAndRender(val);
+      await searchAndRender(val, currentSortBy);
     }
 
+    let currentSortBy = 'upload_date';
     let currentSearchResults = [];
+
+    function setSearchFilter(sortType) {
+      if (currentSortBy === sortType) return;
+      currentSortBy = sortType;
+      
+      // Atualizar botões visuais
+      const buttons = document.querySelectorAll('.search-filters .filter-btn');
+      buttons.forEach(btn => {
+        if (btn.dataset.sort === sortType) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      
+      // Re-executar pesquisa se houver algo digitado
+      const val = document.getElementById('resultsUrlInput').value.trim();
+      if (val) {
+        navigateFromResults();
+      }
+    }
     let currentlyPlayingVideo = null;
     let currentInvidiousInstance = 'https://yewtu.be';
 
@@ -2405,13 +2465,13 @@
     });
 
     // Busca os dados e renderiza os cards
-    async function searchAndRender(query, sortByDate = false) {
+    async function searchAndRender(query, sortBy = 'upload_date') {
       document.getElementById('loading').classList.add('active');
       document.getElementById('resultsUrlInput').value = query;
       document.getElementById('urlInput').value = query;
       
       try {
-        const { instance, data } = await fetchSearch(query, sortByDate);
+        const { instance, data } = await fetchSearch(query, sortBy);
         const grid = document.getElementById('resultsGrid');
         grid.innerHTML = '';
         
