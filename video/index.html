@@ -2183,7 +2183,7 @@
       for (const instance of instancesToTry) {
         try {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 2500);
+          const timeoutId = setTimeout(() => controller.abort(), 4000);
           
           let searchUrl = `${instance}/api/v1/search?q=${encodeURIComponent(query)}&type=video`;
           if (sortBy !== 'relevance') {
@@ -2213,7 +2213,7 @@
       for (const instance of PIPED_API_INSTANCES) {
         try {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 2500);
+          const timeoutId = setTimeout(() => controller.abort(), 10000);
           
           let searchUrl = `${instance}/search?q=${encodeURIComponent(query)}&filter=all`;
           
