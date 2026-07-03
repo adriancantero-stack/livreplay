@@ -1996,9 +1996,7 @@
       section.style.display = 'block';
       list.innerHTML = '';
       videoQueue.forEach((item, idx) => {
-        let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url
-          || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
-        if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+        let thumb = item.thumbnail || `https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`;
         const div = document.createElement('div');
         div.className = 'queue-item';
         div.innerHTML = `
@@ -2307,10 +2305,7 @@
                   else if (parts.length === 2) lengthSeconds = parts[0]*60 + parts[1];
                   else lengthSeconds = parts[0] || 0;
                   
-                  let thumbUrl = `https://i.ytimg.com/vi/${renderer.videoId}/mqdefault.jpg`;
-                  if (renderer.thumbnail && renderer.thumbnail.thumbnails && renderer.thumbnail.thumbnails.length > 0) {
-                     thumbUrl = renderer.thumbnail.thumbnails[0].url;
-                  }
+                  let thumbUrl = `https://i.ytimg.com/vi/${renderer.videoId}/hqdefault.jpg`;
                   
                   results.push({
                     type: 'video',
@@ -3156,9 +3151,7 @@
         recentesEmpty.style.display = 'none';
         
         history.forEach(item => {
-          let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
-            || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
-          if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+          let thumb = item.thumbnail || `https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`;
           const duration = formatDuration(item.lengthSeconds);
           
           const div = document.createElement('div');
@@ -3204,9 +3197,7 @@
         favoritosEmpty.style.display = 'none';
         
         favorites.forEach(item => {
-          let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
-            || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
-          if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+          let thumb = item.thumbnail || `https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`;
           const duration = formatDuration(item.lengthSeconds);
           
           const div = document.createElement('div');
@@ -3257,9 +3248,7 @@
       sidebar.style.display = 'flex';
       
       relatedVideos.forEach(item => {
-        let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
-          || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
-        if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+        let thumb = item.thumbnail || `https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`;
         
         const card = document.createElement('div');
         card.className = 'mini-card focusable';
@@ -3301,9 +3290,7 @@
         if (filteredHistory.length > 0) {
           // Usa histórico
           filteredHistory.slice(0, 10).forEach(item => {
-            let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
-              || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
-            if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+            let thumb = item.thumbnail || `https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`;
             
             const card = document.createElement('div');
             card.className = 'overlay-card focusable';
@@ -3331,9 +3318,7 @@
       overlay.style.display = 'flex';
       
       relatedVideos.slice(0, 10).forEach(item => {
-        let thumb = item.videoThumbnails && item.videoThumbnails.find(t => t.quality === 'medium' || t.quality === 'default')?.url 
-          || `https://i.ytimg.com/vi/${item.videoId}/mqdefault.jpg`;
-        if (thumb) thumb = thumb.replace(/^\/\//, 'https://');
+        let thumb = item.thumbnail || `https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg`;
           
         const card = document.createElement('div');
         card.className = 'overlay-card focusable';
