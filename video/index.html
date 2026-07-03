@@ -2177,13 +2177,13 @@
     async function fetchSearch(query, sortBy = 'upload_date') {
       let instancesToTry = dynamicInvidiousInstances.length > 0 ? dynamicInvidiousInstances : [...FALLBACK_INSTANCES];
       
-      console.log('Tentando buscar em instâncias:', instancesToTry);
+      console.log('Tentando buscar em instâncias Invidious:', instancesToTry);
       
       let lastError = null;
       for (const instance of instancesToTry) {
         try {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 4000);
+          const timeoutId = setTimeout(() => controller.abort(), 2500);
           
           let searchUrl = `${instance}/api/v1/search?q=${encodeURIComponent(query)}&type=video`;
           if (sortBy !== 'relevance') {
@@ -2196,12 +2196,12 @@
           if (res.ok) {
             const data = await res.json();
             if (data && Array.isArray(data) && data.length > 0) {
-              console.log(`Busca bem-sucedida usando a instância: ${instance}`);
+              console.log(`Busca bem-sucedida usando a instância Invidious: ${instance}`);
               currentInvidiousInstance = instance;
               return { instance, data };
             }
           } else {
-            console.warn(`Instância ${instance} retornou erro HTTP: ${res.status}`);
+            console.warn(`Instância Invidious ${instance} retornou erro HTTP: ${res.status}`);
           }
         } catch (e) {
           console.warn(`Instância Invidious falhou (${instance}):`, e);
@@ -2209,7 +2209,49 @@
         }
       }
       
-      throw new Error(lastError ? lastError.message : 'Todas as instâncias de busca falharam.');
+      console.warn('Busca via Invidious falhou. Tentando via Piped API...');
+      for (const instance of PIPED_API_INSTANCES) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 2500);
+          
+          let searchUrl = `${instance}/search?q=${encodeURIComponent(query)}&filter=all`;
+          
+          const res = await fetch(searchUrl, { signal: controller.signal });
+          clearTimeout(timeoutId);
+          
+          if (res.ok) {
+            const result = await res.json();
+            if (result && result.items && result.items.length > 0) {
+              console.log(`Busca bem-sucedida usando a instância Piped: ${instance}`);
+              
+              const data = result.items
+                .filter(i => i.type === 'stream' || i.type === 'video')
+                .map(v => ({
+                  type: 'video',
+                  videoId: v.url.replace('/watch?v=', '').split('&')[0],
+                  title: v.title,
+                  author: v.uploaderName,
+                  lengthSeconds: v.duration,
+                  videoThumbnails: [{ quality: 'medium', url: v.thumbnail }],
+                  viewCountText: (v.views || 0) + ' visualizações',
+                  publishedText: v.uploadedDate || ''
+                }));
+                
+              if (data.length > 0) {
+                return { instance, data };
+              }
+            }
+          } else {
+            console.warn(`Instância Piped ${instance} retornou erro HTTP: ${res.status}`);
+          }
+        } catch (e) {
+          console.warn(`Instância Piped falhou (${instance}):`, e);
+          lastError = e;
+        }
+      }
+      
+      throw new Error('Servidores de busca estão congestionados ou bloqueados no momento. Tente novamente em alguns segundos.');
     }
 
     // Iniciar a busca a partir da página inicial
