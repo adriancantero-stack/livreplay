@@ -1579,7 +1579,7 @@
           const timeoutId = setTimeout(() => controller.abort(), 10000);
           
           // Busca apenas a primeira página para Piped
-          let searchUrl = `${instance}/search?q=${encodeURIComponent(optimizedQuery)}&filter=music_songs`;
+          let searchUrl = `${instance}/search?q=${encodeURIComponent(optimizedQuery)}&filter=all`;
           
           const res = await fetch(searchUrl, { signal: controller.signal });
           clearTimeout(timeoutId);
