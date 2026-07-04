@@ -101,41 +101,23 @@ function openPlayer(item) {
   closeDetails();
   playerModal.classList.add('active');
   
-  const streamUrlObj = item.stitched && item.stitched.urls && item.stitched.urls.find(u => u.type === 'hls');
-  if (!streamUrlObj || !streamUrlObj.url) {
-    alert('Desculpe, o link de vídeo não está disponível para este título.');
+  if (!item.slug) {
+    alert('Desculpe, o link não está disponível para este título.');
     closePlayer();
     return;
   }
   
-  const streamUrl = streamUrlObj.url;
+  const baseUrl = item.type === 'series' ? 'https://pluto.tv/br/on-demand/series/' : 'https://pluto.tv/br/on-demand/movies/';
+  const iframeUrl = baseUrl + item.slug + '/details?dropin=true';
   
-  if (Hls.isSupported()) {
-    if (hls) hls.destroy();
-    hls = new Hls({
-      capLevelToPlayerSize: true
-    });
-    hls.loadSource(streamUrl);
-    hls.attachMedia(mainPlayer);
-    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-      mainPlayer.play().catch(e => console.log('Autoplay blocked:', e));
-    });
-  } else if (mainPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-    // Safari nativo
-    mainPlayer.src = streamUrl;
-    mainPlayer.play().catch(e => console.log('Autoplay blocked:', e));
-  }
+  const container = document.getElementById('iframeContainer');
+  container.innerHTML = `<iframe src="${iframeUrl}" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
 }
 
 function closePlayer() {
   playerModal.classList.remove('active');
-  mainPlayer.pause();
-  mainPlayer.removeAttribute('src');
-  mainPlayer.load();
-  if (hls) {
-    hls.destroy();
-    hls = null;
-  }
+  const container = document.getElementById('iframeContainer');
+  container.innerHTML = '';
 }
 
 // Modal de Detalhes
