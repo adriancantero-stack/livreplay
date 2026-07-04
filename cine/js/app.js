@@ -74,7 +74,8 @@ async function initCine() {
 
         const div = document.createElement('div');
         div.className = 'item poster';
-        div.innerHTML = `<img loading="lazy" src="${posterUrl.split('?')[0] + '?w=300&q=75'}" alt="${item.name}">`;
+        div.innerHTML = `<img loading="lazy" src="${posterUrl.split('?')[0] + '?w=300&q=75'}" alt="${item.name}">
+                         <div class="item-title">${item.name}</div>`;
         
         if (item.type === 'series') {
            div.innerHTML += `<div class="item-badge">Série</div>`;
@@ -232,7 +233,8 @@ if(searchInput) {
     if (imgObj && (imgObj.path || imgObj.url)) {
       const url = imgObj.path || imgObj.url;
       el.innerHTML = `<img src="${url.split('?')[0]}?w=300&q=75" loading="lazy">
-                      <div class="item-badge">${item.type === 'series' ? 'Série' : 'Filme'}</div>`;
+                      <div class="item-badge">${item.type === 'series' ? 'Série' : 'Filme'}</div>
+                      <div class="item-title">${item.name}</div>`;
     } else {
       el.innerHTML = `<div style="width:100%; height:100%; background:#222; display:flex; align-items:center; justify-content:center; text-align:center; padding:10px;">${item.name}</div>`;
     }
