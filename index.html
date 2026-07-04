@@ -264,6 +264,7 @@
     .card-icon {
       width: 80px;
       height: 80px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -413,6 +414,7 @@
         padding: 36px 24px;
         width: 100%;
         max-width: 100%;
+        flex: none; /* Fix card height shrinking */
       }
       .container {
         gap: 40px;
