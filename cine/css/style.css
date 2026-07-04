@@ -27,11 +27,10 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4%;
+  padding: env(safe-area-inset-top, 15px) 4% 15px 4%;
   background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
   z-index: 100;
   transition: background 0.3s;
@@ -254,7 +253,8 @@ body {
 .player-modal.active { display: flex; }
 .close-player-btn {
   position: absolute;
-  top: 20px; right: 20px;
+  top: max(20px, env(safe-area-inset-top));
+  right: 20px;
   background: rgba(0,0,0,0.5);
   color: white;
   border: none;
