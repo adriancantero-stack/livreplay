@@ -16,7 +16,7 @@ let hls = null;
 let vodCategories = [];
 let heroItem = null;
 
-const PLUTO_VOD_API = 'https://api.pluto.tv/v3/vod/categories?includeItems=true&deviceType=web';
+const PLUTO_VOD_API = 'vod.json';
 
 async function initCine() {
   try {
