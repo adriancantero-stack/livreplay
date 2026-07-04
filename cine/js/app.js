@@ -18,9 +18,9 @@ let heroChannel = null;
 
 async function initCine() {
   try {
-    const res = await fetch('channels.json');
+    const res = await fetch('channels.json?v=2');
     const channels = await res.json();
-    currentChannels = channels.filter(c => c.stitched && c.stitched.urls && c.stitched.urls.length > 0);
+    currentChannels = channels;
     
     // Configura o Hero com um canal de destaque (o primeiro de filmes, por exemplo)
     const featured = currentChannels.find(c => c.category === 'Filmes') || currentChannels[0];
