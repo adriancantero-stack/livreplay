@@ -17,7 +17,8 @@ https.get('https://api.pluto.tv/v2/channels', (res) => {
         poster: c.featuredImage ? c.featuredImage.path : (c.tile ? c.tile.path : (c.thumbnail ? c.thumbnail.path : '')),
         url: c.stitched.urls[0].url
       }));
-      fs.writeFileSync('/Users/adriancantero/.gemini/antigravity/scratch/livreplay/cine/channels.json', JSON.stringify(clean));
+      const path = require('path');
+      fs.writeFileSync(path.join(__dirname, 'channels.json'), JSON.stringify(clean));
       console.log('Channels saved! Count:', clean.length);
     } catch (e) {
       console.error('Error parsing:', e);
