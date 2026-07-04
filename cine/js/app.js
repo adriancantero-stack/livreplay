@@ -108,7 +108,7 @@ function openPlayer(item) {
   }
   
   const baseUrl = item.type === 'series' ? 'https://pluto.tv/br/on-demand/series/' : 'https://pluto.tv/br/on-demand/movies/';
-  const iframeUrl = baseUrl + item.slug + '/details?dropin=true';
+  const iframeUrl = baseUrl + item.slug + '?dropin=true';
   
   const container = document.getElementById('iframeContainer');
   container.innerHTML = `<iframe src="${iframeUrl}" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
