@@ -30,7 +30,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: env(safe-area-inset-top, 15px) 4% 15px 4%;
+  padding: max(25px, env(safe-area-inset-top, 25px)) 4% 15px 4%;
   background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
   z-index: 100;
   transition: background 0.3s;
