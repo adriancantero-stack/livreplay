@@ -83,31 +83,26 @@ async function initCine() {
 function openPlayer(channel) {
   closeDetails();
   playerModal.classList.add('active');
-  const streamUrl = channel.url.replace('http://', 'https://');
   
-  if (Hls.isSupported()) {
-    if (hls) hls.destroy();
-    hls = new Hls({ maxMaxBufferLength: 30 });
-    hls.loadSource(streamUrl);
-    hls.attachMedia(mainPlayer);
-    hls.on(Hls.Events.MANIFEST_PARSED, () => {
-      mainPlayer.play().catch(e => console.log('Autoplay bloqueado', e));
-    });
-  } else if (mainPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-    // Safari
-    mainPlayer.src = streamUrl;
-    mainPlayer.play().catch(e => console.log('Autoplay bloqueado', e));
-  }
+  const container = document.querySelector('.player-container');
+  // Substitui qualquer player existente por um iframe oficial da Pluto TV
+  container.innerHTML = `
+    <iframe 
+      src="https://pluto.tv/br/live-tv/${channel.id}" 
+      width="100%" 
+      height="100%" 
+      frameborder="0" 
+      allowfullscreen
+      style="width: 100%; height: 100%; border: none;">
+    </iframe>
+  `;
 }
 
 function closePlayer() {
   playerModal.classList.remove('active');
-  mainPlayer.pause();
-  mainPlayer.src = '';
-  if (hls) {
-    hls.destroy();
-    hls = null;
-  }
+  const container = document.querySelector('.player-container');
+  // Remove o iframe para parar o vídeo
+  container.innerHTML = '';
 }
 
 // Modal de Detalhes
