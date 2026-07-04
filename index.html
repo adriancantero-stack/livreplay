@@ -194,13 +194,15 @@
 
     /* Cards Grid */
     .portal-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
       width: 100%;
     }
-
     .portal-card {
+      flex: 1 1 200px;
+      max-width: 260px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 28px;
@@ -253,6 +255,11 @@
       border-color: rgba(255, 140, 0, 0.35); /* Laranja */
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 32px rgba(255, 140, 0, 0.15);
     }
+    .card-cine:hover {
+      transform: translateY(-8px);
+      border-color: rgba(245, 197, 24, 0.35); /* Gold */
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4), 0 0 32px rgba(245, 197, 24, 0.15);
+    }
 
     .card-icon {
       width: 80px;
@@ -287,6 +294,14 @@
     .card-vibe:hover .card-icon {
       transform: scale(1.08);
       filter: drop-shadow(0 12px 28px rgba(138, 43, 226, 0.45));
+    }
+    
+    .card-cine .card-icon {
+      filter: drop-shadow(0 8px 16px rgba(245, 197, 24, 0.15));
+    }
+    .card-cine:hover .card-icon {
+      transform: scale(1.08);
+      filter: drop-shadow(0 12px 28px rgba(245, 197, 24, 0.45));
     }
 
     .card-icon img {
@@ -365,6 +380,18 @@
       color: #fff;
       box-shadow: 0 4px 16px rgba(255, 140, 0, 0.3);
     }
+    
+    .card-cine .card-btn {
+      background: rgba(245, 197, 24, 0.15);
+      border: 1px solid rgba(245, 197, 24, 0.4);
+      color: #f5c518; /* Gold */
+    }
+    .card-cine:hover .card-btn {
+      background: #f5c518;
+      border-color: #f5c518;
+      color: #000;
+      box-shadow: 0 4px 16px rgba(245, 197, 24, 0.3);
+    }
 
     /* Footer */
     footer {
@@ -378,11 +405,14 @@
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .portal-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
         gap: 24px;
       }
       .portal-card {
         padding: 36px 24px;
+        width: 100%;
+        max-width: 100%;
       }
       .container {
         gap: 40px;
@@ -517,6 +547,18 @@
         <h2 class="card-title">LivrePlay Flow</h2>
         <p class="card-desc">Conhecimento infinito na ponta dos dedos. Deslize, descubra e evolua a cada segundo.</p>
         <span class="card-btn">Entrar no Flow</span>
+      </a>
+
+      <!-- Card LivrePlay Cine -->
+      <a href="./cine/" class="portal-card card-cine">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="#f5c518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19.82 2c-.19 0-.38.06-.53.18l-3.23 2.51H3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12c.55 0 1-.45 1-1v-2.12l3.76 2.92a.85.85 0 0 0 .53.18c.51 0 .89-.43.89-.95V2.95c0-.52-.38-.95-.89-.95z"></path>
+          </svg>
+        </div>
+        <h2 class="card-title">LivrePlay Cine</h2>
+        <p class="card-desc">Uma Netflix gratuita. Filmes, séries e TV ao vivo premium com canais PlutoTV.</p>
+        <span class="card-btn">Preparar Pipoca</span>
       </a>
     </main>
     

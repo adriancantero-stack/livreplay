@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>LivrePlay Cine - O Melhor do Cinema e TV</title>
+  
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.jpg">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+  
+  <!-- HLS.js para tocar m3u8 -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+
+  <!-- Navegação Superior -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <button class="back-btn" onclick="window.location.href='../'" title="Voltar para Início">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19.82 2c-.19 0-.38.06-.53.18l-3.23 2.51H3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12c.55 0 1-.45 1-1v-2.12l3.76 2.92a.85.85 0 0 0 .53.18c.51 0 .89-.43.89-.95V2.95c0-.52-.38-.95-.89-.95z"></path>
+        </svg>
+        <span>LivrePlay <b>Cine</b></span>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-btn" onclick="toggleSearch()">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Banner (Em Destaque) -->
+  <header class="hero" id="heroBanner">
+    <div class="hero-bg" id="heroBg">
+      <!-- Player de vídeo silencioso no fundo -->
+      <video id="heroVideo" autoplay muted loop playsinline></video>
+      <img id="heroImg" src="" alt="Hero Background">
+    </div>
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <h1 class="hero-title" id="heroTitle">Carregando...</h1>
+      <p class="hero-desc" id="heroDesc">Por favor, aguarde enquanto carregamos o catálogo mais premium da internet.</p>
+      <div class="hero-buttons">
+        <button class="btn-play" id="heroPlayBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Assistir Agora
+        </button>
+        <button class="btn-info" id="heroInfoBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          Mais Informações
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Catálogo -->
+  <main class="catalog" id="catalogContainer">
+    <!-- Loading spinner -->
+    <div class="loader" id="mainLoader">
+      <div class="spinner"></div>
+    </div>
+    
+    <!-- Linhas de categorias serão injetadas aqui -->
+  </main>
+
+  <!-- Fullscreen Player Modal -->
+  <div class="player-modal" id="playerModal">
+    <button class="close-player-btn" onclick="closePlayer()">
+      <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="player-container">
+      <video id="mainPlayer" controls autoplay playsinline crossorigin="anonymous"></video>
+    </div>
+  </div>
+
+  <!-- Detalhes do Filme / Canal Modal -->
+  <div class="details-modal" id="detailsModal">
+    <div class="details-overlay" onclick="closeDetails()"></div>
+    <div class="details-content">
+      <button class="close-details-btn" onclick="closeDetails()">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="details-hero">
+        <img id="detailImg" src="" alt="Capa">
+        <div class="details-hero-vignette"></div>
+      </div>
+      <div class="details-info">
+        <h2 id="detailTitle">Título</h2>
+        <div class="details-meta">
+          <span id="detailYear" class="meta-item match">98% Relevante</span>
+          <span id="detailRating" class="meta-item rating">14</span>
+          <span id="detailDuration" class="meta-item">1h 45m</span>
+        </div>
+        <p id="detailDesc" class="details-desc">Descrição do filme ou do canal ao vivo.</p>
+        <button class="btn-play full-width" id="detailPlayBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Assistir Agora
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
