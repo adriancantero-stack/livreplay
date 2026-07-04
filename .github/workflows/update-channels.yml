@@ -1,0 +1,32 @@
+name: Atualizar Canais Pluto TV Diariamente
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # Executa todo dia às 3:00 da manhã (UTC)
+  workflow_dispatch: # Permite rodar o script manualmente clicando num botão no GitHub
+
+jobs:
+  update-channels:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Buscar Novos Canais
+        run: node cine/fetch.js
+
+      - name: Commitar e Fazer Push (Se houver mudanças)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add cine/channels.json
+          git commit -m "chore(cine): atualiza lista de canais da Pluto TV (Auto) [skip ci]" || echo "Nenhuma mudança nos canais hoje"
+          git push
