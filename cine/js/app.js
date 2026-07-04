@@ -29,7 +29,7 @@ async function initCine() {
       heroTitle.textContent = featured.name;
       heroDesc.textContent = featured.summary;
       
-      const poster = featured.featuredImage ? featured.featuredImage.path : (featured.tile ? featured.tile.path : '');
+      const poster = featured.poster;
       if (poster) {
         heroImg.src = poster.split('?')[0] + '?w=1200&q=75';
       }
@@ -60,7 +60,7 @@ async function initCine() {
         const item = document.createElement('div');
         item.className = 'item';
         
-        const posterUrl = ch.tile ? ch.tile.path : (ch.thumbnail ? ch.thumbnail.path : '');
+        const posterUrl = ch.poster;
         item.innerHTML = `
           <img loading="lazy" src="${posterUrl.split('?')[0] + '?w=400&q=75'}" alt="${ch.name}">
           <div class="item-badge">Ao Vivo</div>
@@ -83,7 +83,7 @@ async function initCine() {
 function openPlayer(channel) {
   closeDetails();
   playerModal.classList.add('active');
-  const streamUrl = channel.stitched.urls[0].url.replace('http://', 'https://');
+  const streamUrl = channel.url.replace('http://', 'https://');
   
   if (Hls.isSupported()) {
     if (hls) hls.destroy();
@@ -112,7 +112,7 @@ function closePlayer() {
 
 // Modal de Detalhes
 function openDetails(channel) {
-  const posterUrl = channel.featuredImage ? channel.featuredImage.path : (channel.tile ? channel.tile.path : '');
+  const posterUrl = channel.poster;
   document.getElementById('detailImg').src = posterUrl.split('?')[0] + '?w=800&q=75';
   document.getElementById('detailTitle').textContent = channel.name;
   document.getElementById('detailDesc').textContent = channel.summary;
