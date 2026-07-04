@@ -196,4 +196,48 @@ window.addEventListener('scroll', () => {
   else nav.classList.remove('scrolled');
 });
 
+// Sistema de Busca
+const searchBtn = document.getElementById('searchBtn');
+const searchModal = document.getElementById('searchModal');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchBtn.onclick = () => {
+  searchModal.style.display = 'block';
+  searchInput.focus();
+};
+
+searchInput.oninput = (e) => {
+  const query = e.target.value.toLowerCase();
+  searchResults.innerHTML = '';
+  if (!query) return;
+  
+  let found = [];
+  vodCategories.forEach(cat => {
+    cat.items.forEach(item => {
+      if (item.name.toLowerCase().includes(query) && !found.find(f => f._id === item._id)) {
+        found.push(item);
+      }
+    });
+  });
+  
+  found.forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'item poster';
+    const imgObj = item.covers && item.covers.find(c => c.aspectRatio === '2:3') || item.featuredImage || (item.covers && item.covers[0]);
+    if (imgObj && (imgObj.path || imgObj.url)) {
+      const url = imgObj.path || imgObj.url;
+      el.innerHTML = `<img src="${url.split('?')[0]}?w=300&q=75" loading="lazy">
+                      <div class="item-badge">${item.type === 'series' ? 'Série' : 'Filme'}</div>`;
+    } else {
+      el.innerHTML = `<div style="width:100%; height:100%; background:#222; display:flex; align-items:center; justify-content:center; text-align:center; padding:10px;">${item.name}</div>`;
+    }
+    el.onclick = () => {
+      searchModal.style.display = 'none';
+      openDetails(item);
+    };
+    searchResults.appendChild(el);
+  });
+};
+
 initCine();
