@@ -357,10 +357,24 @@ video#mainPlayer {
   border: 1px solid rgba(255,255,255,0.4);
   padding: 0 4px;
 }
+.meta-item.genre {
+  color: #a3a3a3;
+}
 .details-desc {
   line-height: 1.6;
   color: #fff;
   font-size: 1rem;
+  margin-bottom: 15px;
+}
+.details-cast, .details-director {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+.details-cast strong, .details-director strong {
+  color: #a3a3a3;
+}
+.details-cast {
   margin-bottom: 25px;
 }
 .full-width {
@@ -370,7 +384,7 @@ video#mainPlayer {
 @media (max-width: 768px) {
   .hero-title { font-size: 2rem; }
   .item { width: 160px; }
-  .item.poster { width: 110px; }
+  .item.poster { width: 120px; }
   .details-hero { height: 250px; }
   .details-info { padding: 0 20px 20px 20px; }
 }

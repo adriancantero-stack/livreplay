@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>LivrePlay Cine - O Melhor do Cinema e TV</title>
+  <title>LivrePlay Cine - O Melhor do Cinema</title>
   
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="../logo-cine.png?v=3" type="image/png">
   <link rel="apple-touch-icon" href="../logo-cine.png?v=3">
   
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=6">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
   
   <!-- HLS.js para tocar m3u8 -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.12"></script>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="nav-right">
-      <button class="nav-btn" onclick="toggleSearch()">
+      <button class="nav-btn" id="searchBtn" title="Buscar Filmes">
         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
       </button>
     </div>
@@ -38,20 +38,18 @@
   <!-- Hero Banner (Em Destaque) -->
   <header class="hero" id="heroBanner">
     <div class="hero-bg" id="heroBg">
-      <!-- Player de vídeo silencioso no fundo -->
-      <video id="heroVideo" autoplay muted loop playsinline></video>
       <img id="heroImg" src="" alt="Hero Background">
     </div>
     <div class="hero-vignette"></div>
     <div class="hero-content">
-      <h1 class="hero-title" id="heroTitle">Carregando...</h1>
-      <p class="hero-desc" id="heroDesc">Por favor, aguarde enquanto carregamos o catálogo mais premium da internet.</p>
+      <h1 class="hero-title" id="heroTitle">Carregando Acervo...</h1>
+      <p class="hero-desc" id="heroDesc">Por favor, aguarde enquanto conectamos aos melhores filmes e séries gratuitos.</p>
       <div class="hero-buttons">
-        <button class="btn-play" id="heroPlayBtn">
+        <button class="btn-play" id="heroPlayBtn" style="display: none;">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
-          Assistir Agora
+          Assistir
         </button>
-        <button class="btn-info" id="heroInfoBtn">
+        <button class="btn-info" id="heroInfoBtn" style="display: none;">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           Mais Informações
         </button>
@@ -59,7 +57,7 @@
     </div>
   </header>
 
-  <!-- Catálogo -->
+  <!-- Catálogo Netflix-style -->
   <main class="catalog" id="catalogContainer">
     <!-- Loading spinner -->
     <div class="loader" id="mainLoader">
@@ -75,11 +73,12 @@
       <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="player-container">
-      <video id="mainPlayer" controls autoplay playsinline crossorigin="anonymous"></video>
+      <!-- Usamos o elemento video nativo com HLS.js -->
+      <video id="mainPlayer" class="video-js" controls playsinline></video>
     </div>
   </div>
 
-  <!-- Detalhes do Filme / Canal Modal -->
+  <!-- Detalhes do Filme / Série Modal -->
   <div class="details-modal" id="detailsModal">
     <div class="details-overlay" onclick="closeDetails()"></div>
     <div class="details-content">
@@ -93,11 +92,16 @@
       <div class="details-info">
         <h2 id="detailTitle">Título</h2>
         <div class="details-meta">
-          <span id="detailYear" class="meta-item match">98% Relevante</span>
+          <span id="detailYear" class="meta-item match">2023</span>
           <span id="detailRating" class="meta-item rating">14</span>
           <span id="detailDuration" class="meta-item">1h 45m</span>
+          <span id="detailGenre" class="meta-item genre">Ação</span>
         </div>
-        <p id="detailDesc" class="details-desc">Descrição do filme ou do canal ao vivo.</p>
+        <p id="detailDesc" class="details-desc">Descrição do filme ou da série.</p>
+        
+        <p id="detailCast" class="details-cast" style="display: none;"></p>
+        <p id="detailDirector" class="details-director" style="display: none;"></p>
+
         <button class="btn-play full-width" id="detailPlayBtn">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
           Assistir Agora
@@ -106,6 +110,6 @@
     </div>
   </div>
 
-  <script src="js/app.js?v=5"></script>
+  <script src="js/app.js?v=6"></script>
 </body>
 </html>
