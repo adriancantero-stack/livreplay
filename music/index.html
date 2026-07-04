@@ -1568,10 +1568,51 @@
             return merged.filter(item => item.type === 'video');
           }
         } catch (e) {
-          console.warn(`Falha na busca em ${instance}:`, e);
+          console.warn(`Falha na busca Invidious em ${instance}:`, e);
         }
       }
-      throw new Error('Todas as instâncias de busca de música falharam.');
+      
+      console.warn('Busca via Invidious falhou. Tentando via Piped API...');
+      for (const instance of PIPED_API_INSTANCES) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 10000);
+          
+          // Busca apenas a primeira página para Piped
+          let searchUrl = `${instance}/search?q=${encodeURIComponent(optimizedQuery)}&filter=music_songs`;
+          
+          const res = await fetch(searchUrl, { signal: controller.signal });
+          clearTimeout(timeoutId);
+          
+          if (res.ok) {
+            const result = await res.json();
+            if (result && result.items && result.items.length > 0) {
+              console.log(`Busca bem-sucedida usando a instância Piped: ${instance}`);
+              
+              const data = result.items
+                .filter(i => i.type === 'stream' || i.type === 'video')
+                .map(v => ({
+                  type: 'video',
+                  videoId: v.url.replace('/watch?v=', '').split('&')[0],
+                  title: v.title,
+                  author: v.uploaderName,
+                  lengthSeconds: v.duration,
+                  videoThumbnails: [{ quality: 'medium', url: v.thumbnail }],
+                  viewCountText: (v.views || 0) + ' visualizações',
+                  publishedText: v.uploadedDate || ''
+                }));
+                
+              if (data.length > 0) {
+                return data;
+              }
+            }
+          }
+        } catch (e) {
+          console.warn(`Instância Piped falhou (${instance}):`, e);
+        }
+      }
+
+      throw new Error('Todas as instâncias de busca de música (Invidious e Piped) falharam.');
     }
 
     // Executar busca do usuário
