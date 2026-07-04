@@ -91,7 +91,7 @@ async function initCine() {
   } catch (error) {
     console.error('Erro ao carregar PlutoTV VOD:', error);
     heroTitle.textContent = 'Erro de Conexão';
-    heroDesc.textContent = 'Não foi possível se conectar ao catálogo. Verifique sua internet e tente novamente.';
+    heroDesc.textContent = 'Detalhe: ' + error.message;
     mainLoader.style.display = 'none';
   }
 }
