@@ -197,17 +197,21 @@ window.addEventListener('scroll', () => {
 });
 
 // Sistema de Busca
-const searchBtn = document.getElementById('searchBtn');
 const searchModal = document.getElementById('searchModal');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 
-searchBtn.onclick = () => {
-  searchModal.style.display = 'block';
-  searchInput.focus();
+window.openSearch = function() {
+  if(searchModal) searchModal.style.display = 'block';
+  if(searchInput) {
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+    searchInput.focus();
+  }
 };
 
-searchInput.oninput = (e) => {
+if(searchInput) {
+  searchInput.oninput = (e) => {
   const query = e.target.value.toLowerCase();
   searchResults.innerHTML = '';
   if (!query) return;
@@ -239,5 +243,6 @@ searchInput.oninput = (e) => {
     searchResults.appendChild(el);
   });
 };
+}
 
 initCine();
