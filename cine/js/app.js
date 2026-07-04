@@ -18,7 +18,7 @@ let heroChannel = null;
 
 async function initCine() {
   try {
-    const res = await fetch('https://api.pluto.tv/v2/channels');
+    const res = await fetch('channels.json');
     const channels = await res.json();
     currentChannels = channels.filter(c => c.stitched && c.stitched.urls && c.stitched.urls.length > 0);
     
