@@ -1175,16 +1175,11 @@
     ];
 
     const PIPED_API_INSTANCES = [
-      'https://pipedapi.lunar.icu',
-      'https://pipedapi.adminforge.de',
-      'https://pipedapi.astxt.xyz',
-      'https://pipedapi.ox2.fr',
-      'https://pipedapi.synxt.ru',
-      'https://api.piped.privacydev.net',
+      'https://api.piped.private.coffee',
       'https://api.piped.yt',
       'https://pipedapi.kavin.rocks',
-      'https://piped-api.garudalinux.org',
-      'https://pipedapi.smaragd.re'
+      'https://piped-api.lunar.icu',
+      'https://pipedapi.tokhmi.xyz'
     ];
 
     let currentSearchResults = [];
@@ -1364,13 +1359,29 @@
       return list;
     }
 
-    // Testa uma instância usando fetch no-cors no latest_version
-    // Resolve se a rede conectar, evitando bloqueios de CORS e bloqueios de Audio do Safari
     function tryInstanceUrl(instance, videoId) {
       return new Promise((resolve, reject) => {
         const url = `${instance}/latest_version?id=${videoId}&itag=140`;
         fetch(url, { mode: 'no-cors', signal: AbortSignal.timeout(2500) })
           .then(() => resolve({ url, instance }))
+          .catch(() => reject(new Error('fail')));
+      });
+    }
+
+    // Testa uma instância Piped para obter a URL da stream de áudio
+    function tryPipedUrl(instance, videoId) {
+      return new Promise((resolve, reject) => {
+        const url = `${instance}/streams/${videoId}`;
+        fetch(url, { signal: AbortSignal.timeout(2500) })
+          .then(r => r.ok ? r.json() : Promise.reject())
+          .then(data => {
+            if (data && data.audioStreams && data.audioStreams.length > 0) {
+              const stream = data.audioStreams.find(s => s.itag === 140) || data.audioStreams[0];
+              resolve({ url: stream.url, instance: instance });
+            } else {
+              reject(new Error('fail'));
+            }
+          })
           .catch(() => reject(new Error('fail')));
       });
     }
@@ -1385,10 +1396,12 @@
       }
 
       const instances = getAllInstances();
-      console.log(`🏎️ Corrida paralela com ${instances.length} instâncias para ${videoId}`);
+      console.log(`🏎️ Corrida paralela com ${instances.length + PIPED_API_INSTANCES.length} instâncias para ${videoId}`);
 
-      // Dispara todas as corridas em paralelo
-      const races = instances.map(inst => tryInstanceUrl(inst, videoId));
+      // Dispara todas as corridas em paralelo (Invidious + Piped)
+      const invidiousRaces = instances.map(inst => tryInstanceUrl(inst, videoId));
+      const pipedRaces = PIPED_API_INSTANCES.map(inst => tryPipedUrl(inst, videoId));
+      const races = [...invidiousRaces, ...pipedRaces];
 
       // Pega o primeiro que resolver (Promise.any — ignora os que rejeitarem)
       try {
