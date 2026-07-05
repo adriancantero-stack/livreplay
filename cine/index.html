@@ -112,18 +112,36 @@
       <div id="iframeContainer" style="width: 100%; height: 100%;"></div>
       
       <!-- LivrePlay Ad Overlay -->
-      <div class="lp-ad-overlay" id="lpAdOverlay">
+      <div class="lp-ad-overlay" id="lpAdOverlay" style="display: none;">
         <div class="lp-ad-content">
-          <img src="../logo.png" alt="LivrePlay" class="lp-ad-main-logo" style="max-width: 250px; margin-bottom: 20px;">
-          <h2>O seu ecossistema completo de entretenimento</h2>
-          <div class="lp-ad-logos">
-            <img src="../logo-video.png" alt="LivrePlay Video" style="height: 40px; object-fit: contain;">
-            <img src="../logo-cine.png" alt="LivrePlay Cine" style="height: 40px; object-fit: contain;">
-            <img src="../logo-flow.png" alt="LivrePlay Flow" style="height: 40px; object-fit: contain;">
-            <img src="../logo-music.png" alt="LivrePlay Music" style="height: 40px; object-fit: contain;">
-            <img src="../logo-vibe.png" alt="LivrePlay Vibe" style="height: 40px; object-fit: contain;">
+          <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
+            <img src="../logo.png" alt="LivrePlay" class="lp-ad-main-logo" style="max-width: 180px; margin-bottom: 10px;">
+            <span style="font-size: 1.4rem; font-weight: 800; color: #fff; letter-spacing: 1px;">LivrePlay</span>
           </div>
-          <p class="lp-ad-loading">Conectando...</p>
+          <h2>O seu ecossistema completo de entretenimento</h2>
+          <div class="lp-ad-logos" style="display: flex; gap: 35px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <img src="../logo-video.png" alt="LivrePlay Video" style="height: 45px; object-fit: contain;">
+              <span style="font-size: 0.9rem; color: #ccc; font-weight: 600;">Video</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <img src="../logo-cine.png" alt="LivrePlay Cine" style="height: 45px; object-fit: contain;">
+              <span style="font-size: 0.9rem; color: #ccc; font-weight: 600;">Cine</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <img src="../logo-flow.png" alt="LivrePlay Flow" style="height: 45px; object-fit: contain;">
+              <span style="font-size: 0.9rem; color: #ccc; font-weight: 600;">Flow</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <img src="../logo-music.png" alt="LivrePlay Music" style="height: 45px; object-fit: contain;">
+              <span style="font-size: 0.9rem; color: #ccc; font-weight: 600;">Music</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <img src="../logo-vibe.png" alt="LivrePlay Vibe" style="height: 45px; object-fit: contain;">
+              <span style="font-size: 0.9rem; color: #ccc; font-weight: 600;">Vibe</span>
+            </div>
+          </div>
+          <p class="lp-ad-loading" style="font-size: 1.1rem; color: #aaa;">Conectando...</p>
         </div>
       </div>
     </div>
