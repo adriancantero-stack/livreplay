@@ -103,6 +103,73 @@ async function initCine() {
   }
 }
 
+function setupHeroSlider() {
+  if (heroItems.length === 0) return;
+  
+  heroIndicators.innerHTML = '';
+  heroItems.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.className = `hero-dot ${index === 0 ? 'active' : ''}`;
+    dot.onclick = () => changeHero(index);
+    heroIndicators.appendChild(dot);
+  });
+  
+  updateHero(0);
+  
+  if (heroItems.length > 1) {
+    startHeroInterval();
+  }
+}
+
+function startHeroInterval() {
+  if (heroInterval) clearInterval(heroInterval);
+  heroInterval = setInterval(() => {
+    let next = (currentHeroIndex + 1) % heroItems.length;
+    changeHero(next);
+  }, 8000);
+}
+
+function changeHero(index) {
+  if (index === currentHeroIndex) return;
+  currentHeroIndex = index;
+  
+  Array.from(heroIndicators.children).forEach((dot, i) => {
+    dot.className = `hero-dot ${i === index ? 'active' : ''}`;
+  });
+  
+  heroTitle.classList.add('hero-fade');
+  heroDesc.classList.add('hero-fade');
+  heroImg.classList.add('hero-fade');
+  heroPlayBtn.classList.add('hero-fade');
+  
+  setTimeout(() => {
+    updateHero(index);
+    
+    heroTitle.classList.remove('hero-fade');
+    heroDesc.classList.remove('hero-fade');
+    heroImg.classList.remove('hero-fade');
+    heroPlayBtn.classList.remove('hero-fade');
+  }, 300);
+  
+  startHeroInterval();
+}
+
+function updateHero(index) {
+  heroItem = heroItems[index];
+  
+  heroTitle.textContent = heroItem.name;
+  heroDesc.textContent = heroItem.summary || heroItem.description;
+  
+  const heroImageObj = heroItem.featuredImage || heroItem.poster16_9 || (heroItem.covers && heroItem.covers.find(c => c.aspectRatio === '16:9'));
+  if (heroImageObj && (heroImageObj.path || heroImageObj.url)) {
+    let imgUrl = heroImageObj.path || heroImageObj.url;
+    heroImg.src = imgUrl.split('?')[0] + '?w=1200&q=75';
+  }
+  
+  heroPlayBtn.style.display = 'flex';
+  heroPlayBtn.onclick = () => openPlayer(heroItem);
+}
+
 // Player em Tela Cheia Nativo via HLS.js
 function openPlayer(item) {
   // Salvar no histórico
