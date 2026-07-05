@@ -48,10 +48,24 @@ async function initCine() {
         const history = JSON.parse(historyData);
         if (history && history.length > 0) {
           vodCategories.splice(2, 0, { name: 'Continuar Assistindo', items: history });
-          vodCategories.splice(2, 0, { name: 'Assistidos Recentemente', items: history });
         }
       }
     } catch (e) {}
+
+    // Cria 'Top Séries'
+    const topSeriesItems = [];
+    for (const cat of vodCategories) {
+      if (cat.items) {
+        for (const item of cat.items) {
+          if (item.type === 'series' && !topSeriesItems.some(i => i._id === item._id)) {
+            topSeriesItems.push(item);
+          }
+        }
+      }
+    }
+    if (topSeriesItems.length > 0) {
+      vodCategories.splice(3, 0, { name: 'Top Séries', items: topSeriesItems.slice(0, 20) });
+    }
 
     // Renderiza as fileiras (rows)
     for (const cat of vodCategories) {
