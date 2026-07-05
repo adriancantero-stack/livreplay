@@ -48,7 +48,6 @@ async function initCine() {
         const history = JSON.parse(historyData);
         if (history && history.length > 0) {
           vodCategories.splice(1, 0, { name: 'Assistidos Recentemente', items: history });
-          vodCategories.splice(2, 0, { name: 'Continuar Assistindo', items: history });
         }
       }
     } catch (e) {}
