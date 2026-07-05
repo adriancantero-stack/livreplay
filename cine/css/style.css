@@ -420,6 +420,63 @@ video#mainPlayer {
   width: 100%;
 }
 
+/* LivrePlay Ad Overlay */
+.lp-ad-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000; /* Preto sólido para cobrir tudo */
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  transition: opacity 0.5s ease-out;
+  text-align: center;
+}
+.lp-ad-content {
+  animation: fadeIn 1s ease-out;
+}
+.lp-ad-main-logo {
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+.lp-ad-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #ccc;
+  font-weight: 400;
+}
+.lp-ad-logos {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.lp-ad-logos img {
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+.lp-ad-loading {
+  font-size: 1.2rem;
+  color: #fff;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 768px) {
   .hero-title { font-size: 2rem; }
   .item { width: 160px; }

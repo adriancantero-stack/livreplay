@@ -195,12 +195,28 @@ function openPlayer(item) {
   
   const container = document.getElementById('iframeContainer');
   container.innerHTML = `<iframe src="${iframeUrl}" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+
+  const adOverlay = document.getElementById('lpAdOverlay');
+  if (adOverlay) {
+    adOverlay.style.display = 'flex';
+    adOverlay.style.opacity = '1';
+    // Oculta após 6.5 segundos (tempo médio da animação da Pluto TV)
+    setTimeout(() => {
+      adOverlay.style.opacity = '0';
+      setTimeout(() => { adOverlay.style.display = 'none'; }, 500);
+    }, 6500);
+  }
 }
 
 function closePlayer() {
   playerModal.classList.remove('active');
   const container = document.getElementById('iframeContainer');
   container.innerHTML = '';
+  
+  const adOverlay = document.getElementById('lpAdOverlay');
+  if (adOverlay) {
+    adOverlay.style.display = 'none';
+  }
 }
 
 // Modal de Detalhes

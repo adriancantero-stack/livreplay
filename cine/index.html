@@ -105,11 +105,27 @@
 
   <!-- Fullscreen Player Modal -->
   <div class="player-modal" id="playerModal">
-    <button class="close-player-btn" onclick="closePlayer()">
+    <button class="close-player-btn" onclick="closePlayer()" style="z-index: 10001;">
       <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <div class="player-container">
+    <div class="player-container" style="position: relative;">
       <div id="iframeContainer" style="width: 100%; height: 100%;"></div>
+      
+      <!-- LivrePlay Ad Overlay -->
+      <div class="lp-ad-overlay" id="lpAdOverlay">
+        <div class="lp-ad-content">
+          <img src="../logo.png" alt="LivrePlay" class="lp-ad-main-logo">
+          <h2>O seu ecossistema completo de entretenimento</h2>
+          <div class="lp-ad-logos">
+            <img src="../logo-video.png" alt="LivrePlay Video">
+            <img src="../logo-cine.png" alt="LivrePlay Cine">
+            <img src="../logo-flow.png" alt="LivrePlay Flow">
+            <img src="../logo-music.png" alt="LivrePlay Music">
+            <img src="../logo-vibe.png" alt="LivrePlay Vibe">
+          </div>
+          <p class="lp-ad-loading">Conectando...</p>
+        </div>
+      </div>
     </div>
   </div>
 
