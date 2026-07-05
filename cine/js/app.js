@@ -6,7 +6,7 @@ const heroImg = document.getElementById('heroImg');
 const heroTitle = document.getElementById('heroTitle');
 const heroDesc = document.getElementById('heroDesc');
 const heroPlayBtn = document.getElementById('heroPlayBtn');
-const heroInfoBtn = document.getElementById('heroInfoBtn');
+const heroPlayBtn = document.getElementById('heroPlayBtn');
 
 const playerModal = document.getElementById('playerModal');
 const mainPlayer = document.getElementById('mainPlayer');
@@ -44,9 +44,7 @@ async function initCine() {
       }
       
       heroPlayBtn.style.display = 'flex';
-      heroInfoBtn.style.display = 'flex';
       heroPlayBtn.onclick = () => openPlayer(heroItem);
-      heroInfoBtn.onclick = () => openDetails(heroItem);
     }
     
     mainLoader.style.display = 'none';
