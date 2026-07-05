@@ -6,7 +6,6 @@ const heroImg = document.getElementById('heroImg');
 const heroTitle = document.getElementById('heroTitle');
 const heroDesc = document.getElementById('heroDesc');
 const heroPlayBtn = document.getElementById('heroPlayBtn');
-const heroPlayBtn = document.getElementById('heroPlayBtn');
 
 const playerModal = document.getElementById('playerModal');
 const mainPlayer = document.getElementById('mainPlayer');
