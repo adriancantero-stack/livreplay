@@ -47,24 +47,22 @@ async function initCine() {
       if (historyData) {
         const history = JSON.parse(historyData);
         if (history && history.length > 0) {
+          vodCategories.splice(1, 0, { name: 'Assistidos Recentemente', items: history });
           vodCategories.splice(2, 0, { name: 'Continuar Assistindo', items: history });
         }
       }
     } catch (e) {}
 
-    // Cria 'Top Séries'
-    const topSeriesItems = [];
-    for (const cat of vodCategories) {
-      if (cat.items) {
-        for (const item of cat.items) {
-          if (item.type === 'series' && !topSeriesItems.some(i => i._id === item._id)) {
-            topSeriesItems.push(item);
-          }
-        }
+    // Move a categoria "Top 10 Séries" (já existente) para entre Assistidos e Continuar
+    const topSeriesIndex = vodCategories.findIndex(c => c.name.toLowerCase().includes('top 10 séries') || c.name.toLowerCase() === 'top séries');
+    if (topSeriesIndex > -1) {
+      const topSeriesCat = vodCategories.splice(topSeriesIndex, 1)[0];
+      const assistidosIndex = vodCategories.findIndex(c => c.name === 'Assistidos Recentemente');
+      if (assistidosIndex > -1) {
+        vodCategories.splice(assistidosIndex + 1, 0, topSeriesCat);
+      } else {
+        vodCategories.splice(1, 0, topSeriesCat);
       }
-    }
-    if (topSeriesItems.length > 0) {
-      vodCategories.splice(3, 0, { name: 'Top Séries', items: topSeriesItems.slice(0, 20) });
     }
 
     // Renderiza as fileiras (rows)
