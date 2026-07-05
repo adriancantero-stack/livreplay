@@ -51,8 +51,24 @@ async function initCine() {
     
     mainLoader.style.display = 'none';
     
+    // Adiciona categorias de histórico
+    try {
+      const historyData = localStorage.getItem('livreplay_cine_history');
+      if (historyData) {
+        const history = JSON.parse(historyData);
+        if (history && history.length > 0) {
+          vodCategories.splice(2, 0, { name: 'Continuar Assistindo', items: history });
+          vodCategories.splice(2, 0, { name: 'Assistidos Recentemente', items: history });
+        }
+      }
+    } catch (e) {}
+
     // Renderiza as fileiras (rows)
     for (const cat of vodCategories) {
+      if (cat.name.toLowerCase().includes('novidades na pluto')) {
+        cat.name = 'Novidades no LivrePlay Cine';
+      }
+      
       if (cat.items.length < 3) continue; // Ignora categorias muito pequenas
       
       const row = document.createElement('div');
@@ -99,6 +115,15 @@ async function initCine() {
 
 // Player em Tela Cheia Nativo via HLS.js
 function openPlayer(item) {
+  // Salvar no histórico
+  try {
+    let history = JSON.parse(localStorage.getItem('livreplay_cine_history')) || [];
+    history = history.filter(h => h._id !== item._id);
+    history.unshift(item);
+    if (history.length > 20) history.pop();
+    localStorage.setItem('livreplay_cine_history', JSON.stringify(history));
+  } catch (e) { console.error('Erro ao salvar histórico', e); }
+
   closeDetails();
   playerModal.classList.add('active');
   
