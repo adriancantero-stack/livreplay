@@ -6,6 +6,7 @@ const heroImg = document.getElementById('heroImg');
 const heroTitle = document.getElementById('heroTitle');
 const heroDesc = document.getElementById('heroDesc');
 const heroPlayBtn = document.getElementById('heroPlayBtn');
+const heroIndicators = document.getElementById('heroIndicators');
 
 const playerModal = document.getElementById('playerModal');
 const mainPlayer = document.getElementById('mainPlayer');
@@ -14,6 +15,9 @@ const detailsModal = document.getElementById('detailsModal');
 let hls = null;
 let vodCategories = [];
 let heroItem = null;
+let heroItems = [];
+let currentHeroIndex = 0;
+let heroInterval = null;
 
 const PLUTO_VOD_API = 'vod.json';
 
@@ -30,20 +34,9 @@ async function initCine() {
     // Pega a categoria "Em Destaque" (ou a primeira) para o Hero
     const featuredCat = data.categories.find(c => c.name === 'Em Destaque') || vodCategories[0];
     if (featuredCat && featuredCat.items && featuredCat.items.length > 0) {
-      // Pega um item (filme) para ser o destaque principal
-      heroItem = featuredCat.items.find(i => i.type === 'movie' || i.type === 'series') || featuredCat.items[0];
-      
-      heroTitle.textContent = heroItem.name;
-      heroDesc.textContent = heroItem.summary || heroItem.description;
-      
-      const heroImageObj = heroItem.featuredImage || heroItem.poster16_9 || (heroItem.covers && heroItem.covers.find(c => c.aspectRatio === '16:9'));
-      if (heroImageObj && (heroImageObj.path || heroImageObj.url)) {
-        let imgUrl = heroImageObj.path || heroImageObj.url;
-        heroImg.src = imgUrl.split('?')[0] + '?w=1200&q=75';
-      }
-      
-      heroPlayBtn.style.display = 'flex';
-      heroPlayBtn.onclick = () => openPlayer(heroItem);
+      heroItems = featuredCat.items.filter(i => i.type === 'movie' || i.type === 'series').slice(0, 5);
+      if (heroItems.length === 0) heroItems = featuredCat.items.slice(0, 5);
+      setupHeroSlider();
     }
     
     mainLoader.style.display = 'none';

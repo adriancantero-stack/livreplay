@@ -163,6 +163,28 @@ body {
 .btn-info:hover {
   background: rgba(109, 109, 110, 0.4);
 }
+.hero-indicators {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hero-dot.active {
+  background: rgba(255,255,255,1);
+}
+.hero-fade {
+  opacity: 0 !important;
+}
+.hero-bg img, .hero-title, .hero-desc, .hero-buttons {
+  transition: opacity 0.5s ease-in-out;
+}
 
 /* Catalog Rows */
 .catalog {
