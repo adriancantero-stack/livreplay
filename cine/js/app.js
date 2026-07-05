@@ -52,16 +52,29 @@ async function initCine() {
       }
     } catch (e) {}
 
-    // Move a categoria "Top 10 Séries" (já existente) para entre Assistidos e Continuar
+    // Move categorias "Top 10 Filmes" e "Top 10 Séries" para cima
     const topSeriesIndex = vodCategories.findIndex(c => c.name.toLowerCase().includes('top 10 séries') || c.name.toLowerCase() === 'top séries');
+    let topSeriesCat = null;
     if (topSeriesIndex > -1) {
-      const topSeriesCat = vodCategories.splice(topSeriesIndex, 1)[0];
-      const assistidosIndex = vodCategories.findIndex(c => c.name === 'Assistidos Recentemente');
-      if (assistidosIndex > -1) {
-        vodCategories.splice(assistidosIndex + 1, 0, topSeriesCat);
-      } else {
-        vodCategories.splice(1, 0, topSeriesCat);
-      }
+      topSeriesCat = vodCategories.splice(topSeriesIndex, 1)[0];
+    }
+
+    const topFilmesIndex = vodCategories.findIndex(c => c.name.toLowerCase().includes('top 10 filmes') || c.name.toLowerCase() === 'top filmes');
+    let topFilmesCat = null;
+    if (topFilmesIndex > -1) {
+      topFilmesCat = vodCategories.splice(topFilmesIndex, 1)[0];
+    }
+
+    const assistidosIndex = vodCategories.findIndex(c => c.name === 'Assistidos Recentemente');
+    let insertIndex = assistidosIndex > -1 ? assistidosIndex + 1 : 1;
+    
+    // Insere primeiro Filmes, depois Séries (para que Filmes fique em cima)
+    if (topFilmesCat) {
+      vodCategories.splice(insertIndex, 0, topFilmesCat);
+      insertIndex++;
+    }
+    if (topSeriesCat) {
+      vodCategories.splice(insertIndex, 0, topSeriesCat);
     }
 
     // Renderiza as fileiras (rows)
